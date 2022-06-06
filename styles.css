@@ -75,12 +75,26 @@ button {
 
 @media only screen and (min-device-width : 1024px) { 
 
+    
     .nav-container {
-        max-width: 50vw;
+        width: 100vw;
+        display:flex;
+        flex-direction: column;
     }
 
     .nav-element {
         max-width: 50vw;
+        align-self: center;
+        margin-bottom: 8em;
+    }
+
+    .info-page {
+        align-self: flex-start;
+    }
+
+    footer {
+        position:fixed;
+        bottom:0;
     }
 
 
