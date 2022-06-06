@@ -1,0 +1,87 @@
+@font-face {
+    font-family: "UnicaReg";
+    src: url("fonts/NeueHaasUnica-Regular.ttf");
+    font-weight:400;
+}
+
+@font-face {
+    font-family: "UnicaReg";
+    src: url("fonts/NeueHaasUnica-Medium.ttf");
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "UnicaReg";
+    src: url("fonts/NeueHaasUnica-Bold.ttf");
+    font-weight: 800;
+}
+
+body {
+    margin: 0 0 0 0;
+    padding: 0;
+    text-rendering: geometricPrecision;
+    font-family: UnicaReg;
+    font-size: 0.7em;
+}
+
+a {
+    text-decoration: none;
+    color:black;
+}
+
+header {
+    padding:10px;
+    position:fixed;
+}
+
+button {
+    background-color: black;
+    border: none;
+    border-radius: 2em;
+    color: rgb(255, 255, 255);
+    padding: 1.5em;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1em;
+    font-family: UnicaReg;
+    cursor:pointer;
+}
+
+.nav-container {
+    padding-top: 6em;
+}
+
+.nav-element {
+    width:100vw;
+    box-sizing: border-box;
+    padding:0.5em;
+    margin-bottom: 2em;
+}
+
+.nav-caption {
+    text-transform: uppercase;
+}
+
+.project-caption {
+    font-size: 1.2em;
+    margin-top: 1em;
+    margin-bottom: 2em;
+}
+
+.nav-element img {
+    max-width: 100%;
+}
+
+
+@media only screen and (min-device-width : 1024px) { 
+
+    .nav-container {
+        max-width: 50vw;
+    }
+
+    .nav-element {
+        max-width: 50vw;
+    }
+
+
+}
