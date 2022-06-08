@@ -88,10 +88,6 @@ button {
         margin-bottom: 8em;
     }
 
-    .info-page {
-        align-self: flex-start;
-    }
-
     footer {
         position:fixed;
         bottom:0;
