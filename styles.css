@@ -1,97 +1,88 @@
 @font-face {
-    font-family: "UnicaReg";
-    src: url("fonts/NeueHaasUnica-Regular.ttf");
-    font-weight:400;
+    font-family: 'Unica';
+    src: url("NeueHaasUnica-Regular.ttf");
 }
 
 @font-face {
-    font-family: "UnicaReg";
-    src: url("fonts/NeueHaasUnica-Medium.ttf");
-    font-weight: 700;
-}
-
-@font-face {
-    font-family: "UnicaReg";
-    src: url("fonts/NeueHaasUnica-Bold.ttf");
-    font-weight: 800;
+    font-family: 'Century';
+    src: url("Century-Schoolbook-Regular.ttf");
 }
 
 body {
     margin: 0 0 0 0;
+    height:100vh;
     padding: 0;
     text-rendering: geometricPrecision;
-    font-family: UnicaReg;
-    font-size: 0.7em;
-}
-
-a {
-    text-decoration: none;
-    color:black;
+    font-family: Unica, Helvetica;
+    font-size: 1em;
 }
 
 header {
-    padding:10px;
     position:fixed;
-}
-
-button {
-    background-color: black;
-    border: none;
-    border-radius: 2em;
-    color: rgb(255, 255, 255);
-    padding: 1.5em;
-    text-align: center;
-    text-decoration: none;
-    font-size: 1em;
-    font-family: UnicaReg;
-    cursor:pointer;
-}
-
-.nav-container {
-    padding-top: 6em;
-}
-
-.nav-element {
-    width:100vw;
     box-sizing: border-box;
-    padding:0.5em;
-    margin-bottom: 2em;
+    padding:10px;
+    z-index:2;
 }
 
-.nav-caption {
-    text-transform: uppercase;
+footer {
+    position:fixed;
+    box-sizing: border-box;
+    padding:10px;
+    z-index: 2;
+    right:0;
+    text-align: right;
 }
 
-.project-caption {
-    font-size: 1.2em;
-    margin-top: 1em;
-    margin-bottom: 2em;
+.times {
+    font-family: Century;
+    font-size: 0.7em;
 }
 
-.nav-element img {
-    max-width: 100%;
+.helvetica {
+    font-family: Helvetica;
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.index-main {
+    position:absolute;
+    box-sizing: border-box;
+    padding:20px;
+    width:100vw;
+    height:100%;
+    overflow: scroll;
+}
+
+.index-content {
+    position:absolute;
+    top:10vh;
+    line-height: 1.4em;
+    font-family: Century;
+}
+
+.index-img img {
+    width: 30vw;
+    max-height:auto;
+}
+
+.index-line {
+    margin-bottom: 5em;
+}
+
+.index-right {
+    position:absolute;
+    height:100%;
+    font-family: Century;
+    padding:20px;
+    right:0;
+    overflow: scroll;
 }
 
 
-@media only screen and (min-device-width : 1024px) { 
 
+
+
+@media only screen and (max-device-width : 1024px) { 
     
-    .nav-container {
-        width: 100vw;
-        display:flex;
-        flex-direction: column;
-    }
-
-    .nav-element {
-        max-width: 50vw;
-        align-self: center;
-        margin-bottom: 8em;
-    }
-
-    footer {
-        position:fixed;
-        bottom:0;
-    }
-
 
 }
