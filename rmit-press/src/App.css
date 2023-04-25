@@ -14,7 +14,7 @@ body {
   padding: 0;
   text-rendering: geometricPrecision;
   font-family: Unica, Helvetica;
-  font-size: 1em;
+  font-size: 1em;  
 }
 
 header {
@@ -46,11 +46,16 @@ footer {
 
 .index-main {
   position:absolute;
-  box-sizing: border-box;
+  /*box-sizing: border-box;*/
   padding:20px;
   width:100vw;
   height:100%;
   overflow: scroll;
+
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: 33%;
 }
 
 .index-content {
