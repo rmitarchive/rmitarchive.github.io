@@ -2,6 +2,10 @@ import logo from './logo.svg';
 import './App.css';
 import imgOne from "./Img/Screenshot 2023-04-25 at 2.18.46 pm.png";
 import imgTwo from "./Img/icarus1.jpg";
+import ArtPiece from "./ArtPiece";
+
+//<div className="index-img"><img src={imgTwo} /></div>
+//<div className="index-line"><span className="times">001 - </span><span className="helvetica">Zach Micallef, Icarus, 2023.</span></div>
 
 function App() {
   return (
@@ -24,11 +28,9 @@ function App() {
       </footer>  
       <div className="index-main">
         <div className="index-content"> 
-          <div className="index-img"><img src={imgOne}/></div>
-          <div className="index-line"><span className="times">001 - </span><span className="helvetica">Nicholas Gleeson, Arpeggiated Visualiser, 2023.</span></div>
+          <ArtPiece id="001" img={imgOne} title="Nicholas Gleeson, Arpeggiated Visualiser, 2023."/>
+          <ArtPiece id="002" img={imgTwo} title="Zach Micallef, Icarus, 2023."/>
           
-          <div className="index-img"><img src={imgTwo} /></div>
-          <div className="index-line"><span className="times">001 - </span><span className="helvetica">Zach Micallef, Icarus, 2023.</span></div>
         </div>
       </div>
       <div className="index-right">
