@@ -42,6 +42,8 @@ footer {
   font-family: Helvetica;
   font-size: 1.5em;
   font-weight: 600;
+  padding: 7.5px;
+  cursor: url(Img/SquareCursor.svg) 15 15, auto;
 }
 
 .index-main-BG {

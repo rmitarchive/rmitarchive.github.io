@@ -3,23 +3,9 @@ import './App.css';
 import baseHoverImg from "./Img/icon.png";
 import imgOne from "./Img/Screenshot_1.png";
 import imgTwo from "./Img/icarus1.jpg";
-import mask from "./Img/StarMask.png";
+import mask from "./Img/SquareMask.png";
 import ArtPiece from "./ArtPiece";
 import React from 'react';
-
-//<div className="index-img"><img src={imgTwo} /></div>
-//<div className="index-line"><span className="times">001 - </span><span className="helvetica">Zach Micallef, Icarus, 2023.</span></div>
-
-/*<div className="index-main-BG" style={{
-          backgroundImage: `url(${(this.state.currHoverImg == null ? this.state.baseHoverImg : this.state.currHoverImg)})`,
-          maskImage: `url(${mask})`,
-          maskSize: "contain",
-          maskPosition: `center`
-          }}></div>*/
-
-const divStyle = {
-  color: 'blue',
-};
 
 class App extends React.Component {
   constructor(props){
@@ -63,25 +49,32 @@ class App extends React.Component {
     this.setState({currHoverImg: null});
   }
   
-  //maskPosition: `${this.state.mouseRelativeXPercent}% ${this.state.mouseRelativeYPercent}%`
   render() {
     var maskPosition = `center`
-    if(this.state.mouseRelativeXPercent != null && this.state.mouseRelativeYPercent != null){
+    
+    //Whatever is shown when no image is being hovered
+    var backgroundStyle = {
+      
+
+      }
+
+    if(this.state.currHoverImg != null){
+    //if(this.state.mouseRelativeXPercent != null && this.state.mouseRelativeYPercent != null){
       maskPosition = `${this.state.mouseRelativeXPercent}% ${this.state.mouseRelativeYPercent}%`;
+
+      backgroundStyle = {
+        backgroundImage: `url(${this.state.currHoverImg})`,
+        "WebkitMaskImage": `url(${mask})`,
+        maskImage: `url(${mask})`,
+
+        "WebkitMaskSize": "33%",
+        maskSize: "33%",
+
+        "WebkitMaskPosition": `${maskPosition}`,
+        maskPosition: `${maskPosition}`
+      }
     }
 
-    var backgroundStyle = {
-      backgroundImage: `url(${(this.state.currHoverImg == null ? this.state.baseHoverImg : this.state.currHoverImg)})`,
-      
-      "WebkitMaskImage": `url(${mask})`,
-      maskImage: `url(${mask})`,
-
-      "WebkitMaskSize": "33%",
-      maskSize: "33%",
-
-      "WebkitMaskPosition": `${maskPosition}`,
-      maskPosition: `${maskPosition}`
-      }
 
 
     return (
