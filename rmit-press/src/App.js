@@ -7,16 +7,35 @@ import mask from "./Img/SquareMask.png";
 import ArtPiece from "./ArtPiece";
 import React from 'react';
 
+import paperText1 from "./Img/test-paper-texture.png";
+import paperText2 from "./Img/test-paper-texture-2.png";
+import paperText3 from "./Img/test-paper-texture-3.png";
+import paperText4 from "./Img/test-paper-texture-4.png";
+import paperText5 from "./Img/test-paper-texture-5.png";
+
 class App extends React.Component {
   constructor(props){
     super(props);
-    //does whatever stuff        
+
+    this.paperTextures = [paperText1, paperText2, paperText3, paperText4, paperText5];
+    //this.currPaperTexture = 0;
     this.testHover = this.testHover.bind(this);
     this.clearHover = this.clearHover.bind(this);
+
     this.state={
       baseHoverImg: baseHoverImg,
-      currHoverImg: null
+      currHoverImg: null,
+      currPaperTexture: 0
     }
+    
+    setInterval(() => {
+      console.log("hello world : " + this.currPaperTexture);
+      this.setState((prevState) => {
+        return{
+          currPaperTexture: (this.state.currPaperTexture + 1) % this.paperTextures.length
+        };
+      });
+    }, 100);   
   }
 
   testHover(props){
@@ -47,6 +66,22 @@ class App extends React.Component {
   clearHover(props){
     console.log("inner APP hover works: " + JSON.stringify(props));
     this.setState({currHoverImg: null});
+  }
+
+  getFullIndex(props){
+    let list = []
+    for(var i = 0; i< 50; i++){
+      let img = i % 2 == 0 ? imgOne : imgTwo;
+      list.push(<dt className="index-dt"><img src={img} className="index-tiny-img"/><p className="index-times">{i.toString().padStart(3, '0')}</p></dt>);
+    }
+
+    return(
+        <div className="index-right">
+          <dl>
+            {list}
+          </dl>
+        </div>
+    );
   }
   
   render() {
@@ -96,66 +131,14 @@ class App extends React.Component {
           <span className="helvetica">www.instagram.com/designrmit</span>
         </footer>  
         <div className="index-main-BG" style={backgroundStyle}></div>
+        <div className="index-main-paper" style={{backgroundImage: `url(${this.paperTextures[this.state.currPaperTexture]})`}}></div>
         <div className="index-main" >
           <div className="index-content"> 
             <ArtPiece hoverOverTextFunc={this.testHover} hoverExitTextFunc={this.clearHover} id="001" img={imgOne} title="Nicholas Gleeson, Arpeggiated Visualiser, 2023."/>
             <ArtPiece hoverOverTextFunc={this.testHover} hoverExitTextFunc={this.clearHover} id="002" img={imgTwo} title="Zach Micallef, Icarus, 2023."/>            
           </div>
         </div>
-        <div className="index-right">
-          <dl>
-            <dt>001</dt>
-            <dt>002</dt>
-            <dt>003</dt>
-            <dt>004</dt>
-            <dt>005</dt>
-            <dt>006</dt>
-            <dt>007</dt>
-            <dt>008</dt>
-            <dt>009</dt>
-            <dt>010</dt>
-            <dt>011</dt>
-            <dt>012</dt>
-            <dt>013</dt>
-            <dt>014</dt>
-            <dt>015</dt>
-            <dt>016</dt>
-            <dt>017</dt>
-            <dt>018</dt>
-            <dt>019</dt>
-            <dt>020</dt>
-            <dt>021</dt>
-            <dt>022</dt>
-            <dt>023</dt>
-            <dt>024</dt>
-            <dt>025</dt>
-            <dt>026</dt>
-            <dt>027</dt>
-            <dt>028</dt>
-            <dt>029</dt>
-            <dt>030</dt>
-            <dt>031</dt>
-            <dt>032</dt>
-            <dt>033</dt>
-            <dt>034</dt>
-            <dt>035</dt>
-            <dt>036</dt>
-            <dt>037</dt>
-            <dt>038</dt>
-            <dt>039</dt>
-            <dt>040</dt>
-            <dt>041</dt>
-            <dt>042</dt>
-            <dt>043</dt>
-            <dt>044</dt>
-            <dt>045</dt>
-            <dt>046</dt>
-            <dt>047</dt>
-            <dt>048</dt>
-            <dt>049</dt>
-            <dt>050</dt>
-          </dl>
-        </div>
+        <this.getFullIndex/>
       </div>
     );
   }

@@ -33,6 +33,24 @@ footer {
   text-align: right;
 }
 
+.index-dt{
+  padding-bottom: 5px;
+}
+
+.index-tiny-img {
+  height:20px;
+  width:20px;
+  display: inline;
+}
+
+.index-times {
+  font-family: Century;
+  font-size: 0.7em;
+  display: inline;
+  padding-left: 5px;
+  vertical-align:text-top;
+}
+
 .times {
   font-family: Century;
   font-size: 0.7em;
@@ -44,6 +62,17 @@ footer {
   font-weight: 600;
   padding: 7.5px;
   cursor: url(Img/SquareCursor.svg) 15 15, auto;
+}
+
+.index-main-paper {
+  position:absolute;
+
+  padding:20px;
+  width:100vw;
+  height:100%;
+  overflow: scroll;
+  mix-blend-mode: darken;
+  background-size: 33%;
 }
 
 .index-main-BG {
