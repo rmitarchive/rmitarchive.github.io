@@ -2,13 +2,24 @@ import logo from './logo.svg';
 import './App.css';
 import baseHoverImg from "./Img/icon.png";
 import imgOne from "./Img/Screenshot_1.png";
-//import imgOne from "./Img/Screenshot 2023-04-25 at 2.18.46 pm.png";
 import imgTwo from "./Img/icarus1.jpg";
+import mask from "./Img/StarMask.png";
 import ArtPiece from "./ArtPiece";
 import React from 'react';
 
 //<div className="index-img"><img src={imgTwo} /></div>
 //<div className="index-line"><span className="times">001 - </span><span className="helvetica">Zach Micallef, Icarus, 2023.</span></div>
+
+/*<div className="index-main-BG" style={{
+          backgroundImage: `url(${(this.state.currHoverImg == null ? this.state.baseHoverImg : this.state.currHoverImg)})`,
+          maskImage: `url(${mask})`,
+          maskSize: "contain",
+          maskPosition: `center`
+          }}></div>*/
+
+const divStyle = {
+  color: 'blue',
+};
 
 class App extends React.Component {
   constructor(props){
@@ -23,8 +34,28 @@ class App extends React.Component {
   }
 
   testHover(props){
+    var e = window.event;
+
+    var posX = e.clientX;
+    var posY = e.clientY;
+
+    const textElement = document.getElementById(props.id);
+    var textRect = textElement.getBoundingClientRect();
+    //console.log(textRect.top, textRect.right, textRect.bottom, textRect.left); //mostly interested in top/left
+
+    var minNormX = textRect.right - textRect.left;
+    var cursorNormX = posX - textRect.left;
+
+    var minNormY = textRect.bottom - textRect.top;
+    var cursorNormY = posY - textRect.top;
+
+    console.log(`mouse pos: ${posX} - ${posY}, that means width=${(cursorNormX / minNormX) * 100}%, height=${(cursorNormY / minNormY) * 100}%`);
     console.log("inner APP hover works: " + JSON.stringify(props));
-    this.setState({currHoverImg: props.img});
+
+    this.setState({currHoverImg: props.img, 
+      mouseRelativeXPercent: (cursorNormX / minNormX) * 100,
+      mouseRelativeYPercent: (cursorNormY / minNormY) * 100
+    });
   }
 
   clearHover(props){
@@ -32,7 +63,27 @@ class App extends React.Component {
     this.setState({currHoverImg: null});
   }
   
+  //maskPosition: `${this.state.mouseRelativeXPercent}% ${this.state.mouseRelativeYPercent}%`
   render() {
+    var maskPosition = `center`
+    if(this.state.mouseRelativeXPercent != null && this.state.mouseRelativeYPercent != null){
+      maskPosition = `${this.state.mouseRelativeXPercent}% ${this.state.mouseRelativeYPercent}%`;
+    }
+
+    var backgroundStyle = {
+      backgroundImage: `url(${(this.state.currHoverImg == null ? this.state.baseHoverImg : this.state.currHoverImg)})`,
+      
+      "WebkitMaskImage": `url(${mask})`,
+      maskImage: `url(${mask})`,
+
+      "WebkitMaskSize": "33%",
+      maskSize: "33%",
+
+      "WebkitMaskPosition": `${maskPosition}`,
+      maskPosition: `${maskPosition}`
+      }
+
+
     return (
       <div>
         <meta charSet="UTF-8" />
@@ -51,11 +102,11 @@ class App extends React.Component {
           <br />
           <span className="helvetica">www.instagram.com/designrmit</span>
         </footer>  
-        <div className="index-main" style={{backgroundImage: `url(${(this.state.currHoverImg == null ? this.state.baseHoverImg : this.state.currHoverImg)})`}}>
+        <div className="index-main-BG" style={backgroundStyle}></div>
+        <div className="index-main" >
           <div className="index-content"> 
             <ArtPiece hoverOverTextFunc={this.testHover} hoverExitTextFunc={this.clearHover} id="001" img={imgOne} title="Nicholas Gleeson, Arpeggiated Visualiser, 2023."/>
-            <ArtPiece hoverOverTextFunc={this.testHover} hoverExitTextFunc={this.clearHover} id="002" img={imgTwo} title="Zach Micallef, Icarus, 2023."/>
-            
+            <ArtPiece hoverOverTextFunc={this.testHover} hoverExitTextFunc={this.clearHover} id="002" img={imgTwo} title="Zach Micallef, Icarus, 2023."/>            
           </div>
         </div>
         <div className="index-right">

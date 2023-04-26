@@ -17,7 +17,7 @@ class ArtPiece extends React.Component {
 
     render() {
       return(<div>
-                <div className="index-line"><span className="times">{this.state.id} - </span><span className="helvetica" onMouseLeave={() => this.state.hoverExitTextFunc(this.state)} onMouseOver={() => this.state.hoverOverTextFunc(this.state)}>{this.state.title}</span></div>
+                <div className="index-line"><span className="times">{this.state.id} - </span><span id={this.state.id} className="helvetica" onMouseLeave={() => this.state.hoverExitTextFunc(this.state)} onMouseMove={() => this.state.hoverOverTextFunc(this.state)}>{this.state.title}</span></div>
               </div>)
     }
   }

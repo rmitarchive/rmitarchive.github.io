@@ -44,7 +44,7 @@ footer {
   font-weight: 600;
 }
 
-.index-main {
+.index-main-BG {
   position:absolute;
   /*box-sizing: border-box;*/
   padding:20px;
@@ -56,6 +56,21 @@ footer {
   background-attachment: fixed;
   background-position: center;
   background-size: 33%;
+
+  /*mask-image: url("Img/StarMask.png");*/
+  
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+
+.index-main {
+  position:absolute;
+  /*box-sizing: border-box;*/
+  padding:20px;
+  width:100vw;
+  height:100%;
+  overflow: scroll;
 }
 
 .index-content {
