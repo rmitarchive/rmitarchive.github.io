@@ -3,6 +3,8 @@ import * as THREE from 'three';
 
 function ThreeJS() {
   const containerRef = useRef(null);
+  const cameraRef = useRef(null);
+  const rendererRef = useRef(null);
 
   useEffect(() => {
     const scene = new THREE.Scene();
@@ -20,6 +22,7 @@ function ThreeJS() {
     camera.position.z = 5;
 
     function animate() {
+      //console.log(`CAM: ${cameraRef.current.aspect}, ${JSON.stringify(cameraRef.current)}`);
       requestAnimationFrame(animate);
       cylinder.rotation.y += 0.01;
       renderer.render(scene, camera);
@@ -27,12 +30,50 @@ function ThreeJS() {
 
     animate();
 
+    cameraRef.current = camera;
+    rendererRef.current = renderer;
+
     return () => {
       renderer.dispose();
     };
   }, []);
 
-  return <div ref={containerRef} style={{zIndex:-1, width: '100%', height: '100vh' }} />;
+  useEffect(() => {
+    function handleResize() {
+      console.log("WINDOW RESIZE??");
+      const width = window.innerWidth;
+      const height = window.innerHeight;    
+      cameraRef.current.aspect = width / height;
+      /*
+      camera.left = -aspect * newSize / 2;
+      camera.right = aspect * newSize  / 2;
+      camera.top = newSize / 2;
+      camera.bottom = -newSize / 2;
+      */
+/*
+      cameraRef.current.left = -cameraRef.current.aspect * width / 2;
+      cameraRef.current.right = cameraRef.current.aspect * width / 2;
+*/
+      cameraRef.current.updateProjectionMatrix();
+      rendererRef.current.setSize(width, height);
+    }
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  return <div ref={containerRef} style={{
+    zIndex:-1, 
+    position: 'absolute',
+    left: '50%',
+    top: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: '100vw',
+    height: '100vh',
+  }} />;
 }
 
 
