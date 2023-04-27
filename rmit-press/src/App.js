@@ -24,14 +24,39 @@ class App extends React.Component {
     this.testHover = this.testHover.bind(this);
     this.clearHover = this.clearHover.bind(this);
 
+    window.addEventListener('mousemove', (event) => {
+      this.setState({
+        mouseXWas: this.state.mouseX,
+        mouseYWas: this.state.mouseY,
+        mouseX: event.clientX,
+        mouseY: event.clientY
+      });
+    });
+    
     this.state={
       baseHoverImg: baseHoverImg,
       currHoverImg: null,
       currPaperTexture: 0,
       mouseRelativeXPercent: 0,
       mouseRelativeYPercent: 0,
-    }
-    
+      
+      lastFactX: false,
+      mouseX: 0,
+      mouseY: 0,
+      mouseXWas: 0,
+      mouseYWas: 0,
+      mathFact: [null, null, null, null],
+    }    
+
+    setInterval(() => {
+      this.getFunFact(this.state.lastFactX ? this.state.mouseX : this.state.mouseY);
+    }, 500);
+
+/*
+    window.addEventListener('click', (event) => {
+      this.getFunFact(this.state.lastFactX ? this.state.mouseX : this.state.mouseY);
+    });
+*/
     setInterval(() => {
       let newCurrPaperTexture = Math.floor(Math.random() * this.paperTextures.length);
       //console.log("newCurrPaperTexture: " + newCurrPaperTexture);
@@ -42,6 +67,37 @@ class App extends React.Component {
         };
       });
     }, 250);   
+  }
+/*
+this.setState({
+  mathFact: [data, this.state.mathFact[0], this.state.mathFact[1], this.state.mathFact[2]]
+});
+*/
+  async getFunFact(number){
+    if(number == this.state.mouseXWas || number == this.state.mouseYWas){
+      return;
+    }
+    const resp = await fetch(`http://numbersapi.com/${number}/year`)
+    .then(response => response.text())
+    .then(data => {
+      //console.log(response.text());
+      this.setState({
+        mathFact: [data, this.state.mathFact[0], this.state.mathFact[1], this.state.mathFact[2]],
+        lastFactX: !this.state.lastFactX,
+        mouseXWas: this.state.mouseX,
+        mouseYWas: this.state.mouseY,
+      });
+    })
+    /*
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      console.log(JSON.stringify(data));
+      
+
+      return data; 
+    })
+    .catch(error => console.log("ERR: " + error));*/
   }
 
   testHover(props){
@@ -71,7 +127,8 @@ class App extends React.Component {
     //console.log(`hover test: ${Math.abs(finalCalcX - this.state.mouseRelativeXPercent)} - ${Math.abs(finalCalcY - this.state.mouseRelativeYPercent)}`)
 
     //if(Math.abs(finalCalcX - this.state.mouseRelativeXPercent) > threshold || Math.abs(finalCalcY - this.state.mouseRelativeYPercent) > threshold){
-      this.setState({currHoverImg: props.img, 
+      this.setState({
+        currHoverImg: props.img, 
         mouseRelativeXPercent: finalCalcX,
         mouseRelativeYPercent: finalCalcY
       });
@@ -136,7 +193,16 @@ class App extends React.Component {
         <link rel="stylesheet" href="styles.css" />
         <link rel="icon" href="icon.png" /> 
         <title>Zachariah Micallef</title>
-        <ScrollingBanner/>
+        <div className="bottom-of-page">
+          <div>
+            <p className="fact-times">{this.state.mouseX}, {this.state.mouseY}</p>
+            <p className="fact-times" style={{visibility:`${this.state.mathFact[0] == null ? "hidden" : "visible"}`}}>{this.state.mathFact[0]}</p>
+            <p className="fact-times" style={{visibility:`${this.state.mathFact[1] == null ? "hidden" : "visible"}`}}>{this.state.mathFact[1]}</p>
+            <p className="fact-times" style={{visibility:`${this.state.mathFact[2] == null ? "hidden" : "visible"}`}}>{this.state.mathFact[2]}</p>
+            <p className="fact-times" style={{visibility:`${this.state.mathFact[3] == null ? "hidden" : "visible"}`}}>{this.state.mathFact[3]}</p>
+          </div>
+          <ScrollingBanner/>
+        </div>
         <header>
           <span className="times">Bachelor of Design (Communication Design).</span>
           <span className="helvetica"> Graduate Exhibition. June 15.</span>
