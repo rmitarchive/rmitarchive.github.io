@@ -6,6 +6,7 @@ import imgTwo from "./Img/icarus1.jpg";
 import mask from "./Img/SquareMask.png";
 import ArtPiece from "./ArtPiece";
 import ScrollingBanner from "./ScrollingBanner";
+import ThreeJS from "./ThreeJS";
 import React from 'react';
 
 import paperText1 from "./Img/test-paper-texture.png";
@@ -23,7 +24,10 @@ class App extends React.Component {
     //this.currPaperTexture = 0;
     this.testHover = this.testHover.bind(this);
     this.clearHover = this.clearHover.bind(this);
-
+    //this.changeCurrentPageIndex = this.changeCurrentPageIndex.bind(this);
+    this.scrollbarRef = React.createRef();
+    this.scrollbarRef.current = 0;
+    
     window.addEventListener('mousemove', (event) => {
       this.setState({
         mouseXWas: this.state.mouseX,
@@ -68,11 +72,7 @@ class App extends React.Component {
       });
     }, 250);   
   }
-/*
-this.setState({
-  mathFact: [data, this.state.mathFact[0], this.state.mathFact[1], this.state.mathFact[2]]
-});
-*/
+
   async getFunFact(number){
     if(number == this.state.mouseXWas || number == this.state.mouseYWas){
       return;
@@ -88,16 +88,6 @@ this.setState({
         mouseYWas: this.state.mouseY,
       });
     })
-    /*
-    .then(response => response.json())
-    .then(data => {
-      console.log(data);
-      console.log(JSON.stringify(data));
-      
-
-      return data; 
-    })
-    .catch(error => console.log("ERR: " + error));*/
   }
 
   testHover(props){
@@ -156,7 +146,34 @@ this.setState({
         </div>
     );
   }
-  
+
+  getPage(){
+    //console.log(`changeCurrentPageIndex/ ${JSON.stringify(this.scrollbarRef)} - ${this.scrollbarRef.state}`);
+    if(this.scrollbarRef != null){
+      switch(this.scrollbarRef.current){
+        case 0:
+          return(
+            <div className="index-content"> 
+              <ArtPiece hoverOverTextFunc={this.testHover} hoverExitTextFunc={this.clearHover} id="001" img={imgOne} title="Nicholas Gleeson, Arpeggiated Visualiser, 2023."/>
+              <ArtPiece hoverOverTextFunc={this.testHover} hoverExitTextFunc={this.clearHover} id="002" img={imgTwo} title="Zach Micallef, Icarus, 2023."/>            
+            </div>
+          );
+        case 3:
+          return(
+            <ThreeJS/> 
+          );
+      }
+    }
+
+    return(
+      <div>uh oh ewwow : ( </div>
+    );
+  }
+/*
+  changeCurrentPageIndex = (data) => {
+    console.log("changeCurrentPageIndex HIT");
+  }
+*/
   render() {
     var maskPosition = `center`
     
@@ -183,8 +200,6 @@ this.setState({
       }
     }
 
-
-
     return (
       <div>
         <meta charSet="UTF-8" />
@@ -201,12 +216,12 @@ this.setState({
             <p className="fact-times" style={{visibility:`${this.state.mathFact[2] == null ? "hidden" : "visible"}`}}>{this.state.mathFact[2]}</p>
             <p className="fact-times" style={{visibility:`${this.state.mathFact[3] == null ? "hidden" : "visible"}`}}>{this.state.mathFact[3]}</p>
           </div>
-          <ScrollingBanner/>
+          <ScrollingBanner clickFunc = {this.scrollbarRef}/>
         </div>
         <header>
           <span className="times">Bachelor of Design (Communication Design).</span>
           <span className="helvetica"> Graduate Exhibition. June 15.</span>
-          <span className="times">Bowen Street. (Event is Wheelchair Accessible)</span>
+          <span className="times">Bowen Street. (Event is Wheelchair Accessible)</span>                 
         </header>
         <footer>
           <span className="helvetica">www.rmit.edu.au</span>
@@ -220,10 +235,7 @@ this.setState({
         <div className="index-main-paper" style={{backgroundImage: `url(${this.paperTextures[3]})`, visibility:`${this.state.currPaperTexture == 3 ? "visible" : "hidden"}`}}></div>
         <div className="index-main-paper" style={{backgroundImage: `url(${this.paperTextures[4]})`, visibility:`${this.state.currPaperTexture == 4 ? "visible" : "hidden"}`}}></div>
         <div className="index-main" >
-          <div className="index-content"> 
-            <ArtPiece hoverOverTextFunc={this.testHover} hoverExitTextFunc={this.clearHover} id="001" img={imgOne} title="Nicholas Gleeson, Arpeggiated Visualiser, 2023."/>
-            <ArtPiece hoverOverTextFunc={this.testHover} hoverExitTextFunc={this.clearHover} id="002" img={imgTwo} title="Zach Micallef, Icarus, 2023."/>            
-          </div>
+          {this.getPage()}
         </div>
         <this.getFullIndex/>
       </div>

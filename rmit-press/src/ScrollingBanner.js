@@ -6,8 +6,11 @@ import React from 'react';
 class ScrollingBanner extends React.Component {
     constructor(props){
       super(props);
+      console.log("(changeCurrentPageIndex) ScrollingBanner: " + JSON.stringify(props));
       this.state = {
-        buttonTitles: ["Home", "About", "Contact", "Help"]
+        buttonTitles: ["Home", "About", "Contact", "Help"],
+        clickFunc: props.clickFunc,
+        currentPageIndex: 0,
       };
 
       window.addEventListener('click', (event) => {
@@ -18,6 +21,10 @@ class ScrollingBanner extends React.Component {
           this.doSynonym(selectionPos, this.state.buttonTitles[selectionPos]);
         }
       });
+    }
+
+    componentDidMount(){
+      console.log("ScrollingBanner/componentDidMount: " + JSON.stringify(this.props));
     }
 
     async doSynonym(index, word){
@@ -53,10 +60,35 @@ class ScrollingBanner extends React.Component {
       .catch(error => console.log("ERR: " + error));*/
     }
 
+    changeCurrentPageIndex(id){
+      console.log("--------------changeCurrentPageIndex----------------" );
+      console.log("changeCurrentPageIndex: " + id);
+      console.log(`changeCurrentPageIndex STATE: ${JSON.stringify(this.state)}`);
+      console.log(`changeCurrentPageIndex STATE.clickFunc: ${JSON.stringify(this.state.clickFunc)}`);
+
+      if(this.state.clickFunc == null){// || this.state.clickFunc.current == null){
+        console.log("changeCurrentPageIndex: EXIT EARLY");
+        return;
+      }
+      
+      
+      let editedClickFunc = this.state.clickFunc;
+      editedClickFunc.current = id;
+      //this.setState.clickFunc.current = editedClickFunc.current;
+      console.log(`changeCurrentPageIndex this.state.clickFunc: ${JSON.stringify(this.state.clickFunc)}`);
+      console.log(`changeCurrentPageIndex editedClickFunc: ${JSON.stringify(editedClickFunc)}`);
+      this.setState={
+        clickFunc: editedClickFunc,
+      }
+      console.log(`changeCurrentPageIndex END STATE: ${JSON.stringify(this.state)}`);
+    }
+//onClick = {console.log("hhasfhhasf")} 
+//onClick = {this.props.clickFunc}
     render() {
       let elements = []
       for(var i = 0; i < this.state.buttonTitles.length; i++){
-        elements.push(<div className="scrolling-banner-child" style={{
+        let j = i;
+        elements.push(<div className="scrolling-banner-child" onClick = {(() => this.changeCurrentPageIndex(j))} style={{
           //backgroundColor: `${(i % 2 == 0 ? "white" : "grey")}`
           //borderColor: `${(i % 2 == 0 ? "white" : "grey")}`
           //borderColor: `${(i % 2 == 0 ? "#ededed" : "#dedede")}`
