@@ -115,14 +115,14 @@ class App extends React.Component {
     let minNormY = textRect.bottom - textRect.top;
     let cursorNormY = posY - textRect.top;
 
-    console.log(`mouse pos: ${posX} - ${posY}, that means width=${(cursorNormX / minNormX) * 100}%, height=${(cursorNormY / minNormY) * 100}%`);
-    console.log("inner APP hover works: " + JSON.stringify(props));
+    //console.log(`mouse pos: ${posX} - ${posY}, that means width=${(cursorNormX / minNormX) * 100}%, height=${(cursorNormY / minNormY) * 100}%`);
+    //console.log("inner APP hover works: " + JSON.stringify(props));
 
     let finalCalcX = (cursorNormX / minNormX) * 100;
     let finalCalcY = (cursorNormY / minNormY) * 100;
 
 //was trying to improve performance, defo makes the hover effect look worse, didnt do much to the other elements. 
-    //console.log(`hover test: ${Math.abs(finalCalcX - this.state.mouseRelativeXPercent)} - ${Math.abs(finalCalcY - this.state.mouseRelativeYPercent)}`)
+    ////console.log(`hover test: ${Math.abs(finalCalcX - this.state.mouseRelativeXPercent)} - ${Math.abs(finalCalcY - this.state.mouseRelativeYPercent)}`)
 
     //if(Math.abs(finalCalcX - this.state.mouseRelativeXPercent) > threshold || Math.abs(finalCalcY - this.state.mouseRelativeYPercent) > threshold){
       this.setState({
@@ -135,7 +135,7 @@ class App extends React.Component {
   }
 
   clearHover(props){
-    console.log("inner APP hover works: " + JSON.stringify(props));
+    //console.log("inner APP hover works: " + JSON.stringify(props));
     this.setState({currHoverImg: null});
   }
 

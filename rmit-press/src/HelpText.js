@@ -8,7 +8,7 @@ class HelpText extends React.Component {
       var msg = "You may think you're on your own now, but you can always come to me for guidance";
       msg = msg.split(" ");
 
-      console.log("TEST: " + JSON.stringify(props));
+      //console.log("TEST: " + JSON.stringify(props));
       this.state = {
         message: msg,
         offsets: this.getCharacterAnimationTimes(msg),
@@ -65,7 +65,7 @@ class HelpText extends React.Component {
       };
       
       window.addEventListener('click', (event) => {
-        console.log("HELPTEXT: CLICKEDDD");
+        //console.log("HELPTEXT: CLICKEDDD");
         this.getAffirmation();
       });
       //this.getAffirmation();
@@ -74,7 +74,7 @@ class HelpText extends React.Component {
     getAffirmation(){
       var newAffirmation = Math.floor(Math.random() * this.state.potentialAffirmations.length);
       var msg = this.state.potentialAffirmations[newAffirmation].split(" ");
-      console.log("affirmation: " + msg);
+      //console.log("affirmation: " + msg);
       this.setState ({
         message: msg
       });

@@ -6,7 +6,7 @@ import React from 'react';
 class ScrollingBanner extends React.Component {
     constructor(props){
       super(props);
-      console.log("(changeCurrentPageIndex) ScrollingBanner: " + JSON.stringify(props));
+      //console.log("(changeCurrentPageIndex) ScrollingBanner: " + JSON.stringify(props));
       this.state = {
         buttonTitles: ["Home", "About", "Contact", "Help"],
         clickFunc: props.clickFunc,
@@ -14,17 +14,17 @@ class ScrollingBanner extends React.Component {
       };
 
       window.addEventListener('click', (event) => {
-        console.log("CLICKEDDD");
+        //console.log("CLICKEDDD");
         if(Math.random() < .25){
           let selectionPos = Math.floor(Math.random() * this.state.buttonTitles.length);
-          console.log(`selectionPos: ${selectionPos}`);
+          //console.log(`selectionPos: ${selectionPos}`);
           this.doSynonym(selectionPos, this.state.buttonTitles[selectionPos]);
         }
       });
     }
 
     componentDidMount(){
-      console.log("ScrollingBanner/componentDidMount: " + JSON.stringify(this.props));
+      //console.log("ScrollingBanner/componentDidMount: " + JSON.stringify(this.props));
     }
 
     async doSynonym(index, word){
@@ -33,10 +33,10 @@ class ScrollingBanner extends React.Component {
       .then(data => {;
 
         if(data != null){
-          console.log(JSON.stringify(data));
+          //console.log(JSON.stringify(data));
           let newWord = data[Math.floor(Math.random() * data.length)]["word"];
           //let newWord = data[0]["word"];
-          console.log(`${index} / ${word} DID SYNONYM: ${newWord}`);
+          //console.log(`${index} / ${word} DID SYNONYM: ${newWord}`);
   
           let responseButtonTitles = this.state.buttonTitles;
           responseButtonTitles[index] = newWord;
@@ -45,7 +45,7 @@ class ScrollingBanner extends React.Component {
             buttonTitles: responseButtonTitles
           });
 
-          console.log("buttonTitles: "+ this.state.buttonTitles);
+          //console.log("buttonTitles: "+ this.state.buttonTitles);
         }
       })
     }
@@ -57,7 +57,7 @@ class ScrollingBanner extends React.Component {
       console.log(`changeCurrentPageIndex STATE.clickFunc: ${JSON.stringify(this.state.clickFunc)}`);
 */
       if(this.state.clickFunc == null){// || this.state.clickFunc.current == null){
-        console.log("changeCurrentPageIndex: EXIT EARLY");
+        //console.log("changeCurrentPageIndex: EXIT EARLY");
         return;
       }
       
@@ -70,12 +70,12 @@ class ScrollingBanner extends React.Component {
         window.history.pushState("object or string", "Title", "/");
       }
       //this.setState.clickFunc.current = editedClickFunc.current;
-      console.log(`changeCurrentPageIndex this.state.clickFunc: ${JSON.stringify(this.state.clickFunc)}`);
-      console.log(`changeCurrentPageIndex editedClickFunc: ${JSON.stringify(editedClickFunc)}`);
+      //console.log(`changeCurrentPageIndex this.state.clickFunc: ${JSON.stringify(this.state.clickFunc)}`);
+      //console.log(`changeCurrentPageIndex editedClickFunc: ${JSON.stringify(editedClickFunc)}`);
       this.setState={
         clickFunc: editedClickFunc,
       }
-      console.log(`changeCurrentPageIndex END STATE: ${JSON.stringify(this.state)}`);
+      //console.log(`changeCurrentPageIndex END STATE: ${JSON.stringify(this.state)}`);
     }
 //onClick = {console.log("hhasfhhasf")} 
 //onClick = {this.props.clickFunc}

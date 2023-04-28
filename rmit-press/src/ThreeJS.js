@@ -46,7 +46,7 @@ function ThreeJS() {
 
   useEffect(() => {
     function handleResize() {
-      console.log("WINDOW RESIZE??");
+      //console.log("WINDOW RESIZE??");
       const width = window.innerWidth;
       const height = window.innerHeight;    
       cameraRef.current.aspect = width / height;

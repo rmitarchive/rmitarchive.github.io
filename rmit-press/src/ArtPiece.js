@@ -5,7 +5,7 @@ import React from 'react';
 class ArtPiece extends React.Component {
     constructor(props){
       super(props);
-      console.log("TEST: " + JSON.stringify(props));
+      //console.log("TEST: " + JSON.stringify(props));
       this.state = {
         id: props.id,
         img: props.img,
