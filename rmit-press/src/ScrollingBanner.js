@@ -48,16 +48,6 @@ class ScrollingBanner extends React.Component {
           console.log("buttonTitles: "+ this.state.buttonTitles);
         }
       })
-      /*
-      .then(response => response.json())
-      .then(data => {
-        console.log(data);
-        console.log(JSON.stringify(data));
-        
-  
-        return data; 
-      })
-      .catch(error => console.log("ERR: " + error));*/
     }
 
     changeCurrentPageIndex(id){

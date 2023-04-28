@@ -5,6 +5,7 @@ import imgOne from "./Img/Screenshot_1.png";
 import imgTwo from "./Img/icarus1.jpg";
 import mask from "./Img/SquareMask.png";
 import ArtPiece from "./ArtPiece";
+import HelpText from "./HelpText";
 import ScrollingBanner from "./ScrollingBanner";
 import ThreeJS from "./ThreeJS";
 import React from 'react';
@@ -27,7 +28,7 @@ class App extends React.Component {
     //this.changeCurrentPageIndex = this.changeCurrentPageIndex.bind(this);
     this.scrollbarRef = React.createRef();
     this.scrollbarRef.current = 0;
-    
+
     window.addEventListener('mousemove', (event) => {
       this.setState({
         mouseXWas: this.state.mouseX,
@@ -160,7 +161,10 @@ class App extends React.Component {
           );
         case 3:
           return(
-            <ThreeJS/> 
+            <div className="index-main"> 
+              <ThreeJS/> 
+              <HelpText/>
+            </div>
           );
       }
     }
