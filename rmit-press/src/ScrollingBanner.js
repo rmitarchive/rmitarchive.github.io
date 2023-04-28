@@ -51,11 +51,11 @@ class ScrollingBanner extends React.Component {
     }
 
     changeCurrentPageIndex(id){
-      console.log("--------------changeCurrentPageIndex----------------" );
+      /*console.log("--------------changeCurrentPageIndex----------------" );
       console.log("changeCurrentPageIndex: " + id);
       console.log(`changeCurrentPageIndex STATE: ${JSON.stringify(this.state)}`);
       console.log(`changeCurrentPageIndex STATE.clickFunc: ${JSON.stringify(this.state.clickFunc)}`);
-
+*/
       if(this.state.clickFunc == null){// || this.state.clickFunc.current == null){
         console.log("changeCurrentPageIndex: EXIT EARLY");
         return;
@@ -64,6 +64,11 @@ class ScrollingBanner extends React.Component {
       
       let editedClickFunc = this.state.clickFunc;
       editedClickFunc.current = id;
+      if(id == 3){
+        window.history.pushState("object or string", "Title", "/help");
+      }else{
+        window.history.pushState("object or string", "Title", "/");
+      }
       //this.setState.clickFunc.current = editedClickFunc.current;
       console.log(`changeCurrentPageIndex this.state.clickFunc: ${JSON.stringify(this.state.clickFunc)}`);
       console.log(`changeCurrentPageIndex editedClickFunc: ${JSON.stringify(editedClickFunc)}`);

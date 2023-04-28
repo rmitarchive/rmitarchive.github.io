@@ -26,8 +26,15 @@ class App extends React.Component {
     this.testHover = this.testHover.bind(this);
     this.clearHover = this.clearHover.bind(this);
     //this.changeCurrentPageIndex = this.changeCurrentPageIndex.bind(this);
+    let path = window.location.pathname;
     this.scrollbarRef = React.createRef();
-    this.scrollbarRef.current = 0;
+    //this.scrollbarRef.current = 0;
+
+    if(path.toUpperCase().includes("HELP")){
+      this.scrollbarRef.current = 3;
+    }else{
+      this.scrollbarRef.current = 0;
+    }
 
     window.addEventListener('mousemove', (event) => {
       this.setState({
