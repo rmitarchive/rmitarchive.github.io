@@ -5,6 +5,7 @@ function ThreeJS() {
   const containerRef = useRef(null);
   const cameraRef = useRef(null);
   const rendererRef = useRef(null);
+  var canvasCount = 0;
 
   useEffect(() => {
     const scene = new THREE.Scene();
@@ -12,8 +13,13 @@ function ThreeJS() {
     const renderer = new THREE.WebGLRenderer({ alpha: true }); // Set alpha to true
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setClearColor(0x000000, 0); // Set clearAlpha to 0
-    containerRef.current.appendChild(renderer.domElement);
-
+    
+    //its hacky but it does the job, for some reason this was firing twice...
+    if(canvasCount == 1){
+      containerRef.current.appendChild(renderer.domElement);
+      
+    }
+    canvasCount++;
     const geometry = new THREE.CylinderGeometry(1, 1, 2, 32);
     const material = new THREE.MeshBasicMaterial({ wireframe: true, color: 0xffffff });
     const cylinder = new THREE.Mesh(geometry, material);
@@ -56,6 +62,9 @@ function ThreeJS() {
 */
       cameraRef.current.updateProjectionMatrix();
       rendererRef.current.setSize(width, height);
+
+      
+
     }
 
     window.addEventListener('resize', handleResize);
