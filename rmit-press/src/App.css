@@ -47,7 +47,8 @@ footer {
 }
 
 .help-text-individual{
-  float: left;
+  /*float: left;*/
+  display: inline-block;
   animation-name: floating;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
