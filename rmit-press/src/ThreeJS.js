@@ -15,10 +15,10 @@ function ThreeJS() {
     renderer.setClearColor(0x000000, 0); // Set clearAlpha to 0
     
     //its hacky but it does the job, for some reason this was firing twice...
-    if(canvasCount == 1){
+    //if(canvasCount == 1){
       containerRef.current.appendChild(renderer.domElement);
       
-    }
+    //}
     canvasCount++;
     const geometry = new THREE.CylinderGeometry(1, 1, 2, 32);
     const material = new THREE.MeshBasicMaterial({ wireframe: true, color: 0xffffff });
