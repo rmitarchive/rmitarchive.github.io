@@ -24,71 +24,71 @@
       <div class="student-names">
     
         <div>A</div>
-        <a class="student" onclick="toggleContent()">Abigail Thompson</a>
+        <a class="student web print" onclick="toggleContent()">Abigail Thompson</a>
         <div class="student-expand" id="expand">
           <span>Arpeggiated Visual, 2023.</span>
           <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis a dolorem assumenda natus ex enim placeat laudantium, magnam qui et autem maxime omnis porro accusamus amet possimus delectus fuga, modi debitis deserunt nesciunt, nam perferendis. Deleniti dolore ducimus rem odit in? Quaerat amet nobis minus suscipit natus doloremque illo eius.</span>
           <img src="Screenshot 2023-04-25 at 2.06.05 pm.png">
         </div>
-        <a class="student">Amelia Rodriguez</a>
-        <a class="student">Angelina Lee</a>
+        <a class="student identity logo">Amelia Rodriguez</a>
+        <a class="student digital web">Angelina Lee</a>
         <br>
     
         <div>B</div>
-        <a class="student">Brandon Scott</a>
-        <a class="student">Brooke Davis</a>
+        <a class="student layout">Brandon Scott</a>
+        <a class="student logo layout">Brooke Davis</a>
         <br>
     
         <div>C</div>
-        <a class="student">Caleb Martinez</a>
-        <a class="student">Caroline Clark</a>
-        <a class="student">Chloe Reed</a>
+        <a class="student digital">Caleb Martinez</a>
+        <a class="student layout logo">Caroline Clark</a>
+        <a class="student print">Chloe Reed</a>
         <br>
         
         <div>D</div>
-        <a class="student">Daniel Wright</a>
-        <a class="student">Dylan Hernandez</a>
+        <a class="student digital web">Daniel Wright</a>
+        <a class="student print poster">Dylan Hernandez</a>
         <br>
     
         <div>E</div>
-        <a class="student">Elizabeth Turner</a>
-        <a class="student">Ethan Young</a>
+        <a class="student logo">Elizabeth Turner</a>
+        <a class="student web print">Ethan Young</a>
         <br>
     
         <div>G</div>
-        <a class="student">Gabriella Morris</a>
-        <a class="student">Grace Baker</a>
+        <a class="student digital identity">Gabriella Morris</a>
+        <a class="student layout">Grace Baker</a>
         <br>
     
         <div>H</div>
-        <a class="student">Harper Brown</a>
+        <a class="student digital logo">Harper Brown</a>
         <br>
     
         <div>I</div>
-        <a class="student">Isaac Johnson</a>
-        <a class="student">Isabella Collins</a>
+        <a class="student web logo">Isaac Johnson</a>
+        <a class="student print">Isabella Collins</a>
         <br>
     
         <div>J</div>
-        <a class="student">Jacob Ramirez</a>
-        <a class="student">Jade King</a>
-        <a class="student">Jameson Hall</a>
-        <a class="student">Jocelyn Davis</a>
-        <a class="student">Jordan Green</a>
+        <a class="student web">Jacob Ramirez</a>
+        <a class="student logo poster">Jade King</a>
+        <a class="student digital">Jameson Hall</a>
+        <a class="student web layout">Jocelyn Davis</a>
+        <a class="student logo">Jordan Green</a>
         <br>
     
         <div>K</div>
-        <a class="student">Katherine Cooper</a>
-        <a class="student">Kayla Lewis</a>
+        <a class="student identity">Katherine Cooper</a>
+        <a class="student logo web">Kayla Lewis</a>
         <br>
     
         <div>L</div>
-        <a class="student">Lauren Peterson</a>
-        <a class="student">Leah Carter</a>
-        <a class="student">Leo Taylor</a>
-        <a class="student">Lily Anderson</a>
-        <a class="student">Logan James</a>
-        <a class="student">Lucas Rivera</a>
+        <a class="student web logo">Lauren Peterson</a>
+        <a class="student print">Leah Carter</a>
+        <a class="student web poster">Leo Taylor</a>
+        <a class="student digital">Lily Anderson</a>
+        <a class="student digital">Logan James</a>
+        <a class="student identity layout">Lucas Rivera</a>
         <br>
     
       </div>
@@ -98,13 +98,13 @@
     <div class="right">
       <div>Filters</div>
       <br>
-      <a class="filter">Digital</a>
-      <a class="filter">Identity</a>
-      <a class="filter">Logo</a>
-      <a class="filter">Print</a>
-      <a class="filter">Poster</a>
-      <a class="filter">Publication</a>
-      <a class="filter">Web</a>
+      <a class="filter digital" onclick="selectFilter('digital')">Digital</a>
+      <a class="filter identity" onclick="selectFilter('identity')">Identity</a>
+      <a class="filter logo" onclick="selectFilter('logo')">Logo</a>
+      <a class="filter print" onclick="selectFilter('print')">Print</a>
+      <a class="filter poster" onclick="selectFilter('poster')">Poster</a>
+      <a class="filter layout" onclick="selectFilter('layout')">Layout</a>
+      <a class="filter web" onclick="selectFilter('web')">Web</a>
   </div>
 
     </div>
@@ -120,6 +120,20 @@
       } else { 
         expandContent.style.display = "none";
       }
+    }
+
+
+    
+    
+    function selectFilter(id) {
+      var cusid_ele = document.getElementsByClassName(id);
+      for (var i = 0; i < cusid_ele.length; ++i) {
+      var item = cusid_ele[i]; 
+      if (item.classList.contains("active")) {
+        item.classList.remove('active');
+      } else {
+        item.classList.add('active');
+      }}
     }
 
 </script>
