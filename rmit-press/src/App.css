@@ -1,0 +1,234 @@
+@font-face {
+  font-family: 'Unica';
+  src: url("Type/NeueHaasUnica-Regular.ttf");
+}
+
+@font-face {
+  font-family: 'Century';
+  src: url("Type/Century-Schoolbook-Regular.ttf");
+}
+
+body {
+  margin: 0 0 0 0;
+  height:100vh;
+  padding: 0;
+  text-rendering: geometricPrecision;
+  font-family: Unica, Helvetica;
+  font-size: 1em;  
+}
+
+header {
+  position:fixed;
+  box-sizing: border-box;
+  padding:10px;
+  z-index:2;
+}
+
+footer {
+  position:fixed;
+  box-sizing: border-box;
+  padding:10px;
+  z-index: 2;
+  right:0;
+  text-align: right;
+}
+
+#canvas-container {
+
+  /*width: 500px;
+  height: 500px;* /
+
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  position: absolute;
+  left: 50%;
+  top: 50%;*/
+}
+
+.help-text-individual{
+  /*float: left;*/
+  display: inline-block;
+  animation-name: floating;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  margin-left: 15px;
+  margin-right: 15px;
+  /*margin-left: 30px;
+  margin-top: 5px;*/
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+@keyframes floating {
+  0% { transform: translate(0,  0px); }
+  50%  { transform: translate(0, 15px); }
+  100%   { transform: translate(0, -0px); }   
+}
+
+
+.help-text-container{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.fact-times {
+  font-family: Century;
+  font-size: 0.7em;
+  margin: 0;
+}
+
+.bottom-of-page{
+  z-index: 999;
+  position:fixed;
+  bottom: 0px;
+  width: 100%;
+}
+
+.scrolling-banner-child{
+  box-sizing: border-box;
+  height: 100%;
+  vertical-align:text-top;
+  text-align: center;
+  width: 25%;
+  float: left;
+  background-color: transparent;
+  /*border-width: 5px;*/
+  border-top: 2.5px;
+  border-left: 2.5px;
+  border-right: 2.5px;
+  border-bottom: 0px;
+  border-style: solid;
+}
+
+.scrolling-banner-child:hover{
+  border-style: solid;
+  /*border-width: 7.5px;*/
+  border-top: 3px;
+  border-left: 3px;
+  border-right: 3px;
+  border-bottom: 0px;
+  border-color: grey;
+}
+
+.scrolling-banner-parent{
+  width: 100%;
+  height: 40px;
+  background-color: transparent;
+  /*background-color: blue;
+  display: flex;*/
+  overflow: hidden;
+}
+
+.index-dt{
+  padding-bottom: 5px;
+}
+
+.index-tiny-img {
+  height:20px;
+  width:20px;
+  display: inline;
+}
+
+.index-times {
+  font-family: Century;
+  font-size: 0.7em;
+  display: inline;
+  padding-left: 5px;
+  vertical-align:text-top;
+}
+
+.times {
+  font-family: Century;
+  font-size: 0.7em;
+}
+
+.helvetica {
+  font-family: Helvetica;
+  font-size: 1.5em;
+  font-weight: 600;
+  /*padding: 7.5px;*/
+  padding-top: 12px;
+  padding-bottom: 12px;
+  cursor: url(Img/SquareCursor.png) 15 15, auto;
+}
+
+.index-main-paper {
+  position:absolute;
+
+  padding:20px;
+  width:100vw;
+  height:100%;
+  overflow: scroll;
+  mix-blend-mode: darken;
+  background-size: 33%;
+}
+
+.index-main-BG {
+  position:absolute;
+  /*box-sizing: border-box;*/
+  padding:20px;
+  width:100vw;
+  height:100%;
+  overflow: scroll;
+
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: 33%;
+
+  /*mask-image: url("Img/StarMask.png");*/
+  
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+
+.index-main {
+  position:absolute;
+  /*box-sizing: border-box;*/
+  padding:20px;
+  width:100vw;
+  height:100%;
+  overflow: scroll;
+  z-index: 10;
+}
+
+.index-content {
+  position:absolute;
+  top:10vh;
+  line-height: 1.4em;
+  font-family: Century;
+}
+
+.index-img img {
+  width: 30vw;
+  max-height:auto;
+}
+
+.index-line {
+  /*margin-bottom: 5em;*/
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.index-right {
+  position:absolute;
+  height:100%;
+  font-family: Century;
+  padding:20px;
+  right:0;
+  overflow: scroll;
+}
+
+
+
+
+
+@media only screen and (max-device-width : 1024px) { 
+  
+
+}
