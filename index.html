@@ -6,106 +6,124 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="icon.png">
-    <title>PRINT PRINT PRINT PRINT PRINT</title>
+    <title>PRESS</title>
 </head>
 <body>
 
-  <a class="student"></a>
+<div class="content">
+    <div class="left">
 
-<div class="content-container">
-
-  <div class="left-container">
-  
-  <div class="title-container">
-    <span class="header">Print</span>
-    <br><br>
-    <div class="search-bar">Search...</div>
-  </div>
-
-  <div class="student-names">
-
-    <div>A</div>
-    <a class="student">Abigail Thompson</a>
-    <a class="student">Amelia Rodriguez</a>
-    <a class="student">Angelina Lee</a>
-    <br>
-
-    <div>B</div>
-    <a class="student">Brandon Scott</a>
-    <a class="student">Brooke Davis</a>
-    <br>
-
-    <div>C</div>
-    <a class="student">Caleb Martinez</a>
-    <a class="student">Caroline Clark</a>
-    <a class="student">Chloe Reed</a>
-    <br>
+      <div class="title-container">
+        <span class="header">PRESS</span>
+        <br><br>
+        <a class="header">Print Screen</a>
+        <br><br>
+        <div class="search-bar">Search...</div>
+      </div>
     
-    <div>D</div>
-    <a class="student">Daniel Wright</a>
-    <a class="student">Dylan Hernandez</a>
-    <br>
+      <div class="student-names">
+    
+        <div>A</div>
+        <a class="student" onclick="toggleContent()">Abigail Thompson</a>
+        <div class="student-expand" id="expand">
+          <span>Arpeggiated Visual, 2023.</span>
+          <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis a dolorem assumenda natus ex enim placeat laudantium, magnam qui et autem maxime omnis porro accusamus amet possimus delectus fuga, modi debitis deserunt nesciunt, nam perferendis. Deleniti dolore ducimus rem odit in? Quaerat amet nobis minus suscipit natus doloremque illo eius.</span>
+          <img src="Screenshot 2023-04-25 at 2.06.05 pm.png">
+        </div>
+        <a class="student">Amelia Rodriguez</a>
+        <a class="student">Angelina Lee</a>
+        <br>
+    
+        <div>B</div>
+        <a class="student">Brandon Scott</a>
+        <a class="student">Brooke Davis</a>
+        <br>
+    
+        <div>C</div>
+        <a class="student">Caleb Martinez</a>
+        <a class="student">Caroline Clark</a>
+        <a class="student">Chloe Reed</a>
+        <br>
+        
+        <div>D</div>
+        <a class="student">Daniel Wright</a>
+        <a class="student">Dylan Hernandez</a>
+        <br>
+    
+        <div>E</div>
+        <a class="student">Elizabeth Turner</a>
+        <a class="student">Ethan Young</a>
+        <br>
+    
+        <div>G</div>
+        <a class="student">Gabriella Morris</a>
+        <a class="student">Grace Baker</a>
+        <br>
+    
+        <div>H</div>
+        <a class="student">Harper Brown</a>
+        <br>
+    
+        <div>I</div>
+        <a class="student">Isaac Johnson</a>
+        <a class="student">Isabella Collins</a>
+        <br>
+    
+        <div>J</div>
+        <a class="student">Jacob Ramirez</a>
+        <a class="student">Jade King</a>
+        <a class="student">Jameson Hall</a>
+        <a class="student">Jocelyn Davis</a>
+        <a class="student">Jordan Green</a>
+        <br>
+    
+        <div>K</div>
+        <a class="student">Katherine Cooper</a>
+        <a class="student">Kayla Lewis</a>
+        <br>
+    
+        <div>L</div>
+        <a class="student">Lauren Peterson</a>
+        <a class="student">Leah Carter</a>
+        <a class="student">Leo Taylor</a>
+        <a class="student">Lily Anderson</a>
+        <a class="student">Logan James</a>
+        <a class="student">Lucas Rivera</a>
+        <br>
+    
+      </div>
+      
+    </div>
 
-    <div>E</div>
-    <a class="student">Elizabeth Turner</a>
-    <a class="student">Ethan Young</a>
-    <br>
-
-    <div>G</div>
-    <a class="student">Gabriella Morris</a>
-    <a class="student">Grace Baker</a>
-    <br>
-
-    <div>H</div>
-    <a class="student">Harper Brown</a>
-    <br>
-
-    <div>I</div>
-    <a class="student">Isaac Johnson</a>
-    <a class="student">Isabella Collins</a>
-    <br>
-
-    <div>J</div>
-    <a class="student">Jacob Ramirez</a>
-    <a class="student">Jade King</a>
-    <a class="student">Jameson Hall</a>
-    <a class="student">Jocelyn Davis</a>
-    <a class="student">Jordan Green</a>
-    <br>
-
-    <div>K</div>
-    <a class="student">Katherine Cooper</a>
-    <a class="student">Kayla Lewis</a>
-    <br>
-
-    <div>L</div>
-    <a class="student">Lauren Peterson</a>
-    <a class="student">Leah Carter</a>
-    <a class="student">Leo Taylor</a>
-    <a class="student">Lily Anderson</a>
-    <a class="student">Logan James</a>
-    <a class="student">Lucas Rivera</a>
-    <br>
-
+    <div class="right">
+      <div>Filters</div>
+      <br>
+      <a class="filter">Digital</a>
+      <a class="filter">Identity</a>
+      <a class="filter">Logo</a>
+      <a class="filter">Print</a>
+      <a class="filter">Poster</a>
+      <a class="filter">Publication</a>
+      <a class="filter">Web</a>
   </div>
 
-
-
-  </div>
-
-  <div class="mid-container">
-  <div>Filters</div>
-  <br>
-  <a class="filter" onclick="setActive(this)">Digital</a>
-  <a class="filter">Identity</a>
-  <a class="filter">Logo</a>
-  <a class="filter">Print</a>
-  <a class="filter">Poster</a>
-  <a class="filter">Publication</a>
-  <a class="filter">Web</a>
-  </div>
-
+    </div>
 </div>
+
+<script>    
+
+  var expandContent = document.getElementById('expand');
+
+    function toggleContent() {
+      if (expandContent.style.display === "none") {
+        expandContent.style.display = "flex";
+      } else { 
+        expandContent.style.display = "none";
+      }
+    }
+
+</script>
+
 </body>
 
 </html>

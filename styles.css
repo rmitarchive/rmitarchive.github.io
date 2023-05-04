@@ -3,72 +3,92 @@
     src: url("NeueHaasUnica-Medium.ttf");
 }
 
-body {
-    margin: 0 0 0 0;
-    padding: 0;
+* {
     text-rendering: geometricPrecision;
     font-family: "Unica", Helvetica;
-    font-size: 1em;
+    line-height: 1;
 }
 
-.content-container {
-    display:flex;
-    flex-wrap: wrap;
-    flex-direction: row;
+html, body {
+    height: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
 }
 
-.left-container {
-    box-sizing: border-box;
+.content {
+    height: 100%;
+}
+
+.left {
+    float: left;
     display:flex;
-    flex-wrap: wrap;
     flex-direction: column;
-    width: 33%;
-    padding:10px;
-    overflow-y: scroll;
+    width: 30%;
+    height: 100%;
+    overflow: auto;
+    box-sizing: border-box;
+    padding: 0.5em;
+    -ms-overflow-style: none;  
+    scrollbar-width: none; 
 }
 
-.left-container .title-container {
-    position:fixed;
-    background-color: white;
-    width:30%;
-    top:0;
-    left:0;
-    padding:10px;
-    z-index:1;
+.left::-webkit-scrollbar { 
+    display: none; 
 }
 
-.left-container .student-names {
-    margin-top: 10em;
+.left .title-container {
+    position: fixed;
 }
 
-.left-container .student {
+.left .student {
     display:block;
+}
+
+.left .student-names {
+    margin-top: 50%;
+}
+
+.left .student-expand {
+    display:none;
+    flex-direction: column;
+    height:auto;
+    box-sizing: border-box;
+    padding:0.5em;
+    margin-bottom: 1em;
+}
+
+.left .student-expand span {
+    font-family: Courier New;
+    font-size: 0.8em;
+    margin-bottom: 1em;
+}
+
+.left .student-expand img {
+    max-width:15em;
+    height:auto;
+}
+
+.right {
+    float: left;
+    float: left;
+    display:flex;
+    flex-direction: column;
+    width: 70%;
+    height: 100%;
+    overflow: auto;
+    box-sizing: border-box;
+    padding: 0.5em;
 }
 
 a {
     width:fit-content;
 }
 
-a:hover {
+a:hover, .active {
     color:white;
     background-color: black;
     cursor: pointer;
-}
-
-.active {
-    color:white;
-    background-color: black;
-}
-
-.mid-container {
-    position:fixed;
-    left:33%;
-    box-sizing: border-box;
-    display:flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    width: 33%;
-    padding:10px;
 }
 
 @media only screen and (max-device-width : 1024px) { 
