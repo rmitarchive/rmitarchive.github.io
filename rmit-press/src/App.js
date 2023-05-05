@@ -16,6 +16,10 @@ import paperText3 from "./Img/test-paper-texture-3.png";
 import paperText4 from "./Img/test-paper-texture-4.png";
 import paperText5 from "./Img/test-paper-texture-5.png";
 
+import { Page, Text, View, Document, StyleSheet, PDFDownloadLink } from '@react-pdf/renderer';
+import axios from 'axios';
+//import { Page, Text, View, Document, StyleSheet, ReactPDF } from '@react-pdf/renderer';
+//https://medium.com/craftcode-design/how-to-build-a-contact-form-with-react-js-and-php-d5977c17fec0
 //<marquee behavior="alternate">Test test test</marquee>
 class App extends React.Component {
   constructor(props){
@@ -180,11 +184,65 @@ class App extends React.Component {
       <div>uh oh ewwow : ( </div>
     );
   }
-/*
-  changeCurrentPageIndex = (data) => {
-    console.log("changeCurrentPageIndex HIT");
+
+  pdfTestSave(){
+    console.log("test save start");
+    console.log("test save start");
+
+    fetch('http://localhost:8000/index.php', { // URL
+    //fetch('http://localhost:8000/index.php', { // URL
+        //body: JSON.stringify(this.state), // data you send.
+        body: JSON.stringify({
+          msg: "deez nuts",
+          pdf: "pdfy"
+        }), // data you send.
+        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+        headers: {
+          'content-type': 'application/json',
+        },
+        method: 'POST', // *GET, POST, PUT, DELETE, etc.
+        mode: 'no-cors', // no-cors, cors, *same-origin
+        redirect: 'follow', // *manual, follow, error
+        referrer: 'no-referrer', // *client, no-referrer
+    })
+    .then(function(response) {
+        // manipulate response object
+        // check status @ response.status etc.
+        console.log("outcome 1");
+        console.log(response.json());
+        console.log(JSON.stringify(response.json()));
+        //return response.json(); // parses json
+    })
+    .then(function(myJson) {
+        // use parseed result
+        console.log("outcome 2");
+        console.log(myJson);
+    });
+
+
+
+    /*
+    const API_PATH = 'http://localhost:8000/index.php';
+    //ReactPDF.render(<MyDocument />, `${__dirname}/example.pdf`);
+    //handleFormSubmit = e => {
+    //  e.preventDefault();
+      axios({
+        method: 'post',
+        url: `${API_PATH}`,
+        headers: { 'content-type': 'application/json' },
+        data: this.state
+      })
+        .then(result => {
+          this.setState({
+            mailSent: result.data.sent
+          })
+        })
+        .catch(error => this.setState({ error: error.message }));
+    //};
+    */
+    console.log("test save end");
   }
-*/
+
   render() {
     var maskPosition = `center`
     
@@ -211,6 +269,31 @@ class App extends React.Component {
       }
     }
 
+    const styles = StyleSheet.create({
+      page: {
+        flexDirection: 'row',
+        backgroundColor: '#E4E4E4'
+      },
+      section: {
+        margin: 10,
+        padding: 10,
+        flexGrow: 1
+      }
+    });
+
+    const MyDocument = () => (
+      <Document>
+        <Page size="A4" style={styles.page}>
+          <View style={styles.section}>
+            <Text>Section #1</Text>
+          </View>
+          <View style={styles.section}>
+            <Text>Section #2</Text>
+          </View>
+        </Page>
+      </Document>
+    );
+
     return (
       <div>
         <meta charSet="UTF-8" />
@@ -228,6 +311,15 @@ class App extends React.Component {
             <p className="fact-times" style={{visibility:`${this.state.mathFact[3] == null ? "hidden" : "visible"}`}}>{this.state.mathFact[3]}</p>
           </div>
           <ScrollingBanner clickFunc = {this.scrollbarRef}/>
+
+          <div className="scrolling-banner-child" onClick = {(() => this.pdfTestSave())}>
+          Default2
+          </div>
+
+          <button onClick={this.pdfTestSave}>Default</button>;
+          <PDFDownloadLink document={<MyDocument />} fileName="somename.pdf">
+            PDF DOWNLOAD
+          </PDFDownloadLink>
         </div>
         <header>
           <span className="times">Bachelor of Design (Communication Design).</span>
