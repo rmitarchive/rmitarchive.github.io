@@ -312,21 +312,22 @@ class App extends React.Component {
 
     formData.append("msg", "deez nuts");
     formData.append("pdf", "na");
+    //formData.append("img1Path", imgOne);
     //formData.append("pdf", pdfResponse);
     formData.append("pdfHTML", pdfHTML);
-    formData.append("pdfName", `${Math.random() * 1000000} - ${Date.now()}.pdf`);
+    formData.append("pdfName", `${Math.random() * 10000000} - ${Date.now()}.pdf`);
 
+    /*
     console.log("FORM DATA: ");
     for (const [key, value] of formData) {
       console.log(`   ${key}: ${value}`);
-    }
+    }*/
     
     axios({
       url: "http://localhost:8000/index.php", 
       method: "POST",
       data: formData,
       headers: {
-        
         'Content-Type': `multipart/form-data; boundary=${formData._boundary}`
     }
     })
@@ -392,13 +393,9 @@ class App extends React.Component {
           </div>
 
         </div>
-   
-
         <div>
             {this.getPage()}
         </div>
-        
-        
         <div className="index-main-BG" style={backgroundStyle}></div>
         <div className="index-main-paper" style={{backgroundImage: `url(${this.paperTextures[0]})`, visibility:`${this.state.currPaperTexture == 0 ? "visible" : "hidden"}`}}></div>
         <div className="index-main-paper" style={{backgroundImage: `url(${this.paperTextures[1]})`, visibility:`${this.state.currPaperTexture == 1 ? "visible" : "hidden"}`}}></div>
