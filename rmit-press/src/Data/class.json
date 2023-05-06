@@ -1,0 +1,149 @@
+{
+    "students": [
+      {
+        "name": "Amelia Rodriguez",
+        "tags": ["identity", "logo"],
+        "title": "placeholder"
+      },
+      {
+        "name": "Angelina Lee",
+        "tags": ["digital", "web"],
+        "title": "placeholder"
+      },
+      {
+        "name": "Brandon Scott",
+        "tags": ["layout"],
+        "title": "placeholder"
+      },
+      {
+        "name": "Brooke Davis",
+        "tags": ["logo", "layout"],
+        "title": "placeholder"
+      },
+      {
+        "name": "Caleb Martinez",
+        "tags": ["digital"],
+        "title": "placeholder"
+      },
+      {
+        "name": "Caroline Clark",
+        "tags": ["layout", "logo"],
+        "title": "placeholder"
+      },
+      {
+        "name": "Chloe Reed",
+        "tags": ["print"],
+        "title": "placeholder"
+      },
+      {
+        "name": "Daniel Wright",
+        "tags": ["digital", "web"],
+        "title": "placeholder"
+      },
+      {
+        "name": "Dylan Hernandez",
+        "tags": ["print", "poster"],
+        "title": "placeholder"
+      },
+      {
+        "name": "Elizabeth Turner",
+        "tags": ["logo"],
+        "title": "placeholder"
+      },
+      {
+        "name": "Ethan Young",
+        "tags": ["web", "print"],
+        "title": "placeholder"
+      },
+      {
+        "name": "Gabriella Morris",
+        "tags": ["digital", "identity"],
+        "title": "placeholder"
+      },
+      {
+        "name": "Grace Baker",
+        "tags": ["layout"],
+        "title": "placeholder"
+      },
+      {
+        "name": "Harper Brown",
+        "tags": ["digital", "logo"],
+        "title": "placeholder"
+      },
+      {
+        "name": "Isaac Johnson",
+        "tags": ["web", "logo"],
+        "title": "placeholder"
+      },
+      {
+        "name": "Isabella Collins",
+        "tags": ["print"],
+        "title": "placeholder"
+      },
+      {
+        "name": "Jacob Ramirez",
+        "tags": ["web"],
+        "title": "placeholder"
+      },
+      {
+        "name": "Jade King",
+        "tags": ["logo", "poster"],
+        "title": "placeholder"
+      },
+      {
+        "name": "Jameson Hall",
+        "tags": ["digital"],
+        "title": "placeholder"
+      },
+      {
+        "name": "Jocelyn Davis",
+        "tags": ["web", "layout"],
+        "title": "placeholder"
+      },
+      {
+        "name": "Jordan Green",
+        "tags": ["logo"],
+        "title": "placeholder"
+      },
+      {
+        "name": "Katherine Cooper",
+        "tags": ["identity"],
+        "title": "placeholder"
+      },
+      {
+        "name": "Kayla Lewis",
+        "tags": ["logo", "web"],
+        "title": "placeholder"
+      },
+      {
+        "name": "Lauren Peterson",
+        "tags": ["web", "logo"],
+        "title": "placeholder"
+      },
+      {
+        "name": "Leah Carter",
+        "tags": ["print"],
+        "title": "placeholder"
+      },
+      {
+        "name": "Leo Taylor",
+        "tags": ["web", "poster"],
+        "title": "placeholder"
+      },
+      {
+        "name": "Lily Anderson",
+        "tags": ["digital"],
+        "title": "placeholder"
+      },
+      {
+        "name": "Logan James",
+        "tags": ["digital"],
+        "title": "placeholder"
+      },
+      {
+        "name": "Lucas Rivera",
+        "tags": ["identity", "layout"],
+        "title": "placeholder"
+      }
+    ]
+  }
