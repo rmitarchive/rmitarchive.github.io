@@ -199,6 +199,8 @@ class App extends React.Component {
       }
     });
 
+    //<Image src={imgThree}/> 
+
     return(
       <Document>
         <Page size="A4" style={styles.page}>
@@ -208,7 +210,7 @@ class App extends React.Component {
           </View>
           <View style={styles.section}>
             <Text>Section #2</Text>
-            <Image src={imgOne}/> 
+            <Image src={imgTwo} cache="True"/>
             <Text>Section #1231232</Text>
           </View>
         </Page>
@@ -216,62 +218,55 @@ class App extends React.Component {
     );
   }
 
+  generatePDFHTML(){
+    return(
+      `<div>1111111111111111<div>
+      <img src="%img1%" width="150" height="150"/>
+      <div>2222222222222<div>
+      `
+    );
+  }
+
   pdfTestSave(){
     console.log("test save start");
-   
+    //console.log(this.generatePDFHTML());
+    console.log("test save start 2");
+    var pdfHTML = `${this.generatePDFHTML()}`;
     const MyDocument = () => (
       this.generatePDF()
     );
 
     pdf(MyDocument()).toString().then(function(pdfResponse) {
     //pdf(MyDocument()).toBlob().then(function(pdfResponse) {
-      console.log("BLOB RESPONSE: " + pdfResponse);
-      console.log("BLOB RESPONSE STRINGIFY: " + JSON.stringify(pdfResponse));
-      console.log(pdfResponse.size);
+      //console.log("BLOB RESPONSE: " + pdfResponse);
+      //console.log("BLOB RESPONSE STRINGIFY: " + JSON.stringify(pdfResponse));
+      //console.log(pdfResponse.size);
 
       var formData = new FormData();
 
       formData.append("msg", "deez nuts");
-      formData.append("pdf", pdfResponse);
+      formData.append("pdf", "na");
+      //formData.append("pdf", pdfResponse);
+      formData.append("pdfHTML", pdfHTML);
       formData.append("pdfName", `${Math.random() * 1000000} - ${Date.now()}.pdf`);
 
       console.log("FORM DATA: ");
       for (const [key, value] of formData) {
         console.log(`   ${key}: ${value}`);
       }
-      /*fetch('http://localhost:8000/index.php', { // URL
-          //fetch('http://localhost:8000/index.php', { // URL
-          //body: JSON.stringify(this.state), // data you send.
-          body: formData, // data you send.
-          cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-          headers: {
-            //'content-type': 'application/json',
-            'content-type': 'multipart/form-data',
-          },
-          method: 'POST', // *GET, POST, PUT, DELETE, etc.
-          mode: 'no-cors', // no-cors, cors, *same-origin
-          redirect: 'follow', // *manual, follow, error
-          referrer: 'no-referrer', // *client, no-referrer
-      })*/
+      
       axios({
         url: "http://localhost:8000/index.php", 
         method: "POST",
         data: formData,
         headers: {
-          //"content-type": "multipart/form-data"
-          //'content-type': 'application/json',
-          //'Content-Type': `multipart/form-data`
+          
           'Content-Type': `multipart/form-data; boundary=${formData._boundary}`
       }
       })
       .then(function(response) {
-          // manipulate response object
-          // check status @ response.status etc.
           console.log("outcome 1");
-          console.log(response);
-          //console.log(response.json());
-          //console.log(JSON.stringify(response.json()));
-          //return response.json(); // parses json
+          console.log(response);          
       })
       .then(function(myJson) {
           // use parseed result
@@ -279,30 +274,6 @@ class App extends React.Component {
           console.log(myJson);
       });
     });
-
-    
-
-
-
-    /*
-    const API_PATH = 'http://localhost:8000/index.php';
-    //ReactPDF.render(<MyDocument />, `${__dirname}/example.pdf`);
-    //handleFormSubmit = e => {
-    //  e.preventDefault();
-      axios({
-        method: 'post',
-        url: `${API_PATH}`,
-        headers: { 'content-type': 'application/json' },
-        data: this.state
-      })
-        .then(result => {
-          this.setState({
-            mailSent: result.data.sent
-          })
-        })
-        .catch(error => this.setState({ error: error.message }));
-    //};
-    */
     console.log("test save end");
   }
 
