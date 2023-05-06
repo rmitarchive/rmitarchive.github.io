@@ -10,12 +10,17 @@ import ScrollingBanner from "./ScrollingBanner";
 import ThreeJS from "./ThreeJS";
 import React from 'react';
 
+import ClassJSON from "./Data/class.json"
+
 import paperText1 from "./Img/test-paper-texture.png";
 import paperText2 from "./Img/test-paper-texture-2.png";
 import paperText3 from "./Img/test-paper-texture-3.png";
 import paperText4 from "./Img/test-paper-texture-4.png";
 import paperText5 from "./Img/test-paper-texture-5.png";
 
+import axios from 'axios';
+//import { Page, Text, View, Document, StyleSheet, ReactPDF } from '@react-pdf/renderer';
+//https://medium.com/craftcode-design/how-to-build-a-contact-form-with-react-js-and-php-d5977c17fec0
 //<marquee behavior="alternate">Test test test</marquee>
 class App extends React.Component {
   constructor(props){
@@ -58,6 +63,17 @@ class App extends React.Component {
       mouseXWas: 0,
       mouseYWas: 0,
       mathFact: [null, null, null, null],
+      indexFilter: {
+        digital: false,
+        identity: false,
+        logo: false,
+        print: false,
+        poster: false,
+        layout: false,
+        web: false
+      },
+      textFilter : ""
+
     }    
 
     setInterval(() => {
@@ -139,31 +155,129 @@ class App extends React.Component {
     this.setState({currHoverImg: null});
   }
 
-  getFullIndex(props){
-    let list = []
-    for(var i = 0; i< 50; i++){
-      let img = i % 2 == 0 ? imgOne : imgTwo;
-      list.push(<dt className="index-dt"><img src={img} className="index-tiny-img"/><p className="index-times">{i.toString().padStart(3, '0')}</p></dt>);
-    }
+  applyIndexFilter(pressedFilter){
+    var newIndexFilter = this.state.indexFilter;
+    newIndexFilter[pressedFilter] = !newIndexFilter[pressedFilter];
+    this.setState({
+      indexFilter: newIndexFilter
+    });
+
+    console.log("STATE: "  + JSON.stringify(this.state));
+    /*
+    console.log("PRESSED: " + pressedFilter);
+    if(this.state.indexFilter.includes(pressedFilter)){
+      this.state.indexFilter = this.state.indexFilter.remo
+    }*/
+  }
+
+  getListOfWorks(){
+    let classHTML = [];
+    let currLetter = null;
+    let currID = 0;
+
+    ClassJSON.students.forEach(student => {
+      if(student.name.toUpperCase().includes(this.state.textFilter.toUpperCase())){
+        console.log("student: " + JSON.stringify(student));
+        if(currLetter != student.name[0]){
+          if(currLetter != null){
+            classHTML.push(<br/>);
+          }
+          currLetter = student.name[0];
+          classHTML.push(<div>{currLetter}</div>);
+        }
+
+        classHTML.push(<ArtPiece hoverOverTextFunc={this.testHover} 
+          hoverExitTextFunc={this.clearHover} 
+          id={currID} 
+          img={imgTwo} 
+          coreInfo={student}
+          currFilter={this.state.indexFilter}
+          key={currID}
+          />);
+      }
+      currID++;
+    });
 
     return(
-        <div className="index-right">
-          <dl>
-            {list}
-          </dl>
-        </div>
+      classHTML
     );
   }
 
+  updateTextFilter(newText){
+    console.log("newtext: " + newText);
+    this.setState({
+      textFilter: newText
+    });
+  }
+
   getPage(){
-    //console.log(`changeCurrentPageIndex/ ${JSON.stringify(this.scrollbarRef)} - ${this.scrollbarRef.state}`);
     if(this.scrollbarRef != null){
       switch(this.scrollbarRef.current){
         case 0:
           return(
-            <div className="index-content"> 
-              <ArtPiece hoverOverTextFunc={this.testHover} hoverExitTextFunc={this.clearHover} id="001" img={imgOne} title="Nicholas Gleeson, Arpeggiated Visualiser, 2023."/>
-              <ArtPiece hoverOverTextFunc={this.testHover} hoverExitTextFunc={this.clearHover} id="002" img={imgTwo} title="Zach Micallef, Icarus, 2023."/>            
+            <div>
+              <div className="content" >
+                <div className="left" >
+                  <div className="title-container">
+                    <span className="header">PRESS</span>
+                    <br/><br/>
+                    <a className="header">Print Screen</a>
+                    <br/><br/>
+                    <input className="search-bar" placeholder="Search..." onChange={e => this.updateTextFilter(e.target.value)}>
+                    </input>
+                  </div>
+                  <div className="student-names"> 
+                    {this.getListOfWorks()}
+                  </div>
+                </div>
+                
+                <div className="right">
+                  <div>Filters</div>
+                  <br/>
+                  <a className="filter digital" 
+                  onClick = {(() => this.applyIndexFilter("digital"))}
+                  style={{color: this.state.indexFilter["digital"] ? "#840032" : "black"}}>
+                    Digital
+                  </a>
+
+                  <a className="filter identity" 
+                  onClick = {(() => this.applyIndexFilter("identity"))}
+                  style={{color: this.state.indexFilter["identity"] ? "#E59500" : "black"}}>
+                    Identity
+                  </a>
+
+                  <a className="filter logo" 
+                  onClick = {(() => this.applyIndexFilter("logo"))}
+                  style={{color: this.state.indexFilter["logo"] ? "#002642" : "black"}}>
+                    Logo
+                  </a>
+
+                  <a className="filter print" 
+                  onClick = {(() => this.applyIndexFilter("print"))}
+                  style={{color: this.state.indexFilter["print"] ? "#04A777" : "black"}}>
+                    Print
+                  </a>
+
+                  <a className="filter poster" 
+                  onClick = {(() => this.applyIndexFilter("poster"))}
+                  style={{color: this.state.indexFilter["poster"] ? "#5398BE" : "black"}}>
+                    Poster
+                  </a>
+
+                  <a className="filter layout" 
+                  onClick = {(() => this.applyIndexFilter("layout"))}
+                  style={{color: this.state.indexFilter["layout"] ? "#D4E79E" : "black"}}>
+                    Layout
+                  </a>
+
+                  <a className="filter web" 
+                  onClick = {(() => this.applyIndexFilter("web"))}
+                  style={{color: this.state.indexFilter["web"] ? "#EEFC57" : "black"}}>
+                    Web
+                  </a>
+
+                </div>
+              </div>
             </div>
           );
         case 3:
@@ -180,11 +294,56 @@ class App extends React.Component {
       <div>uh oh ewwow : ( </div>
     );
   }
-/*
-  changeCurrentPageIndex = (data) => {
-    console.log("changeCurrentPageIndex HIT");
+
+  generatePDFHTML(){
+    return(
+      `<div>1111111111111111<div>
+      <img src="%img1%" width="150" height="150"/>
+      <div>2222222222222<div>
+      `
+    );
   }
-*/
+
+  pdfTestSave(){
+    console.log("test save start");
+    
+    var pdfHTML = `${this.generatePDFHTML()}`;
+    var formData = new FormData();
+
+    formData.append("msg", "deez nuts");
+    formData.append("pdf", "na");
+    //formData.append("img1Path", imgOne);
+    //formData.append("pdf", pdfResponse);
+    formData.append("pdfHTML", pdfHTML);
+    formData.append("pdfName", `${Math.random() * 10000000} - ${Date.now()}.pdf`);
+
+    /*
+    console.log("FORM DATA: ");
+    for (const [key, value] of formData) {
+      console.log(`   ${key}: ${value}`);
+    }*/
+    
+    axios({
+      url: "http://localhost:8000/index.php", 
+      method: "POST",
+      data: formData,
+      headers: {
+        'Content-Type': `multipart/form-data; boundary=${formData._boundary}`
+    }
+    })
+    .then(function(response) {
+        console.log("outcome 1");
+        console.log(response);          
+    })
+    .then(function(myJson) {
+        // use parseed result
+        console.log("outcome 2");
+        console.log(myJson);
+    });
+
+    console.log("test save end");
+  }
+
   render() {
     var maskPosition = `center`
     
@@ -228,27 +387,22 @@ class App extends React.Component {
             <p className="fact-times" style={{visibility:`${this.state.mathFact[3] == null ? "hidden" : "visible"}`}}>{this.state.mathFact[3]}</p>
           </div>
           <ScrollingBanner clickFunc = {this.scrollbarRef}/>
+
+          <div className="scrolling-banner-child" onClick = {(() => this.pdfTestSave())}>
+          Default2
+          </div>
+
         </div>
-        <header>
-          <span className="times">Bachelor of Design (Communication Design).</span>
-          <span className="helvetica"> Graduate Exhibition. June 15.</span>
-          <span className="times">Bowen Street. (Event is Wheelchair Accessible)</span>                 
-        </header>
-        <footer>
-          <span className="helvetica">www.rmit.edu.au</span>
-          <br />
-          <span className="helvetica">www.instagram.com/designrmit</span>
-        </footer>  
+        <div>
+            {this.getPage()}
+        </div>
         <div className="index-main-BG" style={backgroundStyle}></div>
         <div className="index-main-paper" style={{backgroundImage: `url(${this.paperTextures[0]})`, visibility:`${this.state.currPaperTexture == 0 ? "visible" : "hidden"}`}}></div>
         <div className="index-main-paper" style={{backgroundImage: `url(${this.paperTextures[1]})`, visibility:`${this.state.currPaperTexture == 1 ? "visible" : "hidden"}`}}></div>
         <div className="index-main-paper" style={{backgroundImage: `url(${this.paperTextures[2]})`, visibility:`${this.state.currPaperTexture == 2 ? "visible" : "hidden"}`}}></div>
         <div className="index-main-paper" style={{backgroundImage: `url(${this.paperTextures[3]})`, visibility:`${this.state.currPaperTexture == 3 ? "visible" : "hidden"}`}}></div>
         <div className="index-main-paper" style={{backgroundImage: `url(${this.paperTextures[4]})`, visibility:`${this.state.currPaperTexture == 4 ? "visible" : "hidden"}`}}></div>
-        <div className="index-main" >
-          {this.getPage()}
-        </div>
-        <this.getFullIndex/>
+        
       </div>
     );
   }
