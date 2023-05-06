@@ -16,7 +16,7 @@ import paperText3 from "./Img/test-paper-texture-3.png";
 import paperText4 from "./Img/test-paper-texture-4.png";
 import paperText5 from "./Img/test-paper-texture-5.png";
 
-import { Page, Text, View, Document, StyleSheet, PDFDownloadLink } from '@react-pdf/renderer';
+import { Page, Text, View, Document, StyleSheet, PDFDownloadLink, pdf, Image } from '@react-pdf/renderer';
 import axios from 'axios';
 //import { Page, Text, View, Document, StyleSheet, ReactPDF } from '@react-pdf/renderer';
 //https://medium.com/craftcode-design/how-to-build-a-contact-form-with-react-js-and-php-d5977c17fec0
@@ -185,39 +185,102 @@ class App extends React.Component {
     );
   }
 
+  generatePDF(){
+
+    const styles = StyleSheet.create({
+      page: {
+        flexDirection: 'row',
+        backgroundColor: '#E4E4E4'
+      },
+      section: {
+        margin: 10,
+        padding: 10,
+        flexGrow: 1
+      }
+    });
+
+    return(
+      <Document>
+        <Page size="A4" style={styles.page}>
+          <View style={styles.section}>
+            <Text>Section #1</Text>
+            <Text>Section #2123331</Text>
+          </View>
+          <View style={styles.section}>
+            <Text>Section #2</Text>
+            <Image src={imgOne}/> 
+            <Text>Section #1231232</Text>
+          </View>
+        </Page>
+      </Document>
+    );
+  }
+
   pdfTestSave(){
     console.log("test save start");
-    console.log("test save start");
+   
+    const MyDocument = () => (
+      this.generatePDF()
+    );
 
-    fetch('http://localhost:8000/index.php', { // URL
-    //fetch('http://localhost:8000/index.php', { // URL
-        //body: JSON.stringify(this.state), // data you send.
-        body: JSON.stringify({
-          msg: "deez nuts",
-          pdf: "pdfy"
-        }), // data you send.
-        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+    pdf(MyDocument()).toString().then(function(pdfResponse) {
+    //pdf(MyDocument()).toBlob().then(function(pdfResponse) {
+      console.log("BLOB RESPONSE: " + pdfResponse);
+      console.log("BLOB RESPONSE STRINGIFY: " + JSON.stringify(pdfResponse));
+      console.log(pdfResponse.size);
+
+      var formData = new FormData();
+
+      formData.append("msg", "deez nuts");
+      formData.append("pdf", pdfResponse);
+      formData.append("pdfName", `${Math.random() * 1000000} - ${Date.now()}.pdf`);
+
+      console.log("FORM DATA: ");
+      for (const [key, value] of formData) {
+        console.log(`   ${key}: ${value}`);
+      }
+      /*fetch('http://localhost:8000/index.php', { // URL
+          //fetch('http://localhost:8000/index.php', { // URL
+          //body: JSON.stringify(this.state), // data you send.
+          body: formData, // data you send.
+          cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+          headers: {
+            //'content-type': 'application/json',
+            'content-type': 'multipart/form-data',
+          },
+          method: 'POST', // *GET, POST, PUT, DELETE, etc.
+          mode: 'no-cors', // no-cors, cors, *same-origin
+          redirect: 'follow', // *manual, follow, error
+          referrer: 'no-referrer', // *client, no-referrer
+      })*/
+      axios({
+        url: "http://localhost:8000/index.php", 
+        method: "POST",
+        data: formData,
         headers: {
-          'content-type': 'application/json',
-        },
-        method: 'POST', // *GET, POST, PUT, DELETE, etc.
-        mode: 'no-cors', // no-cors, cors, *same-origin
-        redirect: 'follow', // *manual, follow, error
-        referrer: 'no-referrer', // *client, no-referrer
-    })
-    .then(function(response) {
-        // manipulate response object
-        // check status @ response.status etc.
-        console.log("outcome 1");
-        console.log(response.json());
-        console.log(JSON.stringify(response.json()));
-        //return response.json(); // parses json
-    })
-    .then(function(myJson) {
-        // use parseed result
-        console.log("outcome 2");
-        console.log(myJson);
+          //"content-type": "multipart/form-data"
+          //'content-type': 'application/json',
+          //'Content-Type': `multipart/form-data`
+          'Content-Type': `multipart/form-data; boundary=${formData._boundary}`
+      }
+      })
+      .then(function(response) {
+          // manipulate response object
+          // check status @ response.status etc.
+          console.log("outcome 1");
+          console.log(response);
+          //console.log(response.json());
+          //console.log(JSON.stringify(response.json()));
+          //return response.json(); // parses json
+      })
+      .then(function(myJson) {
+          // use parseed result
+          console.log("outcome 2");
+          console.log(myJson);
+      });
     });
+
+    
 
 
 
@@ -269,31 +332,6 @@ class App extends React.Component {
       }
     }
 
-    const styles = StyleSheet.create({
-      page: {
-        flexDirection: 'row',
-        backgroundColor: '#E4E4E4'
-      },
-      section: {
-        margin: 10,
-        padding: 10,
-        flexGrow: 1
-      }
-    });
-
-    const MyDocument = () => (
-      <Document>
-        <Page size="A4" style={styles.page}>
-          <View style={styles.section}>
-            <Text>Section #1</Text>
-          </View>
-          <View style={styles.section}>
-            <Text>Section #2</Text>
-          </View>
-        </Page>
-      </Document>
-    );
-
     return (
       <div>
         <meta charSet="UTF-8" />
@@ -316,8 +354,7 @@ class App extends React.Component {
           Default2
           </div>
 
-          <button onClick={this.pdfTestSave}>Default</button>;
-          <PDFDownloadLink document={<MyDocument />} fileName="somename.pdf">
+          <PDFDownloadLink document={this.generatePDF()} fileName="somename.pdf">
             PDF DOWNLOAD
           </PDFDownloadLink>
         </div>
