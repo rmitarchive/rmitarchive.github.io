@@ -29,7 +29,7 @@
         <div class="student-expand expand hidden">
           <span class="student-desc">Untitled, 2023.</span>
           <div id="draggable" onmousedown="dragElement(this)">
-              <img src="images/press1.jpg">
+              <img draggable="false" src="images/press1.jpg">
             
           </div>
         </div>
@@ -38,7 +38,7 @@
         <div class="student-expand expand hidden">
           <span class="student-desc">Untitled, 2023.</span>
           <div id="draggable" onmousedown="dragElement(this)">
-              <img src="images/press2.jpg">
+              <img draggable="false" src="images/press2.jpg">
           </div>
         </div>
 
@@ -46,7 +46,7 @@
         <div class="student-expand expand hidden">
           <span class="student-desc">Untitled, 2023.</span>
           <div id="draggable" onmousedown="dragElement(this)">
-              <img src="images/press3.jpg">
+              <img draggable="false" src="images/press3.jpg">
           </div>
         </div>
         <br>
@@ -56,14 +56,14 @@
         <div class="student-expand expand hidden">
           <span class="student-desc">Untitled, 2023.</span>
           <div id="draggable" onmousedown="dragElement(this)">
-              <img src="images/press4.jpg">
+              <img draggable="false" src="images/press4.jpg">
           </div>
         </div>
         <a class="student logo layout click-to-expand">Brooke Davis</a>
         <div class="student-expand expand hidden">
           <span class="student-desc">Untitled, 2023.</span>
           <div id="draggable" onmousedown="dragElement(this)">
-              <img src="images/press5.jpg">
+              <img draggable="false" src="images/press5.jpg">
           </div>
         </div>
         <br>
@@ -73,21 +73,21 @@
         <div class="student-expand expand hidden">
           <span class="student-desc">Untitled, 2023.</span>
           <div id="draggable" onmousedown="dragElement(this)">
-              <img src="images/press6.jpg">
+              <img draggable="false" src="images/press6.jpg">
           </div>
         </div>
         <a class="student layout logo click-to-expand">Caroline Clark</a>
         <div class="student-expand expand hidden">
           <span class="student-desc">Untitled, 2023.</span>
           <div id="draggable" onmousedown="dragElement(this)">
-              <img src="images/press7.jpg">
+              <img draggable="false" src="images/press7.jpg">
           </div>
         </div>
         <a class="student print click-to-expand">Chloe Reed</a>
         <div class="student-expand expand hidden">
           <span class="student-desc">Untitled, 2023.</span>
           <div id="draggable" onmousedown="dragElement(this)">
-              <img src="images/press8.jpg">
+              <img draggable="false" src="images/press8.jpg">
           </div>
         </div>
         <br>
@@ -184,23 +184,11 @@
     }}
   }
 
-  var draggableElements = document.getElementsById("draggable");
-  for (var i = 0; i < draggableElements.length; ++i) {
-    var item = draggableElements[i]; 
-    dragElement(item); 
-  }
 
-
-  function dragElement(elmnt) {
+function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-  if (document.getElementById(elmnt.id + "null")) {
-    // if present, the header is where you move the DIV from: (theres no header but i dont know how to make it work without this check)
-    document.getElementById(elmnt.id + "null").onmousedown = dragMouseDown;
-  } else {
-    // otherwise, move the DIV from anywhere inside the DIV: 
-    elmnt.onmousedown = dragMouseDown;
-  }
-
+  dragMouseDown();
+    
   function dragMouseDown(e) {
     e = e || window.event;
     e.preventDefault();
@@ -229,7 +217,8 @@
     // stop moving when mouse button is released:
     document.onmouseup = null;
     document.onmousemove = null;
-  }}
+  }
+}
 
 </script>
 
