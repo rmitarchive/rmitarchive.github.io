@@ -59,8 +59,6 @@ html, body {
     flex-direction: column;
     height:auto;
     box-sizing: border-box;
-    padding:0.5em;
-    margin-bottom: 1em;
 }
 
 .left .student-expand img {
@@ -91,12 +89,7 @@ html, body {
     position: absolute;
     z-index: 9;
     text-align: center;
-}
-  
-#draggableimg {
-    padding: 10px;
     cursor: move;
-    z-index: 10;
 }
 
 a {
