@@ -177,7 +177,7 @@ class App extends React.Component {
 
     ClassJSON.students.forEach(student => {
       if(student.name.toUpperCase().includes(this.state.textFilter.toUpperCase())){
-        console.log("student: " + JSON.stringify(student));
+        //console.log("student: " + JSON.stringify(student));
         if(currLetter != student.name[0]){
           if(currLetter != null){
             classHTML.push(<br/>);

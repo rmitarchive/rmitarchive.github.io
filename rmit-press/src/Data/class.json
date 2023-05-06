@@ -3,147 +3,176 @@
       {
         "name": "Amelia Rodriguez",
         "tags": ["identity", "logo"],
-        "title": "placeholder"
+        "title": "placeholder",
+        "image": "press1.jpg"
       },
       {
         "name": "Angelina Lee",
         "tags": ["digital", "web"],
-        "title": "placeholder"
+        "title": "placeholder",
+        "image": "press2.jpg"
       },
       {
         "name": "Brandon Scott",
         "tags": ["layout"],
-        "title": "placeholder"
+        "title": "placeholder",
+        "image": "press3.jpg"
       },
       {
         "name": "Brooke Davis",
         "tags": ["logo", "layout"],
-        "title": "placeholder"
+        "title": "placeholder",
+        "image": "press4.jpg"
       },
       {
         "name": "Caleb Martinez",
         "tags": ["digital"],
-        "title": "placeholder"
+        "title": "placeholder",
+        "image": "press5.jpg"
       },
       {
         "name": "Caroline Clark",
         "tags": ["layout", "logo"],
-        "title": "placeholder"
+        "title": "placeholder",
+        "image": "press6.jpg"
       },
       {
         "name": "Chloe Reed",
         "tags": ["print"],
-        "title": "placeholder"
+        "title": "placeholder",
+        "image": "press7.jpg"
       },
       {
         "name": "Daniel Wright",
         "tags": ["digital", "web"],
-        "title": "placeholder"
+        "title": "placeholder",
+        "image": "press8.jpg"
       },
       {
         "name": "Dylan Hernandez",
         "tags": ["print", "poster"],
-        "title": "placeholder"
+        "title": "placeholder",
+        "image": "press1.jpg"
       },
       {
         "name": "Elizabeth Turner",
         "tags": ["logo"],
-        "title": "placeholder"
+        "title": "placeholder",
+        "image": "press2.jpg"
       },
       {
         "name": "Ethan Young",
         "tags": ["web", "print"],
-        "title": "placeholder"
+        "title": "placeholder",
+        "image": "press3.jpg"
       },
       {
         "name": "Gabriella Morris",
         "tags": ["digital", "identity"],
-        "title": "placeholder"
+        "title": "placeholder",
+        "image": "press4.jpg"
       },
       {
         "name": "Grace Baker",
         "tags": ["layout"],
-        "title": "placeholder"
+        "title": "placeholder",
+        "image": "press5.jpg"
       },
       {
         "name": "Harper Brown",
         "tags": ["digital", "logo"],
-        "title": "placeholder"
+        "title": "placeholder",
+        "image": "press6.jpg"
       },
       {
         "name": "Isaac Johnson",
         "tags": ["web", "logo"],
-        "title": "placeholder"
+        "title": "placeholder",
+        "image": "press7.jpg"
       },
       {
         "name": "Isabella Collins",
         "tags": ["print"],
-        "title": "placeholder"
+        "title": "placeholder",
+        "image": "press8.jpg"
       },
       {
         "name": "Jacob Ramirez",
         "tags": ["web"],
-        "title": "placeholder"
+        "title": "placeholder",
+        "image": "press1.jpg"
       },
       {
         "name": "Jade King",
         "tags": ["logo", "poster"],
-        "title": "placeholder"
+        "title": "placeholder",
+        "image": "press2.jpg"
       },
       {
         "name": "Jameson Hall",
         "tags": ["digital"],
-        "title": "placeholder"
+        "title": "placeholder",
+        "image": "press3.jpg"
       },
       {
         "name": "Jocelyn Davis",
         "tags": ["web", "layout"],
-        "title": "placeholder"
+        "title": "placeholder",
+        "image": "press4.jpg"
       },
       {
         "name": "Jordan Green",
         "tags": ["logo"],
-        "title": "placeholder"
+        "title": "placeholder",
+        "image": "press5.jpg"
       },
       {
         "name": "Katherine Cooper",
         "tags": ["identity"],
-        "title": "placeholder"
+        "title": "placeholder",
+        "image": "press6.jpg"
       },
       {
         "name": "Kayla Lewis",
         "tags": ["logo", "web"],
-        "title": "placeholder"
+        "title": "placeholder",
+        "image": "press7.jpg"
       },
       {
         "name": "Lauren Peterson",
         "tags": ["web", "logo"],
-        "title": "placeholder"
+        "title": "placeholder",
+        "image": "press8.jpg"
       },
       {
         "name": "Leah Carter",
         "tags": ["print"],
-        "title": "placeholder"
+        "title": "placeholder",
+        "image": "press1.jpg"
       },
       {
         "name": "Leo Taylor",
         "tags": ["web", "poster"],
-        "title": "placeholder"
+        "title": "placeholder",
+        "image": "press2.jpg"
       },
       {
         "name": "Lily Anderson",
         "tags": ["digital"],
-        "title": "placeholder"
+        "title": "placeholder",
+        "image": "press3.jpg"
       },
       {
         "name": "Logan James",
         "tags": ["digital"],
-        "title": "placeholder"
+        "title": "placeholder",
+        "image": "press4.jpg"
       },
       {
         "name": "Lucas Rivera",
         "tags": ["identity", "layout"],
-        "title": "placeholder"
+        "title": "placeholder",
+        "image": "press5.jpg"
       }
     ]
   }

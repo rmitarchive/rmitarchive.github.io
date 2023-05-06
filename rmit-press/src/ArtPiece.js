@@ -5,7 +5,7 @@ import React from 'react';
 class ArtPiece extends React.Component {
     constructor(props){
       super(props);
-      console.log("TEST: " + JSON.stringify(props));
+      //console.log("TEST: " + JSON.stringify(props));
       this.state = {
         id: props.id,
         img: props.img,
@@ -14,8 +14,96 @@ class ArtPiece extends React.Component {
         hoverExitTextFunc: props.hoverExitTextFunc,
 
         coreInfo: props.coreInfo,
-        currFilter: props.currFilter
+        currFilter: props.currFilter,
+
+        imageShown: false,
+        imageMoved: false,
+        imageMoving: false,
+
+        offsetX: 0,
+        offsetY: 0,
+        currX: 0,
+        currY: 0,
+
       };
+    }
+
+    clickText(props) {
+      console.log("MOUSE DOWN");
+      this.setState({
+        imageShown: !this.state.imageShown
+      })
+    }
+
+    startDragElement(props) {
+      let e = window.event;
+      console.log("MOUSE DOWN 2");
+        
+      const textElement = document.getElementById(`${this.state.id}Img`);
+      let textRect = textElement.getBoundingClientRect();
+
+
+      this.setState({
+        imageMoved: true,
+        imageMoving: true,
+        offsetX: e.clientX - textRect.left,
+        offsetY: e.clientY - textRect.top,
+        currX: textRect.left,
+        currY: textRect.top,
+      })
+
+      this.continueDragElement();
+    }
+
+    stopDragElement(props) {
+      console.log("MOUSE DOWN 3");
+      this.setState({
+        imageMoving: false
+      })
+    }
+
+    continueDragElement(props) {
+
+      if(this.state.imageMoving){
+        let e = window.event;      
+        console.log("MOUSE DOWN 2");
+
+        const textElement = document.getElementById(`${this.state.id}Img`);
+        let textRect = textElement.getBoundingClientRect();
+
+        this.setState({
+          currX: e.clientX - this.state.offsetX,
+          currY: e.clientY - this.state.offsetY
+        })
+      }
+    }
+
+    getImage(){
+      
+      if(this.state.imageMoved){
+        return(
+          <img className="dragImg"
+            id={`${this.state.id}Img`}
+            draggable="false" 
+            src={require(`./Img/${this.state.coreInfo.image}`)}
+            style={{
+              position: "absolute",
+              left: `${this.state.currX}px`,
+              top: `${this.state.currY}px`
+            }}
+            onMouseDown={() => this.continueDragElement(this.state)}
+            />
+        );
+      }else{
+        return(
+          <img className="dragImg"
+            id={`${this.state.id}Img`}
+            draggable="false" 
+            src={require(`./Img/${this.state.coreInfo.image}`)}
+            onMouseDown={() => this.startDragElement(this.state)}
+            />
+      );
+      }
     }
 
     render() {
@@ -79,17 +167,27 @@ class ArtPiece extends React.Component {
         addedColor = [addedColor[0] / colors.length, addedColor[1] / colors.length, addedColor[2] / colors.length];
       }
 
-      console.log("NAME: " + this.state.coreInfo.name);
+      //console.log("NAME: " + this.state.coreInfo.name);
 
       return(<div>
                 <a id={this.state.id} 
                   className="student" 
                   style={{color: `rgb(${addedColor[0]}, ${addedColor[1]}, ${addedColor[2]})`}}
                   onMouseLeave={() => this.state.hoverExitTextFunc(this.state)} 
-                  onMouseMove={() => this.state.hoverOverTextFunc(this.state)}>
+                  onMouseMove={() => this.state.hoverOverTextFunc(this.state)}
+                  onMouseDown={() => this.clickText(this.state)}
+                  >
 
                     {this.state.coreInfo.name} {filteredIn ? `, ${this.state.coreInfo.title}, 2023.` : ""}
                 </a>
+                <div style={{display: this.state.imageShown ? "inherit" : "none"}} 
+                id="draggable" 
+                onMouseDown={() => this.startDragElement(this.state)}
+                onMouseMove={() => this.continueDragElement(this.state)}
+                onMouseUp={() => this.stopDragElement(this.state)}
+                >
+                  {this.getImage()}
+              </div>
               </div>)
     }
   }
