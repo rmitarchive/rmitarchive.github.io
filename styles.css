@@ -108,5 +108,16 @@ a:hover, .active {
 
 @media only screen and (max-device-width : 1024px) { 
     
+.right {
+    display: none;
+}
+
+.left {
+    width: 100%;
+}
+
+.search-bar {
+    display: none;
+}
 
 }
