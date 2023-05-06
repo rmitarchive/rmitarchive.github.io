@@ -3,6 +3,11 @@
     src: url("NeueHaasUnica-Medium.ttf");
 }
 
+@font-face {
+    font-family: 'Pantasia';
+    src: url("Pantasia-Regular.otf");
+}
+
 * {
     text-rendering: geometricPrecision;
     font-family: "Unica", Helvetica;
@@ -50,7 +55,6 @@ html, body {
 }
 
 .left .student-expand {
-    display:none;
     flex-direction: column;
     height:auto;
     box-sizing: border-box;
@@ -58,15 +62,15 @@ html, body {
     margin-bottom: 1em;
 }
 
-.left .student-expand span {
-    font-family: Courier New;
-    font-size: 0.8em;
-    margin-bottom: 1em;
-}
-
 .left .student-expand img {
     max-width:15em;
     height:auto;
+    z-index:10;
+}
+
+.left .student-expand .student-desc {
+    font-family: 'Pantasia';
+    font-size: 0.7em;
 }
 
 .right {
@@ -79,6 +83,19 @@ html, body {
     overflow: auto;
     box-sizing: border-box;
     padding: 0.5em;
+    z-index:0;
+}
+
+#draggable {
+    position: absolute;
+    z-index: 9;
+    text-align: center;
+}
+  
+#draggableimg {
+    padding: 10px;
+    cursor: move;
+    z-index: 10;
 }
 
 a {
@@ -89,6 +106,10 @@ a:hover, .active {
     color:white;
     background-color: black;
     cursor: pointer;
+}
+
+.hidden {
+    display: none
 }
 
 @media only screen and (max-device-width : 1024px) { 

@@ -11,6 +11,7 @@
 <body>
 
 <div class="content">
+
     <div class="left">
 
       <div class="title-container">
@@ -24,14 +25,35 @@
       <div class="student-names">
     
         <div>A</div>
-        <a class="student web print" onclick="toggleContent()">Abigail Thompson</a>
-        <div class="student-expand" id="expand">
-          <span>Arpeggiated Visual, 2023.</span>
-          <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis a dolorem assumenda natus ex enim placeat laudantium, magnam qui et autem maxime omnis porro accusamus amet possimus delectus fuga, modi debitis deserunt nesciunt, nam perferendis. Deleniti dolore ducimus rem odit in? Quaerat amet nobis minus suscipit natus doloremque illo eius.</span>
-          <img src="Screenshot 2023-04-25 at 2.06.05 pm.png">
+        <a class="student web print click-to-expand">Abigail Thompson</a>
+        <div class="student-expand expand hidden">
+          <span class="student-desc">Arpeggiated Visualiser, 2023.</span>
+          <div id="draggable" onmousedown="dragElement(this)">
+            <div id="draggableimg">
+              <img src="images/press1.jpg">
+            </div>
+          </div>
         </div>
-        <a class="student identity logo">Amelia Rodriguez</a>
-        <a class="student digital web">Angelina Lee</a>
+
+        <a class="student identity logo click-to-expand">Amelia Rodriguez</a>
+        <div class="student-expand expand hidden">
+          <span class="student-desc">Pressure, 2022.</span>
+          <div id="draggable" onmousedown="dragElement(this)">
+            <div id="draggableimg">
+              <img src="images/press2.jpg" style="transform: translateX(200px);">
+            </div>
+          </div>
+        </div>
+
+        <a class="student digital web click-to-expand">Angelina Lee</a>
+        <div class="student-expand expand hidden">
+          <span class="student-desc">Manifestations, 2023.</span>
+          <div id="draggable" onmousedown="dragElement(this)">
+            <div id="draggableimg">
+              <img src="images/press3.jpg" style="transform: translateY(200px);">
+            </div>
+          </div>
+          </div>
         <br>
     
         <div>B</div>
@@ -105,36 +127,84 @@
       <a class="filter poster" onclick="selectFilter('poster')">Poster</a>
       <a class="filter layout" onclick="selectFilter('layout')">Layout</a>
       <a class="filter web" onclick="selectFilter('web')">Web</a>
-  </div>
-
     </div>
+
 </div>
+
+
 
 <script>    
 
-  var expandContent = document.getElementById('expand');
 
-    function toggleContent() {
-      if (expandContent.style.display === "none") {
-        expandContent.style.display = "flex";
-      } else { 
-        expandContent.style.display = "none";
-      }
-    }
+  var expandArray = document.querySelectorAll('.expand');
+  var buttonArray = document.querySelectorAll('.click-to-expand');
+
+  document.querySelectorAll('.click-to-expand').forEach(function(i) {
+    i.addEventListener('click', function(e) {
+      const clickedBtnIndex = [...buttonArray].indexOf(e.target);
+      expandArray[clickedBtnIndex].classList.toggle("hidden");
+    })
+  });
 
 
-    
-    
-    function selectFilter(id) {
-      var cusid_ele = document.getElementsByClassName(id);
-      for (var i = 0; i < cusid_ele.length; ++i) {
-      var item = cusid_ele[i]; 
-      if (item.classList.contains("active")) {
-        item.classList.remove('active');
-      } else {
-        item.classList.add('active');
-      }}
-    }
+
+  function selectFilter(id) {
+    var cusid_ele = document.getElementsByClassName(id);
+    for (var i = 0; i < cusid_ele.length; ++i) {
+    var item = cusid_ele[i]; 
+    if (item.classList.contains("active")) {
+      item.classList.remove('active');
+    } else {
+      item.classList.add('active');
+    }}
+  }
+
+  var draggableElements = document.getElementsById("draggable");
+  for (var i = 0; i < draggableElements.length; ++i) {
+    var item = draggableElements[i]; 
+    dragElement(item); 
+  }
+
+
+  function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "null")) {
+    // if present, the header is where you move the DIV from: (theres no header but i dont know how to make it work without this check)
+    document.getElementById(elmnt.id + "null").onmousedown = dragMouseDown;
+  } else {
+    // otherwise, move the DIV from anywhere inside the DIV: 
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    // stop moving when mouse button is released:
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }}
 
 </script>
 
