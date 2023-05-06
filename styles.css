@@ -44,6 +44,7 @@ html, body {
 
 .left .title-container {
     position: fixed;
+    width:25%;
 }
 
 .left .student {
