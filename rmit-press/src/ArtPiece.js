@@ -25,6 +25,8 @@ class ArtPiece extends React.Component {
         currX: 0,
         currY: 0,
 
+        gridSnap: true
+
       };
     }
 
@@ -71,9 +73,12 @@ class ArtPiece extends React.Component {
         const textElement = document.getElementById(`${this.state.id}Img`);
         let textRect = textElement.getBoundingClientRect();
 
+        let newX = e.clientX - this.state.offsetX;
+        let newY = e.clientY - this.state.offsetY;
+
         this.setState({
-          currX: e.clientX - this.state.offsetX,
-          currY: e.clientY - this.state.offsetY
+          currX: this.state.gridSnap ? newX - (newX % 10) : newX,
+          currY: this.state.gridSnap ? newY - (newY % 10) : newY
         })
       }
     }
