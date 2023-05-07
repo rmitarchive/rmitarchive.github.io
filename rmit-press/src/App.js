@@ -35,6 +35,7 @@ class App extends React.Component {
     this.stopDragElement = this.stopDragElement.bind(this);
     this.continueDragElement = this.continueDragElement.bind(this);
     this.clickText = this.clickText.bind(this);
+
     this.incrementZIndex = this.incrementZIndex.bind(this);
 
     let path = window.location.pathname;
@@ -137,7 +138,7 @@ class App extends React.Component {
   }
 
   incrementZIndex() {
-    let newZIndex = this.state.baseZIndex++;
+    let newZIndex = this.state.baseZIndex + 1;
     
     this.setState({
       baseZIndex: newZIndex
@@ -342,9 +343,11 @@ class App extends React.Component {
           stopDragElement={this.stopDragElement}
           startDragElement={this.startDragElement}
           clickText={this.clickText}
+
+          incrementZIndex={this.incrementZIndex}
+
           coreInfo={student}
           currFilter={this.state.indexFilter}
-          incrementZIndex={this.state.incrementZIndex}
 
           currX={this.state.artPiecesCurrX[student.id]}
           currY={this.state.artPiecesCurrY[student.id]}

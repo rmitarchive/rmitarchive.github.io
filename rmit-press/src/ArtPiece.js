@@ -15,6 +15,8 @@ class ArtPiece extends React.Component {
         startDragElement: props.startDragElement,
         clickText: props.clickText,
 
+        incrementZIndex: props.incrementZIndex,
+
         coreInfo: props.coreInfo,
         currFilter: props.currFilter,
 
@@ -48,7 +50,10 @@ class ArtPiece extends React.Component {
       const textElement = document.getElementById(`${this.state.id}Img`);
       let textRect = textElement.getBoundingClientRect();
 
+      let newZIndex = this.state.incrementZIndex();
 
+      console.log("NEWZINDEX: " + newZIndex);
+      
       this.setState({
         imageMoved: true,
         imageMoving: true,
@@ -56,6 +61,7 @@ class ArtPiece extends React.Component {
         offsetY: e.clientY - textRect.top,
         currX: textRect.left,
         currY: textRect.top,
+        currzIndex: newZIndex
       })
 
       this.state.startDragElement(this.state);
@@ -102,7 +108,8 @@ class ArtPiece extends React.Component {
             style={{
               position: "absolute",
               left: `${this.state.currX}px`,
-              top: `${this.state.currY}px`
+              top: `${this.state.currY}px`,
+              zIndex: this.state.currzIndex
             }}
             onMouseDown={() => this.state.continueDragElement(this.state)}
             />
