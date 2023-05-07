@@ -47,6 +47,10 @@ html, body {
     width:25%;
 }
 
+.left .search-bar {
+    width:100%;
+}
+
 .left .student {
     display:block;
 }
@@ -88,7 +92,6 @@ html, body {
 #draggable {
     position: absolute;
     z-index: 9;
-    text-align: center;
     cursor: move;
 }
 
