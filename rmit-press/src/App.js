@@ -1,8 +1,5 @@
-import logo from './logo.svg';
 import './App.css';
 import baseHoverImg from "./Img/icon.png";
-import imgOne from "./Img/Screenshot_1.png";
-import imgTwo from "./Img/icarus1.jpg";
 import mask from "./Img/SquareMask.png";
 import ArtPiece from "./ArtPiece";
 import HelpText from "./HelpText";
@@ -52,6 +49,8 @@ class App extends React.Component {
 
     var artPiecesCuzzZIndex = [];
 
+    var artPiecesIsVisible = [];
+
     ClassJSON.students.forEach(student => {
       artPiecesOffsetX.push(0);
       artPiecesOffsetY.push(0);
@@ -62,6 +61,7 @@ class App extends React.Component {
       artPiecesImageShown.push(false);
       artPiecesImageMoved.push(false);
       artPiecesImageMoving.push(false);
+      artPiecesIsVisible.push(student.name != "sys");
     });
 
     if(path.toUpperCase().includes("HELP")){
@@ -78,8 +78,14 @@ class App extends React.Component {
         mouseY: event.clientY
       });
     });
-    
-    
+/*
+    window.addEventListener('resize', (event) => {
+      this.setState({
+        windowWidth: window.innerWidth,
+        windowHeight: window.innerHeight
+      });
+    });
+    */
     this.state={
       baseHoverImg: baseHoverImg,
       currHoverImg: null,
@@ -115,15 +121,26 @@ class App extends React.Component {
       artPiecesImageMoving: artPiecesImageMoving,
 
       artPiecesCuzzZIndex: artPiecesCuzzZIndex,
+      artPiecesSpawned: artPiecesCuzzZIndex,
+
+      artPiecesIsVisible: artPiecesIsVisible,
 
       baseZIndex: 10,
-      gridSnap: true,
+      gridSnap: true,    
 
+      //windowWidth: 100,
+      //windowHeight: 100
     }    
 
     setInterval(() => {
       this.getFunFact(this.state.lastFactX ? this.state.mouseX : this.state.mouseY);
     }, 500);
+
+    window.addEventListener('click', (event) => {
+      if(Math.random() < .25){
+        this.showRandomImage();
+      }
+    });
 
     setInterval(() => {
       let newCurrPaperTexture = Math.floor(Math.random() * this.paperTextures.length);
@@ -136,6 +153,57 @@ class App extends React.Component {
       });
     }, 250);   
   }
+
+  showRandomImage(){
+    let pos = 0;
+    let pot = [];
+    ClassJSON.students.forEach(student => {
+      if(student.name == "sys" && this.state.artPiecesIsVisible[pos] == false){
+        pot.push(pos);
+      }
+
+      pos++;
+    });
+
+    if(pot.length != 0)
+    {
+
+      let randIndex = Math.floor(Math.random() * pot.length);
+
+      let newArtPiecesIsVisible = this.state.artPiecesIsVisible;
+      newArtPiecesIsVisible[pot[randIndex]] = true;
+  
+      let newArtPiecesImageShown = this.state.artPiecesImageShown;
+      newArtPiecesImageShown[pot[randIndex]] = true;
+  
+      let newArtPiecesImageMoved = this.state.artPiecesImageMoved;
+      newArtPiecesImageMoved[pot[randIndex]] = true;
+  
+      const textElement = document.getElementById(`root`);
+      let textRect = textElement.getBoundingClientRect();
+  
+      let newArtPiecesCurrX = this.state.artPiecesCurrX;
+      let width = textRect.right;
+      newArtPiecesCurrX[pot[randIndex]] = (Math.random() * (width * .6)) + (width * .4);
+  
+      let newArtPiecesCurrY = this.state.artPiecesCurrY;
+      let height = textRect.bottom;
+      newArtPiecesCurrY[pot[randIndex]] = (Math.random() * (height * .6)) + (height * .4);
+  
+      console.log(`SHOW RANDOM IMAGE ${pot[randIndex]} `);
+  
+      this.setState({
+        artPiecesIsVisible: newArtPiecesIsVisible,
+        artPiecesImageShown: newArtPiecesImageShown,
+        artPiecesImageMoved: newArtPiecesImageMoved,
+        artPiecesCurrX: newArtPiecesCurrX,
+        artPiecesCurrY: newArtPiecesCurrY,
+      });
+    }else{
+      console.log("NO IMAGES")
+    }
+  }
+
 
   incrementZIndex() {
     let newZIndex = this.state.baseZIndex + 1;
@@ -321,11 +389,15 @@ class App extends React.Component {
   getListOfWorks(){
     let classHTML = [];
     let currLetter = null;
+    let pos = 0;
 
     //console.log("GET LIST OF WORKS");
     ClassJSON.students.forEach(student => {
-      if(student.name.toUpperCase().includes(this.state.textFilter.toUpperCase())){
+      if((student.name.toUpperCase().includes(this.state.textFilter.toUpperCase()) && student.name.toUpperCase() != "SYS")
+          || (student.name.toUpperCase() == "SYS" && this.state.artPiecesIsVisible[pos])){
+        
         //console.log("student: " + JSON.stringify(student));
+        //console.log("student COND: " + JSON.stringify(student));
         if(currLetter != student.name[0]){
           if(currLetter != null){
             classHTML.push(<br/>);
@@ -337,7 +409,10 @@ class App extends React.Component {
         //let newImageShown = this.state.artPiecesImageShown[student.id];
 
         //imageShown={this.state.artPiecesImageShown[student.id]}
-        classHTML.push(<ArtPiece hoverOverTextFunc={this.testHover} 
+        classHTML.push(<ArtPiece 
+          isRandomImage={student.name == "sys"} 
+
+          hoverOverTextFunc={this.testHover} 
           hoverExitTextFunc={this.clearHover} 
           continueDragElement={this.continueDragElement}
           stopDragElement={this.stopDragElement}
@@ -349,20 +424,22 @@ class App extends React.Component {
           coreInfo={student}
           currFilter={this.state.indexFilter}
 
-          currX={this.state.artPiecesCurrX[student.id]}
-          currY={this.state.artPiecesCurrY[student.id]}
-          offsetX={this.state.artPiecesOffsetX[student.id]}
-          offsetY={this.state.artPiecesOffsetY[student.id]}
-          imageShown={this.state.artPiecesImageShown[student.id]}
-          imageMoved={this.state.artPiecesImageMoved[student.id]}
-          imageMoving={this.state.artPiecesImageMoving[student.id]}
-          currzIndex={this.state.artPiecesCuzzZIndex[student.id]}
+          currX={this.state.artPiecesCurrX[pos]}
+          currY={this.state.artPiecesCurrY[pos]}
+          offsetX={this.state.artPiecesOffsetX[pos]}
+          offsetY={this.state.artPiecesOffsetY[pos]}
+          imageShown={this.state.artPiecesImageShown[pos]}
+          imageMoved={this.state.artPiecesImageMoved[pos]}
+          imageMoving={this.state.artPiecesImageMoving[pos]}
+          currzIndex={this.state.artPiecesCuzzZIndex[pos]}
 
           gridSnap={this.state.gridSnap}
 
-          key={student.id}
+          key={pos}
           />);
       }
+
+      pos++;
     });
 
     return(

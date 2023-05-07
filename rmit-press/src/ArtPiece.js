@@ -6,6 +6,9 @@ class ArtPiece extends React.Component {
       console.log("TEST: " + JSON.stringify(props));
       
       this.state = {
+        isRandomImage: props.isRandomImage,
+        isVisible: props.isRandomImage,
+        
         id: props.coreInfo.id,
         title: props.title,
         hoverOverTextFunc: props.hoverOverTextFunc,
@@ -53,7 +56,7 @@ class ArtPiece extends React.Component {
       let newZIndex = this.state.incrementZIndex();
 
       console.log("NEWZINDEX: " + newZIndex);
-      
+
       this.setState({
         imageMoved: true,
         imageMoving: true,
@@ -192,7 +195,10 @@ class ArtPiece extends React.Component {
       return(<div>
                 <a id={this.state.coreInfo.id} 
                   className="student" 
-                  style={{color: `rgb(${addedColor[0]}, ${addedColor[1]}, ${addedColor[2]})`}}
+                  style={{
+                    color: `rgb(${addedColor[0]}, ${addedColor[1]}, ${addedColor[2]})`,
+                    visibility: this.state.isRandomImage ? "hidden" : "inherit"
+                  }}
                   onMouseLeave={() => this.state.hoverExitTextFunc(this.state)} 
                   onMouseMove={() => this.state.hoverOverTextFunc(this.state)}
                   onMouseDown={() => this.clickText(this.state)}
