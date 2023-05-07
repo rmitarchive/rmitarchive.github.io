@@ -83,6 +83,7 @@ html, body {
     flex-direction: column;
     width: 70%;
     height: 100%;
+    left:30%;
     overflow: auto;
     box-sizing: border-box;
     padding: 0.5em;
