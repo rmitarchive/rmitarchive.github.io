@@ -50,6 +50,7 @@ class App extends React.Component {
     var artPiecesCuzzZIndex = [];
 
     var artPiecesIsVisible = [];
+    var currentShownWorks = [];
 
     ClassJSON.students.forEach(student => {
       artPiecesOffsetX.push(0);
@@ -128,8 +129,7 @@ class App extends React.Component {
       baseZIndex: 10,
       gridSnap: true,    
 
-      //windowWidth: 100,
-      //windowHeight: 100
+      currentShownWorks: currentShownWorks
     }    
 
     setInterval(() => {
@@ -190,7 +190,7 @@ class App extends React.Component {
       let height = textRect.bottom;
       newArtPiecesCurrY[pot[randIndex]] = (Math.random() * (height * .6)) + (height * .4);
   
-      console.log(`SHOW RANDOM IMAGE ${pot[randIndex]} `);
+      //console.log(`SHOW RANDOM IMAGE ${pot[randIndex]} `);
   
       this.setState({
         artPiecesIsVisible: newArtPiecesIsVisible,
@@ -200,7 +200,7 @@ class App extends React.Component {
         artPiecesCurrY: newArtPiecesCurrY,
       });
     }else{
-      console.log("NO IMAGES")
+      //console.log("NO IMAGES")
     }
   }
 
@@ -216,21 +216,58 @@ class App extends React.Component {
   }
 
   clickText(props) {
-    console.log("MOUSE DOWN");
+    //console.log("MOUSE DOWN");
     let newArtPiecesImageShown = this.state.artPiecesImageShown;
     newArtPiecesImageShown[props.coreInfo.id] = !newArtPiecesImageShown[props.coreInfo.id];
 
     //console.log(newArtPiecesImageShown);
-    console.log(this.state);
+    //console.log(this.state);
+
+    if(!newArtPiecesImageShown[props.coreInfo.id]){
+      this.removeFromCurrentlyShownWorks(props.coreInfo);
+    }
 
     this.setState({
       artPiecesImageShown: newArtPiecesImageShown,
     })
   }  
 
+  pushToCurrentlyShownWorks(props){
+    let currCurrentShownWorks = this.state.currentShownWorks.filter(shownWork => shownWork.id != props.id);
+    currCurrentShownWorks.push(props);
+
+    this.setState({
+      currentShownWorks: currCurrentShownWorks
+    })
+
+  }
+
+  removeFromCurrentlyShownWorks(props){
+    let currCurrentShownWorks = this.state.currentShownWorks.filter(shownWork => shownWork.id != props.id);
+
+    this.setState({
+      currentShownWorks: currCurrentShownWorks
+    })
+  }
+
+  getCurrentlyShownWorks(){
+    let shown = [];
+    this.state.currentShownWorks.forEach(shownWork => {
+      shown.push(
+        <p class="fact-times">
+          {`(${shownWork.id}) ${shownWork.name}, ${shownWork.title}, 2023.`}
+        </p>
+      );
+    });
+
+    return(
+      shown
+    );
+  }
+
   startDragElement(props) {
     let e = window.event;
-    console.log("MOUSE DOWN 2");
+    //console.log("MOUSE DOWN 2");
       
     const imgElement = document.getElementById(`${props.coreInfo.id}Img`);
 
@@ -264,13 +301,14 @@ class App extends React.Component {
       artPiecesCurrY: newArtPiecesCurrY,
     })
 
+    this.pushToCurrentlyShownWorks(props.coreInfo);
     this.continueDragElement(props);
   }
 
   stopDragElement(props) {
     let newArtPiecesImageMoving = this.state.artPiecesImageMoving;
     newArtPiecesImageMoving[props.coreInfo.id] = false;
-    console.log("MOUSE DOWN 3");
+    //console.log("MOUSE DOWN 3");
     this.setState({
       artPicesImageMoving: newArtPiecesImageMoving
     })
@@ -281,8 +319,8 @@ class App extends React.Component {
     //shouldnt need the statement since it'll only come through from child component if its ok to do so
     //if(this.props.imageMoving){
       //let e = window.event;      
-      console.log(`MOUSE DOWN 2 APP.JS ${props.currX} - ${props.currY}`);
-      console.log(props);
+      //console.log(`MOUSE DOWN 2 APP.JS ${props.currX} - ${props.currY}`);
+      //console.log(props);
 
       //const textElement = document.getElementById(`${props.coreInfo.id}Img`);
       //let textRect = textElement.getBoundingClientRect();
@@ -303,8 +341,8 @@ class App extends React.Component {
         artPiecesCurrY: newArtPiecesCurrY
       })
 
-      console.log("MOUSE DOWN 2 APP.JS COMPARE");
-      console.log(this.state);
+      //console.log("MOUSE DOWN 2 APP.JS COMPARE");
+      //console.log(this.state);
     //}else{
     //  console.log("MOUSE DOWN NOOOOT 2 APP.JS");
     //}
@@ -378,7 +416,7 @@ class App extends React.Component {
       indexFilter: newIndexFilter
     });
 
-    console.log("STATE: "  + JSON.stringify(this.state));
+    //console.log("STATE: "  + JSON.stringify(this.state));
     /*
     console.log("PRESSED: " + pressedFilter);
     if(this.state.indexFilter.includes(pressedFilter)){
@@ -410,6 +448,8 @@ class App extends React.Component {
 
         //imageShown={this.state.artPiecesImageShown[student.id]}
         classHTML.push(<ArtPiece 
+          key={currLetter + pos}
+
           isRandomImage={student.name == "sys"} 
 
           hoverOverTextFunc={this.testHover} 
@@ -434,8 +474,6 @@ class App extends React.Component {
           currzIndex={this.state.artPiecesCuzzZIndex[pos]}
 
           gridSnap={this.state.gridSnap}
-
-          key={pos}
           />);
       }
 
@@ -633,10 +671,7 @@ class App extends React.Component {
         <div className="bottom-of-page">
           <div>
             <p className="fact-times">{this.state.mouseX}, {this.state.mouseY}</p>
-            <p className="fact-times" style={{visibility:`${this.state.mathFact[0] == null ? "hidden" : "visible"}`}}>{this.state.mathFact[0]}</p>
-            <p className="fact-times" style={{visibility:`${this.state.mathFact[1] == null ? "hidden" : "visible"}`}}>{this.state.mathFact[1]}</p>
-            <p className="fact-times" style={{visibility:`${this.state.mathFact[2] == null ? "hidden" : "visible"}`}}>{this.state.mathFact[2]}</p>
-            <p className="fact-times" style={{visibility:`${this.state.mathFact[3] == null ? "hidden" : "visible"}`}}>{this.state.mathFact[3]}</p>
+            {this.getCurrentlyShownWorks()}
           </div>
           <ScrollingBanner clickFunc = {this.scrollbarRef}/>
 
@@ -654,3 +689,13 @@ class App extends React.Component {
 }
 
 export default App;
+
+/*
+          <div>
+            <p className="fact-times">{this.state.mouseX}, {this.state.mouseY}</p>
+            <p className="fact-times" style={{visibility:`${this.state.mathFact[0] == null ? "hidden" : "visible"}`}}>{this.state.mathFact[0]}</p>
+            <p className="fact-times" style={{visibility:`${this.state.mathFact[1] == null ? "hidden" : "visible"}`}}>{this.state.mathFact[1]}</p>
+            <p className="fact-times" style={{visibility:`${this.state.mathFact[2] == null ? "hidden" : "visible"}`}}>{this.state.mathFact[2]}</p>
+            <p className="fact-times" style={{visibility:`${this.state.mathFact[3] == null ? "hidden" : "visible"}`}}>{this.state.mathFact[3]}</p>
+          </div>
+          */

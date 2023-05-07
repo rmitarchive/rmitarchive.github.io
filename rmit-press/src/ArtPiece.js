@@ -5,6 +5,10 @@ class ArtPiece extends React.Component {
       super(props);
       console.log("TEST: " + JSON.stringify(props));
       
+      window.addEventListener('mousemove', (event) => {
+        this.continueDragElement(this.state);
+      });
+
       this.state = {
         isRandomImage: props.isRandomImage,
         isVisible: props.isRandomImage,
@@ -104,18 +108,25 @@ class ArtPiece extends React.Component {
     getImage(){
       if(this.state.imageMoved){
         return(
-          <img className="dragImg"
-            id={`${this.state.coreInfo.id}Img`}
-            draggable="false" 
-            src={require(`./Img/${this.state.coreInfo.image}`)}
-            style={{
-              position: "absolute",
-              left: `${this.state.currX}px`,
-              top: `${this.state.currY}px`,
-              zIndex: this.state.currzIndex
-            }}
-            onMouseDown={() => this.state.continueDragElement(this.state)}
-            />
+          <div
+          style={{
+            position: "absolute",
+            left: `${this.state.currX}px`,
+            top: `${this.state.currY}px`,
+            zIndex: this.state.currzIndex
+          }}
+          onMouseDown={() => this.state.continueDragElement(this.state)}>
+            <img className="dragImg"
+              id={`${this.state.coreInfo.id}Img`}
+              draggable="false" 
+              src={require(`./Img/${this.state.coreInfo.image}`)}
+              
+              />
+             {
+             this.state.isRandomImage ? ` (SYS:${this.state.coreInfo.id})`
+             : ` (${this.state.coreInfo.id})`
+             }
+          </div>
         );
       }else{
         return(
@@ -209,12 +220,12 @@ class ArtPiece extends React.Component {
                 <div style={{display: this.state.imageShown ? "inherit" : "none"}} 
                 id={this.state.coreInfo.id} 
                 onMouseDown={() => this.startDragElement(this.state)}
-                onMouseMove={() => this.continueDragElement(this.state)}
+                //onMouseMove={() => this.continueDragElement(this.state)}
                 onMouseUp={() => this.stopDragElement(this.state)}
-                onMouseLeave={() => this.stopDragElement(this.state)}
+                //onMouseLeave={() => this.stopDragElement(this.state)}
                 >
                   {this.getImage()}
-              </div>
+                </div>
               </div>)
     }
   }
