@@ -27,13 +27,41 @@ class App extends React.Component {
     super(props);
 
     this.paperTextures = [paperText1, paperText2, paperText3, paperText4, paperText5];
-    //this.currPaperTexture = 0;
-    this.testHover = this.testHover.bind(this);
-    this.clearHover = this.clearHover.bind(this);
-    //this.changeCurrentPageIndex = this.changeCurrentPageIndex.bind(this);
+    
+    this.testHover = this.testHover.bind(this); //currently empty funcs, since we arent doing that any more
+    this.clearHover = this.clearHover.bind(this); //currently empty funcs, since we arent doing that any more
+
+    this.startDragElement = this.startDragElement.bind(this);
+    this.stopDragElement = this.stopDragElement.bind(this);
+    this.continueDragElement = this.continueDragElement.bind(this);
+    this.clickText = this.clickText.bind(this);
+    this.incrementZIndex = this.incrementZIndex.bind(this);
+
     let path = window.location.pathname;
     this.scrollbarRef = React.createRef();
-    //this.scrollbarRef.current = 0;
+
+    var artPiecesOffsetX = [];
+    var artPiecesOffsetY = [];
+    var artPiecesCurrX = [];
+    var artPiecesCurrY = [];
+
+    var artPiecesImageShown = [];
+    var artPiecesImageMoved = [];
+    var artPiecesImageMoving = [];
+
+    var artPiecesCuzzZIndex = [];
+
+    ClassJSON.students.forEach(student => {
+      artPiecesOffsetX.push(0);
+      artPiecesOffsetY.push(0);
+      artPiecesCurrX.push(0);
+      artPiecesCurrY.push(0);
+      artPiecesCuzzZIndex.push(10);
+
+      artPiecesImageShown.push(false);
+      artPiecesImageMoved.push(false);
+      artPiecesImageMoving.push(false);
+    });
 
     if(path.toUpperCase().includes("HELP")){
       this.scrollbarRef.current = 3;
@@ -49,6 +77,7 @@ class App extends React.Component {
         mouseY: event.clientY
       });
     });
+    
     
     this.state={
       baseHoverImg: baseHoverImg,
@@ -72,7 +101,22 @@ class App extends React.Component {
         layout: false,
         web: false
       },
-      textFilter : ""
+
+      textFilter : "",
+
+      artPiecesOffsetX: artPiecesOffsetX,
+      artPiecesOffsetY: artPiecesOffsetY,
+      artPiecesCurrX: artPiecesCurrX,
+      artPiecesCurrY: artPiecesCurrY,
+
+      artPiecesImageShown: artPiecesImageShown,
+      artPiecesImageMoved: artPiecesImageMoved,
+      artPiecesImageMoving: artPiecesImageMoving,
+
+      artPiecesCuzzZIndex: artPiecesCuzzZIndex,
+
+      baseZIndex: 10,
+      gridSnap: true,
 
     }    
 
@@ -80,11 +124,6 @@ class App extends React.Component {
       this.getFunFact(this.state.lastFactX ? this.state.mouseX : this.state.mouseY);
     }, 500);
 
-/*
-    window.addEventListener('click', (event) => {
-      this.getFunFact(this.state.lastFactX ? this.state.mouseX : this.state.mouseY);
-    });
-*/
     setInterval(() => {
       let newCurrPaperTexture = Math.floor(Math.random() * this.paperTextures.length);
       //console.log("newCurrPaperTexture: " + newCurrPaperTexture);
@@ -95,6 +134,111 @@ class App extends React.Component {
         };
       });
     }, 250);   
+  }
+
+  incrementZIndex() {
+    let newZIndex = this.state.baseZIndex++;
+    
+    this.setState({
+      baseZIndex: newZIndex
+    })
+
+    return newZIndex;
+  }
+
+  clickText(props) {
+    console.log("MOUSE DOWN");
+    let newArtPiecesImageShown = this.state.artPiecesImageShown;
+    newArtPiecesImageShown[props.coreInfo.id] = !newArtPiecesImageShown[props.coreInfo.id];
+
+    //console.log(newArtPiecesImageShown);
+    console.log(this.state);
+
+    this.setState({
+      artPiecesImageShown: newArtPiecesImageShown,
+    })
+  }  
+
+  startDragElement(props) {
+    let e = window.event;
+    console.log("MOUSE DOWN 2");
+      
+    const imgElement = document.getElementById(`${props.coreInfo.id}Img`);
+
+    let newArtPiecesImageMoved = this.state.artPiecesImageMoved;
+    let newArtPiecesImageMoving = this.state.artPiecesImageMoving;
+    //let newArtPiecesImageShown = this.state.artPiecesimageShown;
+
+    let newArtPiecesOffsetX = this.state.artPiecesOffsetX;
+    let newArtPiecesOffsetY = this.state.artPiecesOffsetY;
+
+    let newArtPiecesCurrX = this.state.artPiecesCurrX;
+    let newArtPiecesCurrY = this.state.artPiecesCurrY;
+
+    newArtPiecesImageMoved[props.coreInfo.id] = true;
+    newArtPiecesImageMoving[props.coreInfo.id] = true;
+
+    newArtPiecesOffsetX[props.coreInfo.id] = props.offsetX;
+    //newArtPiecesOffsetX[props.coreInfo.id] = e.clientX - textRect.left;
+    newArtPiecesOffsetY[props.coreInfo.id] = props.offsetY;
+    //newArtPiecesOffsetY[props.coreInfo.id] = e.clientY - textRect.top;
+
+    newArtPiecesCurrX[props.coreInfo.id] = props.currX;
+    newArtPiecesCurrY[props.coreInfo.id] = props.currY;
+
+    this.setState({
+      artPiecesImageMoved: newArtPiecesImageMoved,
+      artPiecesImageMoving: newArtPiecesImageMoving,
+      artPiecesOffsetX: newArtPiecesOffsetX,
+      artPiecesOffsetY: newArtPiecesOffsetY,
+      artPiecesCurrX: newArtPiecesCurrX,
+      artPiecesCurrY: newArtPiecesCurrY,
+    })
+
+    this.continueDragElement(props);
+  }
+
+  stopDragElement(props) {
+    let newArtPiecesImageMoving = this.state.artPiecesImageMoving;
+    newArtPiecesImageMoving[props.coreInfo.id] = false;
+    console.log("MOUSE DOWN 3");
+    this.setState({
+      artPicesImageMoving: newArtPiecesImageMoving
+    })
+  }
+
+  continueDragElement(props) {
+
+    //shouldnt need the statement since it'll only come through from child component if its ok to do so
+    //if(this.props.imageMoving){
+      //let e = window.event;      
+      console.log(`MOUSE DOWN 2 APP.JS ${props.currX} - ${props.currY}`);
+      console.log(props);
+
+      //const textElement = document.getElementById(`${props.coreInfo.id}Img`);
+      //let textRect = textElement.getBoundingClientRect();
+
+      //let newX = e.clientX - this.state.artPiecesOffsetX[props.coreInfo.id];
+      //let newY = e.clientY - this.state.artPiecesOffsetY[props.coreInfo.id];
+
+      let newArtPiecesCurrX = this.state.artPiecesCurrX;
+      newArtPiecesCurrX[props.coreInfo.id] = props.currX;
+      //newArtPiecesCurrX[props.coreInfo.id] = this.props.currX;
+
+      let newArtPiecesCurrY = this.state.artPiecesCurrY;
+      newArtPiecesCurrY[props.coreInfo.id] = props.currY;
+      //newArtPiecesCurrY[props.coreInfo.id] = this.props.currX;
+
+      this.setState({
+        artPiecesCurrX: newArtPiecesCurrX,
+        artPiecesCurrY: newArtPiecesCurrY
+      })
+
+      console.log("MOUSE DOWN 2 APP.JS COMPARE");
+      console.log(this.state);
+    //}else{
+    //  console.log("MOUSE DOWN NOOOOT 2 APP.JS");
+    //}
   }
 
   async getFunFact(number){
@@ -115,6 +259,8 @@ class App extends React.Component {
   }
 
   testHover(props){
+
+    return; //temp disable
     let threshold = 1; //if difference > threshold, we will modify state
     let e = window.event;
 
@@ -151,6 +297,7 @@ class App extends React.Component {
   }
 
   clearHover(props){
+    return; //temp disable
     //console.log("inner APP hover works: " + JSON.stringify(props));
     this.setState({currHoverImg: null});
   }
@@ -173,8 +320,8 @@ class App extends React.Component {
   getListOfWorks(){
     let classHTML = [];
     let currLetter = null;
-    let currID = 0;
 
+    //console.log("GET LIST OF WORKS");
     ClassJSON.students.forEach(student => {
       if(student.name.toUpperCase().includes(this.state.textFilter.toUpperCase())){
         //console.log("student: " + JSON.stringify(student));
@@ -183,19 +330,36 @@ class App extends React.Component {
             classHTML.push(<br/>);
           }
           currLetter = student.name[0];
-          classHTML.push(<div>{currLetter}</div>);
+          classHTML.push(<div key={currLetter}>{currLetter}</div>);
         }
 
+        //let newImageShown = this.state.artPiecesImageShown[student.id];
+
+        //imageShown={this.state.artPiecesImageShown[student.id]}
         classHTML.push(<ArtPiece hoverOverTextFunc={this.testHover} 
           hoverExitTextFunc={this.clearHover} 
-          id={currID} 
-          img={imgTwo} 
+          continueDragElement={this.continueDragElement}
+          stopDragElement={this.stopDragElement}
+          startDragElement={this.startDragElement}
+          clickText={this.clickText}
           coreInfo={student}
           currFilter={this.state.indexFilter}
-          key={currID}
+          incrementZIndex={this.state.incrementZIndex}
+
+          currX={this.state.artPiecesCurrX[student.id]}
+          currY={this.state.artPiecesCurrY[student.id]}
+          offsetX={this.state.artPiecesOffsetX[student.id]}
+          offsetY={this.state.artPiecesOffsetY[student.id]}
+          imageShown={this.state.artPiecesImageShown[student.id]}
+          imageMoved={this.state.artPiecesImageMoved[student.id]}
+          imageMoving={this.state.artPiecesImageMoving[student.id]}
+          currzIndex={this.state.artPiecesCuzzZIndex[student.id]}
+
+          gridSnap={this.state.gridSnap}
+
+          key={student.id}
           />);
       }
-      currID++;
     });
 
     return(

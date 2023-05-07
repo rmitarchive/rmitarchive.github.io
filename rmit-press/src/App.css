@@ -243,6 +243,7 @@ html, body {
 
 .dragImg {
   max-width: 15em;
+  cursor: move;
 }
 
 .left .student {
