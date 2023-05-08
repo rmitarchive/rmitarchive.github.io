@@ -585,12 +585,27 @@ class App extends React.Component {
     );
   }
 
-  generatePDFHTML(){
+  generatePDFHTML(props){
+    let returnHTML = [];
+
+    returnHTML.push(`<div class="content">`);
+
+    
+    for(let i = 0; i < this.state.currentShownWorks.length; i++){
+    //for(let i = 0; i < this.state.artPiecesImageShown.length; i++){
+      //if(this.state.artPiecesImageShown[i] == true){
+        let currID = this.state.currentShownWorks[i].id;
+      returnHTML.push(`<div style="position: absolute; left: ${this.state.artPiecesCurrX[currID]}px; top: ${this.state.artPiecesCurrY[currID]}px; z-index: ${i};">
+        <img style="max-width: 15em;" src="%img${i}%">
+        (${currID})
+        </div>`
+        );
+      //}
+    }
+
+    returnHTML.push(`</div>`);
     return(
-      `<div>1111111111111111<div>
-      <img src="%img1%" width="150" height="150"/>
-      <div>2222222222222<div>
-      `
+      returnHTML
     );
   }
 
@@ -625,13 +640,26 @@ class App extends React.Component {
 
     formData.append("msg", "deez nuts");
     formData.append("pdf", "na");
+
+    const textElement = document.getElementById(`root`);
+    let textRect = textElement.getBoundingClientRect();
+
+    formData.append("width", textRect.right);
+    formData.append("height", textRect.bottom);
     //formData.append("img1Path", imgOne);
     //formData.append("pdf", pdfResponse);
     formData.append("pdfHTML", pdfHTML);
     formData.append("pdfName", `${Math.random() * 10000000} - ${Date.now()}.pdf`);
     
+    for(let i = 0; i < this.state.currentShownWorks.length; i++){
+      formData.append("imgPaths[]", this.state.currentShownWorks[i].image);
+      console.log("CURR IMG: ");
+      console.log(this.state.currentShownWorks[i]);
+    }
+
     axios({
-      url: "http://shwag.com.au/index.php", 
+      url: "http://localhost:8000/index.php", 
+      //url: "http://shwag.com.au/php/index.php", 
       method: "POST",
       data: formData,
       headers: {
