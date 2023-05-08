@@ -83,7 +83,7 @@ class ScrollingBanner extends React.Component {
       let elements = []
       for(var i = 0; i < this.state.buttonTitles.length; i++){
         let j = i;
-        elements.push(<div className="scrolling-banner-child" onClick = {(() => this.changeCurrentPageIndex(j))} style={{
+        elements.push(<div key={i} className="scrolling-banner-child" onClick = {(() => this.changeCurrentPageIndex(j))} style={{
           //backgroundColor: `${(i % 2 == 0 ? "white" : "grey")}`
           //borderColor: `${(i % 2 == 0 ? "white" : "grey")}`
           //borderColor: `${(i % 2 == 0 ? "#ededed" : "#dedede")}`

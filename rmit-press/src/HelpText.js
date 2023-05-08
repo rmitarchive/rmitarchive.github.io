@@ -101,7 +101,7 @@ class HelpText extends React.Component {
           letters.push(<div className="help-text-individual" style={{visibility: "hidden"}}>_</div>);
         }else{*/
           //letters.push(<div className="help-text-individual" style={{animationDuration: `${this.state.offsets[i]}s`}}>{this.state.message.charAt(i)}</div>);
-          letters.push(<div className="help-text-individual" style={{animationDuration: `${this.state.offsets[i]}s`}}>{this.state.message[i]}</div>);
+          letters.push(<div key = {"CYL" + i} className="help-text-individual" style={{animationDuration: `${this.state.offsets[i]}s`}}>{this.state.message[i]}</div>);
         //}
       }
 

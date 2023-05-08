@@ -63,10 +63,23 @@ footer {
   font-family: Century;
   font-size: 0.7em;
   margin: 0;
+  text-align: right;
+  float: right;
+  clear: both;
+}
+
+.drag-div{
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+     -moz-user-select: none; /* Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+          user-select: none; /* Non-prefixed version, currently
+                                supported by Chrome and Opera */
 }
 
 .bottom-of-page{
-  z-index: 999;
+  z-index: 9;
   position:fixed;
   bottom: 0px;
   width: 100%;
@@ -98,9 +111,12 @@ footer {
 
 .scrolling-banner-parent{
   width: 100%;
-  height: 40px;
+  /*height: 40px;*/
+  height: 5vh;
   background-color: transparent;
   overflow: hidden;
+  z-index: 9999;
+
 }
 
 .index-dt{
@@ -165,10 +181,9 @@ footer {
 
 .index-main {
   position:absolute;
-  padding:20px;
   width:100vw;
-  height:100%;
-  overflow: scroll;
+  height:95vh;
+  overflow: hidden;
   z-index: 10;
 }
 
@@ -214,7 +229,8 @@ html, body {
 }
 
 .content {
-  height: 100%;
+  /*height: 100vh;*/
+  height: 95vh;
   z-index: 10;
   position: relative;
 }
@@ -239,6 +255,11 @@ html, body {
 
 .left .title-container {
   position: fixed;
+}
+
+.dragImg {
+  max-width: 15em;
+  cursor: move;
 }
 
 .left .student {
@@ -279,6 +300,13 @@ html, body {
   overflow: auto;
   box-sizing: border-box;
   padding: 0.5em;
+}
+
+#draggable {
+  /*position: absolute;*/
+  z-index: 9;
+  text-align: center;
+  cursor: move;
 }
 
 a {

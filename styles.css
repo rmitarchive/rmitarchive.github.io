@@ -96,6 +96,13 @@ html, body {
     cursor: move;
 }
 
+.dragImg {
+    position: absolute;
+    z-index: 9;
+    text-align: center;
+    cursor: move;
+}
+
 a {
     width:fit-content;
 }
