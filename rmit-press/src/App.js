@@ -274,6 +274,8 @@ class App extends React.Component {
 
     let newArtPiecesImageMoved = this.state.artPiecesImageMoved;
     let newArtPiecesImageMoving = this.state.artPiecesImageMoving;
+
+    let newArtPiecesImageShown = this.state.artPiecesImageShown;
     //let newArtPiecesImageShown = this.state.artPiecesimageShown;
 
     let newArtPiecesOffsetX = this.state.artPiecesOffsetX;
@@ -284,6 +286,8 @@ class App extends React.Component {
 
     newArtPiecesImageMoved[props.coreInfo.id] = true;
     newArtPiecesImageMoving[props.coreInfo.id] = true;
+
+    newArtPiecesImageShown[props.coreInfo.id] = true;
 
     newArtPiecesOffsetX[props.coreInfo.id] = props.offsetX;
     //newArtPiecesOffsetX[props.coreInfo.id] = e.clientX - textRect.left;
@@ -296,6 +300,7 @@ class App extends React.Component {
     this.setState({
       artPiecesImageMoved: newArtPiecesImageMoved,
       artPiecesImageMoving: newArtPiecesImageMoving,
+      artPiecesImageShown: newArtPiecesImageShown,
       artPiecesOffsetX: newArtPiecesOffsetX,
       artPiecesOffsetY: newArtPiecesOffsetY,
       artPiecesCurrX: newArtPiecesCurrX,
@@ -345,7 +350,7 @@ class App extends React.Component {
       //console.log("MOUSE DOWN 2 APP.JS COMPARE");
       //console.log(this.state);
     //}else{
-    //  console.log("MOUSE DOWN NOOOOT 2 APP.JS");
+    //  //console.log("MOUSE DOWN NOOOOT 2 APP.JS");
     //}
   }
 
@@ -419,7 +424,7 @@ class App extends React.Component {
 
     //console.log("STATE: "  + JSON.stringify(this.state));
     /*
-    console.log("PRESSED: " + pressedFilter);
+    //console.log("PRESSED: " + pressedFilter);
     if(this.state.indexFilter.includes(pressedFilter)){
       this.state.indexFilter = this.state.indexFilter.remo
     }*/
@@ -429,6 +434,8 @@ class App extends React.Component {
     let classHTML = [];
     let currLetter = null;
     let pos = 0;
+
+    //console.log(`${this.state.artPiecesImageShown}`);
 
     //console.log("GET LIST OF WORKS");
     ClassJSON.students.forEach(student => {
@@ -485,7 +492,7 @@ class App extends React.Component {
   }
 
   updateTextFilter(newText){
-    console.log("newtext: " + newText);
+    //console.log("newtext: " + newText);
     this.setState({
       textFilter: newText
     });
@@ -588,18 +595,19 @@ class App extends React.Component {
   }
 
   clearPage(){
+    console.log("clear page");
     let newArtPiecesImageShown = this.state.artPiecesImageShown;
 
     for(let i = 0; i < newArtPiecesImageShown.length; i++){
-      console.log(i);
+      //console.log(i);
       newArtPiecesImageShown[i] = false;
       const toHide = document.getElementById(i+"DD");
       if(toHide != null){
-        console.log("   IS NOT NULL");
+        //console.log("   IS NOT NULL");
         toHide.style.display = "none";
         toHide.style.color = "red";
       }else{
-        console.log("   IS NULL");
+        //console.log("   IS NULL");
       }
 
     }
@@ -621,15 +629,9 @@ class App extends React.Component {
     //formData.append("pdf", pdfResponse);
     formData.append("pdfHTML", pdfHTML);
     formData.append("pdfName", `${Math.random() * 10000000} - ${Date.now()}.pdf`);
-
-    /*
-    console.log("FORM DATA: ");
-    for (const [key, value] of formData) {
-      console.log(`   ${key}: ${value}`);
-    }*/
     
     axios({
-      url: "http://localhost:8000/index.php", 
+      url: "http://shwag.com.au/index.php", 
       method: "POST",
       data: formData,
       headers: {

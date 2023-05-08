@@ -48,7 +48,7 @@ class ArtPiece extends React.Component {
       
       if(toHide.style.color != "red"){
 
-        console.log("MOUSE DOWN != red");
+        //console.log("MOUSE DOWN != red");
         this.setState({
           imageShown: !this.state.imageShown
         })
@@ -56,7 +56,7 @@ class ArtPiece extends React.Component {
         toHide.style.display = "inherit";
         toHide.style.color = "black";
 
-        console.log("MOUSE DOWN == red");
+        //console.log("MOUSE DOWN == red");
         this.setState({
           imageShown: true
         })
@@ -67,14 +67,14 @@ class ArtPiece extends React.Component {
 
     startDragElement(props) {
       let e = window.event;
-      console.log("MOUSE DOWN 2");
+      //console.log("MOUSE DOWN 2");
         
       const textElement = document.getElementById(`${this.state.id}Img`);
       let textRect = textElement.getBoundingClientRect();
 
       let newZIndex = this.state.incrementZIndex();
 
-      console.log("NEWZINDEX: " + newZIndex);
+      //console.log("NEWZINDEX: " + newZIndex);
 
       this.setState({
         imageMoved: true,
@@ -92,7 +92,7 @@ class ArtPiece extends React.Component {
     }
 
     stopDragElement(props) {
-      console.log("MOUSE DOWN 3");
+      //console.log("MOUSE DOWN 3");
       this.setState({
         imageMoving: false
       })
@@ -103,7 +103,7 @@ class ArtPiece extends React.Component {
     continueDragElement(props) {
       if(this.state.imageMoving){
         let e = window.event;      
-        console.log("MOUSE DOWN 2");
+        //console.log("MOUSE DOWN 2");
 
         const textElement = document.getElementById(`${this.state.id}Img`);
         let textRect = textElement.getBoundingClientRect();
@@ -221,6 +221,7 @@ class ArtPiece extends React.Component {
       }
 
       //console.log("NAME: " + this.state);
+      //console.log(`check: ${this.state.coreInfo.id} - ${this.state.imageShown}`);
 
       return(<div key = {this.state.coreInfo.id + "AP"}>
                 <a 
