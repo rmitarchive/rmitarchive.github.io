@@ -218,7 +218,8 @@ class App extends React.Component {
   clickText(props) {
     //console.log("MOUSE DOWN");
     let newArtPiecesImageShown = this.state.artPiecesImageShown;
-    newArtPiecesImageShown[props.coreInfo.id] = !newArtPiecesImageShown[props.coreInfo.id];
+    newArtPiecesImageShown[props.coreInfo.id] = props.coreInfo.imageShown;
+    //newArtPiecesImageShown[props.coreInfo.id] = !newArtPiecesImageShown[props.coreInfo.id];
 
     //console.log(newArtPiecesImageShown);
     //console.log(this.state);
@@ -254,7 +255,7 @@ class App extends React.Component {
     let shown = [];
     this.state.currentShownWorks.forEach(shownWork => {
       shown.push(
-        <p class="fact-times">
+        <p className="fact-times" key={shownWork.id + "CSW"}>
           {`(${shownWork.id}) ${shownWork.name}, ${shownWork.title}, 2023.`}
         </p>
       );
@@ -438,17 +439,14 @@ class App extends React.Component {
         //console.log("student COND: " + JSON.stringify(student));
         if(currLetter != student.name[0]){
           if(currLetter != null){
-            classHTML.push(<br/>);
+            classHTML.push(<br key={pos + "BR"}/>);
           }
           currLetter = student.name[0];
-          classHTML.push(<div key={currLetter}>{currLetter}</div>);
+          classHTML.push(<div key={pos + currLetter}>{currLetter}</div>);
         }
 
-        //let newImageShown = this.state.artPiecesImageShown[student.id];
-
-        //imageShown={this.state.artPiecesImageShown[student.id]}
         classHTML.push(<ArtPiece 
-          key={currLetter + pos}
+          key={pos + "APP"}
 
           isRandomImage={student.name == "sys"} 
 
@@ -475,6 +473,7 @@ class App extends React.Component {
 
           gridSnap={this.state.gridSnap}
           />);
+          
       }
 
       pos++;
@@ -503,7 +502,9 @@ class App extends React.Component {
                   <div className="title-container">
                     <span className="header">PRESS</span>
                     <br/><br/>
-                    <a className="header">Print Screen</a>
+                    <a className="header" onClick = {(() => this.pdfTestSave())}>Print Screen</a>
+                    <br/><br/>
+                    <a className="header" onClick = {(() => this.clearPage())}>Clear Screen</a>
                     <br/><br/>
                     <input className="search-bar" placeholder="Search..." onChange={e => this.updateTextFilter(e.target.value)}>
                     </input>
@@ -584,6 +585,28 @@ class App extends React.Component {
       <div>2222222222222<div>
       `
     );
+  }
+
+  clearPage(){
+    let newArtPiecesImageShown = this.state.artPiecesImageShown;
+
+    for(let i = 0; i < newArtPiecesImageShown.length; i++){
+      console.log(i);
+      newArtPiecesImageShown[i] = false;
+      const toHide = document.getElementById(i+"DD");
+      if(toHide != null){
+        console.log("   IS NOT NULL");
+        toHide.style.display = "none";
+        toHide.style.color = "red";
+      }else{
+        console.log("   IS NULL");
+      }
+
+    }
+
+    this.setState({
+      artPiecesImageShown: newArtPiecesImageShown,
+    })
   }
 
   pdfTestSave(){
@@ -675,9 +698,6 @@ class App extends React.Component {
           </div>
           <ScrollingBanner clickFunc = {this.scrollbarRef}/>
 
-          <div className="scrolling-banner-child" onClick = {(() => this.pdfTestSave())}>
-          Default2
-          </div>
 
         </div>
         <div>

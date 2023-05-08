@@ -3,7 +3,7 @@ import React from 'react';
 class ArtPiece extends React.Component {
     constructor(props){
       super(props);
-      console.log("TEST: " + JSON.stringify(props));
+      //console.log("TEST: " + JSON.stringify(props));
       
       window.addEventListener('mousemove', (event) => {
         this.continueDragElement(this.state);
@@ -43,10 +43,25 @@ class ArtPiece extends React.Component {
     } 
 
     clickText(props) {
-      console.log("MOUSE DOWN");
-      this.setState({
-        imageShown: !this.state.imageShown
-      })
+
+      const toHide = document.getElementById(this.state.coreInfo.id+"DD");
+      
+      if(toHide.style.color != "red"){
+
+        console.log("MOUSE DOWN != red");
+        this.setState({
+          imageShown: !this.state.imageShown
+        })
+      }else{
+        toHide.style.display = "inherit";
+        toHide.style.color = "black";
+
+        console.log("MOUSE DOWN == red");
+        this.setState({
+          imageShown: true
+        })
+      }
+
       this.state.clickText(this.state);
     }
 
@@ -109,6 +124,9 @@ class ArtPiece extends React.Component {
       if(this.state.imageMoved){
         return(
           <div
+          id={this.state.coreInfo.id + "DDIMG"}
+          key={this.state.coreInfo.id + "DDIMG"}
+          className="drag-div"
           style={{
             position: "absolute",
             left: `${this.state.currX}px`,
@@ -117,10 +135,10 @@ class ArtPiece extends React.Component {
           }}
           onMouseDown={() => this.state.continueDragElement(this.state)}>
             <img className="dragImg"
+              key={this.state.coreInfo.id + "DIMG"}
               id={`${this.state.coreInfo.id}Img`}
               draggable="false" 
               src={require(`./Img/${this.state.coreInfo.image}`)}
-              
               />
              {
              this.state.isRandomImage ? ` (SYS:${this.state.coreInfo.id})`
@@ -131,6 +149,7 @@ class ArtPiece extends React.Component {
       }else{
         return(
           <img className="dragImg"
+            key={this.state.coreInfo.id + "DLIMG"}
             id={`${this.state.coreInfo.id}Img`}
             draggable="false" 
             src={require(`./Img/${this.state.coreInfo.image}`)}
@@ -203,8 +222,10 @@ class ArtPiece extends React.Component {
 
       //console.log("NAME: " + this.state);
 
-      return(<div>
-                <a id={this.state.coreInfo.id} 
+      return(<div key = {this.state.coreInfo.id + "AP"}>
+                <a 
+                  key={this.state.coreInfo.id + "AD"}
+                  id={this.state.coreInfo.id} 
                   className="student" 
                   style={{
                     color: `rgb(${addedColor[0]}, ${addedColor[1]}, ${addedColor[2]})`,
@@ -217,8 +238,10 @@ class ArtPiece extends React.Component {
 
                     {this.state.coreInfo.name} {filteredIn ? `, ${this.state.coreInfo.title}, 2023.` : ""}
                 </a>
-                <div style={{display: this.state.imageShown ? "inherit" : "none"}} 
-                id={this.state.coreInfo.id} 
+                <div 
+                key={this.state.coreInfo.id + "DD"}
+                id={this.state.coreInfo.id + "DD"} 
+                style={{display: this.state.imageShown ? "inherit" : "none"}} 
                 onMouseDown={() => this.startDragElement(this.state)}
                 //onMouseMove={() => this.continueDragElement(this.state)}
                 onMouseUp={() => this.stopDragElement(this.state)}
