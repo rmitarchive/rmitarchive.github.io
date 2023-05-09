@@ -146,7 +146,7 @@ class ArtPiece extends React.Component {
               />
              <div className="dragImgIndex">{
              this.state.isRandomImage ? ` (Fig. ${this.state.coreInfo.id})`
-             : ` (${this.state.coreInfo.id})`
+             : ` ${this.state.coreInfo.id}.`
              }</div>
           </div>
         );
