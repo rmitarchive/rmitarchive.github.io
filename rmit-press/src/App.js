@@ -127,7 +127,7 @@ class App extends React.Component {
       artPiecesIsVisible: artPiecesIsVisible,
 
       baseZIndex: 10,
-      gridSnap: true,    
+      gridSnap: false,    
 
       currentShownWorks: currentShownWorks
     }    
@@ -489,7 +489,7 @@ class App extends React.Component {
           imageMoving={this.state.artPiecesImageMoving[pos]}
           currzIndex={this.state.artPiecesCuzzZIndex[pos]}
 
-          /* gridSnap={this.state.gridSnap} */
+          gridSnap={this.state.gridSnap} 
           />);
           
       }

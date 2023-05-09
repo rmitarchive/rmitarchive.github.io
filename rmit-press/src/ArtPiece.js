@@ -9,6 +9,10 @@ class ArtPiece extends React.Component {
         this.continueDragElement(this.state);
       });
 
+      window.addEventListener('mouseup', (event) => {
+        this.stopDragElement(this.state);
+      });
+
       this.state = {
         isRandomImage: props.isRandomImage,
         isVisible: props.isRandomImage,

@@ -33,6 +33,7 @@ footer {
   margin-right: 15px;
   margin-top: 20px;
   margin-bottom: 20px;
+  font-size: large;
 }
 
 @keyframes floating {
@@ -143,6 +144,7 @@ footer {
   overflow: scroll;
   mix-blend-mode: darken;
   background-size: 33%;
+  background-color: whitesmoke;
 }
 
 .index-main-BG {
