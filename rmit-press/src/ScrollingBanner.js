@@ -15,7 +15,7 @@ class ScrollingBanner extends React.Component {
 
       window.addEventListener('click', (event) => {
         //console.log("CLICKEDDD");
-        if(Math.random() < .25){
+        if(Math.random() < .15){
           let selectionPos = Math.floor(Math.random() * this.state.buttonTitles.length);
           //console.log(`selectionPos: ${selectionPos}`);
           this.doSynonym(selectionPos, this.state.buttonTitles[selectionPos]);
@@ -82,13 +82,12 @@ class ScrollingBanner extends React.Component {
     render() {
       let elements = []
       for(var i = 0; i < this.state.buttonTitles.length; i++){
-        let j = i;
+        let j = i; /* lol */
         elements.push(<div key={i} className="scrolling-banner-child" onClick = {(() => this.changeCurrentPageIndex(j))} style={{
           //backgroundColor: `${(i % 2 == 0 ? "white" : "grey")}`
           //borderColor: `${(i % 2 == 0 ? "white" : "grey")}`
           //borderColor: `${(i % 2 == 0 ? "#ededed" : "#dedede")}`
-          borderColor: `${(i % 2 == 0 ? "grey" : "grey")}`
-        }}><p className="times">{this.state.buttonTitles[i].charAt(0).toUpperCase() + this.state.buttonTitles[i].slice(1)}</p></div>);
+        }}><p className="helvetica">{this.state.buttonTitles[i].charAt(0).toUpperCase() + this.state.buttonTitles[i].slice(1)}</p></div>);
       }
       return(<div className="scrolling-banner-parent">
                 {elements}

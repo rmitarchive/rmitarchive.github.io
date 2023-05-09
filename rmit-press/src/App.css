@@ -7,15 +7,6 @@
   font-family: 'Century';
   src: url("Type/Century-Schoolbook-Regular.ttf");
 }
-/*
-body {
-  margin: 0 0 0 0;
-  height:100vh;
-  padding: 0;
-  text-rendering: geometricPrecision;
-  font-family: Unica, Helvetica;
-  font-size: 1em;  
-}*/
 
 header {
   position:fixed;
@@ -42,6 +33,7 @@ footer {
   margin-right: 15px;
   margin-top: 20px;
   margin-bottom: 20px;
+  font-size: large;
 }
 
 @keyframes floating {
@@ -60,12 +52,13 @@ footer {
 }
 
 .fact-times {
-  font-family: Century;
+  font-family: Unica;
   font-size: 0.7em;
   margin: 0;
   text-align: right;
   float: right;
   clear: both;
+  background-color: transparent;
 }
 
 .drag-div{
@@ -79,43 +72,37 @@ footer {
 }
 
 .bottom-of-page{
-  z-index: 9;
-  position:fixed;
-  bottom: 0px;
-  width: 100%;
+  padding:10px;
+  z-index: 99;
+  position:absolute;
+  top: -0.1em;
+  width: 20%;
+  right:0;
+  
 }
 
 .scrolling-banner-child{
-  box-sizing: border-box;
-  height: 100%;
-  vertical-align:text-top;
-  text-align: center;
-  width: 25%;
-  float: left;
+  height: 1em;
+  width: 100%;
   background-color: transparent;
-  border-top: 2.5px;
-  border-left: 2.5px;
-  border-right: 2.5px;
-  border-bottom: 0px;
-  border-style: solid;
+  padding: 0 0 0 0;
+  margin-top:-1em;
+  line-height: 1;
+  text-align: right;
 }
 
 .scrolling-banner-child:hover{
-  border-style: solid;
-  border-top: 3px;
-  border-left: 3px;
-  border-right: 3px;
-  border-bottom: 0px;
-  border-color: grey;
+  background-color: rgb(0, 0, 0);
+  color:white;
 }
 
 .scrolling-banner-parent{
   width: 100%;
-  /*height: 40px;*/
-  height: 5vh;
-  background-color: transparent;
+  height: 100%;
+  background-color: none;
   overflow: hidden;
   z-index: 9999;
+  height:5em;
 
 }
 
@@ -143,23 +130,21 @@ footer {
 }
 
 .helvetica {
-  font-family: Helvetica;
-  font-size: 1.5em;
-  font-weight: 600;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  cursor: url(Img/SquareCursor.png) 15 15, auto;
+  font-family: Unica;
+  font-size: 1em;
+  cursor: pointer;
 }
 
 .index-main-paper {
   position:absolute;
-
+  display:none; 
   padding:20px;
   width:100vw;
   height:100%;
   overflow: scroll;
   mix-blend-mode: darken;
   background-size: 33%;
+  background-color: whitesmoke;
 }
 
 .index-main-BG {
@@ -190,8 +175,8 @@ footer {
 .index-content {
   position:absolute;
   top:10vh;
-  line-height: 1.4em;
-  font-family: Century;
+  line-height: 1em;
+  font-family: Unica;
 }
 
 .index-img img {
@@ -207,7 +192,7 @@ footer {
 .index-right {
   position:absolute;
   height:100%;
-  font-family: Century;
+  font-family: Unica;
   padding:20px;
   right:0;
   overflow: scroll;
@@ -240,14 +225,13 @@ html, body {
   display:flex;
   flex-direction: column;
   width: 30%;
-  height: 100%;
+  height: 100vh;
   overflow: auto;
   box-sizing: border-box;
   padding: 0.5em;
   -ms-overflow-style: none;  
   scrollbar-width: none; 
 }
-
 
 .left::-webkit-scrollbar { 
   display: none; 
@@ -258,16 +242,34 @@ html, body {
 }
 
 .dragImg {
-  max-width: 15em;
+  max-width: 10em;
   cursor: move;
+  position:block;
 }
+
+.dragImgIndex {
+  font-size: 0.7em;
+}
+
+.left .search-bar {
+  font-size: 1em;
+  padding:0.5em;
+  transform:translateX(-0.5em);
+  border: none;
+  background-color: transparent;
+}
+
+.left .search-bar:focus {
+  outline:none;
+}
+
 
 .left .student {
   display:block;
 }
 
 .left .student-names {
-  margin-top: 50%;
+  margin-top: 20vh;
 }
 
 .left .student-expand {
@@ -276,13 +278,6 @@ html, body {
   height:auto;
   box-sizing: border-box;
   padding:0.5em;
-  margin-bottom: 1em;
-}
-
-.left .student-expand span {
-  font-family: Courier New;
-  font-size: 0.8em;
-  margin-bottom: 1em;
 }
 
 .left .student-expand img {
@@ -292,15 +287,16 @@ html, body {
 
 .right {
   float: left;
-  float: left;
   display:flex;
+  position:absolute;
+  left:20vw;
   flex-direction: column;
-  width: 70%;
+  width: auto;
   height: 100%;
   overflow: auto;
   box-sizing: border-box;
   padding: 0.5em;
-}
+} 
 
 #draggable {
   /*position: absolute;*/
@@ -313,9 +309,9 @@ a {
   width:fit-content;
 }
 
-a:hover, .active {
-  color:white;
+a:hover {
   background-color: black;
+  color:white;
   cursor: pointer;
 }
 

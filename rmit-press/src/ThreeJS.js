@@ -21,7 +21,9 @@ function ThreeJS() {
     //}
     canvasCount++;
     const geometry = new THREE.CylinderGeometry(1, 1, 2, 32);
-    const material = new THREE.MeshBasicMaterial({ wireframe: true, color: 0xffffff });
+    const material = new THREE.MeshBasicMaterial({ wireframe: true, color: 0xd3d3d3 });
+    //const material = new THREE.MeshBasicMaterial({ wireframe: true, color: 0xc5c5c5 });
+    //const material = new THREE.MeshBasicMaterial({ wireframe: true, color: 0xffffff });
     const cylinder = new THREE.Mesh(geometry, material);
     scene.add(cylinder);
 
