@@ -140,10 +140,10 @@ class ArtPiece extends React.Component {
               draggable="false" 
               src={require(`./Img/${this.state.coreInfo.image}`)}
               />
-             {
-             this.state.isRandomImage ? ` (SYS:${this.state.coreInfo.id})`
+             <div className="dragImgIndex">{
+             this.state.isRandomImage ? ` (Fig. ${this.state.coreInfo.id})`
              : ` (${this.state.coreInfo.id})`
-             }
+             }</div>
           </div>
         );
       }else{
@@ -167,39 +167,39 @@ class ArtPiece extends React.Component {
         if(this.state.currFilter[tag]){
           switch(tag){
             case "digital":
-              var c = [132, 0, 50];
+              var c = [0, 121, 191];
               colors.push(c);
-              //color = '#840032';
+              //color = '#0078BF';
               break;
             case "identity":
-              var c = [229, 149, 0];
+              var c = [255, 72, 176];
               colors.push(c);
-              //color = '#E59500';
+              //color = '#FF48B0';
               break;
             case "logo":
-              var c = [0, 38, 66];
+              var c = [241, 80, 96];
               colors.push(c);
-              //color = '#002642';
+              //color = '#F15060';
               break;
             case "print":
-              var c = [4, 167, 119];
+              var c = [0, 169, 92];
               colors.push(c);
-              //color = '#04A777';
+              //color = '#00A95C';
               break;
             case "poster":
-              var c = [83, 152, 190];
+              var c = [255, 108, 47];
               colors.push(c);
-              //color = '#5398BE';
+              //color = '#FF6C2f';
               break;
             case "layout":
-              var c = [212, 231, 158];
+              var c = [0, 131, 138];
               colors.push(c);
-              //color = '#D4E79E';
+              //color = '#00838A';
               break;
             case "web":
-              var c = [238, 252, 87];
+              var c = [253, 231, 0];
               colors.push(c);
-              //color = '#EEFC57';
+              //color = '#FFE800';
               break;
           }
           //color = '#0078BF';
@@ -218,6 +218,8 @@ class ArtPiece extends React.Component {
 
       if(filteredIn){
         addedColor = [addedColor[0] / colors.length, addedColor[1] / colors.length, addedColor[2] / colors.length];
+      } else {
+        addedColor = [255,255,255]
       }
 
       //console.log("NAME: " + this.state);
@@ -229,7 +231,7 @@ class ArtPiece extends React.Component {
                   id={this.state.coreInfo.id} 
                   className="student" 
                   style={{
-                    color: `rgb(${addedColor[0]}, ${addedColor[1]}, ${addedColor[2]})`,
+                    backgroundColor: `rgb(${addedColor[0]}, ${addedColor[1]}, ${addedColor[2]})`,
                     visibility: this.state.isRandomImage ? "hidden" : "inherit"
                   }}
                   onMouseLeave={() => this.state.hoverExitTextFunc(this.state)} 
@@ -237,7 +239,7 @@ class ArtPiece extends React.Component {
                   onMouseDown={() => this.clickText(this.state)}
                   >
 
-                    {this.state.coreInfo.name} {filteredIn ? `, ${this.state.coreInfo.title}, 2023.` : ""}
+                    {this.state.coreInfo.name} {filteredIn ? `, ${this.state.coreInfo.title} (2023)` : ""}
                 </a>
                 <div 
                 key={this.state.coreInfo.id + "DD"}

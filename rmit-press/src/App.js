@@ -9,11 +9,11 @@ import React from 'react';
 
 import ClassJSON from "./Data/class.json"
 
-import paperText1 from "./Img/test-paper-texture.png";
+/* import paperText1 from "./Img/test-paper-texture.png";
 import paperText2 from "./Img/test-paper-texture-2.png";
 import paperText3 from "./Img/test-paper-texture-3.png";
 import paperText4 from "./Img/test-paper-texture-4.png";
-import paperText5 from "./Img/test-paper-texture-5.png";
+import paperText5 from "./Img/test-paper-texture-5.png"; */
 
 import axios from 'axios';
 //import { Page, Text, View, Document, StyleSheet, ReactPDF } from '@react-pdf/renderer';
@@ -23,7 +23,7 @@ class App extends React.Component {
   constructor(props){
     super(props);
 
-    this.paperTextures = [paperText1, paperText2, paperText3, paperText4, paperText5];
+    /* this.paperTextures = [paperText1, paperText2, paperText3, paperText4, paperText5]; */
     
     this.testHover = this.testHover.bind(this); //currently empty funcs, since we arent doing that any more
     this.clearHover = this.clearHover.bind(this); //currently empty funcs, since we arent doing that any more
@@ -137,12 +137,13 @@ class App extends React.Component {
     }, 500);
 
     window.addEventListener('click', (event) => {
-      if(Math.random() < .25){
+      if(Math.random() < .15){
+        /*was happening too often imo */
         this.showRandomImage();
       }
     });
 
-    setInterval(() => {
+    /* setInterval(() => {
       let newCurrPaperTexture = Math.floor(Math.random() * this.paperTextures.length);
       //console.log("newCurrPaperTexture: " + newCurrPaperTexture);
       this.setState((prevState) => {
@@ -151,7 +152,7 @@ class App extends React.Component {
           currPaperTexture: newCurrPaperTexture
         };
       });
-    }, 250);   
+    }, 250);   */ 
   }
 
   showRandomImage(){
@@ -254,11 +255,20 @@ class App extends React.Component {
   getCurrentlyShownWorks(){
     let shown = [];
     this.state.currentShownWorks.forEach(shownWork => {
-      shown.push(
-        <p className="fact-times" key={shownWork.id + "CSW"}>
-          {`(${shownWork.id}) ${shownWork.name}, ${shownWork.title}, 2023.`}
-        </p>
-      );
+      /* i made a thing work! */
+      if (shownWork.name == "sys") {
+        shown.push(
+          <p className="fact-times" key={shownWork.id + "CSW"}>
+            {`(Fig. ${shownWork.id}) ${shownWork.title}`}
+          </p>
+        );
+      } else {
+        shown.push(
+          <p className="fact-times" key={shownWork.id + "CSW"}>
+            {`(${shownWork.id}) ${shownWork.name}, ${shownWork.title} (2023)`}
+          </p>
+        )
+      };
     });
 
     return(
@@ -355,6 +365,7 @@ class App extends React.Component {
   }
 
   async getFunFact(number){
+    return; //temp disable
     if(number == this.state.mouseXWas || number == this.state.mouseYWas){
       return;
     }
@@ -478,7 +489,7 @@ class App extends React.Component {
           imageMoving={this.state.artPiecesImageMoving[pos]}
           currzIndex={this.state.artPiecesCuzzZIndex[pos]}
 
-          gridSnap={this.state.gridSnap}
+          /* gridSnap={this.state.gridSnap} */
           />);
           
       }
@@ -509,64 +520,66 @@ class App extends React.Component {
                   <div className="title-container">
                     <span className="header">PRESS</span>
                     <br/><br/>
-                    <a className="header" onClick = {(() => this.pdfTestSave())}>Print Screen</a>
-                    <br/><br/>
-                    <a className="header" onClick = {(() => this.clearPage())}>Clear Screen</a>
-                    <br/><br/>
                     <input className="search-bar" placeholder="Search..." onChange={e => this.updateTextFilter(e.target.value)}>
                     </input>
                   </div>
                   <div className="student-names"> 
+                  
+                  <div>Filters</div>
+                  <br/>
+                  <a className="filter digital" 
+                  onClick = {(() => this.applyIndexFilter("digital"))}
+                  style={{backgroundColor: this.state.indexFilter["digital"] ? "#0078BF" : "transparent"}}>
+                    Digital
+                  </a>
+                  <br></br>
+                  <a className="filter identity" 
+                  onClick = {(() => this.applyIndexFilter("identity"))}
+                  style={{backgroundColor: this.state.indexFilter["identity"] ? "#ff48b0" : "transparent"}}>
+                    Identity
+                  </a>
+                  <br></br>
+                  <a className="filter logo" 
+                  onClick = {(() => this.applyIndexFilter("logo"))}
+                  style={{backgroundColor: this.state.indexFilter["logo"] ? "#F15060" : "transparent"}}>
+                    Logo
+                  </a>
+                  <br></br>
+                  <a className="filter print" 
+                  onClick = {(() => this.applyIndexFilter("print"))}
+                  style={{backgroundColor: this.state.indexFilter["print"] ? "#00A95C" : "transparent"}}>
+                    Print
+                  </a>
+                  <br></br>
+                  <a className="filter poster" 
+                  onClick = {(() => this.applyIndexFilter("poster"))}
+                  style={{backgroundColor: this.state.indexFilter["poster"] ? "#FF6C2f" : "transparent"}}>
+                    Poster
+                  </a>
+                  <br></br>
+                  <a className="filter layout" 
+                  onClick = {(() => this.applyIndexFilter("layout"))}
+                  style={{backgroundColor: this.state.indexFilter["layout"] ? "#00838A" : "transparent"}}>
+                    Layout
+                  </a>
+                  <br></br>
+                  <a className="filter web" 
+                  onClick = {(() => this.applyIndexFilter("web"))}
+                  style={{backgroundColor: this.state.indexFilter["web"] ? "#FFE800" : "transparent"}}>
+                    Web
+                  </a>
+                  <br></br><br></br><br></br><br></br>
                     {this.getListOfWorks()}
                   </div>
                 </div>
                 
                 <div className="right">
-                  <div>Filters</div>
-                  <br/>
-                  <a className="filter digital" 
-                  onClick = {(() => this.applyIndexFilter("digital"))}
-                  style={{color: this.state.indexFilter["digital"] ? "#840032" : "black"}}>
-                    Digital
-                  </a>
+                <a className="header" onClick = {(() => this.pdfTestSave())}>Print Screen</a>
+                    
+                <a className="header" onClick = {(() => this.clearPage())}>Clear Screen</a>
 
-                  <a className="filter identity" 
-                  onClick = {(() => this.applyIndexFilter("identity"))}
-                  style={{color: this.state.indexFilter["identity"] ? "#E59500" : "black"}}>
-                    Identity
-                  </a>
+                </div> 
 
-                  <a className="filter logo" 
-                  onClick = {(() => this.applyIndexFilter("logo"))}
-                  style={{color: this.state.indexFilter["logo"] ? "#002642" : "black"}}>
-                    Logo
-                  </a>
-
-                  <a className="filter print" 
-                  onClick = {(() => this.applyIndexFilter("print"))}
-                  style={{color: this.state.indexFilter["print"] ? "#04A777" : "black"}}>
-                    Print
-                  </a>
-
-                  <a className="filter poster" 
-                  onClick = {(() => this.applyIndexFilter("poster"))}
-                  style={{color: this.state.indexFilter["poster"] ? "#5398BE" : "black"}}>
-                    Poster
-                  </a>
-
-                  <a className="filter layout" 
-                  onClick = {(() => this.applyIndexFilter("layout"))}
-                  style={{color: this.state.indexFilter["layout"] ? "#D4E79E" : "black"}}>
-                    Layout
-                  </a>
-
-                  <a className="filter web" 
-                  onClick = {(() => this.applyIndexFilter("web"))}
-                  style={{color: this.state.indexFilter["web"] ? "#EEFC57" : "black"}}>
-                    Web
-                  </a>
-
-                </div>
               </div>
             </div>
           );
@@ -612,6 +625,7 @@ class App extends React.Component {
   clearPage(){
     console.log("clear page");
     let newArtPiecesImageShown = this.state.artPiecesImageShown;
+    
 
     for(let i = 0; i < newArtPiecesImageShown.length; i++){
       //console.log(i);
@@ -700,6 +714,7 @@ class App extends React.Component {
         "WebkitMaskSize": "33%",
         maskSize: "33%",
 
+
         "WebkitMaskPosition": `${maskPosition}`,
         maskPosition: `${maskPosition}`
       }
@@ -714,19 +729,14 @@ class App extends React.Component {
         <link rel="icon" href="icon.png" /> 
         <title>Zachariah Micallef</title>
         
-        <div className="index-main-BG" style={backgroundStyle}></div>
-        <div className="index-main-paper" style={{backgroundImage: `url(${this.paperTextures[0]})`, visibility:`${this.state.currPaperTexture == 0 ? "visible" : "hidden"}`}}></div>
-        <div className="index-main-paper" style={{backgroundImage: `url(${this.paperTextures[1]})`, visibility:`${this.state.currPaperTexture == 1 ? "visible" : "hidden"}`}}></div>
-        <div className="index-main-paper" style={{backgroundImage: `url(${this.paperTextures[2]})`, visibility:`${this.state.currPaperTexture == 2 ? "visible" : "hidden"}`}}></div>
-        <div className="index-main-paper" style={{backgroundImage: `url(${this.paperTextures[3]})`, visibility:`${this.state.currPaperTexture == 3 ? "visible" : "hidden"}`}}></div>
-        <div className="index-main-paper" style={{backgroundImage: `url(${this.paperTextures[4]})`, visibility:`${this.state.currPaperTexture == 4 ? "visible" : "hidden"}`}}></div>
         
         <div className="bottom-of-page">
+        <ScrollingBanner clickFunc = {this.scrollbarRef}/> 
           <div>
             <p className="fact-times">{this.state.mouseX}, {this.state.mouseY}</p>
             {this.getCurrentlyShownWorks()}
           </div>
-          <ScrollingBanner clickFunc = {this.scrollbarRef}/>
+          
 
 
         </div>
