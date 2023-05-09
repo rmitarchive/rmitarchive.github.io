@@ -216,15 +216,21 @@ class App extends React.Component {
     return newZIndex;
   }
 
-  clickText(props) {
+  clickText(props, isForcedPush) {
     let newArtPiecesImageShown = this.state.artPiecesImageShown;
     newArtPiecesImageShown[props.id] = props.imageShown;
 
+    console.log('check 2: ' + props.imageShown);
+    console.log('check 2n: ' + JSON.stringify(props));
     //i would think this should be swapped around, but testing shows otherwise? 
     if(newArtPiecesImageShown[props.id]){
       this.removeFromCurrentlyShownWorks(props);
     }else if(this.state.artPiecesImageMoved[props.id]){
       console.log("click hit");
+      this.pushToCurrentlyShownWorks(props.coreInfo);
+    }
+
+    if(isForcedPush){
       this.pushToCurrentlyShownWorks(props.coreInfo);
     }
 

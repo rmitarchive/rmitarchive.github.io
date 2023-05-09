@@ -56,17 +56,16 @@ class ArtPiece extends React.Component {
         this.setState({
           imageShown: !this.state.imageShown
         })
+        this.state.clickText(this.state, false);
       }else{
         toHide.style.display = "inherit";
         toHide.style.color = "black";
-
         //console.log("MOUSE DOWN == red");
         this.setState({
           imageShown: true
         })
+        this.state.clickText(this.state, true);
       }
-
-      this.state.clickText(this.state);
     }
 
     startDragElement(props) {
