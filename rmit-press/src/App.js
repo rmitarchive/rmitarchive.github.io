@@ -168,7 +168,6 @@ class App extends React.Component {
 
     if(pot.length != 0)
     {
-
       let randIndex = Math.floor(Math.random() * pot.length);
 
       let newArtPiecesIsVisible = this.state.artPiecesIsVisible;
@@ -192,6 +191,7 @@ class App extends React.Component {
       newArtPiecesCurrY[pot[randIndex]] = (Math.random() * (height * .6)) + (height * .4);
   
       //console.log(`SHOW RANDOM IMAGE ${pot[randIndex]} `);
+      this.pushToCurrentlyShownWorks(ClassJSON.students[pot[randIndex]]);
   
       this.setState({
         artPiecesIsVisible: newArtPiecesIsVisible,
@@ -217,16 +217,15 @@ class App extends React.Component {
   }
 
   clickText(props) {
-    //console.log("MOUSE DOWN");
     let newArtPiecesImageShown = this.state.artPiecesImageShown;
-    newArtPiecesImageShown[props.coreInfo.id] = props.coreInfo.imageShown;
-    //newArtPiecesImageShown[props.coreInfo.id] = !newArtPiecesImageShown[props.coreInfo.id];
+    newArtPiecesImageShown[props.id] = props.imageShown;
 
-    //console.log(newArtPiecesImageShown);
-    //console.log(this.state);
-
-    if(!newArtPiecesImageShown[props.coreInfo.id]){
-      this.removeFromCurrentlyShownWorks(props.coreInfo);
+    //i would think this should be swapped around, but testing shows otherwise? 
+    if(newArtPiecesImageShown[props.id]){
+      this.removeFromCurrentlyShownWorks(props);
+    }else if(this.state.artPiecesImageMoved[props.id]){
+      console.log("click hit");
+      this.pushToCurrentlyShownWorks(props.coreInfo);
     }
 
     this.setState({
@@ -241,7 +240,6 @@ class App extends React.Component {
     this.setState({
       currentShownWorks: currCurrentShownWorks
     })
-
   }
 
   removeFromCurrentlyShownWorks(props){
@@ -589,8 +587,10 @@ class App extends React.Component {
               <ThreeJS/> 
               <HelpText/>
             </div>
-          );
+          );        
       }
+
+
     }
 
     return(
@@ -623,7 +623,7 @@ class App extends React.Component {
   }
 
   clearPage(){
-    console.log("clear page");
+    //console.log("clear page");
     let newArtPiecesImageShown = this.state.artPiecesImageShown;
     
 
@@ -631,18 +631,23 @@ class App extends React.Component {
       //console.log(i);
       newArtPiecesImageShown[i] = false;
       const toHide = document.getElementById(i+"DD");
+
+
+
       if(toHide != null){
         //console.log("   IS NOT NULL");
+        //console.log(`to hide: ${i}`);
+        //this.removeFromCurrentlyShownWorks(ClassJSON.students[i]);
         toHide.style.display = "none";
         toHide.style.color = "red";
       }else{
         //console.log("   IS NULL");
       }
-
     }
 
     this.setState({
       artPiecesImageShown: newArtPiecesImageShown,
+      currentShownWorks: []
     })
   }
 
@@ -694,6 +699,8 @@ class App extends React.Component {
   }
 
   render() {
+
+    //console.log("currentShownWorks: " + this.state.currentShownWorks);
     var maskPosition = `center`
     
     //Whatever is shown when no image is being hovered
