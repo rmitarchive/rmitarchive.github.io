@@ -19,6 +19,7 @@ class ArtPiece extends React.Component {
         
         id: props.coreInfo.id,
         title: props.title,
+        year: props.year,
         hoverOverTextFunc: props.hoverOverTextFunc,
         hoverExitTextFunc: props.hoverExitTextFunc,
         continueDragElement: props.continueDragElement,
@@ -137,16 +138,20 @@ class ArtPiece extends React.Component {
             zIndex: this.state.currzIndex
           }}
           onMouseDown={() => this.state.continueDragElement(this.state)}>
+            <a onMouseDown={() => this.clickText(this.state)} className="dragImgIndexLine dragImgIndex">x</a>
             <img className="dragImg"
               key={this.state.coreInfo.id + "DIMG"}
               id={`${this.state.coreInfo.id}Img`}
               draggable="false" 
               src={require(`./Img/${this.state.coreInfo.image}`)}
               />
+             <div className="dragImgIndexLine">
              <div className="dragImgIndex">{
              this.state.isRandomImage ? ` (Fig. ${this.state.coreInfo.id})`
-             : ` (${this.state.coreInfo.id})`
+             : ` ${this.state.coreInfo.id}.`
              }</div>
+                <a onMouseDown={() => this.clickText(this.state)} className="dragImgIndex">{this.state.coreInfo.name}, <i>{this.state.coreInfo.title}.</i> ({this.state.coreInfo.year})</a>
+             </div> 
           </div>
         );
       }else{

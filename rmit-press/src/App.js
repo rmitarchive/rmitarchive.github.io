@@ -137,6 +137,7 @@ class App extends React.Component {
     }, 500);
 
     window.addEventListener('click', (event) => {
+      return //temp disable its annoying lol
       if(Math.random() < .15){
         /*was happening too often imo */
         this.showRandomImage();
@@ -256,10 +257,16 @@ class App extends React.Component {
     })
   }
 
+  
   getCurrentlyShownWorks(){
     let shown = [];
     this.state.currentShownWorks.forEach(shownWork => {
       /* i made a thing work! */
+      let i = 0
+      if (shown.length==0){
+        shown.push(<div className="fact-times"><br></br>Index</div>);
+      }
+
       if (shownWork.name == "sys") {
         shown.push(
           <p className="fact-times" key={shownWork.id + "CSW"}>

@@ -242,13 +242,19 @@ html, body {
 }
 
 .dragImg {
-  max-width: 10em;
+  max-height: 15em;
   cursor: move;
   position:block;
 }
 
 .dragImgIndex {
   font-size: 0.7em;
+}
+
+.dragImgIndexLine {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .left .search-bar {
@@ -286,22 +292,23 @@ html, body {
 }
 
 .right {
-  float: left;
   display:flex;
   position:absolute;
-  left:20vw;
+  right:0;
   flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
   width: auto;
-  height: 100%;
+  height: 100vh;
   overflow: auto;
   box-sizing: border-box;
   padding: 0.5em;
+  z-index:-1;
 } 
 
 #draggable {
   /*position: absolute;*/
   z-index: 9;
-  text-align: center;
   cursor: move;
 }
 
