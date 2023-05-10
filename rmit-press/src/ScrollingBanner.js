@@ -32,7 +32,7 @@ class ScrollingBanner extends React.Component {
       .then(response => response.json())
       .then(data => {;
 
-        if(data != null){
+        if(data != null && data["word"] != null){
           //console.log(JSON.stringify(data));
           let newWord = data[Math.floor(Math.random() * data.length)]["word"];
           //let newWord = data[0]["word"];

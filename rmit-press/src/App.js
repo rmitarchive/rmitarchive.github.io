@@ -221,17 +221,18 @@ class App extends React.Component {
     let newArtPiecesImageShown = this.state.artPiecesImageShown;
     newArtPiecesImageShown[props.id] = props.imageShown;
 
-    console.log('check 2: ' + props.imageShown);
-    console.log('check 2n: ' + JSON.stringify(props));
+    console.log(`click hit: ${newArtPiecesImageShown[props.id]} isForcedPush: ${isForcedPush}`);
     //i would think this should be swapped around, but testing shows otherwise? 
     if(newArtPiecesImageShown[props.id]){
+      console.log("remove from");
       this.removeFromCurrentlyShownWorks(props);
     }else if(this.state.artPiecesImageMoved[props.id]){
-      console.log("click hit");
+      console.log("show");
       this.pushToCurrentlyShownWorks(props.coreInfo);
     }
 
     if(isForcedPush){
+      console.log("show (forced)");
       this.pushToCurrentlyShownWorks(props.coreInfo);
     }
 
@@ -252,9 +253,12 @@ class App extends React.Component {
   removeFromCurrentlyShownWorks(props){
     let currCurrentShownWorks = this.state.currentShownWorks.filter(shownWork => shownWork.id != props.id);
 
+    console.log("pre: " + JSON.stringify(this.state.currentShownWorks));
+    console.log("post: " + JSON.stringify(currCurrentShownWorks));
+
     this.setState({
       currentShownWorks: currCurrentShownWorks
-    })
+    });
   }
 
   
@@ -264,7 +268,7 @@ class App extends React.Component {
       /* i made a thing work! */
       let i = 0
       if (shown.length==0){
-        shown.push(<div className="fact-times"><br></br>Index</div>);
+        shown.push(<div key={"indextitle"} className="fact-times"><br></br>Index</div>);
       }
 
       if (shownWork.name == "sys") {

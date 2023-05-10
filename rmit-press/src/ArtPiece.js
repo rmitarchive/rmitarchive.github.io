@@ -48,12 +48,13 @@ class ArtPiece extends React.Component {
     } 
 
     clickText(props) {
-
       const toHide = document.getElementById(this.state.coreInfo.id+"DD");
-      
-      if(toHide.style.color != "red"){
+
+      //if red, pageclear has happened.
+      if(toHide.style.color != "red"){ 
 
         //console.log("MOUSE DOWN != red");
+        console.log("click 1");
         this.setState({
           imageShown: !this.state.imageShown
         })
@@ -137,21 +138,30 @@ class ArtPiece extends React.Component {
             top: `${this.state.currY}px`,
             zIndex: this.state.currzIndex
           }}
-          onMouseDown={() => this.state.continueDragElement(this.state)}>
+          //onMouseDown={() => this.continueDragElement(this.state)}
+          >
             <a onMouseDown={() => this.clickText(this.state)} className="dragImgIndexLine dragImgIndex">x</a>
             <img className="dragImg"
               key={this.state.coreInfo.id + "DIMG"}
               id={`${this.state.coreInfo.id}Img`}
               draggable="false" 
               src={require(`./Img/${this.state.coreInfo.image}`)}
+              onMouseDown={() => this.startDragElement(this.state)}
+              onMouseUp={() => this.stopDragElement(this.state)}
               />
-             <div className="dragImgIndexLine">
-             <div className="dragImgIndex">{
-             this.state.isRandomImage ? ` (Fig. ${this.state.coreInfo.id})`
-             : ` ${this.state.coreInfo.id}.`
-             }</div>
-                <a onMouseDown={() => this.clickText(this.state)} className="dragImgIndex">{this.state.coreInfo.name}, <i>{this.state.coreInfo.title}.</i> ({this.state.coreInfo.year})</a>
-             </div> 
+              <div className="dragImgIndexLine">
+                <div className="dragImgIndex">{
+                  this.state.isRandomImage ? ` (Fig. ${this.state.coreInfo.id})`
+                  : ` ${this.state.coreInfo.id}.`
+                  }
+                </div>
+                <a 
+                onMouseDown={() => this.clickText(this.state)} 
+                className="dragImgIndex"
+                >
+                  {this.state.coreInfo.name}, <i>{this.state.coreInfo.title}.</i> ({this.state.coreInfo.year})
+                </a>
+              </div> 
           </div>
         );
       }else{
@@ -161,7 +171,8 @@ class ArtPiece extends React.Component {
             id={`${this.state.coreInfo.id}Img`}
             draggable="false" 
             src={require(`./Img/${this.state.coreInfo.image}`)}
-            onMouseDown={() => this.state.startDragElement(this.state)}
+            onMouseDown={() => this.startDragElement(this.state)}
+            onMouseUp={() => this.stopDragElement(this.state)}
             />
       );
       }
@@ -253,10 +264,8 @@ class ArtPiece extends React.Component {
                 key={this.state.coreInfo.id + "DD"}
                 id={this.state.coreInfo.id + "DD"} 
                 style={{display: this.state.imageShown ? "inherit" : "none"}} 
-                onMouseDown={() => this.startDragElement(this.state)}
-                //onMouseMove={() => this.continueDragElement(this.state)}
-                onMouseUp={() => this.stopDragElement(this.state)}
-                //onMouseLeave={() => this.stopDragElement(this.state)}
+                //onMouseDown={() => this.startDragElement(this.state)}
+                //onMouseUp={() => this.stopDragElement(this.state)}
                 >
                   {this.getImage()}
                 </div>
