@@ -54,11 +54,12 @@ class ArtPiece extends React.Component {
       if(toHide.style.color != "red"){ 
 
         //console.log("MOUSE DOWN != red");
-        console.log("click 1");
+        console.log(`click 1 ${this.state.imageShown}`);
         this.setState({
           imageShown: !this.state.imageShown
         })
-        this.state.clickText(this.state, false);
+        console.log(`click 1b ${this.state.imageShown}`);
+        this.state.clickText(this.state, !this.state.imageShown, false);
       }else{
         toHide.style.display = "inherit";
         toHide.style.color = "black";
@@ -66,7 +67,7 @@ class ArtPiece extends React.Component {
         this.setState({
           imageShown: true
         })
-        this.state.clickText(this.state, true);
+        this.state.clickText(this.state, true, true);
       }
     }
 

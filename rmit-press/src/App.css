@@ -147,6 +147,26 @@ footer {
   background-color: whitesmoke;
 }
 
+.focus-BG {
+  position:absolute;
+  max-width:50vw;
+  height:100%;
+  overflow: scroll;
+  z-index: 9999;
+
+  border-left: 2px;
+  border-right: 0px;
+  border-bottom: 0px;
+  border-top: 0px;
+
+  border-color: black;
+  border-style: solid;
+
+  top: 0;
+  right: 0;
+  background-color: whitesmoke;
+}
+
 .index-main-BG {
   position:absolute;
   padding:20px;
@@ -290,6 +310,28 @@ html, body {
   max-width:15em;
   height:auto;
 }
+
+.focus-Img {
+  width: 100%;
+  padding: 5px;
+}
+
+.focus-Header {
+  padding: 5px;
+  float: left;
+}
+
+.focus-Close {
+  padding: 5px;
+  float:right;
+}
+
+.focus-Desc {
+  font-family: Century;
+  padding: 5px;
+  margin-top: 0px;
+}
+
 
 .right {
   display:flex;
