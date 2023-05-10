@@ -3,7 +3,6 @@ import React from 'react';
 class ArtPiece extends React.Component {
     constructor(props){
       super(props);
-      console.log("TEST: " + JSON.stringify(props));
       
       window.addEventListener('mousemove', (event) => {
         this.continueDragElement(this.state);
@@ -159,7 +158,7 @@ class ArtPiece extends React.Component {
                   }
                 </div>
                 <a 
-                onMouseDown={() => this.state.openFocusArtPiece(this.state.coreInfo)} 
+                onMouseDown={this.state.isRandomImage ? null : () => this.state.openFocusArtPiece(this.state.coreInfo)} 
                 className="dragImgIndex"
                 >
                   {this.state.coreInfo.name}, <i>{this.state.coreInfo.title}.</i> ({this.state.coreInfo.year})

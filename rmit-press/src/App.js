@@ -128,10 +128,11 @@ class App extends React.Component {
       focusArtPiece: null
     }    
 
+    /*
     setInterval(() => {
       this.getFunFact(this.state.lastFactX ? this.state.mouseX : this.state.mouseY);
     }, 500);
-
+*/
     window.addEventListener('click', (event) => {
       //return //temp disable its annoying lol
       if(Math.random() < .05){ //reduced rate pretty significantly.
@@ -217,17 +218,17 @@ class App extends React.Component {
     let newArtPiecesImageShown = this.state.artPiecesImageShown;
     newArtPiecesImageShown[props.id] = newImageShown;
 
-    console.log(`click hit: ${newArtPiecesImageShown[props.id]} isForcedPush: ${isForcedPush}`);
+    //console.log(`click hit: ${newArtPiecesImageShown[props.id]} isForcedPush: ${isForcedPush}`);
     if(!newArtPiecesImageShown[props.id]){
-      console.log("remove from");
+      //console.log("remove from");
       this.removeFromCurrentlyShownWorks(props);
     }else if(this.state.artPiecesImageMoved[props.id]){
-      console.log("show");
+      //console.log("show");
       this.pushToCurrentlyShownWorks(props.coreInfo);
     }
 
     if(isForcedPush){
-      console.log("show (forced)");
+      //console.log("show (forced)");
       this.pushToCurrentlyShownWorks(props.coreInfo);
     }
 
@@ -718,11 +719,17 @@ class App extends React.Component {
   }
 
   openFocusArtPiece(props){
-    console.log(`openFocusArtPiece: ${JSON.stringify(props)}`)
-    
-    this.setState({
-      focusArtPiece: props
-    });
+    console.log(`openFocusArtPiece: ${JSON.stringify(props)}`);
+
+    if(this.state.focusArtPiece != null && props.id == this.state.focusArtPiece.id){
+      this.setState({
+        focusArtPiece: null
+      });
+    }else{
+      this.setState({
+        focusArtPiece: props
+      });
+    }
   }
 
   removeFocusArtPiece(){
@@ -735,7 +742,6 @@ class App extends React.Component {
     if (this.state.focusArtPiece == null) {
       return (<div style={{ visibility: "hidden" }}></div>);
     }
-    console.log("render actual stuff");
 
     return (
         <div className="focus-BG">

@@ -28,11 +28,12 @@ class ScrollingBanner extends React.Component {
     }
 
     async doSynonym(index, word){
+      //console.log("do synonym");
       const resp = await fetch(`https://api.datamuse.com/words?rel_syn=${word}`)
       .then(response => response.json())
       .then(data => {;
 
-        if(data != null && data["word"] != null){
+        if(data != null){// && data["word"] != null){
           //console.log(JSON.stringify(data));
           let newWord = data[Math.floor(Math.random() * data.length)]["word"];
           //let newWord = data[0]["word"];
@@ -40,6 +41,8 @@ class ScrollingBanner extends React.Component {
   
           let responseButtonTitles = this.state.buttonTitles;
           responseButtonTitles[index] = newWord;
+
+          //console.log(`responseButtonTitles: ${JSON.stringify(responseButtonTitles)}`);
   
           this.setState({
             buttonTitles: responseButtonTitles
