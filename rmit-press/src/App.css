@@ -303,6 +303,7 @@ html, body {
   overflow: auto;
   box-sizing: border-box;
   padding: 0.5em;
+  z-index:-1;
 } 
 
 #draggable {
