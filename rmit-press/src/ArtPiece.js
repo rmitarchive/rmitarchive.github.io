@@ -144,10 +144,12 @@ class ArtPiece extends React.Component {
               draggable="false" 
               src={require(`./Img/${this.state.coreInfo.image}`)}
               />
+             <div className="dragImgIndexLine">
              <div className="dragImgIndex">{
              this.state.isRandomImage ? ` (Fig. ${this.state.coreInfo.id})`
              : ` ${this.state.coreInfo.id}.`
-             }</div>
+             }</div><a className="dragImgIndex">[ x ]</a>
+             </div> 
           </div>
         );
       }else{

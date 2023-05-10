@@ -251,6 +251,12 @@ html, body {
   font-size: 0.7em;
 }
 
+.dragImgIndexLine {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .left .search-bar {
   font-size: 1em;
   padding:0.5em;
