@@ -5,245 +5,315 @@
         "name": "Amelia Rodriguez",
         "tags": ["identity", "logo"],
         "title": "Untitled",
-        "image": "press1.jpg"
+        "image": "Press/press1.png",
+        "year": "2023",
+        "desc": "desc, placeholder etc."
       },
       {
         "id": 1,
         "name": "Angelina Lee",
         "tags": ["digital", "web"],
         "title": "Untitled",
-        "image": "press2.jpg"
+        "image": "Press/press2.png",
+        "year": "2023",
+        "desc": "desc, placeholder etc."
+
       },
       {
         "id": 2,
         "name": "Brandon Scott",
         "tags": ["layout"],
         "title": "Untitled",
-        "image": "press3.jpg"
+        "image": "Press/press3.png",
+        "year": "2023",
+        "desc": "desc, placeholder etc."
+
       },
       {
         "id": 3,
         "name": "Brooke Davis",
         "tags": ["logo", "layout"],
         "title": "Untitled",
-        "image": "press4.jpg"
+        "image": "Press/press4.png",
+        "year": "2023",
+        "desc": "desc, placeholder etc."
+
       },
       {
         "id": 4,
         "name": "Caleb Martinez",
         "tags": ["digital"],
         "title": "Untitled",
-        "image": "press5.jpg"
+        "image": "Press/press5.jpg",
+        "year": "2023",
+        "desc": "desc, placeholder etc."
+
       },
       {
         "id": 5,
         "name": "Caroline Clark",
         "tags": ["layout", "logo"],
         "title": "Untitled",
-        "image": "press6.jpg"
+        "image": "Press/press6.png",
+        "year": "2023",
+        "desc": "desc, placeholder etc."
+
       },
       {
         "id": 6,
         "name": "Chloe Reed",
         "tags": ["print"],
         "title": "Untitled",
-        "image": "press7.jpg"
+        "image": "Press/press7.png",
+        "year": "2023",
+        "desc": "desc, placeholder etc."
+
       },
       {
         "id": 7,
         "name": "Daniel Wright",
         "tags": ["digital", "web"],
         "title": "Untitled",
-        "image": "press8.jpg"
+        "image": "Press/press8.png",
+        "year": "2023",
+        "desc": "desc, placeholder etc."
+
       },
       {
         "id": 8,
         "name": "Dylan Hernandez",
         "tags": ["print", "poster"],
         "title": "Untitled",
-        "image": "press1.jpg"
+        "image": "Press/press9.jpg",
+        "year": "2023",
+        "desc": "desc, placeholder etc."
+
       },
       {
         "id": 9,
         "name": "Elizabeth Turner",
         "tags": ["logo"],
         "title": "Untitled",
-        "image": "press2.jpg"
+        "image": "Press/press10.jpg",
+        "year": "2023",
+        "desc": "desc, placeholder etc."
+
       },
       {
         "id": 10,
         "name": "Ethan Young",
         "tags": ["web", "print"],
         "title": "Untitled",
-        "image": "press3.jpg"
+        "image": "Press/press11.png",
+        "year": "2023",
+        "desc": "desc, placeholder etc."
       },
       {
         "id": 11,
         "name": "Gabriella Morris",
         "tags": ["digital", "identity"],
         "title": "Untitled",
-        "image": "press4.jpg"
+        "image": "Press/press12.png",
+        "year": "2023",
+        "desc": "desc, placeholder etc."
       },
       {
         "id": 12,
         "name": "Grace Baker",
         "tags": ["layout"],
         "title": "Untitled",
-        "image": "press5.jpg"
+        "image": "Press/press13.jpg",
+        "year": "2023",
+        "desc": "desc, placeholder etc."
       },
       {
         "id": 13,
         "name": "Harper Brown",
         "tags": ["digital", "logo"],
         "title": "Untitled",
-        "image": "press6.jpg"
+        "image": "Press/press14.jpg",
+        "year": "2023",
+        "desc": "desc, placeholder etc."
       },
       {
         "id": 14,
         "name": "Isaac Johnson",
         "tags": ["web", "logo"],
         "title": "Untitled",
-        "image": "press7.jpg"
+        "image": "Press/press15.png",
+        "year": "2023",
+        "desc": "desc, placeholder etc."
       },
       {
         "id": 15,
         "name": "Isabella Collins",
         "tags": ["print"],
         "title": "Untitled",
-        "image": "press8.jpg"
+        "image": "Press/press16.png",
+        "year": "2023",
+        "desc": "desc, placeholder etc."
       },
       {
         "id": 16,
         "name": "Jacob Ramirez",
         "tags": ["web"],
         "title": "Untitled",
-        "image": "press1.jpg"
+        "image": "Press/press17.png",
+        "year": "2023",
+        "desc": "desc, placeholder etc."
       },
       {
         "id": 17,
         "name": "Jade King",
         "tags": ["logo", "poster"],
         "title": "Untitled",
-        "image": "press2.jpg"
+        "image": "Press/press18.png",
+        "year": "2023",
+        "desc": "desc, placeholder etc."
       },
       {
         "id": 18,
         "name": "Jameson Hall",
         "tags": ["digital"],
         "title": "Untitled",
-        "image": "press3.jpg"
+        "image": "Press/press19.png",
+        "year": "2023",
+        "desc": "desc, placeholder etc."
       },
       {
         "id": 19,
         "name": "Jocelyn Davis",
         "tags": ["web", "layout"],
         "title": "Untitled",
-        "image": "press4.jpg"
+        "image": "Press/press20.png",
+        "year": "2023",
+        "desc": "desc, placeholder etc."
       },
       {
         "id": 20,
         "name": "Jordan Green",
         "tags": ["logo"],
         "title": "Untitled",
-        "image": "press5.jpg"
+        "image": "Press/press21.png",
+        "year": "2023",
+        "desc": "desc, placeholder etc."
       },
       {
         "id": 21,
         "name": "Katherine Cooper",
         "tags": ["identity"],
         "title": "Untitled",
-        "image": "press6.jpg"
+        "image": "Press/press22.png",
+        "year": "2023",
+        "desc": "desc, placeholder etc."
       },
       {
         "id": 22,
         "name": "Kayla Lewis",
         "tags": ["logo", "web"],
         "title": "Untitled",
-        "image": "press7.jpg"
+        "image": "Press/press23.png",
+        "year": "2023",
+        "desc": "desc, placeholder etc."
       },
       {
         "id": 23,
         "name": "Lauren Peterson",
         "tags": ["web", "logo"],
         "title": "Untitled",
-        "image": "press8.jpg"
+        "image": "Press/press24.png",
+        "year": "2023",
+        "desc": "desc, placeholder etc."
       },
       {
         "id": 24,
         "name": "Leah Carter",
         "tags": ["print"],
         "title": "Untitled",
-        "image": "press1.jpg"
+        "image": "Press/press25.png",
+        "year": "2023",
+        "desc": "desc, placeholder etc."
       },
       {
         "id": 25,
         "name": "Leo Taylor",
         "tags": ["web", "poster"],
         "title": "Untitled",
-        "image": "press2.jpg"
+        "image": "Press/press26.png",
+        "year": "2023",
+        "desc": "desc, placeholder etc."
       },
       {
         "id": 26,
         "name": "Lily Anderson",
         "tags": ["digital"],
         "title": "Untitled",
-        "image": "press3.jpg"
+        "image": "Press/press27.png",
+        "year": "2023",
+        "desc": "desc, placeholder etc."
       },
       {
         "id": 27,
         "name": "Logan James",
         "tags": ["digital"],
         "title": "Untitled",
-        "image": "press4.jpg"
+        "image": "Press/press28.png",
+        "year": "2023",
+        "desc": "desc, placeholder etc."
       },
       {
         "id": 28,
         "name": "Lucas Rivera",
         "tags": ["identity", "layout"],
         "title": "Untitled",
-        "image": "press5.jpg"
+        "image": "Press/press29.png",
+        "year": "2023",
+        "desc": "desc, placeholder etc."
       },
       {
         "id": 29,
         "name": "sys",
         "tags": ["identity", "layout"],
-        "title": "Untitled",
-        "image": "Random/1.png"
+        "title": "Stainless Steel French Press",
+        "image": "Random/1.png",
+        "year": "",
+        "desc": "desc, placeholder etc."
       },
       {
         "id": 30,
         "name": "sys",
         "tags": ["identity", "layout"],
-        "title": "Untitled",
-        "image": "Random/2.png"
+        "title": "Tincture Press. Kuks, Trutnov District",
+        "image": "Random/2.png",
+        "year": "",
+        "desc": ""
       },
       {
         "id": 31,
         "name": "sys",
         "tags": ["identity", "layout"],
-        "title": "Untitled",
-        "image": "Random/3.png"
+        "title": "Printing Press. Goa State Museum",
+        "image": "Random/3.png",
+        "year": "",
+        "desc": ""
       },
       {
         "id": 32,
         "name": "sys",
         "tags": ["identity", "layout"],
-        "title": "Untitled",
-        "image": "Random/4.png"
+        "title": "Tangye 200 Ton Skin & Hide Press",
+        "image": "Random/4.png",
+        "year": "",
+        "desc": ""
       },
       {
         "id": 33,
         "name": "sys",
         "tags": ["identity", "layout"],
-        "title": "Untitled",
-        "image": "Random/5.png"
-      },
-      {
-        "id": 34,
-        "name": "sys",
-        "tags": ["identity", "layout"],
-        "title": "Untitled",
-        "image": "Random/6.png"
+        "title": "Drug Extraction Press. Kuks, Trutnov District",
+        "image": "Random/5.png",
+        "year": "",
+        "desc": ""
       }
     ]
   }

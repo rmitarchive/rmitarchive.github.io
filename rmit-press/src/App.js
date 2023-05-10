@@ -32,8 +32,10 @@ class App extends React.Component {
     this.stopDragElement = this.stopDragElement.bind(this);
     this.continueDragElement = this.continueDragElement.bind(this);
     this.clickText = this.clickText.bind(this);
-
+    
     this.incrementZIndex = this.incrementZIndex.bind(this);
+
+    this.openFocusArtPiece = this.openFocusArtPiece.bind(this);
 
     let path = window.location.pathname;
     this.scrollbarRef = React.createRef();
@@ -79,14 +81,7 @@ class App extends React.Component {
         mouseY: event.clientY
       });
     });
-/*
-    window.addEventListener('resize', (event) => {
-      this.setState({
-        windowWidth: window.innerWidth,
-        windowHeight: window.innerHeight
-      });
-    });
-    */
+
     this.state={
       baseHoverImg: baseHoverImg,
       currHoverImg: null,
@@ -129,15 +124,18 @@ class App extends React.Component {
       baseZIndex: 10,
       gridSnap: false,    
 
-      currentShownWorks: currentShownWorks
+      currentShownWorks: currentShownWorks,
+      focusArtPiece: null
     }    
 
+    /*
     setInterval(() => {
       this.getFunFact(this.state.lastFactX ? this.state.mouseX : this.state.mouseY);
     }, 500);
-
+*/
     window.addEventListener('click', (event) => {
-      if(Math.random() < .15){
+      //return //temp disable its annoying lol
+      if(Math.random() < .05){ //reduced rate pretty significantly.
         /*was happening too often imo */
         this.showRandomImage();
       }
@@ -216,17 +214,25 @@ class App extends React.Component {
     return newZIndex;
   }
 
-  clickText(props) {
+  clickText(props, newImageShown, isForcedPush) {
     let newArtPiecesImageShown = this.state.artPiecesImageShown;
-    newArtPiecesImageShown[props.id] = props.imageShown;
+    newArtPiecesImageShown[props.id] = newImageShown;
 
-    //i would think this should be swapped around, but testing shows otherwise? 
-    if(newArtPiecesImageShown[props.id]){
+    //console.log(`click hit: ${newArtPiecesImageShown[props.id]} isForcedPush: ${isForcedPush}`);
+    if(!newArtPiecesImageShown[props.id]){
+      //console.log("remove from");
       this.removeFromCurrentlyShownWorks(props);
     }else if(this.state.artPiecesImageMoved[props.id]){
-      console.log("click hit");
+      //console.log("show");
       this.pushToCurrentlyShownWorks(props.coreInfo);
     }
+
+    if(isForcedPush){
+      //console.log("show (forced)");
+      this.pushToCurrentlyShownWorks(props.coreInfo);
+    }
+
+    console.log(`newArtPiecesImageShown: ${newArtPiecesImageShown}`);
 
     this.setState({
       artPiecesImageShown: newArtPiecesImageShown,
@@ -245,15 +251,23 @@ class App extends React.Component {
   removeFromCurrentlyShownWorks(props){
     let currCurrentShownWorks = this.state.currentShownWorks.filter(shownWork => shownWork.id != props.id);
 
+    console.log("pre: " + JSON.stringify(this.state.currentShownWorks));
+    console.log("post: " + JSON.stringify(currCurrentShownWorks));
+
     this.setState({
       currentShownWorks: currCurrentShownWorks
-    })
+    });
   }
-
+  
   getCurrentlyShownWorks(){
     let shown = [];
     this.state.currentShownWorks.forEach(shownWork => {
       /* i made a thing work! */
+      let i = 0
+      if (shown.length==0){
+        shown.push(<div key={"indextitle"} className="fact-times"><br></br>Index</div>);
+      }
+
       if (shownWork.name == "sys") {
         shown.push(
           <p className="fact-times" key={shownWork.id + "CSW"}>
@@ -262,7 +276,11 @@ class App extends React.Component {
         );
       } else {
         shown.push(
-          <p className="fact-times" key={shownWork.id + "CSW"}>
+          <p className="fact-times" 
+          key={shownWork.id + "CSW"}
+          style={{cursor: "pointer"}}
+          onMouseDown={() => this.openFocusArtPiece(shownWork)}
+          >
             {`(${shownWork.id}) ${shownWork.name}, ${shownWork.title} (2023)`}
           </p>
         )
@@ -474,6 +492,8 @@ class App extends React.Component {
           clickText={this.clickText}
 
           incrementZIndex={this.incrementZIndex}
+
+          openFocusArtPiece={this.openFocusArtPiece}
 
           coreInfo={student}
           currFilter={this.state.indexFilter}
@@ -698,6 +718,43 @@ class App extends React.Component {
     console.log("test save end");
   }
 
+  openFocusArtPiece(props){
+    console.log(`openFocusArtPiece: ${JSON.stringify(props)}`);
+
+    if(this.state.focusArtPiece != null && props.id == this.state.focusArtPiece.id){
+      this.setState({
+        focusArtPiece: null
+      });
+    }else{
+      this.setState({
+        focusArtPiece: props
+      });
+    }
+  }
+
+  removeFocusArtPiece(){
+    this.setState({
+      focusArtPiece: null
+    });
+  }
+
+  getFocusArtPiece(){
+    if (this.state.focusArtPiece == null) {
+      return (<div style={{ visibility: "hidden" }}></div>);
+    }
+
+    return (
+        <div className="focus-BG">
+          <div className = "focus-Header">{`(${this.state.focusArtPiece.id}) ${this.state.focusArtPiece.name}, ${this.state.focusArtPiece.title} (2023)`}</div>
+          <a className = "focus-Close" onMouseDown={() => this.removeFocusArtPiece()}> Close </a>
+          <img className="focus-Img"
+            src={require(`./Img/${this.state.focusArtPiece.image}`)}
+            />
+            <p className="focus-Desc">{this.state.focusArtPiece.desc}</p>
+        </div>
+    );
+  }
+
   render() {
 
     //console.log("currentShownWorks: " + this.state.currentShownWorks);
@@ -735,20 +792,16 @@ class App extends React.Component {
         <link rel="stylesheet" href="styles.css" />
         <link rel="icon" href="icon.png" /> 
         <title>Zachariah Micallef</title>
-        
-        
         <div className="bottom-of-page">
         <ScrollingBanner clickFunc = {this.scrollbarRef}/> 
           <div>
             <p className="fact-times">{this.state.mouseX}, {this.state.mouseY}</p>
             {this.getCurrentlyShownWorks()}
           </div>
-          
-
-
         </div>
         <div>
             {this.getPage()}
+            {this.getFocusArtPiece()}
         </div>
       </div>
     );
@@ -756,13 +809,3 @@ class App extends React.Component {
 }
 
 export default App;
-
-/*
-          <div>
-            <p className="fact-times">{this.state.mouseX}, {this.state.mouseY}</p>
-            <p className="fact-times" style={{visibility:`${this.state.mathFact[0] == null ? "hidden" : "visible"}`}}>{this.state.mathFact[0]}</p>
-            <p className="fact-times" style={{visibility:`${this.state.mathFact[1] == null ? "hidden" : "visible"}`}}>{this.state.mathFact[1]}</p>
-            <p className="fact-times" style={{visibility:`${this.state.mathFact[2] == null ? "hidden" : "visible"}`}}>{this.state.mathFact[2]}</p>
-            <p className="fact-times" style={{visibility:`${this.state.mathFact[3] == null ? "hidden" : "visible"}`}}>{this.state.mathFact[3]}</p>
-          </div>
-          */

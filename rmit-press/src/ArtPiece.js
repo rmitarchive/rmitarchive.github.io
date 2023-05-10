@@ -3,7 +3,6 @@ import React from 'react';
 class ArtPiece extends React.Component {
     constructor(props){
       super(props);
-      //console.log("TEST: " + JSON.stringify(props));
       
       window.addEventListener('mousemove', (event) => {
         this.continueDragElement(this.state);
@@ -19,6 +18,7 @@ class ArtPiece extends React.Component {
         
         id: props.coreInfo.id,
         title: props.title,
+        year: props.year,
         hoverOverTextFunc: props.hoverOverTextFunc,
         hoverExitTextFunc: props.hoverExitTextFunc,
         continueDragElement: props.continueDragElement,
@@ -27,6 +27,8 @@ class ArtPiece extends React.Component {
         clickText: props.clickText,
 
         incrementZIndex: props.incrementZIndex,
+
+        openFocusArtPiece: props.openFocusArtPiece,
 
         coreInfo: props.coreInfo,
         currFilter: props.currFilter,
@@ -47,26 +49,27 @@ class ArtPiece extends React.Component {
     } 
 
     clickText(props) {
-
       const toHide = document.getElementById(this.state.coreInfo.id+"DD");
-      
-      if(toHide.style.color != "red"){
+
+      //if red, pageclear has happened.
+      if(toHide.style.color != "red"){ 
 
         //console.log("MOUSE DOWN != red");
+        console.log(`click 1 ${this.state.imageShown}`);
         this.setState({
           imageShown: !this.state.imageShown
         })
+        console.log(`click 1b ${this.state.imageShown}`);
+        this.state.clickText(this.state, !this.state.imageShown, false);
       }else{
         toHide.style.display = "inherit";
         toHide.style.color = "black";
-
         //console.log("MOUSE DOWN == red");
         this.setState({
           imageShown: true
         })
+        this.state.clickText(this.state, true, true);
       }
-
-      this.state.clickText(this.state);
     }
 
     startDragElement(props) {
@@ -137,17 +140,30 @@ class ArtPiece extends React.Component {
             top: `${this.state.currY}px`,
             zIndex: this.state.currzIndex
           }}
-          onMouseDown={() => this.state.continueDragElement(this.state)}>
+          //onMouseDown={() => this.continueDragElement(this.state)}
+          >
+            <a onMouseDown={() => this.clickText(this.state)} className="dragImgIndexLine dragImgIndex">x</a>
             <img className="dragImg"
               key={this.state.coreInfo.id + "DIMG"}
               id={`${this.state.coreInfo.id}Img`}
               draggable="false" 
               src={require(`./Img/${this.state.coreInfo.image}`)}
+              onMouseDown={() => this.startDragElement(this.state)}
+              onMouseUp={() => this.stopDragElement(this.state)}
               />
-             <div className="dragImgIndex">{
-             this.state.isRandomImage ? ` (Fig. ${this.state.coreInfo.id})`
-             : ` (${this.state.coreInfo.id})`
-             }</div>
+              <div className="dragImgIndexLine">
+                <div className="dragImgIndex">{
+                  this.state.isRandomImage ? ` (Fig. ${this.state.coreInfo.id})`
+                  : ` ${this.state.coreInfo.id}.`
+                  }
+                </div>
+                <a 
+                onMouseDown={this.state.isRandomImage ? null : () => this.state.openFocusArtPiece(this.state.coreInfo)} 
+                className="dragImgIndex"
+                >
+                  {this.state.coreInfo.name}, <i>{this.state.coreInfo.title}.</i> ({this.state.coreInfo.year})
+                </a>
+              </div> 
           </div>
         );
       }else{
@@ -157,7 +173,8 @@ class ArtPiece extends React.Component {
             id={`${this.state.coreInfo.id}Img`}
             draggable="false" 
             src={require(`./Img/${this.state.coreInfo.image}`)}
-            onMouseDown={() => this.state.startDragElement(this.state)}
+            onMouseDown={() => this.startDragElement(this.state)}
+            onMouseUp={() => this.stopDragElement(this.state)}
             />
       );
       }
@@ -249,10 +266,8 @@ class ArtPiece extends React.Component {
                 key={this.state.coreInfo.id + "DD"}
                 id={this.state.coreInfo.id + "DD"} 
                 style={{display: this.state.imageShown ? "inherit" : "none"}} 
-                onMouseDown={() => this.startDragElement(this.state)}
-                //onMouseMove={() => this.continueDragElement(this.state)}
-                onMouseUp={() => this.stopDragElement(this.state)}
-                //onMouseLeave={() => this.stopDragElement(this.state)}
+                //onMouseDown={() => this.startDragElement(this.state)}
+                //onMouseUp={() => this.stopDragElement(this.state)}
                 >
                   {this.getImage()}
                 </div>
