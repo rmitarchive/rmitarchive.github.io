@@ -32,8 +32,10 @@ class App extends React.Component {
     this.stopDragElement = this.stopDragElement.bind(this);
     this.continueDragElement = this.continueDragElement.bind(this);
     this.clickText = this.clickText.bind(this);
-
+    
     this.incrementZIndex = this.incrementZIndex.bind(this);
+
+    this.openFocusArtPiece = this.openFocusArtPiece.bind(this);
 
     let path = window.location.pathname;
     this.scrollbarRef = React.createRef();
@@ -224,7 +226,7 @@ class App extends React.Component {
       this.pushToCurrentlyShownWorks(props.coreInfo);
     }
 
-    if(newImageShown){
+    if(isForcedPush){
       console.log("show (forced)");
       this.pushToCurrentlyShownWorks(props.coreInfo);
     }
@@ -489,6 +491,8 @@ class App extends React.Component {
           clickText={this.clickText}
 
           incrementZIndex={this.incrementZIndex}
+
+          openFocusArtPiece={this.openFocusArtPiece}
 
           coreInfo={student}
           currFilter={this.state.indexFilter}
