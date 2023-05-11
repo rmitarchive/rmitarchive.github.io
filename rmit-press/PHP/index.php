@@ -34,11 +34,13 @@ header('Access-Control-Allow-Headers: Content-Type');
 
     $options = new Options();
     $options->set('isRemoteEnabled', true);
+    $options->set('chroot', __DIR__);
 
     $dompdf = new Dompdf($options);
     $dompdf->set_paper('A4', 'landscape');
     //$customPaper = array(0,0,$_POST["width"],$_POST["height"]);
     //$dompdf->set_paper($customPaper);
+    $dompdf->set_base_path( __DIR__ );
     $dompdf->load_html($html);
     $dompdf->render();
     $output = $dompdf->output();

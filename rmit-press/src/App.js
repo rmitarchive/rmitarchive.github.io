@@ -621,22 +621,42 @@ class App extends React.Component {
   generatePDFHTML(props){
     let returnHTML = [];
 
+    returnHTML.push(`
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+      <meta charset="UTF-8">
+      <link rel="stylesheet" type="text/css" media="all" href="pdf-styles.css">
+      </head>
+      <body>`);
+
+
     returnHTML.push(`<div class="content">`);
-
-    
-    for(let i = 0; i < this.state.currentShownWorks.length; i++){
-    //for(let i = 0; i < this.state.artPiecesImageShown.length; i++){
-      //if(this.state.artPiecesImageShown[i] == true){
-        let currID = this.state.currentShownWorks[i].id;
-      returnHTML.push(`<div style="position: absolute; left: ${this.state.artPiecesCurrX[currID]}px; top: ${this.state.artPiecesCurrY[currID]}px; z-index: ${i};">
-        <img style="max-width: 15em;" src="%img${i}%">
-        (${currID})
-        </div>`
-        );
-      //}
-    }
-
+      for(let i = 0; i < this.state.currentShownWorks.length; i++){
+      //for(let i = 0; i < this.state.artPiecesImageShown.length; i++){
+        //if(this.state.artPiecesImageShown[i] == true){
+          let currID = this.state.currentShownWorks[i].id;
+        returnHTML.push(`<div style="position: absolute; left: ${this.state.artPiecesCurrX[currID]}px; top: ${this.state.artPiecesCurrY[currID]}px; z-index: ${i};">
+          <img style="max-width: 15em;" src="%img${i}%">
+          (${currID})
+          </div>`
+          );
+        //}
+      }
+      
     returnHTML.push(`</div>`);
+
+    returnHTML.push(`<div class="bottom-of-page">
+      <div>
+        <div class="fact-times"><br>Index</div>
+        <p class="fact-times" style="cursor: pointer;">(3) Brooke Davis, Untitled (2023)</p>//change to variable
+      </div>
+    </div>`); 
+
+
+    returnHTML.push(`</body>
+    </html>`);
+
     return(
       returnHTML
     );
