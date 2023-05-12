@@ -54,6 +54,7 @@ class ScrollingBanner extends React.Component {
     }
 
     changeCurrentPageIndex(id){
+      console.log("changeCurrentPageIndex: " + id);
       /*console.log("--------------changeCurrentPageIndex----------------" );
       console.log("changeCurrentPageIndex: " + id);
       console.log(`changeCurrentPageIndex STATE: ${JSON.stringify(this.state)}`);

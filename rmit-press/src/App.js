@@ -73,12 +73,12 @@ class App extends React.Component {
       this.scrollbarRef.current = 0;
     }
 
-    window.addEventListener('mousemove', (event) => {
+    window.addEventListener('touchmove', (event) => {
       this.setState({
         mouseXWas: this.state.mouseX,
         mouseYWas: this.state.mouseY,
-        mouseX: event.clientX,
-        mouseY: event.clientY
+        mouseX: Math.floor(event.touches[0].clientX),
+        mouseY: Math.floor(event.touches[0].clientY)
       });
     });
 

@@ -4,11 +4,13 @@ class ArtPiece extends React.Component {
     constructor(props){
       super(props);
       
-      window.addEventListener('mousemove', (event) => {
+      window.addEventListener('touchmove', (event) => {
+        //event.preventDefault();
         this.continueDragElement(this.state);
       });
 
-      window.addEventListener('mouseup', (event) => {
+      window.addEventListener('touchend', (event) => {
+        //event.preventDefault();
         this.stopDragElement(this.state);
       });
 
@@ -73,6 +75,7 @@ class ArtPiece extends React.Component {
     }
 
     startDragElement(props) {
+      console.log("Start Drag Element");
       let e = window.event;
       //console.log("MOUSE DOWN 2");
         
@@ -86,8 +89,8 @@ class ArtPiece extends React.Component {
       this.setState({
         imageMoved: true,
         imageMoving: true,
-        offsetX: e.clientX - textRect.left,
-        offsetY: e.clientY - textRect.top,
+        offsetX: e.touches[0].clientX - textRect.left,
+        offsetY: e.touches[0].clientY - textRect.top,
         currX: textRect.left,
         currY: textRect.top,
         currzIndex: newZIndex
@@ -99,6 +102,7 @@ class ArtPiece extends React.Component {
     }
 
     stopDragElement(props) {
+      console.log("stop Drag Element");
       //console.log("MOUSE DOWN 3");
       this.setState({
         imageMoving: false
@@ -108,15 +112,19 @@ class ArtPiece extends React.Component {
     }
 
     continueDragElement(props) {
+      console.log("try continue drag " + JSON.stringify(this.state));
       if(this.state.imageMoving){
-        let e = window.event;      
+        console.log("do continue drag");
+        let e = window.event;  
+        //console.log("window.event: " + JSON.stringify(e));   
         //console.log("MOUSE DOWN 2");
 
         const textElement = document.getElementById(`${this.state.id}Img`);
         let textRect = textElement.getBoundingClientRect();
 
-        let newX = e.clientX - this.state.offsetX;
-        let newY = e.clientY - this.state.offsetY;
+        let newX = e.touches[0].clientX - this.state.offsetX;
+        let newY = e.touches[0].clientY - this.state.offsetY;
+        console.log(`${this.state.id}Img: newX: ${newX}, newY: ${newY} | e.clientX: ${e.touches[0].clientX}, e.: ${e.touches[0].clientY}`);
 
         this.setState({
           currX: this.state.gridSnap ? newX - (newX % 10) : newX,
@@ -140,16 +148,16 @@ class ArtPiece extends React.Component {
             top: `${this.state.currY}px`,
             zIndex: this.state.currzIndex
           }}
-          //onMouseDown={() => this.continueDragElement(this.state)}
+          //onTouchStart={() => this.continueDragElement(this.state)}
           >
-            <a onMouseDown={() => this.clickText(this.state)} className="dragImgIndexLine dragImgIndex">Hide</a>
+            <a onTouchStart={() => this.clickText(this.state)} className="dragImgIndexLine dragImgIndex">Hide</a>
             <img className="dragImg"
               key={this.state.coreInfo.id + "DIMG"}
               id={`${this.state.coreInfo.id}Img`}
               draggable="false" 
               src={require(`./Img/${this.state.coreInfo.image}`)}
-              onMouseDown={() => this.startDragElement(this.state)}
-              onMouseUp={() => this.stopDragElement(this.state)}
+              onTouchStart={() => this.startDragElement(this.state)}
+              onTouchEnd={() => this.stopDragElement(this.state)}
               />
               <div className="dragImgIndexLine">
                 <div className="dragImgIndex">{
@@ -158,7 +166,7 @@ class ArtPiece extends React.Component {
                   }
                 </div>
                 <a 
-                onMouseDown={this.state.isRandomImage ? null : () => this.state.openFocusArtPiece(this.state.coreInfo)} 
+                onTouchStart={this.state.isRandomImage ? null : () => this.state.openFocusArtPiece(this.state.coreInfo)} 
                 className="dragImgIndex"
                 > {
                   this.state.isRandomImage ? ``
@@ -174,8 +182,8 @@ class ArtPiece extends React.Component {
             id={`${this.state.coreInfo.id}Img`}
             draggable="false" 
             src={require(`./Img/${this.state.coreInfo.image}`)}
-            onMouseDown={() => this.startDragElement(this.state)}
-            onMouseUp={() => this.stopDragElement(this.state)}
+            onTouchStart={() => this.startDragElement(this.state)}
+            onTouchEnd={() => this.stopDragElement(this.state)}
             />
       );
       }
@@ -256,9 +264,9 @@ class ArtPiece extends React.Component {
                     backgroundColor: `rgb(${addedColor[0]}, ${addedColor[1]}, ${addedColor[2]})`,
                     visibility: this.state.isRandomImage ? "hidden" : "inherit"
                   }}
-                  onMouseLeave={() => this.state.hoverExitTextFunc(this.state)} 
-                  onMouseMove={() => this.state.hoverOverTextFunc(this.state)}
-                  onMouseDown={() => this.clickText(this.state)}
+                  //onMouseLeave={() => this.state.hoverExitTextFunc(this.state)} 
+                  onTouchMove={() => this.state.hoverOverTextFunc(this.state)}
+                  onTouchStart={() => this.clickText(this.state)}
                   >
 
                     {this.state.coreInfo.name} {filteredIn ? `, ${this.state.coreInfo.title} (2023)` : ""}
@@ -267,8 +275,8 @@ class ArtPiece extends React.Component {
                 key={this.state.coreInfo.id + "DD"}
                 id={this.state.coreInfo.id + "DD"} 
                 style={{display: this.state.imageShown ? "inherit" : "none"}} 
-                //onMouseDown={() => this.startDragElement(this.state)}
-                //onMouseUp={() => this.stopDragElement(this.state)}
+                //onTouchStart={() => this.startDragElement(this.state)}
+                //onTouchEnd={() => this.stopDragElement(this.state)}
                 >
                   {this.getImage()}
                 </div>
