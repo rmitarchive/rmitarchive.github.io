@@ -373,6 +373,22 @@ a:hover {
   cursor: pointer;
 }
 
+.ack-bg {
+  width:100vw;
+  height:100vh;
+  position:fixed;
+  background-color: rgba(0, 0, 0, 0.9);
+  box-sizing: border-box;
+  padding:1em;
+  cursor: pointer;
+}
+
+.ack-text {
+  font-family: Unica;
+  font-size: 2em;
+  color:white;
+}
+
 @media only screen and (max-device-width : 1024px) { 
   
 
