@@ -142,7 +142,7 @@ class ArtPiece extends React.Component {
           }}
           //onMouseDown={() => this.continueDragElement(this.state)}
           >
-            <a onMouseDown={() => this.clickText(this.state)} className="dragImgIndexLine dragImgIndex">x</a>
+            <a onMouseDown={() => this.clickText(this.state)} className="dragImgIndexLine dragImgIndex">Hide</a>
             <img className="dragImg"
               key={this.state.coreInfo.id + "DIMG"}
               id={`${this.state.coreInfo.id}Img`}
@@ -160,8 +160,9 @@ class ArtPiece extends React.Component {
                 <a 
                 onMouseDown={this.state.isRandomImage ? null : () => this.state.openFocusArtPiece(this.state.coreInfo)} 
                 className="dragImgIndex"
-                >
-                  {this.state.coreInfo.name}, <i>{this.state.coreInfo.title}.</i> ({this.state.coreInfo.year})
+                > {
+                  this.state.isRandomImage ? `${this.state.coreInfo.title}.`
+                  : ` ${this.state.coreInfo.name}, ${this.state.coreInfo.title}.`}
                 </a>
               </div> 
           </div>

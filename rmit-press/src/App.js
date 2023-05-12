@@ -765,12 +765,13 @@ class App extends React.Component {
 
     return (
         <div className="focus-BG">
-          <div className = "focus-Header">{`(${this.state.focusArtPiece.id}) ${this.state.focusArtPiece.name}, ${this.state.focusArtPiece.title} (2023)`}</div>
+          <div className = "focus-Header">{`${this.state.focusArtPiece.id}. ${this.state.focusArtPiece.name}, ${this.state.focusArtPiece.title} (${this.state.focusArtPiece.year})`}</div>
           <a className = "focus-Close" onMouseDown={() => this.removeFocusArtPiece()}> Close </a>
           <img className="focus-Img"
             src={require(`./Img/${this.state.focusArtPiece.image}`)}
             />
             <p className="focus-Desc">{this.state.focusArtPiece.desc}</p>
+            <div className="focus-Header">{this.state.focusArtPiece.contact}</div>
         </div>
     );
   }
