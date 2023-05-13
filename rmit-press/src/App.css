@@ -15,7 +15,7 @@
 
 :root {
   --mobileMenuDisplay: block;
-  --color: blue;
+  --color: black;
   --menuZIndex: 10;
 
   --leftWidth: 30%;
@@ -481,7 +481,7 @@ a {
   width:fit-content;
 }
 
-a:hover {
+.left a:hover {
   background-color: black;
   color:white;
   cursor: pointer;
@@ -501,6 +501,24 @@ a:hover {
   font-family: Unica;
   font-size: 2em;
   color:white;
+}
+
+.about-container {
+  height:100vh;
+  width:50vw;
+
+  box-sizing: border-box;
+  padding:0.5em;
+}
+
+.about-title {
+  font-family: Unica;
+}
+
+.about-body {
+  font-family: Schrijf;
+  font-size: 0.8em;
+  text-align: justify;
 }
 
 @media only screen and (max-device-width : 1024px) { 
