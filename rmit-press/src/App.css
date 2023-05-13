@@ -336,6 +336,7 @@ html, body {
   float: left;
   user-select: none;
   color:white;
+  
 }
 
 .focus-Close {
@@ -343,6 +344,7 @@ html, body {
   float:right;
   user-select: none;
   color:white;
+  
 }
 
 .focus-Close:hover {
