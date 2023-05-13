@@ -17,9 +17,19 @@
   --mobileMenuDisplay: block;
   --color: black;
   --menuZIndex: 10;
-
   --leftWidth: 30%;
   --rightWidth: auto;
+}
+
+
+a {
+  width:fit-content;
+}
+
+a:hover {
+  background-color: black;
+  color:white;
+  cursor: pointer;
 }
 
 header {
@@ -121,7 +131,7 @@ footer {
 
 .scrolling-banner-child{
   height: 1em;
-  width: 100%;
+  width: auto;
   background-color: transparent;
   padding: 0 0 0 0;
   margin-top:-1em;
@@ -135,7 +145,7 @@ footer {
 }
 
 .scrolling-banner-parent{
-  width: 100%;
+  width: auto;
   height: 100%;
   background-color: none;
   overflow: hidden;
@@ -176,7 +186,7 @@ footer {
   pointer-events: all;
 }
 
-.index-main-paper {
+/* .index-main-paper {
   position:absolute;
   display:none; 
   padding:20px;
@@ -186,7 +196,7 @@ footer {
   mix-blend-mode: darken;
   background-size: 33%;
   background-color: whitesmoke;
-}
+} */
 
 .focus-BG {
   position:absolute;
@@ -370,6 +380,10 @@ html, body {
   user-select: none;
 }
 
+.left .student-names a:hover {
+  color:whitesmoke;
+}
+
 .left .student-expand {
   display:none;
   flex-direction: column;
@@ -476,16 +490,6 @@ html, body {
   /*position: absolute;*/
   z-index: 9;
   cursor: move;
-}
-
-a {
-  width:fit-content;
-}
-
-.left a:hover {
-  background-color: black;
-  color:white;
-  cursor: pointer;
 }
 
 .ack-bg {
