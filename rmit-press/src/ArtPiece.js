@@ -5,7 +5,7 @@ class ArtPiece extends React.Component {
       super(props);
       
       window.addEventListener('mousemove', (event) => {
-        console.log("this.state.showText: " + this.state.showText);
+        //console.log("this.state.showText: " + this.state.showText);
         this.continueDragElement(this.state);
       });
       
@@ -46,7 +46,7 @@ class ArtPiece extends React.Component {
         currY: props.currY,
 
         gridSnap: props.gridSnap,
-        currZIndex: props.currzIndex,
+        currZIndex: props.currZIndex,
         isMobile: props.isMobile,
         showText: props.showText
       };
@@ -97,7 +97,7 @@ class ArtPiece extends React.Component {
         imageMoved: true,
         currX: newX,
         currY: newY,
-        currzIndex: newZIndex
+        currZIndex: newZIndex
       })
     }
 
@@ -114,17 +114,6 @@ class ArtPiece extends React.Component {
       //console.log("NEWZINDEX: " + newZIndex);
       let newX = 0;
       let newY = 0;
-/*
-      if(e.clientX != null){
-        console.log("SD : client x");
-        newX = e.clientX - textRect.left;
-        newY = e.clientY - textRect.top;
-      }else{
-        console.log("SD : changedTouches client x");
-        newX = e.changedTouches[0].clientX - textRect.left;
-        newY = e.changedTouches[0].clientY - textRect.top;
-      }
-*/
 
       if(this.state.isMobile){
         if(e.changedTouches != null){
@@ -139,6 +128,8 @@ class ArtPiece extends React.Component {
         newY = e.clientY - textRect.top;
       }
 
+      console.log(`newZIndex: ${newZIndex}`);
+
       this.setState({
         imageMoved: true,
         imageMoving: true,
@@ -146,7 +137,7 @@ class ArtPiece extends React.Component {
         offsetY: newY,
         currX: textRect.left,
         currY: textRect.top,
-        currzIndex: newZIndex
+        currZIndex: newZIndex
       })
 
       this.state.startDragElement(this.state);
@@ -165,9 +156,9 @@ class ArtPiece extends React.Component {
     }
 
     continueDragElement(props) {
-      console.log("try continueDragElement: " + JSON.stringify(this.state));
+      //console.log("try continueDragElement: " + JSON.stringify(this.state));
       if(this.state.imageMoving){
-        console.log("do continueDragElement");
+        //console.log("do continueDragElement");
         let e = window.event;      
         //console.log("MOUSE DOWN 2");
 
@@ -269,10 +260,6 @@ class ArtPiece extends React.Component {
       var colors = [];
       var filteredIn = false;
 
-      if(this.state.isRandomImage){
-        console.log(`${this.state.coreInfo.id} is z-index=${this.state.currZIndex}`);
-      }
-      
       this.state.coreInfo.tags.forEach(tag => {
         if(this.state.currFilter[tag]){
           switch(tag){

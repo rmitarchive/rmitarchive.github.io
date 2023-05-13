@@ -49,7 +49,7 @@ class App extends React.Component {
     var artPiecesImageMoved = [];
     var artPiecesImageMoving = [];
 
-    var artPiecesCurrZIndex = [];
+    var artPiecescurrZIndex = [];
 
     var artPiecesIsVisible = [];
     var currentShownWorks = [];
@@ -61,7 +61,7 @@ class App extends React.Component {
       artPiecesOffsetY.push(0);
       artPiecesCurrX.push(0);
       artPiecesCurrY.push(0);
-      artPiecesCurrZIndex.push(12);
+      artPiecescurrZIndex.push(12);
 
       artPiecesImageShown.push(false);
       artPiecesImageMoved.push(false);
@@ -118,8 +118,8 @@ class App extends React.Component {
       artPiecesImageMoved: artPiecesImageMoved,
       artPiecesImageMoving: artPiecesImageMoving,
 
-      artPiecesCurrZIndex: artPiecesCurrZIndex,
-      artPiecesSpawned: artPiecesCurrZIndex,
+      artPiecescurrZIndex: artPiecescurrZIndex,
+      artPiecesSpawned: artPiecescurrZIndex,
 
       artPiecesIsVisible: artPiecesIsVisible,
 
@@ -178,8 +178,8 @@ class App extends React.Component {
       let newArtPiecesImageMoved = this.state.artPiecesImageMoved;
       newArtPiecesImageMoved[pot[randIndex]] = true;
 
-      let newArtPiecesCurrZIndex = this.state.artPiecesCurrZIndex;
-      newArtPiecesCurrZIndex[pot[randIndex]] = this.incrementZIndex();
+      let newArtPiecescurrZIndex = this.state.artPiecescurrZIndex;
+      newArtPiecescurrZIndex[pot[randIndex]] = this.incrementZIndex();
   
       const textElement = document.getElementById(`root`);
       let textRect = textElement.getBoundingClientRect();
@@ -201,8 +201,8 @@ class App extends React.Component {
       this.pushToCurrentlyShownWorks(ClassJSON.students[pot[randIndex]]);
   
       console.log(`SHOW RANDOM IMAGE ${pot[randIndex]} `);
-      console.log(`SHOW RANDOM IMAGE/artPiecesCurrZIndex:  ${newArtPiecesCurrZIndex} `);
-      console.log(`SHOW RANDOM IMAGE/artPiecesCurrZIndex:  ${newArtPiecesCurrZIndex} `);
+      console.log(`SHOW RANDOM IMAGE/artPiecescurrZIndex:  ${newArtPiecescurrZIndex} `);
+      console.log(`SHOW RANDOM IMAGE/artPiecescurrZIndex:  ${newArtPiecescurrZIndex} `);
       this.setState({
         artPiecesIsVisible: newArtPiecesIsVisible,
         artPiecesImageShown: newArtPiecesImageShown,
@@ -210,7 +210,7 @@ class App extends React.Component {
         artPiecesCurrX: newArtPiecesCurrX,
         artPiecesCurrY: newArtPiecesCurrY,
 
-        artPiecesCurrZIndex: newArtPiecesCurrZIndex
+        artPiecescurrZIndex: newArtPiecescurrZIndex
       });
     }else{
       //console.log("NO IMAGES")
@@ -527,7 +527,7 @@ class App extends React.Component {
           imageShown={this.state.artPiecesImageShown[pos]}
           imageMoved={this.state.artPiecesImageMoved[pos]}
           imageMoving={this.state.artPiecesImageMoving[pos]}
-          currzIndex={this.state.artPiecesCurrZIndex[pos]}
+          currZIndex={this.state.artPiecescurrZIndex[pos]}
 
           gridSnap={this.state.gridSnap} 
 

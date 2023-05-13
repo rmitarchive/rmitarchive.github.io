@@ -73,7 +73,7 @@ class ScrollingBanner extends React.Component {
     }
 
     render() {
-      console.log("CHECK CLICKFUN: " + JSON.stringify(this.state.clickFunc))
+      //console.log("CHECK CLICKFUN: " + JSON.stringify(this.state.clickFunc))
       let elements = []
       for(var i = 0; i < this.state.buttonTitles.length; i++){
         let j = i; /* lol */
