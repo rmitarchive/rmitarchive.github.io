@@ -794,6 +794,22 @@ class App extends React.Component {
       return (<div style={{ visibility: "hidden" }}></div>);
     }
 
+    if(isMobile){
+      return (
+        <div className="focus-BG-mobile">
+          <div className = "focus-Header-container-mobile">
+            <div className = "focus-Header-mobile">{`${this.state.focusArtPiece.id}. ${this.state.focusArtPiece.name}, ${this.state.focusArtPiece.title} (${this.state.focusArtPiece.year})`}</div>
+            <a className = "focus-Close-mobile" onMouseDown={() => this.removeFocusArtPiece()}> Close </a>
+          </div>
+          <img className="focus-Img"
+            src={require(`./Img/${this.state.focusArtPiece.image}`)}
+            />
+            <p className="focus-Desc">{this.state.focusArtPiece.desc}</p>
+            <div className="focus-Header">{this.state.focusArtPiece.contact}</div>
+        </div>
+      );
+    }
+
     return (
         <div className="focus-BG">
           <div className = "focus-Header">{`${this.state.focusArtPiece.id}. ${this.state.focusArtPiece.name}, ${this.state.focusArtPiece.title} (${this.state.focusArtPiece.year})`}</div>
