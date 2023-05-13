@@ -327,7 +327,7 @@ html, body {
 
 .focus-Img {
   width: 100%;
-  padding: 0 0.5em 0.5em 0.5em;
+  padding: 0 0 0.5em 0;
   user-select: none;
 }
 
