@@ -138,7 +138,7 @@ class App extends React.Component {
 
     if(isMobile){
       document.documentElement.style.setProperty('--menuZIndex', 9999999);
-      document.documentElement.style.setProperty('--leftWidth', "50%");
+      document.documentElement.style.setProperty('--leftWidth', "100%");
       document.documentElement.style.setProperty('--rightWidth', "50%");
     }
 
