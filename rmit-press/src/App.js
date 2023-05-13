@@ -36,7 +36,7 @@ class App extends React.Component {
     this.incrementZIndex = this.incrementZIndex.bind(this);
 
     this.openFocusArtPiece = this.openFocusArtPiece.bind(this);
-
+    
     let path = window.location.pathname;
     this.scrollbarRef = React.createRef();
 

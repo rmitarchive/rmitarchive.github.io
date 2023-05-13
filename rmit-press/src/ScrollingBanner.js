@@ -67,16 +67,18 @@ class ScrollingBanner extends React.Component {
       }
 
       this.setState={
+        currentPageIndex: id,
         clickFunc: editedClickFunc,
       }
     }
 
     render() {
+      console.log("CHECK CLICKFUN: " + JSON.stringify(this.state.clickFunc))
       let elements = []
       for(var i = 0; i < this.state.buttonTitles.length; i++){
         let j = i; /* lol */
         elements.push(<div key={i} className="scrolling-banner-child" onClick = {(() => this.changeCurrentPageIndex(j))} style={{
-        }}><p className="helvetica">{this.state.buttonTitles[i].charAt(0).toUpperCase() + this.state.buttonTitles[i].slice(1)}</p></div>);
+        }}><p className="helvetica">{i == this.state.clickFunc.current ? " " : (this.state.buttonTitles[i].charAt(0).toUpperCase() + this.state.buttonTitles[i].slice(1))}</p></div>);
       }
       return(<div className="scrolling-banner-parent">
                 {elements}
