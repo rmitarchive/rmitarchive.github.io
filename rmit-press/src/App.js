@@ -8,7 +8,7 @@ import ThreeJS from "./ThreeJS";
 import React from 'react';
 
 import ClassJSON from "./Data/class.json"
-
+import {isMobile} from 'react-device-detect';
 /* import paperText1 from "./Img/test-paper-texture.png";
 import paperText2 from "./Img/test-paper-texture-2.png";
 import paperText3 from "./Img/test-paper-texture-3.png";
@@ -508,6 +508,8 @@ class App extends React.Component {
           currzIndex={this.state.artPiecesCuzzZIndex[pos]}
 
           gridSnap={this.state.gridSnap} 
+          
+          isMobile={isMobile}
           />);
           
       }
@@ -809,7 +811,7 @@ class App extends React.Component {
       <div>
         <meta charSet="UTF-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
         <link rel="stylesheet" href="styles.css" />
         <link rel="icon" href="icon.png" /> 
         <title>Zachariah Micallef</title>

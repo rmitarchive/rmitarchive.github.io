@@ -7,6 +7,7 @@ class ArtPiece extends React.Component {
       window.addEventListener('mousemove', (event) => {
         this.continueDragElement(this.state);
       });
+      
 
       window.addEventListener('mouseup', (event) => {
         this.stopDragElement(this.state);
@@ -44,7 +45,8 @@ class ArtPiece extends React.Component {
         currY: props.currY,
 
         gridSnap: props.gridSnap,
-        currZIndex: props.currzIndex
+        currZIndex: props.currzIndex,
+        isMobile: props.isMobile
       };
     } 
 
@@ -73,6 +75,7 @@ class ArtPiece extends React.Component {
     }
 
     startDragElement(props) {
+      console.log("start drag");
       let e = window.event;
       //console.log("MOUSE DOWN 2");
         
@@ -82,12 +85,33 @@ class ArtPiece extends React.Component {
       let newZIndex = this.state.incrementZIndex();
 
       //console.log("NEWZINDEX: " + newZIndex);
+      let newX = 0;
+      let newY = 0;
+/*
+      if(e.clientX != null){
+        console.log("SD : client x");
+        newX = e.clientX - textRect.left;
+        newY = e.clientY - textRect.top;
+      }else{
+        console.log("SD : changedTouches client x");
+        newX = e.changedTouches[0].clientX - textRect.left;
+        newY = e.changedTouches[0].clientY - textRect.top;
+      }
+*/
+
+      if(this.state.isMobile){
+        newX = e.changedTouches[0].clientX - textRect.left;
+        newY = e.changedTouches[0].clientY - textRect.top;
+      }else{
+        newX = e.clientX - textRect.left;
+        newY = e.clientY - textRect.top;
+      }
 
       this.setState({
         imageMoved: true,
         imageMoving: true,
-        offsetX: e.clientX - textRect.left,
-        offsetY: e.clientY - textRect.top,
+        offsetX: newX,
+        offsetY: newY,
         currX: textRect.left,
         currY: textRect.top,
         currzIndex: newZIndex
@@ -99,6 +123,7 @@ class ArtPiece extends React.Component {
     }
 
     stopDragElement(props) {
+      console.log("stop drag");
       //console.log("MOUSE DOWN 3");
       this.setState({
         imageMoving: false
@@ -108,15 +133,35 @@ class ArtPiece extends React.Component {
     }
 
     continueDragElement(props) {
+      console.log("try continueDragElement: " + JSON.stringify(this.state));
       if(this.state.imageMoving){
+        console.log("do continueDragElement");
         let e = window.event;      
         //console.log("MOUSE DOWN 2");
 
         const textElement = document.getElementById(`${this.state.id}Img`);
         let textRect = textElement.getBoundingClientRect();
 
-        let newX = e.clientX - this.state.offsetX;
-        let newY = e.clientY - this.state.offsetY;
+        let newX = 0;
+        let newY = 0;
+/*
+        if(e.clientX != null){
+          console.log("CD : clientX");
+          newX = e.clientX - this.state.offsetX;
+          newY = e.clientY - this.state.offsetY;
+        }else{
+          console.log("CD : changedTouches[0].clientX");
+          newX = e.changedTouches[0].clientX - this.state.offsetX;
+          newY = e.changedTouches[0].clientY - this.state.offsetY;
+        }
+*/
+        if(this.state.isMobile){
+          newX = e.changedTouches[0].clientX - this.state.offsetX;
+          newY = e.changedTouches[0].clientY - this.state.offsetY;
+        }else{
+          newX = e.clientX - this.state.offsetX;
+          newY = e.clientY - this.state.offsetY;
+        }
 
         this.setState({
           currX: this.state.gridSnap ? newX - (newX % 10) : newX,
@@ -148,6 +193,10 @@ class ArtPiece extends React.Component {
               id={`${this.state.coreInfo.id}Img`}
               draggable="false" 
               src={require(`./Img/${this.state.coreInfo.image}`)}
+              onTouchStart={() => this.startDragElement(this.state)}
+              onTouchEnd={() => this.stopDragElement(this.state)}
+              onTouchMove={() => this.continueDragElement(this.state)}
+
               onMouseDown={() => this.startDragElement(this.state)}
               onMouseUp={() => this.stopDragElement(this.state)}
               />
@@ -174,6 +223,9 @@ class ArtPiece extends React.Component {
             id={`${this.state.coreInfo.id}Img`}
             draggable="false" 
             src={require(`./Img/${this.state.coreInfo.image}`)}
+            onTouchStart={() => this.startDragElement(this.state)}
+            onTouchEnd={() => this.stopDragElement(this.state)}
+
             onMouseDown={() => this.startDragElement(this.state)}
             onMouseUp={() => this.stopDragElement(this.state)}
             />
