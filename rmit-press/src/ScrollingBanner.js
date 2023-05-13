@@ -60,12 +60,26 @@ class ScrollingBanner extends React.Component {
       
       let editedClickFunc = this.state.clickFunc;
       editedClickFunc.current = id;
+
+      switch(id){
+        case 1:
+          window.history.pushState("object or string", "Title", "/about");
+          break;
+        case 3:
+          window.history.pushState("object or string", "Title", "/help");
+          break;
+        default:
+          window.history.pushState("object or string", "Title", "/");
+            break;
+      }
+
+/*
       if(id == 3){
         window.history.pushState("object or string", "Title", "/help");
       }else{
         window.history.pushState("object or string", "Title", "/");
       }
-
+*/
       this.setState={
         currentPageIndex: id,
         clickFunc: editedClickFunc,

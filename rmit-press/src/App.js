@@ -71,6 +71,8 @@ class App extends React.Component {
 
     if(path.toUpperCase().includes("HELP")){
       this.scrollbarRef.current = 3;
+    }else if(path.toUpperCase().includes("ABOUT")){
+      this.scrollbarRef.current = 1;
     }else{
       this.scrollbarRef.current = 0;
     }
@@ -632,6 +634,8 @@ class App extends React.Component {
               </div>
             </div>
           );
+        case 1:
+          return <div>aiksnfklansflknasflknasf</div>
         case 3:
           return(
             <div className="index-main"> 
