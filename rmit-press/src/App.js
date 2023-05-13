@@ -131,7 +131,8 @@ class App extends React.Component {
       currentShownWorks: currentShownWorks,
       focusArtPiece: null,
       isAcknowledged: false,
-      mobileShowMenu: true
+      mobileShowMenu: true,
+      isLoaded: false
     }    
 
     //document.documentElement.style.setProperty('--menuZIndex', isMobile ? 9999999 : 10);
@@ -151,10 +152,11 @@ class App extends React.Component {
     });
   }
 
-  /* componentDidMount(){
-    this.setState({isLoaded:true}) 
-
-  } */
+  componentDidMount(){
+    this.setState({
+      isLoaded:true
+    });
+  } 
 
   showRandomImage(){
     let pos = 0;
@@ -865,7 +867,9 @@ class App extends React.Component {
   }
 
   userAcknowledged() {
-    this.setState({isAcknowledged:true})
+    if(this.state.isLoaded){
+      this.setState({isAcknowledged:true});
+    }
   }
 
   toggleMenu(){
@@ -893,7 +897,7 @@ class App extends React.Component {
           </div>
         <br></br>
           <div className="ack-text">
-            Click to continue...
+            {this.state.isLoaded ? `${isMobile ? "Tap" : "Click"} to continue...`: ""}
           </div>
         </div>)
     }
