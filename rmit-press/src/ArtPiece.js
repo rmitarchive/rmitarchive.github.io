@@ -57,14 +57,17 @@ class ArtPiece extends React.Component {
 
       //if red, pageclear has happened.
       if(toHide.style.color != "red"){ 
-
-        //console.log("MOUSE DOWN != red");
         console.log(`click 1 ${this.state.imageShown}`);
         this.setState({
           imageShown: !this.state.imageShown
         })
         console.log(`click 1b ${this.state.imageShown}`);
         this.state.clickText(this.state, !this.state.imageShown, false);
+
+        if(!this.state.imageMoved && this.state.isMobile){
+          this.placeRandomly();
+          //this.startDragElement(this.state);
+        }
       }else{
         toHide.style.display = "inherit";
         toHide.style.color = "black";
@@ -74,6 +77,28 @@ class ArtPiece extends React.Component {
         })
         this.state.clickText(this.state, true, true);
       }
+    }
+
+    placeRandomly(){
+      const textElement = document.getElementById(`root`);
+      let textRect = textElement.getBoundingClientRect();
+
+      let width = textRect.right;
+      let height = textRect.bottom;
+
+      let newX = (Math.random() * (width * .4)) + (width * .1);
+      let newY = (Math.random() * (height * .4)) + (height * .1);
+
+      let newZIndex = this.state.incrementZIndex();
+    
+      this.state.startDragElement(this.state);
+
+      this.setState({
+        imageMoved: true,
+        currX: newX,
+        currY: newY,
+        currzIndex: newZIndex
+      })
     }
 
     startDragElement(props) {
@@ -102,8 +127,13 @@ class ArtPiece extends React.Component {
 */
 
       if(this.state.isMobile){
-        newX = e.changedTouches[0].clientX - textRect.left;
-        newY = e.changedTouches[0].clientY - textRect.top;
+        if(e.changedTouches != null){
+          newX = e.changedTouches[0].clientX - textRect.left;
+          newY = e.changedTouches[0].clientY - textRect.top;
+        }else{//no event.
+          newX = 0;
+          newY = 0;
+        }
       }else{
         newX = e.clientX - textRect.left;
         newY = e.clientY - textRect.top;
@@ -185,7 +215,7 @@ class ArtPiece extends React.Component {
             position: "absolute",
             left: `${this.state.currX}px`,
             top: `${this.state.currY}px`,
-            zIndex: this.state.currzIndex
+            zIndex: this.state.currZIndex
           }}
           //onMouseDown={() => this.continueDragElement(this.state)}
           >
@@ -238,6 +268,10 @@ class ArtPiece extends React.Component {
     render() {
       var colors = [];
       var filteredIn = false;
+
+      if(this.state.isRandomImage){
+        console.log(`${this.state.coreInfo.id} is z-index=${this.state.currZIndex}`);
+      }
       
       this.state.coreInfo.tags.forEach(tag => {
         if(this.state.currFilter[tag]){

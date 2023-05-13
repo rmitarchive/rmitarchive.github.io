@@ -49,7 +49,7 @@ class App extends React.Component {
     var artPiecesImageMoved = [];
     var artPiecesImageMoving = [];
 
-    var artPiecesCuzzZIndex = [];
+    var artPiecesCurrZIndex = [];
 
     var artPiecesIsVisible = [];
     var currentShownWorks = [];
@@ -59,7 +59,7 @@ class App extends React.Component {
       artPiecesOffsetY.push(0);
       artPiecesCurrX.push(0);
       artPiecesCurrY.push(0);
-      artPiecesCuzzZIndex.push(10);
+      artPiecesCurrZIndex.push(12);
 
       artPiecesImageShown.push(false);
       artPiecesImageMoved.push(false);
@@ -116,12 +116,12 @@ class App extends React.Component {
       artPiecesImageMoved: artPiecesImageMoved,
       artPiecesImageMoving: artPiecesImageMoving,
 
-      artPiecesCuzzZIndex: artPiecesCuzzZIndex,
-      artPiecesSpawned: artPiecesCuzzZIndex,
+      artPiecesCurrZIndex: artPiecesCurrZIndex,
+      artPiecesSpawned: artPiecesCurrZIndex,
 
       artPiecesIsVisible: artPiecesIsVisible,
 
-      baseZIndex: 10,
+      baseZIndex: 12,
       gridSnap: false,    
 
       currentShownWorks: currentShownWorks,
@@ -170,27 +170,40 @@ class App extends React.Component {
   
       let newArtPiecesImageMoved = this.state.artPiecesImageMoved;
       newArtPiecesImageMoved[pot[randIndex]] = true;
+
+      let newArtPiecesCurrZIndex = this.state.artPiecesCurrZIndex;
+      newArtPiecesCurrZIndex[pot[randIndex]] = this.incrementZIndex();
   
       const textElement = document.getElementById(`root`);
       let textRect = textElement.getBoundingClientRect();
   
       let newArtPiecesCurrX = this.state.artPiecesCurrX;
       let width = textRect.right;
-      newArtPiecesCurrX[pot[randIndex]] = (Math.random() * (width * .6)) + (width * .4);
   
       let newArtPiecesCurrY = this.state.artPiecesCurrY;
       let height = textRect.bottom;
-      newArtPiecesCurrY[pot[randIndex]] = (Math.random() * (height * .6)) + (height * .4);
-  
-      //console.log(`SHOW RANDOM IMAGE ${pot[randIndex]} `);
+
+      if(isMobile){
+        newArtPiecesCurrX[pot[randIndex]] = (Math.random() * (width * .5));
+        newArtPiecesCurrY[pot[randIndex]] = (Math.random() * (height * .6));
+      }else{
+        newArtPiecesCurrX[pot[randIndex]] = (Math.random() * (width * .4)) + (width * .1);
+        newArtPiecesCurrY[pot[randIndex]] = (Math.random() * (height * .4)) + (height * .1);
+      }
+      
       this.pushToCurrentlyShownWorks(ClassJSON.students[pot[randIndex]]);
   
+      console.log(`SHOW RANDOM IMAGE ${pot[randIndex]} `);
+      console.log(`SHOW RANDOM IMAGE/artPiecesCurrZIndex:  ${newArtPiecesCurrZIndex} `);
+      console.log(`SHOW RANDOM IMAGE/artPiecesCurrZIndex:  ${newArtPiecesCurrZIndex} `);
       this.setState({
         artPiecesIsVisible: newArtPiecesIsVisible,
         artPiecesImageShown: newArtPiecesImageShown,
         artPiecesImageMoved: newArtPiecesImageMoved,
         artPiecesCurrX: newArtPiecesCurrX,
         artPiecesCurrY: newArtPiecesCurrY,
+
+        artPiecesCurrZIndex: newArtPiecesCurrZIndex
       });
     }else{
       //console.log("NO IMAGES")
@@ -200,6 +213,7 @@ class App extends React.Component {
 
   incrementZIndex() {
     let newZIndex = this.state.baseZIndex + 1;
+    console.log(`incrementZIndex: ${newZIndex}`);
     
     this.setState({
       baseZIndex: newZIndex
@@ -275,7 +289,10 @@ class App extends React.Component {
           style={{cursor: "pointer"}}
           onMouseDown={() => this.openFocusArtPiece(shownWork)}
           >
-            {`(${shownWork.id}) ${shownWork.name}, ${shownWork.title} (2023)`}
+            {
+            isMobile ? `(${shownWork.id}) ${shownWork.name}`
+            : `(${shownWork.id}) ${shownWork.name}, ${shownWork.title} (2023)` 
+            }
           </p>
         )
       };
@@ -503,7 +520,7 @@ class App extends React.Component {
           imageShown={this.state.artPiecesImageShown[pos]}
           imageMoved={this.state.artPiecesImageMoved[pos]}
           imageMoving={this.state.artPiecesImageMoving[pos]}
-          currzIndex={this.state.artPiecesCuzzZIndex[pos]}
+          currzIndex={this.state.artPiecesCurrZIndex[pos]}
 
           gridSnap={this.state.gridSnap} 
 
@@ -598,13 +615,12 @@ class App extends React.Component {
                     {this.getListOfWorks()}
                   </div>
                 </div>
-                
-                <div className="right">
-                <a className="header" onClick = {(() => this.pdfTestSave())}>Print Screen</a>
-                    
-                <a className="header" onClick = {(() => this.clearPage())}>Clear Screen</a>
-
-                </div> 
+                <BrowserView>
+                  <div className="right">
+                    <a className="screen-func-header" onClick = {(() => this.pdfTestSave())}>Print Screen</a>
+                    <a className="screen-func-header" onClick = {(() => this.clearPage())}>Clear Screen</a>
+                  </div> 
+                </BrowserView>
 
               </div>
             </div>
@@ -855,15 +871,20 @@ class App extends React.Component {
           <div className="bottom-of-page" >
             <div className="scrolling-banner-parent">
               <div className="scrolling-banner-child" onClick = {(() => this.toggleMenu())}>
-                <p className="helvetica">Menu</p>
+                <p className="helvetica">{this.state.mobileShowMenu ? "Close Menu" : "Menu"}</p>
               </div>
             </div>
             <div style={{visibility: this.state.mobileShowMenu ? "inherit" : "hidden"}} >
               <ScrollingBanner clickFunc = {this.scrollbarRef}/> 
+              <br></br>
+              <br></br>
+              <div className="scrolling-banner-parent">
+                <a className="scrolling-banner-child" onClick = {(() => this.pdfTestSave())}><p className="helvetica">Print Screen</p></a>
+                <a className="scrolling-banner-child" onClick = {(() => this.clearPage())}><p className="helvetica">Clear Screen</p></a>
+              </div>
             </div>
           </div>
             <div className="mobile-bottom-of-page">
-              <p className="fact-times">{this.state.mouseX}, {this.state.mouseY}</p>
               {this.getCurrentlyShownWorks()}
             </div>
           </MobileView>
