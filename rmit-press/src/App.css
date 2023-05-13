@@ -66,6 +66,7 @@ footer {
   background-color: transparent;
 }
 
+
 .drag-div{
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
@@ -81,6 +82,15 @@ footer {
   z-index: 99;
   position:absolute;
   top: -0.1em;
+  width: 20%;
+  right:0;
+}
+
+.mobile-bottom-of-page{
+  padding:10px;
+  z-index: 99;
+  position:absolute;
+  bottom: -0.1em;
   width: 20%;
   right:0;
   

@@ -8,7 +8,7 @@ import ThreeJS from "./ThreeJS";
 import React from 'react';
 
 import ClassJSON from "./Data/class.json"
-import {isMobile} from 'react-device-detect';
+import {BrowserView, MobileView, isMobile} from 'react-device-detect';
 /* import paperText1 from "./Img/test-paper-texture.png";
 import paperText2 from "./Img/test-paper-texture-2.png";
 import paperText3 from "./Img/test-paper-texture-3.png";
@@ -125,7 +125,8 @@ class App extends React.Component {
       gridSnap: false,    
 
       currentShownWorks: currentShownWorks,
-      focusArtPiece: null
+      focusArtPiece: null,
+      mobileShowMenu: true
     }    
 
     /*
@@ -323,6 +324,8 @@ class App extends React.Component {
     newArtPiecesCurrX[props.coreInfo.id] = props.currX;
     newArtPiecesCurrY[props.coreInfo.id] = props.currY;
 
+    let newMobileShowMenu = !isMobile;
+
     this.setState({
       artPiecesImageMoved: newArtPiecesImageMoved,
       artPiecesImageMoving: newArtPiecesImageMoving,
@@ -331,6 +334,8 @@ class App extends React.Component {
       artPiecesOffsetY: newArtPiecesOffsetY,
       artPiecesCurrX: newArtPiecesCurrX,
       artPiecesCurrY: newArtPiecesCurrY,
+      
+      mobileShowMenu: newMobileShowMenu
     })
 
     this.pushToCurrentlyShownWorks(props.coreInfo);
@@ -508,8 +513,9 @@ class App extends React.Component {
           currzIndex={this.state.artPiecesCuzzZIndex[pos]}
 
           gridSnap={this.state.gridSnap} 
-          
+
           isMobile={isMobile}
+          showText={this.state.mobileShowMenu}
           />);
           
       }
@@ -540,54 +546,58 @@ class App extends React.Component {
                   <div className="title-container">
                     <span className="header">PRESS</span>
                     <br/><br/>
-                    <input className="search-bar" placeholder="Search..." onChange={e => this.updateTextFilter(e.target.value)}>
+                    <input className="search-bar" 
+                    placeholder="Search..." 
+                    style={{visibility: this.state.mobileShowMenu ? "inherit" : "hidden"}} 
+                    onChange={e => this.updateTextFilter(e.target.value)}>
                     </input>
                   </div>
                   <div className="student-names"> 
-                  
-                  <div>Filters</div>
-                  <br/>
-                  <a className="filter digital" 
-                  onClick = {(() => this.applyIndexFilter("digital"))}
-                  style={{backgroundColor: this.state.indexFilter["digital"] ? "#0078BF" : "transparent"}}>
-                    Digital
-                  </a>
-                  <br></br>
-                  <a className="filter identity" 
-                  onClick = {(() => this.applyIndexFilter("identity"))}
-                  style={{backgroundColor: this.state.indexFilter["identity"] ? "#ff48b0" : "transparent"}}>
-                    Identity
-                  </a>
-                  <br></br>
-                  <a className="filter logo" 
-                  onClick = {(() => this.applyIndexFilter("logo"))}
-                  style={{backgroundColor: this.state.indexFilter["logo"] ? "#F15060" : "transparent"}}>
-                    Logo
-                  </a>
-                  <br></br>
-                  <a className="filter print" 
-                  onClick = {(() => this.applyIndexFilter("print"))}
-                  style={{backgroundColor: this.state.indexFilter["print"] ? "#00A95C" : "transparent"}}>
-                    Print
-                  </a>
-                  <br></br>
-                  <a className="filter poster" 
-                  onClick = {(() => this.applyIndexFilter("poster"))}
-                  style={{backgroundColor: this.state.indexFilter["poster"] ? "#FF6C2f" : "transparent"}}>
-                    Poster
-                  </a>
-                  <br></br>
-                  <a className="filter layout" 
-                  onClick = {(() => this.applyIndexFilter("layout"))}
-                  style={{backgroundColor: this.state.indexFilter["layout"] ? "#00838A" : "transparent"}}>
-                    Layout
-                  </a>
-                  <br></br>
-                  <a className="filter web" 
-                  onClick = {(() => this.applyIndexFilter("web"))}
-                  style={{backgroundColor: this.state.indexFilter["web"] ? "#FFE800" : "transparent"}}>
-                    Web
-                  </a>
+                  <div style={{visibility: this.state.mobileShowMenu ? "inherit" : "hidden"}}>
+                    <div>Filters</div>
+                    <br/>
+                    <a className="filter digital" 
+                    onClick = {(() => this.applyIndexFilter("digital"))}
+                    style={{backgroundColor: this.state.indexFilter["digital"] ? "#0078BF" : "transparent"}}>
+                      Digital
+                    </a>
+                    <br></br>
+                    <a className="filter identity" 
+                    onClick = {(() => this.applyIndexFilter("identity"))}
+                    style={{backgroundColor: this.state.indexFilter["identity"] ? "#ff48b0" : "transparent"}}>
+                      Identity
+                    </a>
+                    <br></br>
+                    <a className="filter logo" 
+                    onClick = {(() => this.applyIndexFilter("logo"))}
+                    style={{backgroundColor: this.state.indexFilter["logo"] ? "#F15060" : "transparent"}}>
+                      Logo
+                    </a>
+                    <br></br>
+                    <a className="filter print" 
+                    onClick = {(() => this.applyIndexFilter("print"))}
+                    style={{backgroundColor: this.state.indexFilter["print"] ? "#00A95C" : "transparent"}}>
+                      Print
+                    </a>
+                    <br></br>
+                    <a className="filter poster" 
+                    onClick = {(() => this.applyIndexFilter("poster"))}
+                    style={{backgroundColor: this.state.indexFilter["poster"] ? "#FF6C2f" : "transparent"}}>
+                      Poster
+                    </a>
+                    <br></br>
+                    <a className="filter layout" 
+                    onClick = {(() => this.applyIndexFilter("layout"))}
+                    style={{backgroundColor: this.state.indexFilter["layout"] ? "#00838A" : "transparent"}}>
+                      Layout
+                    </a>
+                    <br></br>
+                    <a className="filter web" 
+                    onClick = {(() => this.applyIndexFilter("web"))}
+                    style={{backgroundColor: this.state.indexFilter["web"] ? "#FFE800" : "transparent"}}>
+                      Web
+                    </a>
+                  </div>
                   <br></br><br></br><br></br><br></br>
                     {this.getListOfWorks()}
                   </div>
@@ -778,6 +788,12 @@ class App extends React.Component {
     );
   }
 
+  showMenu(){
+    this.setState({
+      mobileShowMenu: true
+    });
+  }
+
   render() {
 
     //console.log("currentShownWorks: " + this.state.currentShownWorks);
@@ -815,13 +831,32 @@ class App extends React.Component {
         <link rel="stylesheet" href="styles.css" />
         <link rel="icon" href="icon.png" /> 
         <title>Zachariah Micallef</title>
-        <div className="bottom-of-page">
-        <ScrollingBanner clickFunc = {this.scrollbarRef}/> 
-          <div>
-            <p className="fact-times">{this.state.mouseX}, {this.state.mouseY}</p>
-            {this.getCurrentlyShownWorks()}
+        <BrowserView>
+          <div className="bottom-of-page">
+          <ScrollingBanner clickFunc = {this.scrollbarRef}/> 
+              <div>
+                <p className="fact-times">{this.state.mouseX}, {this.state.mouseY}</p>
+                {this.getCurrentlyShownWorks()}
+              </div>
           </div>
-        </div>
+        </BrowserView>
+        <MobileView>
+          <div className="bottom-of-page" >
+            <div className="scrolling-banner-parent" 
+            style={{visibility: this.state.mobileShowMenu ? "hidden" : "inherit"}}>
+              <div className="scrolling-banner-child" onClick = {(() => this.showMenu())}>
+                <p className="helvetica">Menu</p>
+              </div>
+            </div>
+            <div style={{visibility: this.state.mobileShowMenu ? "inherit" : "hidden"}} >
+              <ScrollingBanner clickFunc = {this.scrollbarRef}/> 
+            </div>
+          </div>
+            <div className="mobile-bottom-of-page">
+              <p className="fact-times">{this.state.mouseX}, {this.state.mouseY}</p>
+              {this.getCurrentlyShownWorks()}
+            </div>
+          </MobileView>
         <div>
             {this.getPage()}
             {this.getFocusArtPiece()}

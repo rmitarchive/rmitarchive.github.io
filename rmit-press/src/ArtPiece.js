@@ -5,6 +5,7 @@ class ArtPiece extends React.Component {
       super(props);
       
       window.addEventListener('mousemove', (event) => {
+        console.log("this.state.showText: " + this.state.showText);
         this.continueDragElement(this.state);
       });
       
@@ -46,7 +47,8 @@ class ArtPiece extends React.Component {
 
         gridSnap: props.gridSnap,
         currZIndex: props.currzIndex,
-        isMobile: props.isMobile
+        isMobile: props.isMobile,
+        showText: props.showText
       };
     } 
 
@@ -306,7 +308,7 @@ class ArtPiece extends React.Component {
                   className="student" 
                   style={{
                     backgroundColor: `rgb(${addedColor[0]}, ${addedColor[1]}, ${addedColor[2]})`,
-                    visibility: this.state.isRandomImage ? "hidden" : "inherit"
+                    visibility: (this.state.isRandomImage || !this.state.showText) ? "hidden" : "inherit"
                   }}
                   onMouseLeave={() => this.state.hoverExitTextFunc(this.state)} 
                   onMouseMove={() => this.state.hoverOverTextFunc(this.state)}
