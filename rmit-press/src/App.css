@@ -17,6 +17,9 @@
   --mobileMenuDisplay: block;
   --color: blue;
   --menuZIndex: 10;
+
+  --leftWidth: 30%;
+  --rightWidth: auto;
 }
 
 header {
@@ -267,13 +270,15 @@ html, body {
   float: left;
   display:flex;
   flex-direction: column;
-  width: 30%;
+  width: var(--leftWidth);
   height: 100vh;
   overflow: auto;
   box-sizing: border-box;
   padding: 0.5em;
   -ms-overflow-style: none;  
   scrollbar-width: none; 
+
+  background-color: var(--leftRightBGColor);
 }
 
 .left::-webkit-scrollbar { 
@@ -376,7 +381,7 @@ html, body {
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-end;
-  width: auto;
+  width: var(--rightWidth);
   height: 100vh;
   overflow: auto;
   box-sizing: border-box;
@@ -384,6 +389,16 @@ html, body {
   
   z-index: var(--menuZIndex);
 } 
+
+.mobile-menu-background{
+  background-color: rgba(245,245,245,0.5);
+  width: 100vw;
+  height: 100vh;
+  z-index: 999999;
+  position: fixed;
+  display: var(--mobileMenuDisplay);
+  /*--mobileMenuDisplay: block;*/
+}
 
 #draggable {
   /*position: absolute;*/

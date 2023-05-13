@@ -130,7 +130,13 @@ class App extends React.Component {
 
     }    
 
-    document.documentElement.style.setProperty('--menuZIndex', isMobile ? 9999999 : 10);
+    //document.documentElement.style.setProperty('--menuZIndex', isMobile ? 9999999 : 10);
+
+    if(isMobile){
+      document.documentElement.style.setProperty('--menuZIndex', 9999999);
+      document.documentElement.style.setProperty('--leftWidth', "50%");
+      document.documentElement.style.setProperty('--rightWidth', "50%");
+    }
 
     window.addEventListener('click', (event) => {
       //return //temp disable its annoying lol
@@ -529,6 +535,9 @@ class App extends React.Component {
           return(
             <div>
               <div className="content" >
+                <MobileView>
+                  <div className="mobile-menu-background"> </div>
+                </MobileView>
                 <div className="left" >
                   <div className="title-container">
                     <span className="header">PRESS</span>
