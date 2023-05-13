@@ -636,29 +636,35 @@ class App extends React.Component {
           );
         case 1:
           return (<div class="about-container">
+          <div class="about-title">PRESS<br></br>RMIT Graduate Showcase<br></br>15-18 June, 2023</div>
+          <br></br>
           <div class="about-body">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere dolorum iste amet optio corporis libero, dicta corrupti? Voluptatem impedit provident iusto atque sed officia quos excepturi. Quisquam sint harum accusamus nobis perferendis.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus accumsan lacinia ullamcorper. Quisque facilisis purus vel pulvinar finibus. Donec pretium sollicitudin turpis vitae viverra. Nullam consequat euismod nisl, non lacinia ligula eleifend eget. Proin ornare nibh eu turpis ultricies, vitae aliquet mi consequat. Duis ante ipsum, bibendum sed lorem in, imperdiet viverra elit. Nulla et interdum sem, ut sodales tortor. Nam porta dui sed ligula dignissim varius. Fusce sollicitudin eros ut gravida facilisis. Curabitur varius mollis eros nec porttitor.
+          <br></br><br></br>
+          Maecenas id nisl viverra, feugiat dui nec, tincidunt arcu. Etiam vel augue in ipsum fermentum sagittis in id nisl. In eu orci nisi. Integer porta sed tellus sed gravida. Nulla facilisi. Duis at sem nec ante dapibus scelerisque ut id nisi. Praesent elementum libero ut nibh fringilla euismod. Pellentesque quis maximus dui, vel suscipit tortor.
+          <br></br><br></br>
+          Vestibulum arcu turpis, condimentum quis risus a, eleifend efficitur elit. Nunc tempus massa tellus, sit amet aliquet purus luctus in. Quisque venenatis nunc consectetur velit iaculis fringilla. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam id faucibus velit, ac dictum lacus. Fusce velit tortor, elementum in velit at, fringilla tincidunt dui. Cras imperdiet mauris eget dui eleifend, hendrerit facilisis tortor elementum. Ut rutrum.
           </div>
-            <dl class="about-body">
-              <dt>PRESS Production Credits</dt>
+            <br></br>
+            <dl>
+              <dt class="about-title">PRESS Production Credits:</dt>
               <br/>
-              <dt>Ella Taylor</dt>
-              <dd>Layout, Identity</dd>
-              <dt>Liam Kenna</dt>
-              <dd>Front & Back End Website</dd>
-              <dt>Nicholas Gleeson</dt>
-              <dd>Layout, Identity</dd>
-              <dt>Timon Muery</dt>
-              <dd>Layout, Identity</dd>
-              <dt>Zachariah Micallef</dt>
-              <dd>Front End Website, Identity</dd>
+              <dt class="about-body">Ella Taylor</dt>
+              <dd class="about-body">Layout, Identity</dd>
+              <dt class="about-body">Liam Kenna</dt>
+              <dd class="about-body">Front & Back End Website</dd>
+              <dt class="about-body">Nicholas Gleeson</dt>
+              <dd class="about-body">Layout, Identity</dd>
+              <dt class="about-body">Timon Muery</dt>
+              <dd class="about-body">Layout, Identity</dd>
+              <dt class="about-body">Zachariah Micallef</dt>
+              <dd class="about-body">Front End Website, Identity</dd>
             </dl>
+            <br></br>
           <div class="about-body">
-            This project would not have been possible without the generous support of Suzie Zezula and RMIT University.
-          </div>
-          <br/>
-          <div class="about-body">
-            All rights reserved, PRESS, 2023. No part of this website may be reproduced without explicit permission from the copyright owner(s)
+            This project would not have been possible without the generous support of Suzie Zezula and RMIT University.<br></br><br></br>
+            All rights reserved, PRESS, 2023. <br></br><br></br>
+            No part of this site may be reproduced without explicit permission from the copyright owner(s)
           </div>
         </div>);
         case 2:

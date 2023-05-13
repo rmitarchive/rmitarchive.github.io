@@ -514,6 +514,7 @@ html, body {
 
   box-sizing: border-box;
   padding:0.5em;
+  font-size: 0.8em;
 }
 
 .about-title {
@@ -522,7 +523,6 @@ html, body {
 
 .about-body {
   font-family: Schrijf;
-  font-size: 0.8em;
   text-align: justify;
 }
 
