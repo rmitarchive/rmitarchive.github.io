@@ -128,7 +128,8 @@ class App extends React.Component {
 
       currentShownWorks: currentShownWorks,
       focusArtPiece: null,
-      isAcknowledged: false
+      isAcknowledged: false,
+      mobileShowMenu: true
     }    
 
     //document.documentElement.style.setProperty('--menuZIndex', isMobile ? 9999999 : 10);
