@@ -70,7 +70,7 @@ class App extends React.Component {
     });
 
     if(path.toUpperCase().includes("HELP")){
-      this.scrollbarRef.current = 3;
+      this.scrollbarRef.current = 2;
     }else if(path.toUpperCase().includes("ABOUT")){
       this.scrollbarRef.current = 1;
     }else{
@@ -635,8 +635,33 @@ class App extends React.Component {
             </div>
           );
         case 1:
-          return <div>aiksnfklansflknasflknasf</div>
-        case 3:
+          return (<div class="about-container">
+          <div class="about-body">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere dolorum iste amet optio corporis libero, dicta corrupti? Voluptatem impedit provident iusto atque sed officia quos excepturi. Quisquam sint harum accusamus nobis perferendis.
+          </div>
+            <dl class="about-body">
+              <dt>PRESS Production Credits</dt>
+              <br/>
+              <dt>Ella Taylor</dt>
+              <dd>Layout, Identity</dd>
+              <dt>Liam Kenna</dt>
+              <dd>Front & Back End Website</dd>
+              <dt>Nicholas Gleeson</dt>
+              <dd>Layout, Identity</dd>
+              <dt>Timon Muery</dt>
+              <dd>Layout, Identity</dd>
+              <dt>Zachariah Micallef</dt>
+              <dd>Front End Website, Identity</dd>
+            </dl>
+          <div class="about-body">
+            This project would not have been possible without the generous support of Suzie Zezula and RMIT University.
+          </div>
+          <br/>
+          <div class="about-body">
+            All rights reserved, PRESS, 2023. No part of this website may be reproduced without explicit permission from the copyright owner(s)
+          </div>
+        </div>);
+        case 2:
           return(
             <div className="index-main"> 
               <ThreeJS/> 
@@ -752,8 +777,8 @@ class App extends React.Component {
     }
 
     axios({
-      url: "http://localhost:8000/index.php", 
-      //url: "http://shwag.com.au/php/index.php", 
+      //url: "http://localhost:8000/index.php", 
+      url: "http://shwag.com.au/php/index.php", 
       method: "POST",
       data: formData,
       headers: {

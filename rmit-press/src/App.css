@@ -36,6 +36,7 @@ header {
   z-index: var(--menuZIndex);
   display: var(--mobileMenuDisplay);
   text-align: right;
+  cursor: pointer;
 }
 
 footer {

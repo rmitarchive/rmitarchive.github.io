@@ -8,7 +8,7 @@ class ScrollingBanner extends React.Component {
       super(props);
       //console.log("(changeCurrentPageIndex) ScrollingBanner: " + JSON.stringify(props));
       this.state = {
-        buttonTitles: ["Home", "About", "Contact", "Help"],
+        buttonTitles: ["Home", "About", "Help"],
         clickFunc: props.clickFunc,
         currentPageIndex: 0,
       };
@@ -65,7 +65,7 @@ class ScrollingBanner extends React.Component {
         case 1:
           window.history.pushState("object or string", "Title", "/about");
           break;
-        case 3:
+        case 2:
           window.history.pushState("object or string", "Title", "/help");
           break;
         default:
