@@ -195,18 +195,22 @@ footer {
   overflow: scroll;
   overflow-x: hidden;
   z-index: 9999;
-
+  user-select: none;
+/* 
   border-left: 1px;
   border-right: 0px;
   border-bottom: 0px;
   border-top: 0px;
 
   border-color: black;
-  border-style: solid;
+  border-style: solid; */
 
   top: 0;
   right: 0;
-  background-color: whitesmoke;
+  background-color: rgb(0, 0, 0);
+
+  -ms-overflow-style: none;  
+  scrollbar-width: none; 
 }
 
 .index-main-BG {
@@ -273,6 +277,7 @@ html, body {
   overflow: hidden;
   margin: 0;
   padding: 0;
+  background-color: rgb(248, 248, 248);
 }
 
 .content {
@@ -293,7 +298,7 @@ html, body {
   padding: 0.5em;
   -ms-overflow-style: none;  
   scrollbar-width: none; 
-
+  user-select: none;
   background-color: var(--leftRightBGColor);
 }
 
@@ -351,6 +356,7 @@ html, body {
 
 .left .student-names {
   margin-top: 20vh;
+  user-select: none;
 }
 
 .left .student-expand {
@@ -368,17 +374,29 @@ html, body {
 
 .focus-Img {
   width: 100%;
-  padding: 0 0.5em 0.5em 0.5em;
+  padding: 0 0 0.5em 0;
+  user-select: none;
 }
 
 .focus-Header {
   padding: 0.5em 0.5em 0.5em 0.5em;
   float: left;
+  user-select: none;
+  color:white;
+  
 }
 
 .focus-Close {
-  padding: 0.5em 0.5em 0 0.5em;
+  padding: 0.5em 0.5em 0.5em 0.5em;
   float:right;
+  user-select: none;
+  color:white;
+  
+}
+
+.focus-Close:hover {
+  background-color: white;
+  color:black;
 }
 
 .focus-Desc {
@@ -387,6 +405,8 @@ html, body {
   font-size: 0.8em;
   margin-top: 0px;
   text-align: justify;
+  user-select: none;
+  color:white;
 }
 
 
@@ -436,7 +456,7 @@ a:hover {
   width:100vw;
   height:100vh;
   position:fixed;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgb(0, 0, 0);
   box-sizing: border-box;
   padding:1em;
   cursor: pointer;

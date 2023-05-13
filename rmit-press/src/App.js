@@ -54,6 +54,8 @@ class App extends React.Component {
     var artPiecesIsVisible = [];
     var currentShownWorks = [];
 
+
+
     ClassJSON.students.forEach(student => {
       artPiecesOffsetX.push(0);
       artPiecesOffsetY.push(0);
@@ -126,8 +128,7 @@ class App extends React.Component {
 
       currentShownWorks: currentShownWorks,
       focusArtPiece: null,
-      mobileShowMenu: true,
-
+      isAcknowledged: false
     }    
 
     //document.documentElement.style.setProperty('--menuZIndex', isMobile ? 9999999 : 10);
@@ -146,6 +147,11 @@ class App extends React.Component {
       }
     });
   }
+
+  /* componentDidMount(){
+    this.setState({isLoaded:true}) 
+
+  } */
 
   showRandomImage(){
     let pos = 0;
@@ -806,6 +812,10 @@ class App extends React.Component {
     });
   }
 
+  userAcknowledged() {
+    this.setState({isAcknowledged:true})
+  }
+
   toggleMenu(){
     
     if(!this.state.mobileShowMenu){
@@ -822,6 +832,19 @@ class App extends React.Component {
   }
 
   render() {
+
+    if(this.state.isAcknowledged==false){
+      return(
+        <div onMouseUp={() => this.userAcknowledged()} className="ack-bg">
+          <div className="ack-text">
+            We acknowledge the traditional owners of the land on which RMIT University operates, the Boon Wurrung and Woi Wurrung language groups of the Eastern Kulin Nation. We acknowledge that sovereignty was never ceded, and extend our respects to elders past, present, and emerging. Always was, always will be, Aboriginal land. 
+          </div>
+        <br></br>
+          <div className="ack-text">
+            Click to continue...
+          </div>
+        </div>)
+    }
 
     //console.log("currentShownWorks: " + this.state.currentShownWorks);
     var maskPosition = `center`
