@@ -13,6 +13,12 @@
   src: url("Type/type.ttf");
 }
 
+:root {
+  --mobileMenuDisplay: block;
+  --color: blue;
+  --menuZIndex: 10;
+}
+
 header {
   position:fixed;
   box-sizing: border-box;
@@ -276,6 +282,7 @@ html, body {
 
 .left .title-container {
   position: fixed;
+  z-index: var(--menuZIndex);
 }
 
 .dragImg {
@@ -306,9 +313,19 @@ html, body {
   outline:none;
 }
 
-
 .left .student {
-  display:block;
+  /*display:block;*/
+  color: var(--color);
+  display: var(--mobileMenuDisplay);
+  z-index: var(--menuZIndex);
+  position: relative;
+}
+
+.menu-to-hide {
+  color: var(--color);
+  display: var(--mobileMenuDisplay);
+  z-index: var(--menuZIndex);
+  position: relative;
 }
 
 .left .student-names {
@@ -364,7 +381,8 @@ html, body {
   overflow: auto;
   box-sizing: border-box;
   padding: 0.5em;
-  z-index:-1;
+  
+  z-index: var(--menuZIndex);
 } 
 
 #draggable {

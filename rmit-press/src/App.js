@@ -126,14 +126,12 @@ class App extends React.Component {
 
       currentShownWorks: currentShownWorks,
       focusArtPiece: null,
-      mobileShowMenu: true
+      mobileShowMenu: true,
+
     }    
 
-    /*
-    setInterval(() => {
-      this.getFunFact(this.state.lastFactX ? this.state.mouseX : this.state.mouseY);
-    }, 500);
-*/
+    document.documentElement.style.setProperty('--menuZIndex', isMobile ? 9999999 : 10);
+
     window.addEventListener('click', (event) => {
       //return //temp disable its annoying lol
       if(Math.random() < .05){ //reduced rate pretty significantly.
@@ -141,17 +139,6 @@ class App extends React.Component {
         this.showRandomImage();
       }
     });
-
-    /* setInterval(() => {
-      let newCurrPaperTexture = Math.floor(Math.random() * this.paperTextures.length);
-      //console.log("newCurrPaperTexture: " + newCurrPaperTexture);
-      this.setState((prevState) => {
-        return{
-          //currPaperTexture: (this.state.currPaperTexture + 1) % this.paperTextures.length
-          currPaperTexture: newCurrPaperTexture
-        };
-      });
-    }, 250);   */ 
   }
 
   showRandomImage(){
@@ -335,7 +322,7 @@ class App extends React.Component {
       artPiecesCurrX: newArtPiecesCurrX,
       artPiecesCurrY: newArtPiecesCurrY,
       
-      mobileShowMenu: newMobileShowMenu
+      //mobileShowMenu: newMobileShowMenu
     })
 
     this.pushToCurrentlyShownWorks(props.coreInfo);
@@ -481,7 +468,7 @@ class App extends React.Component {
             classHTML.push(<br key={pos + "BR"}/>);
           }
           currLetter = student.name[0];
-          classHTML.push(<div key={pos + currLetter}>{currLetter}</div>);
+          classHTML.push(<div className="student" key={pos + currLetter}>{currLetter}</div>);
         }
 
         classHTML.push(<ArtPiece 
@@ -553,10 +540,10 @@ class App extends React.Component {
                     </input>
                   </div>
                   <div className="student-names"> 
-                  <div style={{visibility: this.state.mobileShowMenu ? "inherit" : "hidden"}}>
+                  <div className="menu-to-hide" >
                     <div>Filters</div>
                     <br/>
-                    <a className="filter digital" 
+                    <a className="filter digital "  
                     onClick = {(() => this.applyIndexFilter("digital"))}
                     style={{backgroundColor: this.state.indexFilter["digital"] ? "#0078BF" : "transparent"}}>
                       Digital
@@ -794,6 +781,21 @@ class App extends React.Component {
     });
   }
 
+  toggleMenu(){
+    
+    if(!this.state.mobileShowMenu){
+      document.documentElement.style.setProperty('--mobileMenuDisplay',"block");
+  
+    }else{
+      document.documentElement.style.setProperty('--mobileMenuDisplay',"none");
+  
+    }
+    
+    this.setState({
+      mobileShowMenu: !this.state.mobileShowMenu
+    });
+  }
+
   render() {
 
     //console.log("currentShownWorks: " + this.state.currentShownWorks);
@@ -842,9 +844,8 @@ class App extends React.Component {
         </BrowserView>
         <MobileView>
           <div className="bottom-of-page" >
-            <div className="scrolling-banner-parent" 
-            style={{visibility: this.state.mobileShowMenu ? "hidden" : "inherit"}}>
-              <div className="scrolling-banner-child" onClick = {(() => this.showMenu())}>
+            <div className="scrolling-banner-parent">
+              <div className="scrolling-banner-child" onClick = {(() => this.toggleMenu())}>
                 <p className="helvetica">Menu</p>
               </div>
             </div>
