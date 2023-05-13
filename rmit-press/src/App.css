@@ -503,6 +503,24 @@ a {
   color:white;
 }
 
+.about-container {
+  height:100vh;
+  width:50vw;
+
+  box-sizing: border-box;
+  padding:0.5em;
+}
+
+.about-title {
+  font-family: Unica;
+}
+
+.about-body {
+  font-family: Schrijf;
+  font-size: 0.8em;
+  text-align: justify;
+}
+
 @media only screen and (max-device-width : 1024px) { 
   
 
