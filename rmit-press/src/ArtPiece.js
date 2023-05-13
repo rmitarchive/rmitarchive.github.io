@@ -167,18 +167,13 @@ class ArtPiece extends React.Component {
 
         let newX = 0;
         let newY = 0;
-/*
-        if(e.clientX != null){
-          console.log("CD : clientX");
-          newX = e.clientX - this.state.offsetX;
-          newY = e.clientY - this.state.offsetY;
-        }else{
-          console.log("CD : changedTouches[0].clientX");
-          newX = e.changedTouches[0].clientX - this.state.offsetX;
-          newY = e.changedTouches[0].clientY - this.state.offsetY;
-        }
-*/
+
+        
         if(this.state.isMobile){
+          if(e.touches.length > 1)
+          {
+            return;
+          }
           newX = e.changedTouches[0].clientX - this.state.offsetX;
           newY = e.changedTouches[0].clientY - this.state.offsetY;
         }else{
