@@ -15,7 +15,7 @@
 
 :root {
   --mobileMenuDisplay: block;
-  --color: blue;
+  --color: black;
   --menuZIndex: 10;
 
   --leftWidth: 30%;
@@ -481,7 +481,7 @@ a {
   width:fit-content;
 }
 
-a:hover {
+.left a:hover {
   background-color: black;
   color:white;
   cursor: pointer;
