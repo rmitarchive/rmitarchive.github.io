@@ -173,6 +173,9 @@ footer {
   top: 0;
   right: 0;
   background-color: rgb(0, 0, 0);
+
+  -ms-overflow-style: none;  
+  scrollbar-width: none; 
 }
 
 .index-main-BG {
