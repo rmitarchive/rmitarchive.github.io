@@ -141,6 +141,7 @@ class App extends React.Component {
       document.documentElement.style.setProperty('--menuZIndex', 9999999);
       document.documentElement.style.setProperty('--leftWidth', "100%");
       document.documentElement.style.setProperty('--rightWidth', "50%");
+      document.documentElement.style.setProperty('--aboutWidth', "100vw");
     }
 
     window.addEventListener('click', (event) => {
@@ -637,10 +638,14 @@ class App extends React.Component {
             </div>
           );
         case 1:
-          return (<div class="about-container">
-          <div class="about-title">PRESS<br></br>RMIT Graduate Showcase<br></br>15-18 June, 2023</div>
+          return (
+          <div className="about-container">
+            <MobileView>
+                  <div className="mobile-menu-background"> </div>
+                </MobileView>
+          <div className="about-title">PRESS<br></br>RMIT Graduate Showcase<br></br>15-18 June, 2023</div>
           <br></br>
-          <div class="about-body">
+          <div className="about-body">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus accumsan lacinia ullamcorper. Quisque facilisis purus vel pulvinar finibus. Donec pretium sollicitudin turpis vitae viverra. Nullam consequat euismod nisl, non lacinia ligula eleifend eget. Proin ornare nibh eu turpis ultricies, vitae aliquet mi consequat. Duis ante ipsum, bibendum sed lorem in, imperdiet viverra elit. Nulla et interdum sem, ut sodales tortor. Nam porta dui sed ligula dignissim varius. Fusce sollicitudin eros ut gravida facilisis. Curabitur varius mollis eros nec porttitor.
           <br></br><br></br>
           Maecenas id nisl viverra, feugiat dui nec, tincidunt arcu. Etiam vel augue in ipsum fermentum sagittis in id nisl. In eu orci nisi. Integer porta sed tellus sed gravida. Nulla facilisi. Duis at sem nec ante dapibus scelerisque ut id nisi. Praesent elementum libero ut nibh fringilla euismod. Pellentesque quis maximus dui, vel suscipit tortor.
@@ -649,21 +654,21 @@ class App extends React.Component {
           </div>
             <br></br>
             <dl>
-              <dt class="about-title">PRESS Production Credits:</dt>
+              <dt className="about-title">PRESS Production Credits:</dt>
               <br/>
-              <dt class="about-body">Ella Taylor</dt>
-              <dd class="about-body">Layout, Identity</dd>
-              <dt class="about-body">Liam Kenna</dt>
-              <dd class="about-body">Front & Back End Website</dd>
-              <dt class="about-body">Nicholas Gleeson</dt>
-              <dd class="about-body">Layout, Identity</dd>
-              <dt class="about-body">Timon Muery</dt>
-              <dd class="about-body">Layout, Identity</dd>
-              <dt class="about-body">Zachariah Micallef</dt>
-              <dd class="about-body">Front End Website, Identity</dd>
+              <dt className="about-body">Ella Taylor</dt>
+              <dd className="about-body">Layout, Identity</dd>
+              <dt className="about-body">Liam Kenna</dt>
+              <dd className="about-body">Front & Back End Website</dd>
+              <dt className="about-body">Nicholas Gleeson</dt>
+              <dd className="about-body">Layout, Identity</dd>
+              <dt className="about-body">Timon Muery</dt>
+              <dd className="about-body">Layout, Identity</dd>
+              <dt className="about-body">Zachariah Micallef</dt>
+              <dd className="about-body">Front End Website, Identity</dd>
             </dl>
             <br></br>
-          <div class="about-body">
+          <div className="about-body">
             This project would not have been possible without the generous support of Suzie Zezula and RMIT University.<br></br><br></br>
             All rights reserved, PRESS, 2023. <br></br><br></br>
             No part of this site may be reproduced without explicit permission from the copyright owner(s)
@@ -672,6 +677,9 @@ class App extends React.Component {
         case 2:
           return(
             <div className="index-main"> 
+              <MobileView>
+                <div className="mobile-menu-background"> </div>
+              </MobileView>
               <ThreeJS/> 
               <HelpText/>
             </div>
@@ -875,7 +883,7 @@ class App extends React.Component {
   toggleMenu(){
     
     if(!this.state.mobileShowMenu){
-      document.documentElement.style.setProperty('--mobileMenuDisplay',"block");
+      document.documentElement.style.setProperty('--mobileMenuDisplay',"inherit");
   
     }else{
       document.documentElement.style.setProperty('--mobileMenuDisplay',"none");
@@ -958,8 +966,8 @@ class App extends React.Component {
               <br></br>
               <br></br>
               <div className="scrolling-banner-parent">
-                <a className="scrolling-banner-child" onClick = {(() => this.pdfTestSave())}><p className="helvetica">Print Screen</p></a>
-                <a className="scrolling-banner-child" onClick = {(() => this.clearPage())}><p className="helvetica">Clear Screen</p></a>
+                <a onClick = {(() => this.pdfTestSave())}><p className="helvetica-mobile">Print Screen</p></a>
+                <a onClick = {(() => this.clearPage())}><p className="helvetica-mobile">Clear Screen</p></a>
               </div>
             </div>
           </div>

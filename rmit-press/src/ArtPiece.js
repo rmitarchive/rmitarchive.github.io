@@ -228,7 +228,7 @@ class ArtPiece extends React.Component {
                 onMouseDown={this.state.isRandomImage ? null : () => this.state.openFocusArtPiece(this.state.coreInfo)} 
                 className="dragImgIndex"
                 > {
-                  this.state.isRandomImage ? ``
+                  this.state.isRandomImage ? `` : this.state.isMobile ? `${this.state.coreInfo.name} (...)`
                   : ` ${this.state.coreInfo.name}, ${this.state.coreInfo.title}.`}
                 </a>
               </div> 

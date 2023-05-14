@@ -19,6 +19,7 @@
   --menuZIndex: 10;
   --leftWidth: 30%;
   --rightWidth: auto;
+  --aboutWidth: 50vw;
 }
 
 
@@ -108,7 +109,7 @@ footer {
 
 .bottom-of-page{
   padding:10px;
-  z-index: 99;
+  z-index: var(--menuZIndex);
   position:absolute;
   top: -0.1em;
   /*width: 20%;*/
@@ -184,6 +185,12 @@ footer {
   z-index: var(--menuZIndex);
   position: relative;
   pointer-events: all;
+}
+
+.helvetica-mobile {
+  text-align: right;
+  right: 0;
+  margin: 0 0 0 0;
 }
 
 /* .index-main-paper {
@@ -477,12 +484,13 @@ html, body {
 } 
 
 .mobile-menu-background{
-  background-color: rgba(245,245,245,0.5);
+  background-color: rgba(245,245,245,0.9);
   width: 100vw;
   height: 100vh;
-  z-index: 999999;
+  z-index: 99999;
   position: fixed;
   display: var(--mobileMenuDisplay);
+  pointer-events: none;
   /*--mobileMenuDisplay: block;*/
 }
 
@@ -510,11 +518,15 @@ html, body {
 
 .about-container {
   height:100vh;
-  width:50vw;
+  width:var(--aboutWidth);
 
   box-sizing: border-box;
   padding:0.5em;
   font-size: 0.8em;
+
+  z-index: 1;
+
+  overflow-x: scroll;
 }
 
 .about-title {
