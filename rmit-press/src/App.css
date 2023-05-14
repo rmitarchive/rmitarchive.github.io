@@ -231,7 +231,7 @@ footer {
   height:100%;
   overflow: scroll;
   overflow-x: hidden;
-  z-index: 9999;
+  z-index: var(--menuZIndex);
   user-select: none;
 
   top: 0;
