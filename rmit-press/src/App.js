@@ -959,7 +959,7 @@ class App extends React.Component {
           <div className="bottom-of-page" >
             <div className="scrolling-banner-parent">
               <div className="scrolling-banner-child" onClick = {(() => this.toggleMenu())}>
-                <p className="helvetica">{this.state.mobileShowMenu ? "Close Menu" : "Menu"}</p>
+                <p className="helvetica">{this.state.mobileShowMenu ? "Close" : "Menu"}</p>
               </div>
             </div>
             <div style={{visibility: this.state.mobileShowMenu ? "inherit" : "hidden"}} >
