@@ -127,6 +127,7 @@ footer {
   /*width: 50%;*/
   width: auto;
   right:0;
+  display: var(--mobileMenuDisplay);
   
 }
 

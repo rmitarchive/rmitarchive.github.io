@@ -131,7 +131,7 @@ class App extends React.Component {
       currentShownWorks: currentShownWorks,
       focusArtPiece: null,
       isAcknowledged: false,
-      mobileShowMenu: true,
+      mobileShowMenu: false,
       isLoaded: false
     }    
 
@@ -142,6 +142,7 @@ class App extends React.Component {
       document.documentElement.style.setProperty('--leftWidth', "100%");
       document.documentElement.style.setProperty('--rightWidth', "50%");
       document.documentElement.style.setProperty('--aboutWidth', "100vw");
+      document.documentElement.style.setProperty('--mobileMenuDisplay', "none");
     }
 
     window.addEventListener('click', (event) => {
