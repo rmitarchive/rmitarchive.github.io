@@ -63,3 +63,6 @@ header('Access-Control-Allow-Headers: Content-Type');
     $mail->addAttachment($_POST["pdfName"], 'filename');    // Name is optional WORKS
 
     $mail->send();
+
+    
+    echo "PHP DUN";

@@ -572,6 +572,7 @@ class App extends React.Component {
     if(this.scrollbarRef != null){
       switch(this.scrollbarRef.current){
         case 0:
+          this.resetPrint();
           return(
             <div>
               <div className="content" >
@@ -649,6 +650,7 @@ class App extends React.Component {
             </div>
           );
         case 1:
+          this.resetPrint();
           return (
           <div className="about-container">
             <MobileView>
@@ -686,6 +688,7 @@ class App extends React.Component {
           </div>
         </div>);
         case 2:
+          this.resetPrint();
           return(
             <div className="index-main"> 
               <MobileView>
@@ -709,6 +712,18 @@ class App extends React.Component {
     return(
       <div>uh oh ewwow : ( </div>
     );
+  }
+
+  resetPrint(){
+    if(this.state.printStarted){
+      this.setState({
+        printResponse: null,
+        printerEmail: null,
+        userEmail: null,
+        emailSent: false,
+        printStarted: false,
+      })
+    }
   }
 
   getRecieptPage(){
@@ -735,6 +750,10 @@ class App extends React.Component {
         );
     } else if(!this.state.emailSent){
       //loading screen
+      return(<div>
+        Loading
+      </div>
+      );
     }else{
       //receipt
       return(<div>
@@ -748,7 +767,6 @@ class App extends React.Component {
     let validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     let canPrint = true;
 
-    //if (this.state.userEmail.match(validRegex)) {
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.state.userEmail)) {
       this.generatePDF();
       this.setState({
@@ -839,6 +857,7 @@ class App extends React.Component {
   }
 
   sendPDF(formData){
+    var self = this;
     axios({
       url: "http://localhost:8000/index.php", 
       //url: "http://shwag.com.au/php/index.php", 
@@ -850,13 +869,13 @@ class App extends React.Component {
     })
     .then(function(response) {
         console.log("outcome 1");
-        console.log(response);          
+        console.log(response); 
+        console.log("response.data: " + response.data); 
+        self.setState({
+          printResponse: response.data,
+          emailSent: true
+        });    
     })
-    .then(function(myJson) {
-        // use parseed result
-        console.log("outcome 2");
-        console.log(myJson);
-    });
 
     console.log("test save end");
   }
