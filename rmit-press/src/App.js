@@ -69,7 +69,9 @@ class App extends React.Component {
       artPiecesIsVisible.push(student.name != "sys");
     });
 
-    if(path.toUpperCase().includes("HELP")){
+    if(path.toUpperCase().includes("PRINT")){
+      this.scrollbarRef.current = 3;
+    }else if(path.toUpperCase().includes("HELP")){
       this.scrollbarRef.current = 2;
     }else if(path.toUpperCase().includes("ABOUT")){
       this.scrollbarRef.current = 1;
@@ -132,7 +134,13 @@ class App extends React.Component {
       focusArtPiece: null,
       isAcknowledged: false,
       mobileShowMenu: false,
-      isLoaded: false
+      isLoaded: false,
+
+      printResponse: null,
+      printerEmail: null,
+      userEmail: null,
+      emailSent: false,
+      printStarted: false,
     }    
 
     //document.documentElement.style.setProperty('--menuZIndex', isMobile ? 9999999 : 10);
@@ -632,7 +640,7 @@ class App extends React.Component {
                 </div>
                 <BrowserView>
                   <div className="right">
-                    <a className="screen-func-header" onClick = {(() => this.pdfTestSave())}>Print Screen</a>
+                    <a className="screen-func-header" onClick = {(() => this.startPDF())}>Print Screen</a>
                     <a className="screen-func-header" onClick = {(() => this.clearPage())}>Clear Screen</a>
                   </div> 
                 </BrowserView>
@@ -686,7 +694,13 @@ class App extends React.Component {
               <ThreeJS/> 
               <HelpText/>
             </div>
-          );        
+          );   
+        case 3:   //print/reciept
+          return(
+            <div className="index-main"> 
+              {this.getRecieptPage()}
+            </div>
+          );
       }
 
 
@@ -695,6 +709,60 @@ class App extends React.Component {
     return(
       <div>uh oh ewwow : ( </div>
     );
+  }
+
+  getRecieptPage(){
+
+    if(!this.state.printStarted){
+      return(
+        <div>
+          Email:
+          <br/>
+          <br/>
+            <input className="search-bar" 
+              placeholder="Email..."  
+              onChange={e => this.setUserEmail(e.target.value)}>
+            </input>
+          <br/>
+          <br/>
+          <a onClick = {(() => this.doPDFProcess())}><p>Print Screen</p></a>
+          
+          <br/>
+          <br/>
+          {this.state.printResponse != null ? this.state.printResponse : ""}
+
+        </div>
+        );
+    } else if(!this.state.emailSent){
+      //loading screen
+    }else{
+      //receipt
+      return(<div>
+        {`response: ${this.state.printResponse}`}
+      </div>
+      );
+    }
+  }
+//validation can happen here.
+  doPDFProcess(){
+    let validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    let canPrint = true;
+
+    //if (this.state.userEmail.match(validRegex)) {
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.state.userEmail)) {
+      this.generatePDF();
+      this.setState({
+        printResponse: null,
+        printStarted: true
+      });
+    }else{
+      this.setState({printResponse: "EMAIL INVALID"});
+    }
+  }
+
+  //should really add email validation via regex
+  setUserEmail(email){
+    this.setState({userEmail: email});
   }
 
   generatePDFHTML(props){
@@ -770,9 +838,30 @@ class App extends React.Component {
     })
   }
 
-  pdfTestSave(){
-    console.log("test save start");
-    
+  sendPDF(formData){
+    axios({
+      url: "http://localhost:8000/index.php", 
+      //url: "http://shwag.com.au/php/index.php", 
+      method: "POST",
+      data: formData,
+      headers: {
+        'Content-Type': `multipart/form-data; boundary=${formData._boundary}`
+    }
+    })
+    .then(function(response) {
+        console.log("outcome 1");
+        console.log(response);          
+    })
+    .then(function(myJson) {
+        // use parseed result
+        console.log("outcome 2");
+        console.log(myJson);
+    });
+
+    console.log("test save end");
+  }
+
+  generatePDF(){
     var pdfHTML = `${this.generatePDFHTML()}`;
     var formData = new FormData();
 
@@ -795,26 +884,13 @@ class App extends React.Component {
       console.log(this.state.currentShownWorks[i]);
     }
 
-    axios({
-      //url: "http://localhost:8000/index.php", 
-      url: "http://shwag.com.au/php/index.php", 
-      method: "POST",
-      data: formData,
-      headers: {
-        'Content-Type': `multipart/form-data; boundary=${formData._boundary}`
-    }
-    })
-    .then(function(response) {
-        console.log("outcome 1");
-        console.log(response);          
-    })
-    .then(function(myJson) {
-        // use parseed result
-        console.log("outcome 2");
-        console.log(myJson);
-    });
+    this.sendPDF(formData);
+  }
 
-    console.log("test save end");
+  startPDF(){
+    console.log("test save start");
+    window.history.pushState("object or string", "Title", "/print");
+    this.scrollbarRef.current = 3;
   }
 
   openFocusArtPiece(props){
@@ -971,7 +1047,7 @@ class App extends React.Component {
               <br></br>
               <br></br>
               <div className="scrolling-banner-parent">
-                <a onClick = {(() => this.pdfTestSave())}><p className="helvetica-mobile">Print Screen</p></a>
+                <a onClick = {(() => this.startPDF())}><p className="helvetica-mobile">Print Screen</p></a>
                 <a onClick = {(() => this.clearPage())}><p className="helvetica-mobile">Clear Screen</p></a>
               </div>
             </div>
