@@ -143,6 +143,8 @@ class App extends React.Component {
       document.documentElement.style.setProperty('--rightWidth', "30vw");
       document.documentElement.style.setProperty('--aboutWidth', "100vw");
       document.documentElement.style.setProperty('--mobileMenuDisplay', "none");
+      document.documentElement.style.setProperty('--ackFont', "1em");
+
     }
 
     window.addEventListener('click', (event) => {
@@ -843,7 +845,7 @@ class App extends React.Component {
     if(isMobile){
       return (
         <div className="focus-BG-mobile">
-          <div className = "focus-Header-container-mobile">
+          <div className = "focus-Header-container">
             <div className = "focus-Header-mobile">{`${this.state.focusArtPiece.id}. ${this.state.focusArtPiece.name}, ${this.state.focusArtPiece.title} (${this.state.focusArtPiece.year})`}</div>
             <a className = "focus-Close-mobile" onMouseDown={() => this.removeFocusArtPiece()}> Close </a>
           </div>
@@ -858,8 +860,10 @@ class App extends React.Component {
 
     return (
         <div className="focus-BG">
+          <div className = "focus-Header-container">
           <div className = "focus-Header">{`${this.state.focusArtPiece.id}. ${this.state.focusArtPiece.name}, ${this.state.focusArtPiece.title} (${this.state.focusArtPiece.year})`}</div>
           <a className = "focus-Close" onMouseDown={() => this.removeFocusArtPiece()}> Close </a>
+          </div>
           <img className="focus-Img"
             src={require(`./Img/${this.state.focusArtPiece.image}`)}
             />

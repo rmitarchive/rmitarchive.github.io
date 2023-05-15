@@ -20,6 +20,7 @@
   --leftWidth: 30%;
   --rightWidth: auto;
   --aboutWidth: 50vw;
+  --ackFont: 2em;
 }
 
 
@@ -406,7 +407,7 @@ html, body {
 
 .focus-Img {
   width: 100%;
-  padding: 0 0 0.5em 0;
+  padding: 2em 0 0.5em 0;
   user-select: none;
 }
 
@@ -426,7 +427,7 @@ html, body {
   /*position: fixed;*/
 }
 
-.focus-Header-container-mobile {
+.focus-Header-container {
   width: 100%;
   position: fixed;
   background-color:black;
@@ -512,7 +513,7 @@ html, body {
 
 .ack-text {
   font-family: Unica;
-  font-size: 2em;
+  font-size: var(--ackFont);
   color:white;
 }
 
@@ -521,7 +522,6 @@ html, body {
   width:var(--aboutWidth);
 
   box-sizing: border-box;
-  padding:0.5em;
   font-size: 0.8em;
 
   z-index: 1;
@@ -531,11 +531,13 @@ html, body {
 
 .about-title {
   font-family: Unica;
+  padding:0.5em;
 }
 
 .about-body {
   font-family: Schrijf;
   text-align: justify;
+  padding:0.5em;
 }
 
 @media only screen and (max-device-width : 1024px) { 
