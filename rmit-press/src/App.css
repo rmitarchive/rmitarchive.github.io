@@ -385,6 +385,7 @@ html, body {
 
 .left .student-names {
   margin-top: 20vh;
+  margin-bottom: 10vh;
   user-select: none;
 }
 

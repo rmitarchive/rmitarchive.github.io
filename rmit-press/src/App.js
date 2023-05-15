@@ -501,7 +501,7 @@ class App extends React.Component {
         
         //console.log("student: " + JSON.stringify(student));
         //console.log("student COND: " + JSON.stringify(student));
-        if(currLetter != student.name[0]){
+        if(currLetter != student.name[0] && student.name[0] != "s"){
           if(currLetter != null){
             classHTML.push(<br key={pos + "BR"}/>);
           }
