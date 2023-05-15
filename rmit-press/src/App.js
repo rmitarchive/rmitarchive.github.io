@@ -947,7 +947,7 @@ class App extends React.Component {
         <link rel="icon" href="icon.png" /> 
         <title>Zachariah Micallef</title>
         <BrowserView>
-          <div className="bottom-of-page">
+          <div className="bottom-of-page" style={{zIndex:11}}>
           <ScrollingBanner clickFunc = {this.scrollbarRef}/> 
               <div>
                 <p className="fact-times">{this.state.mouseX}, {this.state.mouseY}</p>
