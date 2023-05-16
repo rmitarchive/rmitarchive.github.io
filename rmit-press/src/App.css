@@ -438,9 +438,11 @@ html, body {
 
 .focus-Close {
   padding: 0.5em 0.5em 0.5em 0.5em;
-  float:right;
   user-select: none;
   color:white;
+  position: fixed;
+  right: 0;
+  top: 0;
 }
 
 .focus-Close-mobile {
@@ -523,8 +525,8 @@ html, body {
   width:var(--aboutWidth);
 
   box-sizing: border-box;
-  font-size: 0.8em;
-
+  font-size: 0.7em;
+  line-height: 1;
   z-index: 1;
 
   overflow-x: scroll;
@@ -532,13 +534,76 @@ html, body {
 
 .about-title {
   font-family: Unica;
-  padding:0.5em;
+  padding:0.5em 0.5em 0 0.5em;
 }
 
 .about-body {
   font-family: Schrijf;
   text-align: justify;
+  padding:0 0.5em 0 0.5em;
+}
+
+.print-container {
+  height:100vh;
+  width:100vw;
+  top:0;
+  box-sizing: border-box;
+  font-size: 1em;
+  line-height: 1;
+  z-index: 1;
+  overflow-x: scroll;
+  background-color: black;
+}
+
+.print-title {
+  font-family: Unica;
+  padding:0.5em 0.5em 0 0.5em;
+  color:white;
+}
+.print-title a:hover{background-color: white; color:black}
+
+.print-return {
+  font-family: Unica;
+  padding:0.5em 0.5em 0.5em 0.5em;
+  color:white;
+  position:absolute;
+  right:0;
+  top:0;
+  color:white;
+}
+.print-return:hover{background-color: white; color:black}
+
+.print-body {
+  font-family: Schrijf;
+  text-align: justify;
+  padding:0 0.5em 0 0.5em;
+  font-size: 0.7em;
+  width:25vw;
+  color:white;
+}
+
+.print-container input {
+  font-size: 1em;
   padding:0.5em;
+  border: none;
+  background-color: transparent;
+  width:20vw;
+  color:white;
+}
+
+.print-container input {
+  outline:none;
+}
+
+.print-footer {
+  font-family: Schrijf;
+  text-align: justify;
+  padding:0 0.5em 0 0.5em;
+  font-size: 0.7em;
+  width:50vw;
+  color:white;
+  position:absolute;
+  bottom:0;
 }
 
 @media only screen and (max-device-width : 1024px) { 
