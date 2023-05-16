@@ -783,7 +783,7 @@ class App extends React.Component {
     this.setState({userEmail: email});
   }
 
-  generatePDFHTML(props){
+  generatePDFHTML(){
     let returnHTML = [];
 
     returnHTML.push(`
@@ -866,16 +866,16 @@ class App extends React.Component {
           </a>`
           );
     }
-    let potLetters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-    let bigLetterLeft = Math.floor(Math.random() * (maxWidth * .5 ));
-    let bigLetterTop = Math.random() * -450;
-    let letter = potLetters[Math.floor(Math.random() * potLetters.length)];
-    //letter, I want to get the "presses" that appear with it to appear white, will have to look into that. Maybe get the coords and make the presses within that range get a white color? Blending modes are not compatible with the PDF though.
-    returnHTML.push(`
-            <h1 style="mix-blend-mode: difference; position: absolute; z-index: 100; transform: rotate(-90deg); font-size: 1200px; margin: auto; left: ${bigLetterLeft}px; top: ${bigLetterTop}px; font-family: Schrijf;">${letter}</h1>
-          `
-          );
 
+    //let potLetters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+    let bigLetterLeft = Math.floor((Math.random() - .25) * (maxWidth * .5 ));
+    //let bigLetterLeft = Math.floor(Math.random() * (maxWidth * .5 ));
+    let bigLetterTop = Math.floor((Math.random() - .25) * (maxHeight * .5 ));
+    //let bigLetterTop = Math.random() * -450;
+    //let letter = potLetters[Math.floor(Math.random() * potLetters.length)];
+    //letter, I want to get the "presses" that appear with it to appear white, will have to look into that. Maybe get the coords and make the presses within that range get a white color? Blending modes are not compatible with the PDF though.
+    returnHTML.push(`<div class="content"><img style="position: absolute; left: ${bigLetterLeft}px; top: ${bigLetterTop}px; height: 100%; z-index: 100;" src="%bigImg%"></div>`);
+    //<h1 style="mix-blend-mode: difference; position: absolute; z-index: 100; transform: rotate(-90deg); font-size: 1200px; margin: auto; left: ${bigLetterLeft}px; top: ${bigLetterTop}px; font-family: PantasiaItalic;"><i>${letter}</i></h1>
     returnHTML.push(`</div>`);
 
 /*
@@ -959,6 +959,12 @@ class App extends React.Component {
   generatePDF(){
     var pdfHTML = `${this.generatePDFHTML()}`;
     var formData = new FormData();
+
+    //let potLetters = ['a', 'b'];
+    let potLetters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+    let letter = potLetters[Math.floor(Math.random() * potLetters.length)];
+    console.log(`letter: ${letter}`);
+    formData.append("bigLetter", letter);
 
     formData.append("msg", "deez nuts");
     formData.append("pdf", "na");

@@ -31,6 +31,13 @@ header('Access-Control-Allow-Headers: Content-Type');
         $html = str_replace("%img".$i."%", $base64, $html);
     }
 
+    //big letter
+    //$type = pathinfo($imgPaths[$i], PATHINFO_EXTENSION);
+    $data = file_get_contents("Img/Type/".$_POST["bigLetter"].".png");
+    //$data = file_get_contents("Img/Type/".$_POST["imgPaths"].".png");
+    $base64 = 'data:image/.png;base64,' . base64_encode($data);
+
+    $html = str_replace("%bigImg%", $base64, $html);
 
     $options = new Options();
     $options->set('isRemoteEnabled', true);

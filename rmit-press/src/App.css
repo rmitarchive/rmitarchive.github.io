@@ -13,6 +13,11 @@
   src: url("Type/type.ttf");
 }
 
+@font-face {
+  font-family: 'PantasiaItalic';
+  src: url("Type/Pantasia-Italic.otf");
+}
+
 :root {
   --mobileMenuDisplay: block;
   --color: black;
