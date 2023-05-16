@@ -46,6 +46,9 @@ header('Access-Control-Allow-Headers: Content-Type');
     $output = $dompdf->output();
     file_put_contents($_POST["pdfName"], $output);
 
+    //test
+    file_put_contents("test.html", $html);
+
     $message = $request_body;
     $message .= "\n\n";
     $message .= print_r($_REQUEST, true);

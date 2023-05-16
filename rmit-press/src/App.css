@@ -429,7 +429,8 @@ html, body {
 }
 
 .focus-Header-container {
-  width: 100%;
+  width: 50%;
+  /*width: 100%; I do not know why this was the problem with close disapearing, it was going full page width.*/
   position: fixed;
   background-color:black;
   top: 0px;

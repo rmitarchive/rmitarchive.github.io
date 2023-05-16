@@ -797,18 +797,40 @@ class App extends React.Component {
 
 
     returnHTML.push(`<div class="content">`);
-      for(let i = 0; i < this.state.currentShownWorks.length; i++){
-      //for(let i = 0; i < this.state.artPiecesImageShown.length; i++){
-        //if(this.state.artPiecesImageShown[i] == true){
-          let currID = this.state.currentShownWorks[i].id;
-        returnHTML.push(`<div style="position: absolute; left: ${this.state.artPiecesCurrX[currID]}px; top: ${this.state.artPiecesCurrY[currID]}px; z-index: ${i};">
-          <img style="max-width: 15em;" src="%img${i}%">
-          (${currID})
-          </div>`
-          );
-        //}
-      }
+  
+    for(let i = 0; i < this.state.currentShownWorks.length; i++){
+      let currID = this.state.currentShownWorks[i].id;
+        /*const foundImg = document.getElementById(`${this.state.currentShownWorks[i].id}Img`);
+        console.log(`foundImg check: ${this.state.currentShownWorks[i].id} isnull? ${foundImg}`);
+        let imgRect = foundImg.getBoundingClientRect();*/
+      returnHTML.push(`<div style="position: absolute; left: ${this.state.artPiecesCurrX[currID]}px; top: ${this.state.artPiecesCurrY[currID]}px; z-index: ${10 + i};">
+        <img style="max-height: 15em;" src="%img${i}%">
+        (${currID})
+        </div>`
+        );
+    }
+
       
+    
+    returnHTML.push(`<div class="bottom-of-page">
+    <div>
+    <p class="fact-times">Index</p>`);
+
+    //index.
+    for(let i = 0; i < this.state.currentShownWorks.length; i++){
+      let currID = this.state.currentShownWorks[i].id;
+      if(this.state.currentShownWorks[i].name == "sys"){
+        returnHTML.push(`
+        <p class="fact-times">((Fig. ${currID}) ${this.state.currentShownWorks[i].title}</p>
+        `);
+      }else{
+        returnHTML.push(`
+        <p class="fact-times">(${currID}) ${this.state.currentShownWorks[i].name}, ${this.state.currentShownWorks[i].title} (2023)</p>
+        `);
+      }
+    }
+    returnHTML.push(`</div></div>`);
+    
     let randomPressCount = Math.floor(Math.random() * 100) + 20;
 
     let maxWidth = 1200;
@@ -817,26 +839,38 @@ class App extends React.Component {
     console.log(`RANDOM randomPressCount: ${randomPressCount}`);
     for(let i = 0; i < randomPressCount; i++){
       console.log(`RANDOM PRESS: ${i}`);
-        returnHTML.push(`<div style="position: absolute; left: ${Math.floor(Math.random() * maxWidth)}px; top: ${Math.floor(Math.random() * maxHeight)}px; z-index: ${Math.random() * 150};">
-            <p>PRESS</p>
-          </div>`
+        returnHTML.push(`<a style="background-color: white; position: absolute; left: ${Math.floor(Math.random() * maxWidth)}px; top: ${Math.floor(Math.random() * maxHeight)}px; z-index: ${50 + (Math.random() * 150)};">
+            PRESS
+          </a>`
           );
     }
     let potLetters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-    //letter, I want to get the "presses" that appear with it to appear white, will have to look into that. Maybe get the coords and make the presses within that range get a white color? The exclusion blending mode isnt the way apparently
+    let bigLetterLeft = Math.floor(Math.random() * (maxWidth * .5 ));
+    let bigLetterTop = Math.random() * -450;
+    let letter = potLetters[Math.floor(Math.random() * potLetters.length)];
+    //letter, I want to get the "presses" that appear with it to appear white, will have to look into that. Maybe get the coords and make the presses within that range get a white color? Blending modes are not compatible with the PDF though.
     returnHTML.push(`
-            <h1 style="mix-blend-mode: exclusion; position: absolute; z-index: 120; transform: rotate(-90deg); font-size: 1200px; margin: auto; left: ${Math.floor(Math.random() * (maxWidth * .5 ))}px; top: ${Math.random() * -450}px; font-family: Schrijf;">${potLetters[Math.floor(Math.random() * potLetters.length)]}</h1>
+            <h1 style="mix-blend-mode: difference; position: absolute; z-index: 100; transform: rotate(-90deg); font-size: 1200px; margin: auto; left: ${bigLetterLeft}px; top: ${bigLetterTop}px; font-family: Schrijf;">${letter}</h1>
           `
           );
 
     returnHTML.push(`</div>`);
 
+/*
+`
+            <h1 style="mix-blend-mode: difference; position: absolute; z-index: 120; color: white; transform: rotate(-90deg); font-size: 1200px; margin: auto; left: ${bigLetterLeft}px; top: ${bigLetterTop}px; font-family: Schrijf;">${letter}</h1>
+            <h1 style="mix-blend-mode: difference; position: absolute; z-index: 1; color: white; transform: rotate(-90deg); font-size: 1200px; margin: auto; left: ${bigLetterLeft}px; top: ${bigLetterTop}px; font-family: Schrijf;">${letter}</h1>
+          `
+          */
+
+          /*
     returnHTML.push(`<div class="bottom-of-page">
       <div>
         <div class="fact-times"><br>Index</div>
         <p class="fact-times" style="cursor: pointer;">(3) Brooke Davis, Untitled (2023)</p>//change to variable
       </div>
     </div>`); 
+*/
 
 
     returnHTML.push(`</body>
