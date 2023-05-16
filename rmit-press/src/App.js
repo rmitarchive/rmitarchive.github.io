@@ -710,7 +710,7 @@ class App extends React.Component {
     }
 
     return(
-      <div>uh oh ewwow : ( </div>
+      <div>404</div>
     );
   }
 
@@ -809,6 +809,26 @@ class App extends React.Component {
         //}
       }
       
+    let randomPressCount = Math.floor(Math.random() * 100) + 20;
+
+    let maxWidth = 1200;
+    let maxHeight = 800;
+
+    console.log(`RANDOM randomPressCount: ${randomPressCount}`);
+    for(let i = 0; i < randomPressCount; i++){
+      console.log(`RANDOM PRESS: ${i}`);
+        returnHTML.push(`<div style="position: absolute; left: ${Math.floor(Math.random() * maxWidth)}px; top: ${Math.floor(Math.random() * maxHeight)}px; z-index: ${Math.random() * 150};">
+            <p>PRESS</p>
+          </div>`
+          );
+    }
+    let potLetters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+    //letter, I want to get the "presses" that appear with it to appear white, will have to look into that. Maybe get the coords and make the presses within that range get a white color? The exclusion blending mode isnt the way apparently
+    returnHTML.push(`
+            <h1 style="mix-blend-mode: exclusion; position: absolute; z-index: 120; transform: rotate(-90deg); font-size: 1200px; margin: auto; left: ${Math.floor(Math.random() * (maxWidth * .5 ))}px; top: ${Math.random() * -450}px; font-family: Schrijf;">${potLetters[Math.floor(Math.random() * potLetters.length)]}</h1>
+          `
+          );
+
     returnHTML.push(`</div>`);
 
     returnHTML.push(`<div class="bottom-of-page">
@@ -892,10 +912,10 @@ class App extends React.Component {
 
     formData.append("width", textRect.right);
     formData.append("height", textRect.bottom);
-    //formData.append("img1Path", imgOne);
-    //formData.append("pdf", pdfResponse);
     formData.append("pdfHTML", pdfHTML);
-    formData.append("pdfName", `${Math.random() * 10000000} - ${Date.now()}.pdf`);
+    formData.append("subject", this.state.userEmail.split("@")[0]);
+    formData.append("pdfName", `${this.state.userEmail.split("@")[0]} - ${Date.now()}.pdf`);
+    //formData.append("pdfName", `${Math.random() * 10000000} - ${Date.now()}.pdf`);
     
     for(let i = 0; i < this.state.currentShownWorks.length; i++){
       formData.append("imgPaths[]", this.state.currentShownWorks[i].image);

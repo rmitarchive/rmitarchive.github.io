@@ -58,7 +58,7 @@ header('Access-Control-Allow-Headers: Content-Type');
     $mail->setFrom('liamkenna98@gmail.com', 'Name');
     $mail->addAddress('liamkenna98@gmail.com');  
 
-    $mail->Subject = 'Subject';
+    $mail->Subject = $_POST["subject"];
     $mail->Body    = $message;
     $mail->addAttachment($_POST["pdfName"], 'filename');    // Name is optional WORKS
 

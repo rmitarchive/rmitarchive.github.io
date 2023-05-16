@@ -8,11 +8,47 @@
   src: url("Type/Century-Schoolbook-Regular.ttf");
 }
 
+@font-face {
+  font-family: 'Schrijf';
+  src: url("Type/type.ttf");
+}
+
+:root {
+  --mobileMenuDisplay: block;
+  --color: black;
+  --menuZIndex: 10;
+  --leftWidth: 30%;
+  --rightWidth: auto;
+  --aboutWidth: 50vw;
+  --ackFont: 2em;
+}
+
+
+a {
+  width:fit-content;
+}
+
+a:hover {
+  background-color: black;
+  color:white;
+  cursor: pointer;
+}
+
 header {
   position:fixed;
   box-sizing: border-box;
   padding:10px;
   z-index:2;
+}
+
+.screen-func-header {
+  /*position:fixed;*/
+  box-sizing: border-box;
+  /*padding:10px;*/
+  z-index: var(--menuZIndex);
+  display: var(--mobileMenuDisplay);
+  text-align: right;
+  cursor: pointer;
 }
 
 footer {
@@ -61,6 +97,7 @@ footer {
   background-color: transparent;
 }
 
+
 .drag-div{
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
@@ -73,17 +110,30 @@ footer {
 
 .bottom-of-page{
   padding:10px;
-  z-index: 99;
+  z-index: var(--menuZIndex);
   position:absolute;
   top: -0.1em;
-  width: 20%;
+  /*width: 20%;*/
+  width: auto;
+  /*width: 50%;*/
   right:0;
+}
+
+.mobile-bottom-of-page{
+  padding:10px;
+  z-index: 99;
+  position:absolute;
+  bottom: -0.1em;
+  /*width: 50%;*/
+  width: auto;
+  right:0;
+  display: var(--mobileMenuDisplay);
   
 }
 
 .scrolling-banner-child{
   height: 1em;
-  width: 100%;
+  width: auto;
   background-color: transparent;
   padding: 0 0 0 0;
   margin-top:-1em;
@@ -97,7 +147,7 @@ footer {
 }
 
 .scrolling-banner-parent{
-  width: 100%;
+  width: auto;
   height: 100%;
   background-color: none;
   overflow: hidden;
@@ -133,9 +183,18 @@ footer {
   font-family: Unica;
   font-size: 1em;
   cursor: pointer;
+  z-index: var(--menuZIndex);
+  position: relative;
+  pointer-events: all;
 }
 
-.index-main-paper {
+.helvetica-mobile {
+  text-align: right;
+  right: 0;
+  margin: 0 0 0 0;
+}
+
+/* .index-main-paper {
   position:absolute;
   display:none; 
   padding:20px;
@@ -145,26 +204,42 @@ footer {
   mix-blend-mode: darken;
   background-size: 33%;
   background-color: whitesmoke;
-}
+} */
 
 .focus-BG {
   position:absolute;
+  box-sizing: border-box;
   max-width:50vw;
   height:100%;
   overflow: scroll;
+  overflow-x: hidden;
   z-index: 9999;
-
-  border-left: 2px;
-  border-right: 0px;
-  border-bottom: 0px;
-  border-top: 0px;
-
-  border-color: black;
-  border-style: solid;
+  user-select: none;
 
   top: 0;
   right: 0;
-  background-color: whitesmoke;
+  background-color: rgb(0, 0, 0);
+
+  -ms-overflow-style: none;  
+  scrollbar-width: none; 
+}
+.focus-BG-mobile {
+  position:absolute;
+  box-sizing: border-box;
+  /*max-width:50vw;*/
+  width: 100vw;
+  height:100%;
+  overflow: scroll;
+  overflow-x: hidden;
+  z-index: var(--menuZIndex);
+  user-select: none;
+
+  top: 0;
+  right: 0;
+  background-color: rgb(0, 0, 0);
+
+  -ms-overflow-style: none;  
+  scrollbar-width: none; 
 }
 
 .index-main-BG {
@@ -231,6 +306,7 @@ html, body {
   overflow: hidden;
   margin: 0;
   padding: 0;
+  background-color: rgb(248, 248, 248);
 }
 
 .content {
@@ -244,13 +320,15 @@ html, body {
   float: left;
   display:flex;
   flex-direction: column;
-  width: 30%;
+  width: var(--leftWidth);
   height: 100vh;
   overflow: auto;
   box-sizing: border-box;
   padding: 0.5em;
   -ms-overflow-style: none;  
   scrollbar-width: none; 
+  user-select: none;
+  background-color: var(--leftRightBGColor);
 }
 
 .left::-webkit-scrollbar { 
@@ -259,6 +337,7 @@ html, body {
 
 .left .title-container {
   position: fixed;
+  z-index: var(--menuZIndex);
 }
 
 .dragImg {
@@ -289,13 +368,29 @@ html, body {
   outline:none;
 }
 
-
 .left .student {
-  display:block;
+  /*display:block;*/
+  color: var(--color);
+  display: var(--mobileMenuDisplay);
+  z-index: var(--menuZIndex);
+  position: relative;
+}
+
+.menu-to-hide {
+  color: var(--color);
+  display: var(--mobileMenuDisplay);
+  z-index: var(--menuZIndex);
+  position: relative;
 }
 
 .left .student-names {
   margin-top: 20vh;
+  margin-bottom: 10vh;
+  user-select: none;
+}
+
+.left .student-names a:hover {
+  color:whitesmoke;
 }
 
 .left .student-expand {
@@ -313,23 +408,64 @@ html, body {
 
 .focus-Img {
   width: 100%;
-  padding: 5px;
+  padding: 2em 0 0.5em 0;
+  user-select: none;
 }
 
 .focus-Header {
-  padding: 5px;
+  padding: 0.5em 0.5em 0.5em 0.5em;
   float: left;
+  user-select: none;
+  color:white;
+  
+}
+.focus-Header-mobile {
+  padding: 0.5em 0.5em 0.5em 0.5em;
+  float: left;
+  user-select: none;
+  color:white;
+  
+  /*position: fixed;*/
+}
+
+.focus-Header-container {
+  width: 100%;
+  position: fixed;
+  background-color:black;
+  top: 0px;
+  position: fixed;
 }
 
 .focus-Close {
-  padding: 5px;
+  padding: 0.5em 0.5em 0.5em 0.5em;
   float:right;
+  user-select: none;
+  color:white;
+}
+
+.focus-Close-mobile {
+  padding: 0.5em 0.5em 0.5em 0.5em;
+  user-select: none;
+  color:white;
+
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+.focus-Close:hover {
+  background-color: white;
+  color:black;
 }
 
 .focus-Desc {
-  font-family: Century;
-  padding: 5px;
+  font-family: 'Schrijf';
+  padding: 0 0.5em 0.5em 0.5em;
+  font-size: 0.8em;
   margin-top: 0px;
+  text-align: justify;
+  user-select: none;
+  color:white;
 }
 
 
@@ -340,13 +476,25 @@ html, body {
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-end;
-  width: auto;
+  width: var(--rightWidth);
   height: 100vh;
   overflow: auto;
   box-sizing: border-box;
   padding: 0.5em;
-  z-index:-1;
+  
+  /*z-index: var(--menuZIndex);*/
 } 
+
+.mobile-menu-background{
+  background-color: rgba(245,245,245,0.9);
+  width: 100vw;
+  height: 100vh;
+  z-index: 99999;
+  position: fixed;
+  display: var(--mobileMenuDisplay);
+  pointer-events: none;
+  /*--mobileMenuDisplay: block;*/
+}
 
 #draggable {
   /*position: absolute;*/
@@ -354,14 +502,43 @@ html, body {
   cursor: move;
 }
 
-a {
-  width:fit-content;
+.ack-bg {
+  width:100vw;
+  height:100vh;
+  position:fixed;
+  background-color: rgb(0, 0, 0);
+  box-sizing: border-box;
+  padding:1em;
+  cursor: pointer;
 }
 
-a:hover {
-  background-color: black;
+.ack-text {
+  font-family: Unica;
+  font-size: var(--ackFont);
   color:white;
-  cursor: pointer;
+}
+
+.about-container {
+  height:100vh;
+  width:var(--aboutWidth);
+
+  box-sizing: border-box;
+  font-size: 0.8em;
+
+  z-index: 1;
+
+  overflow-x: scroll;
+}
+
+.about-title {
+  font-family: Unica;
+  padding:0.5em;
+}
+
+.about-body {
+  font-family: Schrijf;
+  text-align: justify;
+  padding:0.5em;
 }
 
 @media only screen and (max-device-width : 1024px) { 
