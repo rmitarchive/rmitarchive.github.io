@@ -798,16 +798,38 @@ class App extends React.Component {
 
     returnHTML.push(`<div class="content">`);
   
-    for(let i = 0; i < this.state.currentShownWorks.length; i++){
-      let currID = this.state.currentShownWorks[i].id;
-        /*const foundImg = document.getElementById(`${this.state.currentShownWorks[i].id}Img`);
-        console.log(`foundImg check: ${this.state.currentShownWorks[i].id} isnull? ${foundImg}`);
-        let imgRect = foundImg.getBoundingClientRect();*/
-      returnHTML.push(`<div style="position: absolute; left: ${this.state.artPiecesCurrX[currID]}px; top: ${this.state.artPiecesCurrY[currID]}px; z-index: ${10 + i};">
-        <img style="max-height: 15em;" src="%img${i}%">
-        (${currID})
-        </div>`
-        );
+
+    if(isMobile){
+      returnHTML.push(`<div class="content" style="transform: scale(1, -1); top: 700px; left:100px;">`);
+      //returnHTML.push(`<div class="content" style="transform: rotate(-90deg); width: 100vh;">`);
+      //returnHTML.push(`<div class="content" style="transform: rotate(-90deg); left: -30vw; top: -110vh;">`);
+      let modifier = 1.5;
+      for(let i = 0; i < this.state.currentShownWorks.length; i++){
+        let currID = this.state.currentShownWorks[i].id;
+          /*const foundImg = document.getElementById(`${this.state.currentShownWorks[i].id}Img`);
+          console.log(`foundImg check: ${this.state.currentShownWorks[i].id} isnull? ${foundImg}`);
+          let imgRect = foundImg.getBoundingClientRect();*/
+        returnHTML.push(`<div style="transform: rotate(-90deg) scale(-1, 1); position: absolute; left: ${this.state.artPiecesCurrY[currID] * modifier}px; top: ${this.state.artPiecesCurrX[currID] * modifier}px; z-index: ${10 + i};">
+          <img style="max-height: ${15 * modifier}em;" src="%img${i}%">
+          (${currID})
+          </div>`
+          );
+      }
+      returnHTML.push(`</div>`);
+    }else{
+      returnHTML.push(`<div class="content">`);
+      for(let i = 0; i < this.state.currentShownWorks.length; i++){
+        let currID = this.state.currentShownWorks[i].id;
+          /*const foundImg = document.getElementById(`${this.state.currentShownWorks[i].id}Img`);
+          console.log(`foundImg check: ${this.state.currentShownWorks[i].id} isnull? ${foundImg}`);
+          let imgRect = foundImg.getBoundingClientRect();*/
+        returnHTML.push(`<div style="position: absolute; left: ${this.state.artPiecesCurrX[currID]}px; top: ${this.state.artPiecesCurrY[currID]}px; z-index: ${10 + i};">
+          <img style="max-height: 15em;" src="%img${i}%">
+          (${currID})
+          </div>`
+          );
+      }
+      returnHTML.push(`</div>`);
     }
 
       
