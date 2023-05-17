@@ -853,7 +853,7 @@ class App extends React.Component {
     }
     returnHTML.push(`</div></div>`);
     
-    let randomPressCount = Math.floor(Math.random() * 100) + 20;
+    let randomPressCount = Math.floor(Math.random() * 100) + 50;
 
     let maxWidth = 1200;
     let maxHeight = 800;
