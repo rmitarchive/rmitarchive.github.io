@@ -481,20 +481,25 @@ class App extends React.Component {
     this.setState({currHoverImg: null});
   }
 
+  //toggles respective filter item in dictionary
   applyIndexFilter(pressedFilter){
     var newIndexFilter = this.state.indexFilter;
     newIndexFilter[pressedFilter] = !newIndexFilter[pressedFilter];
     this.setState({
       indexFilter: newIndexFilter
     });
-
-    //console.log("STATE: "  + JSON.stringify(this.state));
-    /*
-    //console.log("PRESSED: " + pressedFilter);
-    if(this.state.indexFilter.includes(pressedFilter)){
-      this.state.indexFilter = this.state.indexFilter.remo
-    }*/
   }
+
+  //PSEUDO:
+  //clearAllFilters Func
+  //create new dictionary, based off indexFilter (dictionaries are similar to JSON, key value pair)
+    //set all values to false
+      //May be able to use either forEach, or the map() function to do this.
+      //otherwise just hardcode it, dicts work like JSON, so you can modify the value by accessing via the key
+        //newIndexFilter["x"] = y;
+  //setstate 
+    //Note: applyIndexFilter may give some good hints.
+
 
   getListOfWorks(){
     let classHTML = [];
@@ -563,7 +568,7 @@ class App extends React.Component {
   }
 
   updateTextFilter(newText){
-    //console.log("newtext: " + newText);
+    console.log("newtext: " + newText);
     this.setState({
       textFilter: newText
     });
@@ -634,6 +639,11 @@ class App extends React.Component {
                     onClick = {(() => this.applyIndexFilter("web"))}
                     style={{backgroundColor: this.state.indexFilter["web"] ? "#FFE800" : "transparent"}}>
                       Web
+                    </a>
+                    <br></br><br></br>
+                    <a className="filter clear" 
+                    onClick = {/*PSEUDO: make this go to a function called clearAllFilters (also remove the null)*/ null}>
+                      Clear Filters
                     </a>
                   </div>
                   <br></br><br></br><br></br><br></br>
@@ -988,7 +998,7 @@ class App extends React.Component {
     var self = this;
     axios({
       url: "http://localhost:8000/index.php", 
-      //url: "http://shwag.com.au/php/index.php", 
+      //url: "http://p-r-e-s-s.com.au/php/index.php", 
       method: "POST",
       data: formData,
       headers: {
