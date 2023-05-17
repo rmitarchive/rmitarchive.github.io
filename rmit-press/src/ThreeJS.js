@@ -77,7 +77,7 @@ function ThreeJS() {
   }, []);
 
   return <div ref={containerRef} style={{
-    zIndex:-1, 
+    zIndex:5, 
     position: 'absolute',
     left: '50%',
     top: '50%',
