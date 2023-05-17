@@ -1,22 +1,37 @@
 @font-face {
   font-family: 'Unica';
-  src: url("Type/NeueHaasUnica-Medium.ttf");
+  src: url("Type/NeueHaasUnica-Medium.ttf")format('truetype');;
+  font-style: normal;
+  font-weight: 400;
 }
 
 @font-face {
   font-family: 'Century';
-  src: url("Type/Century-Schoolbook-Regular.ttf");
+  src: url("Type/Century-Schoolbook-Regular.ttf")format('truetype');;
+  font-style: normal;
+  font-weight: 400;
 }
 
 @font-face {
   font-family: 'Schrijf';
-  src: url("Type/type.ttf");
+  src: url("Type/type.ttf")format('truetype');;
+  font-style: normal;
+  font-weight: 400;
 }
 
 @font-face {
-  font-family: 'PantasiaItalic';
-  src: url("Type/Pantasia-Italic.otf");
+  font-family: 'pantasia';
+  src: url("Type/pantasia-italic.ttf")format('truetype');
+  font-style: normal;
+  font-weight: 400;
 }
+
+@font-face {
+  font-family: 'pantasiareg';
+  src: url("Type/pantasia-regular.ttf")format('truetype');
+  font-style: normal;
+  font-weight: 400;
+  }
 
 :root {
   --mobileMenuDisplay: block;
