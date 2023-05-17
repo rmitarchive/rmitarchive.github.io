@@ -682,7 +682,7 @@ class App extends React.Component {
             </dl>
             <br></br>
           <div className="about-body">
-            This project would not have been possible without the generous support of Suzie Zezula and RMIT University.<br></br><br></br>
+            This project would not have been possible without the gracious support of Suzie Zezula, Jiayu Cheng, and RMIT University.<br></br><br></br>
             All rights reserved, PRESS, 2023. <br></br><br></br>
             No part of this site may be reproduced without explicit permission from the copyright owner(s)
           </div>
