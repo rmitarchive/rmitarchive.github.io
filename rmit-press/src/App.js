@@ -1195,7 +1195,7 @@ class App extends React.Component {
                 <p className="helvetica">{this.state.mobileShowMenu ? "Close" : "Menu"}</p>
               </div>
             </div>
-            <div style={{visibility: this.state.mobileShowMenu ? "inherit" : "hidden"}} >
+            <div style={{display: this.state.mobileShowMenu ? "inherit" : "none"}} >
               <ScrollingBanner clickFunc = {this.scrollbarRef}/> 
               <br></br>
               <br></br>
