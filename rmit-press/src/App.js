@@ -726,39 +726,76 @@ class App extends React.Component {
     }
   }
 
+  returnToHome(){
+    window.history.pushState("object or string", "Title", "/");
+    this.scrollbarRef.current = 0;
+  }
+
   getRecieptPage(){
 
     if(!this.state.printStarted){
       return(
-        <div>
-          Email:
+        <div className="print-container">
+          <div className="print-title">
+            Print Screen
+          </div>
+          <a className="print-return" onClick = {(() => this.returnToHome())}>
+            Return Home
+          </a>
+          <br/>
+          <div className="print-body">
+            By inputting your email below, you will receive a generative print created from the images you have selected and the positions in which you have arranged them in.
+            <br/><br/>
+            Attendees of the launch of PRESS (15 June 2023: Building 9, Level 1, Bowen Street) will receive a Risograph edition print of their file on the night. Once submitted, please approach the printing area with your proof of print receipt and the email you used to submit with.
+          </div>
+          <br/>
+          <input className="search-bar" placeholder="Input Email..." onChange={e => this.setUserEmail(e.target.value)}/> 
           <br/>
           <br/>
-            <input className="search-bar" 
-              placeholder="Email..."  
-              onChange={e => this.setUserEmail(e.target.value)}>
-            </input>
+          <a className="print-confirm" onClick = {(() => this.doPDFProcess())}>Continue</a>
           <br/>
           <br/>
-          <a onClick = {(() => this.doPDFProcess())}><p>Print Screen</p></a>
-          
-          <br/>
-          <br/>
-          {this.state.printResponse != null ? this.state.printResponse : ""}
-
+          <div className="print-body">
+            {this.state.printResponse != null ? this.state.printResponse : ""}
+          </div>
+          <div className="print-footer">
+            All intellectual property of the imagery contained within the prints belongs to the original artists. Any reproduction or use of the imagery outside of the printed matter produced by PRINT is forbidden without explicit permission from the copyright owner(s). All rights reserved, PRESS, 2023.
+          </div>
         </div>
         );
     } else if(!this.state.emailSent){
       //loading screen
-      return(<div>
-        Loading
+      return(<div className="print-container">
+        <div className='print-loading-container'>
+          <div className="print-loading-text">Processing File ( ... )</div>
+        </div>
+        <ThreeJS/> 
       </div>
       );
     }else{
       //receipt
-      return(<div>
-        {`response: ${this.state.printResponse}`}
-      </div>
+      return(
+        <div class="print-container">
+          <div class="print-title">
+            Confirmation
+          </div>
+          <a class="print-return" onClick = {(() => this.returnToHome())}>
+            Return Home
+          </a>
+          <br/>
+          <div class="print-body">
+            The file has been processed and has been emailed to the account you inputted in the previous field. If you are unable to find the file, please check your spam folder.
+            <br/><br/>
+            Attendees of PRESS will not receive an email directly to their account. Please approach the printing area with the print receipt below, along with the email you inputted into the previous field.
+          </div>
+          <br/>
+          <div class="print-title">
+            <a>{`Server Response: ${this.state.printResponse}`}</a>
+          </div>
+          <div class="print-footer">
+            All intellectual property of the imagery contained within the prints belongs to the original artists. Any reproduction or use of the imagery outside of the printed matter produced by PRINT is forbidden without explicit permission from the copyright owner(s). All rights reserved, PRESS, 2023.
+          </div>
+        </div>        
       );
     }
   }
@@ -1132,6 +1169,7 @@ class App extends React.Component {
         maskPosition: `${maskPosition}`
       }
     }
+    let printing = (this.scrollbarRef.current == 3);
 
     return (
       <div>
@@ -1142,7 +1180,7 @@ class App extends React.Component {
         <link rel="icon" href="icon.png" /> 
         <title>Zachariah Micallef</title>
         <BrowserView>
-          <div className="bottom-of-page" style={{zIndex:11}}>
+          <div className="bottom-of-page" style={{zIndex:11, visibility: printing ? "hidden" : "visible"}}>
           <ScrollingBanner clickFunc = {this.scrollbarRef}/> 
               <div>
                 <p className="fact-times">{this.state.mouseX}, {this.state.mouseY}</p>
@@ -1151,7 +1189,7 @@ class App extends React.Component {
           </div>
         </BrowserView>
         <MobileView>
-          <div className="bottom-of-page" >
+          <div className="bottom-of-page" style={{visibility: printing ? "hidden" : "visible"}}>
             <div className="scrolling-banner-parent">
               <div className="scrolling-banner-child" onClick = {(() => this.toggleMenu())}>
                 <p className="helvetica">{this.state.mobileShowMenu ? "Close" : "Menu"}</p>
@@ -1167,7 +1205,7 @@ class App extends React.Component {
               </div>
             </div>
           </div>
-            <div className="mobile-bottom-of-page">
+            <div className="mobile-bottom-of-page" style={{visibility: printing ? "hidden" : "visible"}}>
               {this.getCurrentlyShownWorks()}
             </div>
           </MobileView>
