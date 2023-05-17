@@ -152,6 +152,7 @@ class App extends React.Component {
       document.documentElement.style.setProperty('--aboutWidth', "100vw");
       document.documentElement.style.setProperty('--mobileMenuDisplay', "none");
       document.documentElement.style.setProperty('--ackFont', "1em");
+      document.documentElement.style.setProperty('--printWidth', "99vw");
 
     }
 

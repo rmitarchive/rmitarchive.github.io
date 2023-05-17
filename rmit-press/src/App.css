@@ -26,6 +26,7 @@
   --rightWidth: auto;
   --aboutWidth: 50vw;
   --ackFont: 2em;
+  --printWidth: 50vw;
 }
 
 
@@ -556,7 +557,8 @@ html, body {
   line-height: 1;
   z-index: 1;
 
-  overflow-x: scroll;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 .about-title {
@@ -578,7 +580,8 @@ html, body {
   font-size: 1em;
   line-height: 1;
   z-index: 1;
-  overflow-x: scroll;
+  overflow-x: hidden;
+  overflow-y: scroll;
   background-color: black;
 }
 
@@ -608,9 +611,10 @@ html, body {
 .print-body {
   font-family: Schrijf;
   text-align: justify;
+  box-sizing: border-box;
   padding:0 0.5em 0 0.5em;
   font-size: 0.7em;
-  width:25vw;
+  width: var(--printWidth);
   color:white;
 }
 
@@ -619,7 +623,7 @@ html, body {
   padding:0.5em;
   border: none;
   background-color: transparent;
-  width:20vw;
+  width:var(--printWidth);
   color:white;
 }
 
@@ -631,11 +635,12 @@ html, body {
   font-family: Schrijf;
   text-align: justify;
   padding:0 0.5em 0 0.5em;
+  box-sizing: border-box;
   font-size: 0.7em;
-  width:50vw;
+  width: var(--printWidth);
   color:white;
   position:absolute;
-  bottom:0;
+  bottom:1em;
 }
 
 @media only screen and (max-device-width : 1024px) { 
