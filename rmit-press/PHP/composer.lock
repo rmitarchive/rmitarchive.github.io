@@ -158,7 +158,8 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "FontLib\\": "src/FontLib"
+                    "FontLib\\": "src/FontLib",
+                    "fontLib\\": "src/Type"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",

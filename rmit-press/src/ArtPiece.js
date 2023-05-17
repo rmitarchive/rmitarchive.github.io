@@ -3,11 +3,12 @@ import React from 'react';
 class ArtPiece extends React.Component {
     constructor(props){
       super(props);
-      //console.log("TEST: " + JSON.stringify(props));
       
       window.addEventListener('mousemove', (event) => {
+        //console.log("this.state.showText: " + this.state.showText);
         this.continueDragElement(this.state);
       });
+      
 
       window.addEventListener('mouseup', (event) => {
         this.stopDragElement(this.state);
@@ -19,6 +20,7 @@ class ArtPiece extends React.Component {
         
         id: props.coreInfo.id,
         title: props.title,
+        year: props.year,
         hoverOverTextFunc: props.hoverOverTextFunc,
         hoverExitTextFunc: props.hoverExitTextFunc,
         continueDragElement: props.continueDragElement,
@@ -27,6 +29,8 @@ class ArtPiece extends React.Component {
         clickText: props.clickText,
 
         incrementZIndex: props.incrementZIndex,
+
+        openFocusArtPiece: props.openFocusArtPiece,
 
         coreInfo: props.coreInfo,
         currFilter: props.currFilter,
@@ -42,34 +46,63 @@ class ArtPiece extends React.Component {
         currY: props.currY,
 
         gridSnap: props.gridSnap,
-        currZIndex: props.currzIndex
+        currZIndex: props.currZIndex,
+        isMobile: props.isMobile,
+        showText: props.showText
       };
     } 
 
     clickText(props) {
-
       const toHide = document.getElementById(this.state.coreInfo.id+"DD");
-      
-      if(toHide.style.color != "red"){
 
-        //console.log("MOUSE DOWN != red");
+      //if red, pageclear has happened.
+      if(toHide.style.color != "red"){ 
+        console.log(`click 1 ${this.state.imageShown}`);
         this.setState({
           imageShown: !this.state.imageShown
         })
+        console.log(`click 1b ${this.state.imageShown}`);
+        this.state.clickText(this.state, !this.state.imageShown, false);
+
+        if(!this.state.imageMoved && this.state.isMobile){
+          this.placeRandomly();
+          //this.startDragElement(this.state);
+        }
       }else{
         toHide.style.display = "inherit";
         toHide.style.color = "black";
-
         //console.log("MOUSE DOWN == red");
         this.setState({
           imageShown: true
         })
+        this.state.clickText(this.state, true, true);
       }
+    }
 
-      this.state.clickText(this.state);
+    placeRandomly(){
+      const textElement = document.getElementById(`root`);
+      let textRect = textElement.getBoundingClientRect();
+
+      let width = textRect.right;
+      let height = textRect.bottom;
+
+      let newX = (Math.random() * (width * .4)) + (width * .1);
+      let newY = (Math.random() * (height * .4)) + (height * .1);
+
+      let newZIndex = this.state.incrementZIndex();
+    
+      this.state.startDragElement(this.state);
+
+      this.setState({
+        imageMoved: true,
+        currX: newX,
+        currY: newY,
+        currZIndex: newZIndex
+      })
     }
 
     startDragElement(props) {
+      console.log("start drag");
       let e = window.event;
       //console.log("MOUSE DOWN 2");
         
@@ -79,15 +112,32 @@ class ArtPiece extends React.Component {
       let newZIndex = this.state.incrementZIndex();
 
       //console.log("NEWZINDEX: " + newZIndex);
+      let newX = 0;
+      let newY = 0;
+
+      if(this.state.isMobile){
+        if(e.changedTouches != null){
+          newX = e.changedTouches[0].clientX - textRect.left;
+          newY = e.changedTouches[0].clientY - textRect.top;
+        }else{//no event.
+          newX = 0;
+          newY = 0;
+        }
+      }else{
+        newX = e.clientX - textRect.left;
+        newY = e.clientY - textRect.top;
+      }
+
+      console.log(`newZIndex: ${newZIndex}`);
 
       this.setState({
         imageMoved: true,
         imageMoving: true,
-        offsetX: e.clientX - textRect.left,
-        offsetY: e.clientY - textRect.top,
+        offsetX: newX,
+        offsetY: newY,
         currX: textRect.left,
         currY: textRect.top,
-        currzIndex: newZIndex
+        currZIndex: newZIndex
       })
 
       this.state.startDragElement(this.state);
@@ -96,6 +146,7 @@ class ArtPiece extends React.Component {
     }
 
     stopDragElement(props) {
+      console.log("stop drag");
       //console.log("MOUSE DOWN 3");
       this.setState({
         imageMoving: false
@@ -105,15 +156,30 @@ class ArtPiece extends React.Component {
     }
 
     continueDragElement(props) {
+      //console.log("try continueDragElement: " + JSON.stringify(this.state));
       if(this.state.imageMoving){
+        //console.log("do continueDragElement");
         let e = window.event;      
         //console.log("MOUSE DOWN 2");
 
         const textElement = document.getElementById(`${this.state.id}Img`);
         let textRect = textElement.getBoundingClientRect();
 
-        let newX = e.clientX - this.state.offsetX;
-        let newY = e.clientY - this.state.offsetY;
+        let newX = 0;
+        let newY = 0;
+
+        
+        if(this.state.isMobile){
+          if(e.touches.length > 1)
+          {
+            return;
+          }
+          newX = e.changedTouches[0].clientX - this.state.offsetX;
+          newY = e.changedTouches[0].clientY - this.state.offsetY;
+        }else{
+          newX = e.clientX - this.state.offsetX;
+          newY = e.clientY - this.state.offsetY;
+        }
 
         this.setState({
           currX: this.state.gridSnap ? newX - (newX % 10) : newX,
@@ -135,19 +201,37 @@ class ArtPiece extends React.Component {
             position: "absolute",
             left: `${this.state.currX}px`,
             top: `${this.state.currY}px`,
-            zIndex: this.state.currzIndex
+            zIndex: this.state.currZIndex
           }}
-          onMouseDown={() => this.state.continueDragElement(this.state)}>
+          //onMouseDown={() => this.continueDragElement(this.state)}
+          >
+            <a onMouseDown={() => this.clickText(this.state)} className="dragImgIndexLine dragImgIndex">Hide</a>
             <img className="dragImg"
               key={this.state.coreInfo.id + "DIMG"}
               id={`${this.state.coreInfo.id}Img`}
               draggable="false" 
               src={require(`./Img/${this.state.coreInfo.image}`)}
+              onTouchStart={() => this.startDragElement(this.state)}
+              onTouchEnd={() => this.stopDragElement(this.state)}
+              onTouchMove={() => this.continueDragElement(this.state)}
+
+              onMouseDown={() => this.startDragElement(this.state)}
+              onMouseUp={() => this.stopDragElement(this.state)}
               />
-             <div className="dragImgIndex">{
-             this.state.isRandomImage ? ` (Fig. ${this.state.coreInfo.id})`
-             : ` (${this.state.coreInfo.id})`
-             }</div>
+              <div className="dragImgIndexLine">
+                <div className="dragImgIndex">{
+                  this.state.isRandomImage ? ` (Fig. ${this.state.coreInfo.id})`
+                  : ` ${this.state.coreInfo.id}.`
+                  }
+                </div>
+                <a 
+                onMouseDown={this.state.isRandomImage ? null : () => this.state.openFocusArtPiece(this.state.coreInfo)} 
+                className="dragImgIndex"
+                > {
+                  this.state.isRandomImage ? `` : this.state.isMobile ? `${this.state.coreInfo.name} (...)`
+                  : ` ${this.state.coreInfo.name} ( ... )`}
+                </a>
+              </div> 
           </div>
         );
       }else{
@@ -157,7 +241,11 @@ class ArtPiece extends React.Component {
             id={`${this.state.coreInfo.id}Img`}
             draggable="false" 
             src={require(`./Img/${this.state.coreInfo.image}`)}
-            onMouseDown={() => this.state.startDragElement(this.state)}
+            onTouchStart={() => this.startDragElement(this.state)}
+            onTouchEnd={() => this.stopDragElement(this.state)}
+
+            onMouseDown={() => this.startDragElement(this.state)}
+            onMouseUp={() => this.stopDragElement(this.state)}
             />
       );
       }
@@ -166,7 +254,7 @@ class ArtPiece extends React.Component {
     render() {
       var colors = [];
       var filteredIn = false;
-      
+
       this.state.coreInfo.tags.forEach(tag => {
         if(this.state.currFilter[tag]){
           switch(tag){
@@ -236,23 +324,21 @@ class ArtPiece extends React.Component {
                   className="student" 
                   style={{
                     backgroundColor: `rgb(${addedColor[0]}, ${addedColor[1]}, ${addedColor[2]})`,
-                    visibility: this.state.isRandomImage ? "hidden" : "inherit"
+                    visibility: (this.state.isRandomImage) ? "hidden" : "inherit"
                   }}
                   onMouseLeave={() => this.state.hoverExitTextFunc(this.state)} 
                   onMouseMove={() => this.state.hoverOverTextFunc(this.state)}
                   onMouseDown={() => this.clickText(this.state)}
                   >
 
-                    {this.state.coreInfo.name} {filteredIn ? `, ${this.state.coreInfo.title} (2023)` : ""}
+                    {this.state.coreInfo.name} {filteredIn ? `, ${this.state.coreInfo.title}` : ""}
                 </a>
                 <div 
                 key={this.state.coreInfo.id + "DD"}
                 id={this.state.coreInfo.id + "DD"} 
                 style={{display: this.state.imageShown ? "inherit" : "none"}} 
-                onMouseDown={() => this.startDragElement(this.state)}
-                //onMouseMove={() => this.continueDragElement(this.state)}
-                onMouseUp={() => this.stopDragElement(this.state)}
-                //onMouseLeave={() => this.stopDragElement(this.state)}
+                //onMouseDown={() => this.startDragElement(this.state)}
+                //onMouseUp={() => this.stopDragElement(this.state)}
                 >
                   {this.getImage()}
                 </div>
