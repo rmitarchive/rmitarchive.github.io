@@ -229,7 +229,7 @@ class ArtPiece extends React.Component {
                 className="dragImgIndex"
                 > {
                   this.state.isRandomImage ? `` : this.state.isMobile ? `${this.state.coreInfo.name} (...)`
-                  : ` ${this.state.coreInfo.name}, ${this.state.coreInfo.title}.`}
+                  : ` ${this.state.coreInfo.name} ( ... )`}
                 </a>
               </div> 
           </div>
@@ -331,7 +331,7 @@ class ArtPiece extends React.Component {
                   onMouseDown={() => this.clickText(this.state)}
                   >
 
-                    {this.state.coreInfo.name} {filteredIn ? `, ${this.state.coreInfo.title} (2023)` : ""}
+                    {this.state.coreInfo.name} {filteredIn ? `, ${this.state.coreInfo.title}` : ""}
                 </a>
                 <div 
                 key={this.state.coreInfo.id + "DD"}
