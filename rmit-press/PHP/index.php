@@ -54,7 +54,7 @@ header('Access-Control-Allow-Headers: Content-Type');
     file_put_contents($_POST["pdfName"], $output);
 
     //test
-    file_put_contents("test.html", $html);
+    //file_put_contents("test.html", $html);
 
     $message = $request_body;
     $message .= "\n\n";

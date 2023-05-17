@@ -24,3 +24,6 @@ yarn-error.log*
 
 *.pdf
 text.html
+/rmit-press/PHP/test.html
+/PHP/test.html
+PHP/*.html
