@@ -499,22 +499,21 @@ class App extends React.Component {
   //setstate 
     //Note: applyIndexFilter may give some good hints.
 
-/*     clearFilters(){
+    clearAllFilters(pressedFilter){
       var newIndexFilter = this.state.indexFilter;
+      
+      newIndexFilter["digital"] = false;
+      newIndexFilter["identity"] = false;
+      newIndexFilter["logo"] = false;
+      newIndexFilter["print"] = false;
+      newIndexFilter["poster"] = false;
+      newIndexFilter["layout"] = false;
+      newIndexFilter["web"] = false;
+
       this.setState({
-        indexFilter: {
-          digital: false,
-          identity: false,
-          logo: false,
-          print: false,
-          poster: false,
-          layout: false,
-          web: false
-        }
+        indexFilter: newIndexFilter
       });
-    } */
-
-
+    }
 
   getListOfWorks(){
     let classHTML = [];
@@ -604,19 +603,11 @@ class App extends React.Component {
                   <div className="title-container">
                     <span className="header">PRESS</span>
                     <br/><br/>
-                    <MobileView>
-                      <input className="search-bar" 
-                      placeholder="Search..." 
-                      style={{visibility: this.state.mobileShowMenu ? "inherit" : "hidden"}}
-                      onChange={e => this.updateTextFilter(e.target.value)}>
+                    <input className="search-bar" 
+                    placeholder="Search..." 
+                    style={{visibility: this.state.mobileShowMenu ? "inherit" : "hidden"}} 
+                    onChange={e => this.updateTextFilter(e.target.value)}>
                     </input>
-                    </MobileView>
-                    <BrowserView>
-                      <input className="search-bar" 
-                      placeholder="Search..." 
-                      onChange={e => this.updateTextFilter(e.target.value)}>
-                      </input>
-                    </BrowserView>
                   </div>
                   <div className="student-names"> 
                   <div className="menu-to-hide" >
@@ -665,7 +656,7 @@ class App extends React.Component {
                     </a>
                     <br></br><br></br>
                     <a className="filter clear" 
-                    onClick = {(() => this.clearFilters())}>
+                    onClick = {(() => this.clearAllFilters())}>
                       Clear Filters
                     </a>
                   </div>
