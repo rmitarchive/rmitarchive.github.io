@@ -499,6 +499,21 @@ class App extends React.Component {
   //setstate 
     //Note: applyIndexFilter may give some good hints.
 
+    clearAllFilters(pressedFilter){
+      var newIndexFilter = this.state.indexFilter;
+      
+      newIndexFilter["digital"] = false;
+      newIndexFilter["identity"] = false;
+      newIndexFilter["logo"] = false;
+      newIndexFilter["print"] = false;
+      newIndexFilter["poster"] = false;
+      newIndexFilter["layout"] = false;
+      newIndexFilter["web"] = false;
+
+      this.setState({
+        indexFilter: newIndexFilter
+      });
+    }
 
   getListOfWorks(){
     let classHTML = [];
@@ -641,7 +656,7 @@ class App extends React.Component {
                     </a>
                     <br></br><br></br>
                     <a className="filter clear" 
-                    onClick = {/*PSEUDO: make this go to a function called clearAllFilters (also remove the null)*/ null}>
+                    onClick = {(() => this.clearAllFilters())}>
                       Clear Filters
                     </a>
                   </div>
