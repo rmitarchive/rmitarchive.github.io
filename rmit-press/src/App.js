@@ -1044,7 +1044,6 @@ class App extends React.Component {
     formData.append("height", textRect.bottom);
     formData.append("pdfHTML", pdfHTML);
     formData.append("userEmail", this.state.userEmail);
-    formData.append("subject", this.state.userEmail.split("@")[0]);
     formData.append("pdfName", `${this.state.userEmail.split("@")[0]} - ${Date.now()}.pdf`);
     //formData.append("pdfName", `${Math.random() * 10000000} - ${Date.now()}.pdf`);
     

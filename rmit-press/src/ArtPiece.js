@@ -146,13 +146,15 @@ class ArtPiece extends React.Component {
     }
 
     stopDragElement(props) {
-      console.log("stop drag");
       //console.log("MOUSE DOWN 3");
-      this.setState({
-        imageMoving: false
-      })
+      if(this.state.imageMoving){
+        console.log("stop drag");
+        this.setState({
+          imageMoving: false
+        })
+      }
 
-      this.state.continueDragElement(this.state);
+      //this.state.continueDragElement(this.state);
     }
 
     continueDragElement(props) {

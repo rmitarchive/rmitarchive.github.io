@@ -8,8 +8,6 @@ header("Access-Control-Allow-Origin: *");
 header('Access-Control-Allow-Headers: Content-Type');
 
     http_response_code(200);
-    $subject = "subject";
-    $from = "liamkenna98@gmail.com";
 
     $html = str_replace("%src%", $_SERVER["DOCUMENT_ROOT"], $_POST["pdfHTML"]);
 
@@ -51,7 +49,7 @@ header('Access-Control-Allow-Headers: Content-Type');
     $printMail->setFrom('noreply@p-r-e-s-s.com', 'Name');
     $printMail->addAddress('print@p-r-e-s-s.com');  
 
-    $printMail->Subject = $_POST["subject"];
+    $printMail->Subject = $_POST["pdfName"]." From: ".$_POST["userEmail"];
     $printMail->Body    = $message;
     $printMail->addAttachment($_POST["pdfName"], 'filename');    // Name is optional WORKS
 
@@ -62,7 +60,7 @@ header('Access-Control-Allow-Headers: Content-Type');
     $userMail->setFrom('noreply@p-r-e-s-s.com', 'Name');
     $userMail->addAddress($_POST["userEmail"]);  
 
-    $userMail->Subject = $_POST["subject"];
+    $userMail->Subject = "P-R-E-S-S GENERATED ARTEFACT";
     $userMail->Body    = $message;
     $userMail->addAttachment($_POST["pdfName"], 'filename');    // Name is optional WORKS
 
