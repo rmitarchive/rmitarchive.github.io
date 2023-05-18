@@ -54,8 +54,6 @@ class App extends React.Component {
     var artPiecesIsVisible = [];
     var currentShownWorks = [];
 
-
-
     ClassJSON.students.forEach(student => {
       artPiecesOffsetX.push(0);
       artPiecesOffsetY.push(0);
@@ -166,6 +164,7 @@ class App extends React.Component {
   }
 
   componentDidMount(){
+    document.title = "P-R-E-S-S";
     this.setState({
       isLoaded:true
     });
@@ -481,20 +480,25 @@ class App extends React.Component {
     this.setState({currHoverImg: null});
   }
 
+  //toggles respective filter item in dictionary
   applyIndexFilter(pressedFilter){
     var newIndexFilter = this.state.indexFilter;
     newIndexFilter[pressedFilter] = !newIndexFilter[pressedFilter];
     this.setState({
       indexFilter: newIndexFilter
     });
-
-    //console.log("STATE: "  + JSON.stringify(this.state));
-    /*
-    //console.log("PRESSED: " + pressedFilter);
-    if(this.state.indexFilter.includes(pressedFilter)){
-      this.state.indexFilter = this.state.indexFilter.remo
-    }*/
   }
+
+  //PSEUDO:
+  //clearAllFilters Func
+  //create new dictionary, based off indexFilter (dictionaries are similar to JSON, key value pair)
+    //set all values to false
+      //May be able to use either forEach, or the map() function to do this.
+      //otherwise just hardcode it, dicts work like JSON, so you can modify the value by accessing via the key
+        //newIndexFilter["x"] = y;
+  //setstate 
+    //Note: applyIndexFilter may give some good hints.
+
 
   getListOfWorks(){
     let classHTML = [];
@@ -563,7 +567,7 @@ class App extends React.Component {
   }
 
   updateTextFilter(newText){
-    //console.log("newtext: " + newText);
+    console.log("newtext: " + newText);
     this.setState({
       textFilter: newText
     });
@@ -634,6 +638,11 @@ class App extends React.Component {
                     onClick = {(() => this.applyIndexFilter("web"))}
                     style={{backgroundColor: this.state.indexFilter["web"] ? "#FFE800" : "transparent"}}>
                       Web
+                    </a>
+                    <br></br><br></br>
+                    <a className="filter clear" 
+                    onClick = {/*PSEUDO: make this go to a function called clearAllFilters (also remove the null)*/ null}>
+                      Clear Filters
                     </a>
                   </div>
                   <br></br><br></br><br></br><br></br>
@@ -768,7 +777,7 @@ class App extends React.Component {
       //loading screen
       return(<div className="print-container">
         <div className='print-loading-container'>
-          <div className="print-loading-text">Processing File ( ... )</div>
+          <div className="print-loading-text">{/*Processing File ( ... )*/}</div>
         </div>
         <ThreeJS/> 
       </div>
@@ -791,7 +800,7 @@ class App extends React.Component {
           </div>
           <br/>
           <div class="print-title">
-            <a>{`Server Response: ${this.state.printResponse}`}</a>
+            <a>{`${this.state.printResponse}`}</a>
           </div>
           <div class="print-footer">
             All intellectual property of the imagery contained within the prints belongs to the original artists. Any reproduction or use of the imagery outside of the printed matter produced by PRINT is forbidden without explicit permission from the copyright owner(s). All rights reserved, PRESS, 2023.
@@ -803,17 +812,24 @@ class App extends React.Component {
 //validation can happen here.
   doPDFProcess(){
     let validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-    let canPrint = true;
 
-    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.state.userEmail)) {
-      this.generatePDF();
-      this.setState({
-        printResponse: null,
-        printStarted: true
-      });
-    }else{
+    if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.state.userEmail))) {
       this.setState({printResponse: "EMAIL INVALID"});
+      return;
     }
+    /*
+    //Q: should we prevent prints with no user works? Might just handle the php side for now.
+    if (this.state.currentShownWorks == null || this.state.currentShownWorks.length == 0){
+      this.setState({printResponse: "EMAIL INVALID"});
+      return;
+    }
+    */
+//can print
+    this.generatePDF();
+    this.setState({
+      printResponse: null,
+      printStarted: true
+    });
   }
 
   //should really add email validation via regex
@@ -988,7 +1004,7 @@ class App extends React.Component {
     var self = this;
     axios({
       url: "http://localhost:8000/index.php", 
-      //url: "http://shwag.com.au/php/index.php", 
+      //url: "http://p-r-e-s-s.com.au/php/index.php", 
       method: "POST",
       data: formData,
       headers: {
@@ -1027,7 +1043,7 @@ class App extends React.Component {
     formData.append("width", textRect.right);
     formData.append("height", textRect.bottom);
     formData.append("pdfHTML", pdfHTML);
-    formData.append("subject", this.state.userEmail.split("@")[0]);
+    formData.append("userEmail", this.state.userEmail);
     formData.append("pdfName", `${this.state.userEmail.split("@")[0]} - ${Date.now()}.pdf`);
     //formData.append("pdfName", `${Math.random() * 10000000} - ${Date.now()}.pdf`);
     

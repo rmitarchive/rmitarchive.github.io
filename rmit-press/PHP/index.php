@@ -7,37 +7,20 @@ require 'vendor/autoload.php';
 header("Access-Control-Allow-Origin: *");
 header('Access-Control-Allow-Headers: Content-Type');
 
-
     http_response_code(200);
-    $subject = "subject";
-    $from = "liamkenna98@gmail.com";
 
     $html = str_replace("%src%", $_SERVER["DOCUMENT_ROOT"], $_POST["pdfHTML"]);
-/*
-    $path = 'eamestposter1.jpg';
-    $type = pathinfo($path, PATHINFO_EXTENSION);
-    $data = file_get_contents($path);
-    $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
-
-    $html = str_replace("%img1%", $base64, $html);
-    */
 
     $imgPaths = $_POST["imgPaths"];
-    for ($i = 0; $i < count($imgPaths); $i++) {
-        $type = pathinfo($imgPaths[$i], PATHINFO_EXTENSION);
-        $data = file_get_contents("Img/".$imgPaths[$i]);
-        $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
-
-        $html = str_replace("%img".$i."%", $base64, $html);
+    if($imgPaths != null){
+        for ($i = 0; $i < count($imgPaths); $i++) {
+            $type = pathinfo($imgPaths[$i], PATHINFO_EXTENSION);
+            $data = file_get_contents("Img/".$imgPaths[$i]);
+            $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
+    
+            $html = str_replace("%img".$i."%", $base64, $html);
+        }
     }
-
-    //big letter
-    //$type = pathinfo($imgPaths[$i], PATHINFO_EXTENSION);
-    $data = file_get_contents("Img/Type/".$_POST["bigLetter"].".png");
-    //$data = file_get_contents("Img/Type/".$_POST["imgPaths"].".png");
-    $base64 = 'data:image/.png;base64,' . base64_encode($data);
-
-    $html = str_replace("%bigImg%", $base64, $html);
 
     $options = new Options();
     $options->set('isRemoteEnabled', true);
@@ -45,8 +28,6 @@ header('Access-Control-Allow-Headers: Content-Type');
 
     $dompdf = new Dompdf($options);
     $dompdf->set_paper('A4', 'landscape');
-    //$customPaper = array(0,0,$_POST["width"],$_POST["height"]);
-    //$dompdf->set_paper($customPaper);
     $dompdf->set_base_path( __DIR__ );
     $dompdf->load_html($html);
     $dompdf->render();
@@ -64,15 +45,25 @@ header('Access-Control-Allow-Headers: Content-Type');
     $message .= "\n\n";
     $message .= $html;
 
-    $mail = new PHPMailer();
-    $mail->setFrom('liamkenna98@gmail.com', 'Name');
-    $mail->addAddress('liamkenna98@gmail.com');  
+    $printMail = new PHPMailer();
+    $printMail->setFrom('noreply@p-r-e-s-s.com', 'Name');
+    $printMail->addAddress('print@p-r-e-s-s.com');  
 
-    $mail->Subject = $_POST["subject"];
-    $mail->Body    = $message;
-    $mail->addAttachment($_POST["pdfName"], 'filename');    // Name is optional WORKS
+    $printMail->Subject = $_POST["pdfName"]." From: ".$_POST["userEmail"];
+    $printMail->Body    = $message;
+    $printMail->addAttachment($_POST["pdfName"], 'filename');    // Name is optional WORKS
 
-    $mail->send();
+    $printMail->send();
 
     
-    echo "PHP DUN";
+    $userMail = new PHPMailer();
+    $userMail->setFrom('noreply@p-r-e-s-s.com', 'Name');
+    $userMail->addAddress($_POST["userEmail"]);  
+
+    $userMail->Subject = "P-R-E-S-S GENERATED ARTEFACT";
+    $userMail->Body    = $message;
+    $userMail->addAttachment($_POST["pdfName"], 'filename');    // Name is optional WORKS
+
+    $userMail->send();
+    
+    echo $_POST["pdfName"]." has been generated, uploaded, and transfered to ".$_POST["userEmail"];
