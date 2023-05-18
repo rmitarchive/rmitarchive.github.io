@@ -28,6 +28,7 @@ class ScrollingBanner extends React.Component {
     }
 
     async doSynonym(index, word){
+      let obj = this;
       //console.log("do synonym");
       const resp = await fetch(`https://api.datamuse.com/words?rel_syn=${word}`)
       .then(response => response.json())
@@ -44,7 +45,7 @@ class ScrollingBanner extends React.Component {
 
           //console.log(`responseButtonTitles: ${JSON.stringify(responseButtonTitles)}`);
   
-          this.setState({
+          obj.setState({
             buttonTitles: responseButtonTitles
           });
 
