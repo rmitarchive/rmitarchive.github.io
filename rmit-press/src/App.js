@@ -603,11 +603,19 @@ class App extends React.Component {
                   <div className="title-container">
                     <span className="header">PRESS</span>
                     <br/><br/>
+                    <MobileView>
                     <input className="search-bar" 
                     placeholder="Search..." 
                     style={{visibility: this.state.mobileShowMenu ? "inherit" : "hidden"}} 
                     onChange={e => this.updateTextFilter(e.target.value)}>
                     </input>
+                    </MobileView>
+                    <BrowserView>
+                    <input className="search-bar" 
+                    placeholder="Search..." 
+                    onChange={e => this.updateTextFilter(e.target.value)}>
+                    </input>
+                    </BrowserView>
                   </div>
                   <div className="student-names"> 
                   <div className="menu-to-hide" >
