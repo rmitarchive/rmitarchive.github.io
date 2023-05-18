@@ -778,7 +778,7 @@ class App extends React.Component {
       //loading screen
       return(<div className="print-container">
         <div className='print-loading-container'>
-          <div className="print-loading-text">Processing File ( ... )</div>
+          <div className="print-loading-text">{/*Processing File ( ... )*/}</div>
         </div>
         <ThreeJS/> 
       </div>
@@ -813,17 +813,24 @@ class App extends React.Component {
 //validation can happen here.
   doPDFProcess(){
     let validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-    let canPrint = true;
 
-    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.state.userEmail)) {
-      this.generatePDF();
-      this.setState({
-        printResponse: null,
-        printStarted: true
-      });
-    }else{
+    if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.state.userEmail))) {
       this.setState({printResponse: "EMAIL INVALID"});
+      return;
     }
+    /*
+    //Q: should we prevent prints with no user works? Might just handle the php side for now.
+    if (this.state.currentShownWorks == null || this.state.currentShownWorks.length == 0){
+      this.setState({printResponse: "EMAIL INVALID"});
+      return;
+    }
+    */
+//can print
+    this.generatePDF();
+    this.setState({
+      printResponse: null,
+      printStarted: true
+    });
   }
 
   //should really add email validation via regex
