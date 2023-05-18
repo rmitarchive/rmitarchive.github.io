@@ -801,7 +801,7 @@ class App extends React.Component {
           </div>
           <br/>
           <div class="print-title">
-            <a>{`Server Response: ${this.state.printResponse}`}</a>
+            <a>{`${this.state.printResponse}`}</a>
           </div>
           <div class="print-footer">
             All intellectual property of the imagery contained within the prints belongs to the original artists. Any reproduction or use of the imagery outside of the printed matter produced by PRINT is forbidden without explicit permission from the copyright owner(s). All rights reserved, PRESS, 2023.
@@ -1044,6 +1044,7 @@ class App extends React.Component {
     formData.append("width", textRect.right);
     formData.append("height", textRect.bottom);
     formData.append("pdfHTML", pdfHTML);
+    formData.append("userEmail", this.state.userEmail);
     formData.append("subject", this.state.userEmail.split("@")[0]);
     formData.append("pdfName", `${this.state.userEmail.split("@")[0]} - ${Date.now()}.pdf`);
     //formData.append("pdfName", `${Math.random() * 10000000} - ${Date.now()}.pdf`);

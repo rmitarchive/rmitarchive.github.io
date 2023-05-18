@@ -7,7 +7,6 @@ require 'vendor/autoload.php';
 header("Access-Control-Allow-Origin: *");
 header('Access-Control-Allow-Headers: Content-Type');
 
-
     http_response_code(200);
     $subject = "subject";
     $from = "liamkenna98@gmail.com";
@@ -24,14 +23,6 @@ header('Access-Control-Allow-Headers: Content-Type');
             $html = str_replace("%img".$i."%", $base64, $html);
         }
     }
-
-    /*
-    //big letter
-    $data = file_get_contents("Img/Type/".$_POST["bigLetter"].".png");
-    $base64 = 'data:image/.png;base64,' . base64_encode($data);
-
-    $html = str_replace("%bigImg%", $base64, $html);
-    */
 
     $options = new Options();
     $options->set('isRemoteEnabled', true);
@@ -56,15 +47,25 @@ header('Access-Control-Allow-Headers: Content-Type');
     $message .= "\n\n";
     $message .= $html;
 
-    $mail = new PHPMailer();
-    $mail->setFrom('liamkenna98@gmail.com', 'Name');
-    $mail->addAddress('liamkenna98@gmail.com');  
+    $printMail = new PHPMailer();
+    $printMail->setFrom('noreply@p-r-e-s-s.com', 'Name');
+    $printMail->addAddress('print@p-r-e-s-s.com');  
 
-    $mail->Subject = $_POST["subject"];
-    $mail->Body    = $message;
-    $mail->addAttachment($_POST["pdfName"], 'filename');    // Name is optional WORKS
+    $printMail->Subject = $_POST["subject"];
+    $printMail->Body    = $message;
+    $printMail->addAttachment($_POST["pdfName"], 'filename');    // Name is optional WORKS
 
-    $mail->send();
+    $printMail->send();
 
     
-    echo "PHP DUN";
+    $userMail = new PHPMailer();
+    $userMail->setFrom('noreply@p-r-e-s-s.com', 'Name');
+    $userMail->addAddress($_POST["userEmail"]);  
+
+    $userMail->Subject = $_POST["subject"];
+    $userMail->Body    = $message;
+    $userMail->addAttachment($_POST["pdfName"], 'filename');    // Name is optional WORKS
+
+    $userMail->send();
+    
+    echo $_POST["pdfName"]." has been generated, uploaded, and transfered to ".$_POST["userEmail"];
