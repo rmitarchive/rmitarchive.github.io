@@ -54,8 +54,6 @@ class App extends React.Component {
     var artPiecesIsVisible = [];
     var currentShownWorks = [];
 
-
-
     ClassJSON.students.forEach(student => {
       artPiecesOffsetX.push(0);
       artPiecesOffsetY.push(0);
@@ -166,6 +164,7 @@ class App extends React.Component {
   }
 
   componentDidMount(){
+    document.title = "P-R-E-S-S";
     this.setState({
       isLoaded:true
     });
