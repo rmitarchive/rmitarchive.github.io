@@ -353,8 +353,8 @@
       {
         "id": 35,
         "name": "sys",
-        "tags": ["identity", "layout"],
-        "title": "French Press",
+        "tags": [""],
+        "title": "",
         "image": "Random/1.png",
         "year": "",
         "desc": ""
@@ -362,8 +362,8 @@
       {
         "id": 36,
         "name": "sys",
-        "tags": ["identity", "layout"],
-        "title": "Tincture Press",
+        "tags": [""],
+        "title": "",
         "image": "Random/2.png",
         "year": "",
         "desc": ""
@@ -371,8 +371,8 @@
       {
         "id": 37,
         "name": "sys",
-        "tags": ["identity", "layout"],
-        "title": "Printing Press",
+        "tags": [""],
+        "title": "",
         "image": "Random/3.png",
         "year": "",
         "desc": ""
@@ -380,8 +380,8 @@
       {
         "id": 38,
         "name": "sys",
-        "tags": ["identity", "layout"],
-        "title": "Skin & Hide Press",
+        "tags": [""],
+        "title": "",
         "image": "Random/4.png",
         "year": "",
         "desc": ""
@@ -389,9 +389,45 @@
       {
         "id": 39,
         "name": "sys",
-        "tags": ["identity", "layout"],
-        "title": "Drug Extraction Press",
+        "tags": [""],
+        "title": "",
         "image": "Random/5.png",
+        "year": "",
+        "desc": ""
+      },
+      {
+        "id": 40,
+        "name": "sys",
+        "tags": [""],
+        "title": "",
+        "image": "Random/6.png",
+        "year": "",
+        "desc": ""
+      },
+      {
+        "id": 41,
+        "name": "sys",
+        "tags": [""],
+        "title": "",
+        "image": "Random/7.png",
+        "year": "",
+        "desc": ""
+      },
+      {
+        "id": 42,
+        "name": "sys",
+        "tags": [""],
+        "title": "",
+        "image": "Random/8.png",
+        "year": "",
+        "desc": ""
+      },
+      {
+        "id": 43,
+        "name": "sys",
+        "tags": [""],
+        "title": "",
+        "image": "Random/9.png",
         "year": "",
         "desc": ""
       }

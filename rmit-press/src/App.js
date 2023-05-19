@@ -499,7 +499,7 @@ class App extends React.Component {
   //setstate 
     //Note: applyIndexFilter may give some good hints.
 
-    clearAllFilters(pressedFilter){
+    clearAllFilters(){
       var newIndexFilter = this.state.indexFilter;
       
       newIndexFilter["digital"] = false;
@@ -718,6 +718,7 @@ class App extends React.Component {
             This project would not have been possible without the gracious support of Suzie Zezula, Jiayu Cheng, and RMIT University.<br></br><br></br>
             All rights reserved, PRESS, 2023. <br></br><br></br>
             No part of this site may be reproduced without explicit permission from the copyright owner(s)
+            <br></br><br></br><br></br><br></br><br></br><br></br>
           </div>
         </div>);
         case 2:
@@ -792,7 +793,7 @@ class App extends React.Component {
             {this.state.printResponse != null ? this.state.printResponse : ""}
           </div>
           <div className="print-footer">
-            All intellectual property of the imagery contained within the prints belongs to the original artists. Any reproduction or use of the imagery outside of the printed matter produced by PRINT is forbidden without explicit permission from the copyright owner(s). All rights reserved, PRESS, 2023.
+            All intellectual property of the imagery contained within the prints belongs to the original artists. Any reproduction or use of the imagery outside of the printed matter produced by PRINT is forbidden without explicit permission from the copyright owner(s). All rights reserved, PRESS, 2023.<br></br><br></br><br></br><br></br>
           </div>
         </div>
         );
@@ -826,7 +827,7 @@ class App extends React.Component {
             <a>{`${this.state.printResponse}`}</a>
           </div>
           <div class="print-footer">
-            All intellectual property of the imagery contained within the prints belongs to the original artists. Any reproduction or use of the imagery outside of the printed matter produced by PRINT is forbidden without explicit permission from the copyright owner(s). All rights reserved, PRESS, 2023.
+            All intellectual property of the imagery contained within the prints belongs to the original artists. Any reproduction or use of the imagery outside of the printed matter produced by PRINT is forbidden without explicit permission from the copyright owner(s). All rights reserved, PRESS, 2023.<br></br><br></br><br></br><br></br>
           </div>
         </div>        
       );
