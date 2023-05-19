@@ -412,8 +412,9 @@ html, body {
 
 .left .student-names {
   margin-top: 20vh;
-  margin-bottom: 10vh;
+  margin-bottom: 30vh;
   user-select: none;
+  z-index: var(--menuZIndex);
 }
 
 .left .student-names a:hover {
@@ -540,6 +541,7 @@ html, body {
   box-sizing: border-box;
   padding:1em;
   cursor: pointer;
+  
 }
 
 .ack-text {
