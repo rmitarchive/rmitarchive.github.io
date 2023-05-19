@@ -499,7 +499,7 @@ class App extends React.Component {
   //setstate 
     //Note: applyIndexFilter may give some good hints.
 
-    clearAllFilters(pressedFilter){
+    clearAllFilters(){
       var newIndexFilter = this.state.indexFilter;
       
       newIndexFilter["digital"] = false;
