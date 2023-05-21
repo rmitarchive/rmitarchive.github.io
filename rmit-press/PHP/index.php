@@ -37,13 +37,14 @@ header('Access-Control-Allow-Headers: Content-Type');
     //test
     //file_put_contents("test.html", $html);
 
-    $message = $request_body;
+    $message = "Please find attached.";
+    /*$message = $request_body;
     $message .= "\n\n";
     $message .= print_r($_REQUEST, true);
     $message .= "\n\n";
     $message .= $_SERVER["DOCUMENT_ROOT"];
     $message .= "\n\n";
-    $message .= $html;
+    $message .= $html;*/
 
     $printMail = new PHPMailer();
     $printMail->setFrom('noreply@p-r-e-s-s.com', 'Name');
