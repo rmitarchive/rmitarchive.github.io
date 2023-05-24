@@ -910,9 +910,9 @@ class App extends React.Component {
       returnHTML += (`<div class="content">`);
       for(let i = 0; i < this.state.currentShownWorks.length; i++){
         let currID = this.state.currentShownWorks[i].id;
-        returnHTML += (`<div style="position: absolute; left: ${this.state.artPiecesCurrX[currID]}px; top: ${this.state.artPiecesCurrY[currID]}px; z-index: ${10 + i};">
-          <img style="max-height: 15em;" src="%img${i}%">
-          (${currID})
+        returnHTML += (`<div style="transform: rotate(-90deg); position: absolute; left: ${this.state.artPiecesCurrX[currID]}px; top: ${this.state.artPiecesCurrY[currID]}px; z-index: ${10 + i};">
+          <img style="max-height: 12em;" src="%img${i}%">
+          <p style="font-size: 0.5em;">(${currID})</p>
           </div>`
           );
       }
@@ -930,7 +930,7 @@ class App extends React.Component {
       let currID = this.state.currentShownWorks[i].id;
       if(this.state.currentShownWorks[i].name == "sys"){
         returnHTML += (`
-        <p class="fact-times">((Fig. ${currID}) ${this.state.currentShownWorks[i].title}</p>
+        <p class="fact-times">(Fig. ${currID})</p>
         `);
       }else{
         returnHTML += (`
@@ -947,29 +947,29 @@ class App extends React.Component {
 
     console.log(`RANDOM randomPressCount: ${randomPressCount}`);
     
-    for(let i = 0; i < randomPressCount; i++){
+/*      for(let i = 0; i < randomPressCount; i++){
       console.log(`RANDOM PRESS: ${i}`);
         returnHTML += (`<a style="background-color: transparent; color:white; position: absolute; left: ${Math.floor(Math.random() * maxWidth)}px; top: ${Math.floor(Math.random() * maxHeight)}px; z-index: 99999;">
             PRESS
           </a>`
           );
-    } 
+    }   */
 
-    let potLetters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+     let potLetters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
     let bigLetterLeft = Math.floor((Math.random() - .25) * (maxWidth * .5 ));
     // let bigLetterLeft = Math.floor(Math.random() * (maxWidth * .5 ));
     let bigLetterTop = Math.floor((Math.random() - .25) * (maxHeight * .5 ) - 500);
     //let bigLetterTop = Math.random() * -450;
     let letter = potLetters[Math.floor(Math.random() * potLetters.length)];
-    //letter, I want to get the "presses" that appear with it to appear white, will have to look into that. Maybe get the coords and make the presses within that range get a white color? Blending modes are not compatible with the PDF though.
-    returnHTML += (`<p style="position: absolute; z-index: 100; transform: rotate(-90deg); font-size: 1400px; margin: auto; left: ${bigLetterLeft}px; top: ${bigLetterTop}px; font-family:pantasia;">${letter}</p>`);
-    returnHTML += (`<p style="font-family: pantasiareg; transform:rotate(-90deg); position:absolute; bottom:110px; left:-40px;z-index: 999999;">15.06.23 - 18.06.23</p>
+
+    returnHTML += (`<p style="position: absolute; z-index: 100; transform: rotate(-90deg); font-size: 1400px; margin: auto; left: ${bigLetterLeft}px; top: ${bigLetterTop}px; font-family:pantasia;">${letter}</p>`);/*
+    returnHTML += (`<p style="font-family: pantasiareg; transform:rotate(-90deg); position:absolute; bottom:110px; left:-40px;z-index: 999999;">15 June 2023</p>
     <p style="font-family: pantasiareg; transform:rotate(-90deg); position:absolute; top:350px; left:-35px;z-index: 999999;">Bachelor of Design</p>
     <p style="font-family: pantasiareg; transform:rotate(-90deg); position:absolute; top:70px; left:-30px;z-index: 999999;">Graduate Showcase</p>
     <p style="font-family: pantasiareg; transform:rotate(-90deg); position:absolute; bottom:110px; right:-40px;z-index: 999999;">Building 9 Level 1</p>
     <p style="font-family: pantasiareg; transform:rotate(-90deg); position:absolute; top:350px; right:-12px;z-index: 999999;">Bowen Street</p>
     <p style="font-family: pantasiareg; transform:rotate(-90deg); position:absolute; top:70px; right:-26px;z-index: 999999;">RMIT University</p>`);
-    returnHTML += (`</div>`);
+    returnHTML += (`</div>`); */
 /*
 `
             <h1 style="mix-blend-mode: difference; position: absolute; z-index: 120; color: white; transform: rotate(-90deg); font-size: 1200px; margin: auto; left: ${bigLetterLeft}px; top: ${bigLetterTop}px; font-family: Schrijf;">${letter}</h1>

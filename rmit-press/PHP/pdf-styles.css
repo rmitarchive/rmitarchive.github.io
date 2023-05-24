@@ -130,8 +130,8 @@ footer {
   padding:10px;
   z-index: var(--menuZIndex);
   position:absolute;
-  top: 50px;
-  right:20px;
+  top: 100px;
+  right:-35px;
   /*width: 20%;*/
   width: auto;
   height:auto;
