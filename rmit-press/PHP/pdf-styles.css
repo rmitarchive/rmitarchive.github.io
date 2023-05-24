@@ -363,6 +363,9 @@ html, body {
 
 .dragImg {
   max-height: 15em;
+  max-width: 15em;
+  height:auto;
+  width:auto;
   cursor: move;
   position:block;
 }
