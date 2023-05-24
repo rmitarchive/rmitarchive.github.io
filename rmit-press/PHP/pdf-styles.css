@@ -131,7 +131,7 @@ footer {
   z-index: var(--menuZIndex);
   position:absolute;
   top: 100px;
-  right:-35px;
+  right:100px;
   /*width: 20%;*/
   width: auto;
   height:auto;
