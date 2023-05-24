@@ -23,9 +23,9 @@
       {
         "id": 2,
         "name": "April Larsen",
-        "tags": [""],
+        "tags": ["print"],
         "title": "Untitled",
-        "image": "Press/deniz.png",
+        "image": "Press/april.JPG",
         "year": "2023",
         "desc": "",
         "contact": ""
@@ -33,17 +33,37 @@
       {
         "id": 3,
         "name": "Beverly Angelina",
-        "tags": [""],
+        "tags": ["logo", "identity"],
         "title": "Untitled",
-        "image": "Press/deniz.png",
+        "image": "Press/beverly.png",
         "year": "2023",
         "desc": "",
         "contact": ""
       },
       {
         "id": 4,
+        "name": "Carol Xu",
+        "tags": ["digital"],
+        "title": "Wedding Ceremony",
+        "image": "Press/yuchen.jpeg",
+        "year": "2023",
+        "desc": "",
+        "contact": "xuyuchen0911@gmail.com"      
+      },
+      {
+        "id": 5,
+        "name": "Cindy Zhang",
+        "tags": ["digital"],
+        "title": "Wedding Ceremony",
+        "image": "Press/xinyi.jpeg",
+        "year": "2023",
+        "desc": "",
+        "contact": "S3793978@student.rmit.edu.au"      
+      },
+      {
+        "id": 6,
         "name": "Charles Ly",
-        "tags": ["layout"],
+        "tags": ["digital", "identity"],
         "title": "Affinite Rings",
         "image": "Press/charles.jpg",
         "year": "2023",
@@ -51,19 +71,19 @@
         "contact": "s3849187@student.rmit.edu.au"
       },
       {
-        "id": 5,
-        "name": "Chengyang Wang",
-        "tags": [""],
-        "title": "Untitled",
-        "image": "Press/deniz.png",
+        "id": 7,
+        "name": "Claire Jia",
+        "tags": ["identity"],
+        "title": "Bug Buddies",
+        "image": "Press/claire.png",
         "year": "2023",
-        "desc": "",
-        "contact": ""
+        "desc": "Bug Buddies is a blind box brand featuring a little boy dressed up as various insects. Each blind box includes a random little boy toy with a different insect theme and design.",
+        "contact": "s3822722@student.rmit.edu.au"
       },
       {
-        "id": 6,
-        "name": "Deniz Caliskan",
-        "tags": ["logo", "layout"],
+        "id": 8,
+        "name": "Dee Caliskan",
+        "tags": [""],
         "title": "Experiment 001",
         "image": "Press/deniz.png",
         "year": "2023",
@@ -71,7 +91,17 @@
         "contact": "s3841977@student.rmit.edu.au"
       },
       {
-        "id": 7,
+        "id": 9,
+        "name": "Elki Shen",
+        "tags": ["print", "layout"],
+        "title": "Scientism",
+        "image": "Press/ziyu.png",
+        "year": "2023",
+        "desc": "This project challenges the notion that science and religion are mutually exclusive by exploring their intricate relationship. While religion is often seen as emotional and superstitious, and science as calm and objective, there is a dialectical cognition of things in religion that conforms to the spirit of science. Conversely, those who believe that science is the only means of understanding the world are embracing the spirit of religion. The project presents the scientific symbol system in religious visual form and presents religious concepts with scientific infographic forms, revealing the complex intertwinement of science and religion. By creating something scientific yet imbued with religious and metaphysical connotations, the project aims to encourage the audience to think about the combination of science and religion and to challenge their dualistic view of the two.",        
+        "contact": "s3884979@student.rmit.edu.au"
+      },
+      {
+        "id": 10,
         "name": "Ella Taylor",
         "tags": [""],
         "title": "Untitled",
@@ -81,27 +111,27 @@
         "contact": ""
       },
       {
-        "id": 8,
+        "id": 11,
         "name": "Emili Keisha",
-        "tags": [""],
+        "tags": ["logo", "identity"],
         "title": "Untitled",
-        "image": "Press/deniz.png",
+        "image": "Press/emili.png",
         "year": "2023",
         "desc": "",
         "contact": ""
       },
       {
-        "id": 9,
+        "id": 12,
         "name": "Finn Stewart",
-        "tags": ["digital"],
+        "tags": [""],
         "title": "To Build A Home",
-        "image": "Press/finn.jpg",
+        "image": "Press/finn2.jpeg",
         "year": "2023",
         "desc": "Through this series To Build A Home, artist and designer Finn Stewart manifests the potential of post-consumer material– fashioning functionalist forms imbued with idiosyncratic readings. Through his gestures of upcycling, he finds a vernacular of contradiction which oscillates between rational non-functionalism and irrational functionalism. Finn humorously references canonical designs of the minimalist art period. As in the case of “Donald Crudd”, he borrows Judd’s simplistic model, juxtaposing it with reclaimed material and ultimately puts the modernist form on trial. Through his intuitive process of selection and assemblage, Finn leaves human impressions on that which is typically mass produced. The comfort and value found in these flawed objects brings home the precarious and catalytic nature of this artist’s lifestyle. They are his artifacts of lived experience, caught between crosswinds of desire and austerity.",
         "contact": "finnstewart@me.com"
       },
       {
-        "id": 10,
+        "id": 13,
         "name": "Jazelle Mackenzie",
         "tags": [""],
         "title": "Untitled",
@@ -111,7 +141,17 @@
         "contact": ""
       },
       {
-        "id": 11,
+        "id": 14,
+        "name": "Jasmine Wang",
+        "tags": ["poster", "layout"],
+        "title": "Untitled",
+        "image": "Press/jasmine1.jpeg",
+        "year": "2023",
+        "desc": "",
+        "contact": ""
+      },
+      {
+        "id": 15,
         "name": "Juliette Rosa",
         "tags": [""],
         "title": "Untitled",
@@ -121,9 +161,9 @@
         "contact": ""
       },
       {
-        "id": 12,
+        "id": 16,
         "name": "Katya Vergana",
-        "tags": ["layout", "logo"],
+        "tags": ["print"],
         "title": "Grimm's Fairy Tales",
         "image": "Press/katya.jpg",
         "year": "2023",
@@ -131,7 +171,17 @@
         "contact": "s3872788@student.rmit.edu.au"
       },
       {
-        "id": 13,
+        "id": 17,
+        "name": "Leon Li",
+        "tags": [""],
+        "title": "Untitled",
+        "image": "Press/deniz.png",
+        "year": "2023",
+        "desc": "",
+        "contact": ""
+      },
+      {
+        "id": 18,
         "name": "Li Yeng Hui",
         "tags": [""],
         "title": "Untitled",
@@ -141,7 +191,17 @@
         "contact": ""
       },
       {
-        "id": 14,
+        "id": 19,
+        "name": "Natalie Chen",
+        "tags": [""],
+        "title": "Untitled",
+        "image": "Press/deniz.png",
+        "year": "2023",
+        "desc": "",
+        "contact": ""
+      },
+      {
+        "id": 20,
         "name": "Nicholas Gleeson",
         "tags": [""],
         "title": "Untitled",
@@ -151,7 +211,7 @@
         "contact": ""
       },
       {
-        "id": 15,
+        "id": 21,
         "name": "Paul Weedon",
         "tags": ["print"],
         "title": "Welcome to the Dream State",
@@ -160,20 +220,11 @@
         "desc": "This project is research towards a non linear story told through images from the language of dreams. It is presented as a speculative publication. I have combined personal experience and the visual vocabularies of painters, writers and myth-makers in an attempt to create an artefact which reflects the dream state in an authentic way. Our dreams are personal, but are they unique? Can I describe a syntax or language that is shared, recognisable and self evident?",
         "contact": "paulweedon3000@gmail.com"
       },
+
       {
-        "id": 16,
-        "name": "Quanming Li",
-        "tags": [""],
-        "title": "Untitled",
-        "image": "Press/deniz.png",
-        "year": "2023",
-        "desc": "",
-        "contact": ""
-      },
-      {
-        "id": 17,
+        "id": 22,
         "name": "Raquel Laing-Nobrega",
-        "tags": ["digital", "web"],
+        "tags": ["print", "layout"],
         "title": "Slice",
         "image": "Press/raquel.png",
         "year": "2023",
@@ -181,8 +232,8 @@
         "contact": "s3899883@student.rmit.edu.au"
       },
       {
-        "id": 18,
-        "name": "Rionna Revathi Muniandy",
+        "id": 23,
+        "name": "Rio Muniandy",
         "tags": [""],
         "title": "Untitled",
         "image": "Press/deniz.png",
@@ -190,10 +241,41 @@
         "desc": "",
         "contact": ""
       },
+
       {
-        "id": 19,
-        "name": "Rongshen Liang",
-        "tags": ["print", "poster"],
+        "id": 24,
+        "name": "Sophie Jones",
+        "tags": ["poster", "layout"],
+        "title": "Untitled",
+        "image": "Press/sophie.jpeg",
+        "year": "2023",
+        "desc": "",
+        "contact": ""
+      },
+      {
+        "id": 25,
+        "name": "Sum Tsui",
+        "tags": ["identity", "logo"],
+        "title": "Untitled",
+        "image": "Press/sum.png",
+        "year": "2023",
+        "desc": "",
+        "contact": ""
+      },
+      {
+        "id": 26,
+        "name": "Teresa Si Pei Wee",
+        "tags": [""],
+        "title": "Untitled",
+        "image": "Press/teresa.png",
+        "year": "2023",
+        "desc": "",
+        "contact": ""
+      },
+      {
+        "id": 27,
+        "name": "Vinson Liang",
+        "tags": ["print", "layout"],
         "title": "Chinese Motifs",
         "image": "Press/rongshen.png",
         "year": "2023",
@@ -201,67 +283,17 @@
         "contact": "s3815174@student.rmit.edu.au"
       },
       {
-        "id": 20,
-        "name": "Sophie Jones",
-        "tags": [""],
-        "title": "Untitled",
-        "image": "Press/deniz.png",
-        "year": "2023",
-        "desc": "",
-        "contact": ""
-      },
-      {
-        "id": 21,
-        "name": "Sum Tsui",
-        "tags": [""],
-        "title": "Untitled",
-        "image": "Press/deniz.png",
-        "year": "2023",
-        "desc": "",
-        "contact": ""
-      },
-      {
-        "id": 22,
-        "name": "Teresa Si Pei Wee",
-        "tags": [""],
-        "title": "Untitled",
-        "image": "Press/deniz.png",
-        "year": "2023",
-        "desc": "",
-        "contact": ""
-      },
-      {
-        "id": 23,
+        "id": 28,
         "name": "William Hunt",
-        "tags": [""],
+        "tags": ["logo"],
         "title": "Untitled",
-        "image": "Press/deniz.png",
+        "image": "Press/william.png",
         "year": "2023",
         "desc": "",
         "contact": ""
       },
       {
-        "id": 24,
-        "name": "Xiaohui Jjia",
-        "tags": ["logo"],
-        "title": "Bug Buddies",
-        "image": "Press/xiaohui.png",
-        "year": "2023",
-        "desc": "Bug Buddies is a blind box brand featuring a little boy dressed up as various insects. Each blind box includes a random little boy toy with a different insect theme and design.",
-        "contact": "s3822722@student.rmit.edu.au"
-      },
-      {
-        "id": 25,
-        "name": "Xinyi Zhang",
-        "tags": ["web", "print"],
-        "title": "Wedding Ceremony",
-        "image": "Press/xinyi.jpeg",
-        "year": "2023",
-        "desc": "",
-        "contact": "S3793978@student.rmit.edu.au"      
-      },
-      {
-        "id": 26,
+        "id": 29,
         "name": "Xinyuan Du",
         "tags": [""],
         "title": "Untitled",
@@ -271,7 +303,7 @@
         "contact": ""
       },
       {
-        "id": 27,
+        "id": 30,
         "name": "Xin Yin",
         "tags": [""],
         "title": "Untitled",
@@ -281,7 +313,7 @@
         "contact": ""
       },
       {
-        "id": 28,
+        "id": 31,
         "name": "Yidi Wang",
         "tags": [""],
         "title": "Untitled",
@@ -290,46 +322,18 @@
         "desc": "",
         "contact": ""
       },
+
       {
-        "id": 29,
-        "name": "Yixuan Chen",
-        "tags": [""],
-        "title": "Untitled",
-        "image": "Press/deniz.png",
-        "year": "2023",
-        "desc": "",
-        "contact": ""
-      },
-      {
-        "id": 30,
-        "name": "Yuchen Xu",
-        "tags": ["digital", "identity"],
-        "title": "Wedding Ceremony",
-        "image": "Press/yuchen.jpeg",
-        "year": "2023",
-        "desc": "",
-        "contact": "xuyuchen0911@gmail.com"      
-      },
-      {
-        "id": 31,
+        "id": 32,
         "name": "Zixin Liu Alexis",
-        "tags": ["layout"],
+        "tags": ["identity"],
         "title": "Wine Brand Item Design",
         "image": "Press/zixin.jpg",
         "year": "2023",
         "desc": "A series of applications for wine branding based on the primary artwork I have drawn.",
         "contact": "s3637309@student.rmit.edu.au"      
       },
-      {
-        "id": 32,
-        "name": "Ziyu Shen",
-        "tags": ["digital", "logo"],
-        "title": "Scientism",
-        "image": "Press/ziyu.png",
-        "year": "2023",
-        "desc": "This project challenges the notion that science and religion are mutually exclusive by exploring their intricate relationship. While religion is often seen as emotional and superstitious, and science as calm and objective, there is a dialectical cognition of things in religion that conforms to the spirit of science. Conversely, those who believe that science is the only means of understanding the world are embracing the spirit of religion. The project presents the scientific symbol system in religious visual form and presents religious concepts with scientific infographic forms, revealing the complex intertwinement of science and religion. By creating something scientific yet imbued with religious and metaphysical connotations, the project aims to encourage the audience to think about the combination of science and religion and to challenge their dualistic view of the two.",        
-        "contact": "s3884979@student.rmit.edu.au"
-      },
+
       {
         "id": 33,
         "name": "Zoe White",

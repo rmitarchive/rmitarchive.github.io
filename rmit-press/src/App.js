@@ -870,7 +870,6 @@ class App extends React.Component {
       <head>
       <meta charset="UTF-8">
       <link rel="stylesheet" type="text/css" media="all" href="pdf-styles.css">
-      <style>@font-face{font-family:'pantasia';src:url("Type/pantasia-italic.ttf")format('truetype');;font-style:normal;font-weight:normal;}</style>
       </head>
       <body>`);
 
@@ -885,9 +884,6 @@ class App extends React.Component {
       let modifier = 1.5;
       for(let i = 0; i < this.state.currentShownWorks.length; i++){
         let currID = this.state.currentShownWorks[i].id;
-          /*const foundImg = document.getElementById(`${this.state.currentShownWorks[i].id}Img`);
-          console.log(`foundImg check: ${this.state.currentShownWorks[i].id} isnull? ${foundImg}`);
-          let imgRect = foundImg.getBoundingClientRect();*/
         returnHTML.push(`<div style="transform: rotate(-90deg) scale(-1, 1); position: absolute; left: ${this.state.artPiecesCurrY[currID] * modifier}px; top: ${this.state.artPiecesCurrX[currID] * modifier}px; z-index: ${10 + i};">
           <img style="max-height: ${15 * modifier}em;" src="%img${i}%">
           (${currID})
@@ -902,9 +898,9 @@ class App extends React.Component {
           /*const foundImg = document.getElementById(`${this.state.currentShownWorks[i].id}Img`);
           console.log(`foundImg check: ${this.state.currentShownWorks[i].id} isnull? ${foundImg}`);
           let imgRect = foundImg.getBoundingClientRect();*/
-        returnHTML.push(`<div style="position: absolute; left: ${this.state.artPiecesCurrX[currID]}px; top: ${this.state.artPiecesCurrY[currID]}px; z-index: ${10 + i};">
-          <img style="max-height: 15em;" src="%img${i}%">
-          (${currID})
+        returnHTML.push(`<div style="transform: rotate(-90deg); position: absolute; left: ${this.state.artPiecesCurrX[currID]}px; top: ${this.state.artPiecesCurrY[currID]}px; z-index: ${10 + i};">
+          <img style="max-height: 12em;" src="%img${i}%">
+          <p style="font-size:0.5em;">(${currID})</p>
           </div>`
           );
       }
@@ -922,36 +918,30 @@ class App extends React.Component {
       let currID = this.state.currentShownWorks[i].id;
       if(this.state.currentShownWorks[i].name == "sys"){
         returnHTML.push(`
-        <p class="fact-times">((Fig. ${currID}) ${this.state.currentShownWorks[i].title}</p>
+        <p class="fact-times">(Fig. ${currID})</p>
         `);
       }else{
         returnHTML.push(`
-        <p class="fact-times">(${currID}) ${this.state.currentShownWorks[i].name}, ${this.state.currentShownWorks[i].title} (2023)</p>
+        <p class="fact-times">(${currID}) ${this.state.currentShownWorks[i].name}, ${this.state.currentShownWorks[i].title}</p>
         `);
       }
     }
     returnHTML.push(`</div></div>`);
     
-    let randomPressCount = Math.floor(Math.random() * 100) + 50;
+    let randomPressCount = Math.floor(Math.random() * 100) + 20;
 
     let maxWidth = 1200;
     let maxHeight = 800;
 
     console.log(`RANDOM randomPressCount: ${randomPressCount}`);
-/*     for(let i = 0; i < randomPressCount; i++){
-      console.log(`RANDOM PRESS: ${i}`);
-        returnHTML.push(`<a style="background-color: white; position: absolute; left: ${Math.floor(Math.random() * maxWidth)}px; top: ${Math.floor(Math.random() * maxHeight)}px; z-index: ${50 + (Math.random() * 150)};">
-            PRESS
-          </a>`
-          );
-    } */
-    for(let i = 0; i < randomPressCount; i++){
+
+     for(let i = 0; i < randomPressCount; i++){
       console.log(`RANDOM PRESS: ${i}`);
         returnHTML.push(`<a style="background-color: transparent; color:white; position: absolute; left: ${Math.floor(Math.random() * maxWidth)}px; top: ${Math.floor(Math.random() * maxHeight)}px; z-index: 99999;">
             PRESS
           </a>`
           );
-    }
+    } 
 
     let potLetters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
     let bigLetterLeft = Math.floor((Math.random() - .25) * (maxWidth * .5 ));
@@ -960,15 +950,15 @@ class App extends React.Component {
     //let bigLetterTop = Math.random() * -450;
     let letter = potLetters[Math.floor(Math.random() * potLetters.length)];
     //letter, I want to get the "presses" that appear with it to appear white, will have to look into that. Maybe get the coords and make the presses within that range get a white color? Blending modes are not compatible with the PDF though.
-    returnHTML.push(/* `<div class="content"> <img style="position: absolute; left: ${bigLetterLeft}px; top: ${bigLetterTop}px; height: 100%; z-index: 100;" src="%bigImg%"></div>`); */
+    returnHTML.push(
     `<p style="position: absolute; z-index: 100; transform: rotate(-90deg); font-size: 1400px; margin: auto; left: ${bigLetterLeft}px; top: ${bigLetterTop}px; font-family:pantasia;">${letter}</p>`);
-    returnHTML.push(`<p style="font-family: pantasiareg; transform:rotate(-90deg); position:absolute; bottom:110px; left:-40px;z-index: 999999;">15.06.23 - 18.06.23</p>
-    <p style="font-family: pantasiareg; transform:rotate(-90deg); position:absolute; top:350px; left:-35px;z-index: 999999;">Bachelor of Design</p>
+    returnHTML.push(`<p style="font-family: pantasiareg; transform:rotate(-90deg); position:absolute; bottom:60px; left:14px;z-index: 999999;">15.06.23</p>
+    <p style="font-family: pantasiareg; transform:rotate(-90deg); position:absolute; top:393px; left:-35px;z-index: 999999;">Bachelor of Design</p>
     <p style="font-family: pantasiareg; transform:rotate(-90deg); position:absolute; top:70px; left:-30px;z-index: 999999;">Graduate Showcase</p>
     <p style="font-family: pantasiareg; transform:rotate(-90deg); position:absolute; bottom:110px; right:-40px;z-index: 999999;">Building 9 Level 1</p>
     <p style="font-family: pantasiareg; transform:rotate(-90deg); position:absolute; top:350px; right:-12px;z-index: 999999;">Bowen Street</p>
-    <p style="font-family: pantasiareg; transform:rotate(-90deg); position:absolute; top:70px; right:-26px;z-index: 999999;">RMIT University</p>`);
-    returnHTML.push(`</div>`);
+    <p style="font-family: pantasiareg; transform:rotate(-90deg); position:absolute; top:60px; right:-26px;z-index: 999999;">RMIT University</p>`);
+    returnHTML.push(`</div>`); 
 
 /*
 `
@@ -1027,8 +1017,8 @@ class App extends React.Component {
   sendPDF(formData){
     var self = this;
     axios({
-      //url: "http://localhost:8000/index.php", 
-      url: "https://p-r-e-s-s.com/php/index.php", 
+      url: "http://localhost:8000/index.php", 
+      //url: "https://p-r-e-s-s.com/php/index.php", 
       method: "POST",
       data: formData,
       headers: {

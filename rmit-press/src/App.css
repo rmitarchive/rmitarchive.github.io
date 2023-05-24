@@ -333,7 +333,7 @@ html, body {
   overflow: hidden;
   margin: 0;
   padding: 0;
-  background-color: rgb(248, 248, 248);
+  background-color: rgb(255, 255, 255);
 }
 
 .content {
@@ -417,7 +417,7 @@ html, body {
 }
 
 .left .student-names a:hover {
-  color:whitesmoke;
+  color:rgb(255, 255, 255);
 }
 
 .left .student-expand {
@@ -516,7 +516,7 @@ html, body {
 } 
 
 .mobile-menu-background{
-  background-color: rgba(245,245,245,0.9);
+  background-color: rgba(255, 255, 255, 0.9);
   width: 100vw;
   height: 100vh;
   z-index: 99999;

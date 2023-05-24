@@ -108,13 +108,11 @@ footer {
 }
 
 .fact-times {
-  font-family: Unica;
-  font-size: 0.7em;
+  font-family: 'Unica';
+  font-size: 0.5em;
   margin: 0;
-  text-align: right;
-  float: right;
+  text-align: left;
   clear: both;
-  background-color: transparent;
 }
 
 
@@ -132,11 +130,14 @@ footer {
   padding:10px;
   z-index: var(--menuZIndex);
   position:absolute;
-  top: -0.1em;
+  top: 50px;
+  right:20px;
   /*width: 20%;*/
   width: auto;
+  height:auto;
   /*width: 50%;*/
-  right:0;
+  transform: rotate(-90deg);
+  line-height: 1;
 }
 
 .mobile-bottom-of-page{
@@ -326,7 +327,7 @@ html, body {
   overflow: hidden;
   margin: 0;
   padding: 0;
-  background-color: rgb(248, 248, 248);
+  background-color: rgb(255, 255, 255);
 }
 
 .content {
@@ -506,7 +507,7 @@ html, body {
 } 
 
 .mobile-menu-background{
-  background-color: rgba(245,245,245,0.9);
+  background-color: rgba(255, 255, 255, 0.9);
   width: 100vw;
   height: 100vh;
   z-index: 99999;
