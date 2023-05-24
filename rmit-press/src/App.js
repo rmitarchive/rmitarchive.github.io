@@ -689,7 +689,7 @@ class App extends React.Component {
             <MobileView>
                   <div className="mobile-menu-background"> </div>
                 </MobileView>
-          <div className="about-title">PRESS<br></br>RMIT Graduate Showcase<br></br>15-18 June, 2023</div>
+          <div className="about-title">PRESS<br></br>RMIT Graduate Showcase<br></br>15 June, 2023</div>
           <br></br>
           <div className="about-body">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus accumsan lacinia ullamcorper. Quisque facilisis purus vel pulvinar finibus. Donec pretium sollicitudin turpis vitae viverra. Nullam consequat euismod nisl, non lacinia ligula eleifend eget. Proin ornare nibh eu turpis ultricies, vitae aliquet mi consequat. Duis ante ipsum, bibendum sed lorem in, imperdiet viverra elit. Nulla et interdum sem, ut sodales tortor. Nam porta dui sed ligula dignissim varius. Fusce sollicitudin eros ut gravida facilisis. Curabitur varius mollis eros nec porttitor.
@@ -718,6 +718,7 @@ class App extends React.Component {
             This project would not have been possible without the gracious support of Suzie Zezula, Jiayu Cheng, and RMIT University.<br></br><br></br>
             All rights reserved, PRESS, 2023. <br></br><br></br>
             No part of this site may be reproduced without explicit permission from the copyright owner(s)
+            <br></br><br></br><br></br><br></br><br></br><br></br>
             <br></br><br></br><br></br><br></br><br></br><br></br>
           </div>
         </div>);
@@ -773,9 +774,16 @@ class App extends React.Component {
           <div className="print-title">
             Print Screen
           </div>
+          <MobileView>
+          <a className="print-return" onTouchStart = {(() => this.returnToHome())}>
+            Return Home
+          </a>
+          </MobileView>
+          <BrowserView>
           <a className="print-return" onClick = {(() => this.returnToHome())}>
             Return Home
           </a>
+          </BrowserView>
           <br/>
           <div className="print-body">
             By inputting your email below, you will receive a generative print created from the images you have selected and the positions in which you have arranged them in.
@@ -793,7 +801,7 @@ class App extends React.Component {
             {this.state.printResponse != null ? this.state.printResponse : ""}
           </div>
           <div className="print-footer">
-            All intellectual property of the imagery contained within the prints belongs to the original artists. Any reproduction or use of the imagery outside of the printed matter produced by PRINT is forbidden without explicit permission from the copyright owner(s). All rights reserved, PRESS, 2023.<br></br><br></br><br></br><br></br>
+            All intellectual property of the imagery contained within the prints belongs to the original artists. Any reproduction or use of the imagery outside of the printed matter produced by PRINT is forbidden without explicit permission from the copyright owner(s). All rights reserved, PRESS, 2023.<br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
           </div>
         </div>
         );
@@ -813,9 +821,16 @@ class App extends React.Component {
           <div class="print-title">
             Confirmation
           </div>
+          <MobileView>
+          <a class="print-return" onTouchStart = {(() => this.returnToHome())}>
+            Return Home
+          </a>
+          </MobileView>
+          <BrowserView>
           <a class="print-return" onClick = {(() => this.returnToHome())}>
             Return Home
           </a>
+          </BrowserView>
           <br/>
           <div class="print-body">
             The file has been processed and has been emailed to the account you inputted in the previous field. If you are unable to find the file, please check your spam folder.
@@ -827,7 +842,7 @@ class App extends React.Component {
             <a>{`${this.state.printResponse}`}</a>
           </div>
           <div class="print-footer">
-            All intellectual property of the imagery contained within the prints belongs to the original artists. Any reproduction or use of the imagery outside of the printed matter produced by PRINT is forbidden without explicit permission from the copyright owner(s). All rights reserved, PRESS, 2023.<br></br><br></br><br></br><br></br>
+            All intellectual property of the imagery contained within the prints belongs to the original artists. Any reproduction or use of the imagery outside of the printed matter produced by PRINT is forbidden without explicit permission from the copyright owner(s). All rights reserved, PRESS, 2023.<br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
           </div>
         </div>        
       );
@@ -1106,7 +1121,7 @@ class App extends React.Component {
         <div className="focus-BG-mobile">
           <div className = "focus-Header-container">
             <div className = "focus-Header-mobile">{`${this.state.focusArtPiece.id}. ${this.state.focusArtPiece.name}, ${this.state.focusArtPiece.title} (${this.state.focusArtPiece.year})`}</div>
-            <a className = "focus-Close-mobile" onMouseDown={() => this.removeFocusArtPiece()}> Close </a>
+            <a className = "focus-Close-mobile" onTouchStart={() => this.removeFocusArtPiece()}> Close </a>
           </div>
           <img className="focus-Img"
             src={require(`./Img/${this.state.focusArtPiece.image}`)}
@@ -1147,7 +1162,7 @@ class App extends React.Component {
   toggleMenu(){
     
     if(!this.state.mobileShowMenu){
-      document.documentElement.style.setProperty('--mobileMenuDisplay',"inherit");
+      document.documentElement.style.setProperty('--mobileMenuDisplay',"inline-block");
   
     }else{
       document.documentElement.style.setProperty('--mobileMenuDisplay',"none");
@@ -1222,7 +1237,7 @@ class App extends React.Component {
         <MobileView>
           <div className="bottom-of-page" style={{visibility: printing ? "hidden" : "visible"}}>
             <div className="scrolling-banner-parent">
-              <div className="scrolling-banner-child" onClick = {(() => this.toggleMenu())}>
+              <div className="scrolling-banner-child" onTouchStart = {(() => this.toggleMenu())}>
                 <p className="helvetica">{this.state.mobileShowMenu ? "Close" : "Menu"}</p>
               </div>
             </div>
@@ -1231,8 +1246,8 @@ class App extends React.Component {
               <br></br>
               <br></br>
               <div className="scrolling-banner-parent">
-                <a onClick = {(() => this.startPDF())}><p className="helvetica-mobile">Print Screen</p></a>
-                <a onClick = {(() => this.clearPage())}><p className="helvetica-mobile">Clear Screen</p></a>
+                <a onTouchStart = {(() => this.startPDF())}><p className="helvetica-mobile">Print Screen</p></a>
+                <a onTouchStart = {(() => this.clearPage())}><p className="helvetica-mobile">Clear Screen</p></a>
               </div>
             </div>
           </div>

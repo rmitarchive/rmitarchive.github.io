@@ -19,7 +19,7 @@
 }
 
 :root {
-  --mobileMenuDisplay: block;
+  --mobileMenuDisplay: inline-block;
   --color: black;
   --menuZIndex: 10;
   --leftWidth: 30%;
@@ -260,7 +260,6 @@ footer {
   overflow-x: hidden;
   z-index: var(--menuZIndex);
   user-select: none;
-
   top: 0;
   right: 0;
   background-color: rgb(0, 0, 0);
@@ -349,13 +348,12 @@ html, body {
   flex-direction: column;
   width: var(--leftWidth);
   height: 100vh;
-  overflow: auto;
+  overflow: scroll;
   box-sizing: border-box;
   padding: 0.5em;
   -ms-overflow-style: none;  
   scrollbar-width: none; 
   user-select: none;
-  background-color: var(--leftRightBGColor);
 }
 
 .left::-webkit-scrollbar { 
@@ -508,7 +506,6 @@ html, body {
   align-items: flex-end;
   width: var(--rightWidth);
   height: 100vh;
-  overflow: auto;
   box-sizing: border-box;
   padding: 0.5em;
   
