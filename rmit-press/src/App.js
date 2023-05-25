@@ -589,165 +589,180 @@ class App extends React.Component {
   }
 
   getPage(){
-    if(this.scrollbarRef != null){
-      switch(this.scrollbarRef.current){
-        case 0:
-          this.resetPrint();
-          return(
-            <div>
-              <div className="content" >
-                <MobileView>
-                  <div className="mobile-menu-background"> </div>
-                </MobileView>
-                <div className="left" >
-                  <div className="title-container">
-                    <span className="header">PRESS</span>
-                    <br/><br/>
-                    <MobileView>
-                    <input className="search-bar" 
-                    placeholder="Search..." 
-                    style={{visibility: this.state.mobileShowMenu ? "inherit" : "hidden"}} 
-                    onChange={e => this.updateTextFilter(e.target.value)}>
-                    </input>
-                    </MobileView>
-                    <BrowserView>
-                    <input className="search-bar" 
-                    placeholder="Search..." 
-                    onChange={e => this.updateTextFilter(e.target.value)}>
-                    </input>
-                    </BrowserView>
-                  </div>
-                  <div className="student-names"> 
-                  <div className="menu-to-hide" >
-                    <div>Filters</div>
-                    <br/>
-                    <div>
-                      <a className="student"  
-                      onClick = {(() => this.applyIndexFilter("digital"))}
-                      style={{backgroundColor: this.state.indexFilter["digital"] ? "#0078BF" : "transparent"}}>
-                        Digital
-                      </a>
-                    </div>
-                    <div>
-                    <a className="student" 
-                    onClick = {(() => this.applyIndexFilter("identity"))}
-                    style={{backgroundColor: this.state.indexFilter["identity"] ? "#ff48b0" : "transparent"}}>
-                      Identity
-                    </a>
-                    </div>
-                    <div>
-                    <a className="student" 
-                    onClick = {(() => this.applyIndexFilter("logo"))}
-                    style={{backgroundColor: this.state.indexFilter["logo"] ? "#F15060" : "transparent"}}>
-                      Logo
-                    </a>
-                    </div>
-                    <div>
-                    <a className="student" 
-                    onClick = {(() => this.applyIndexFilter("print"))}
-                    style={{backgroundColor: this.state.indexFilter["print"] ? "#00A95C" : "transparent"}}>
-                      Print
-                    </a>
-                    </div>
-                    <div>
-                    <a className="student" 
-                    onClick = {(() => this.applyIndexFilter("poster"))}
-                    style={{backgroundColor: this.state.indexFilter["poster"] ? "#FF6C2f" : "transparent"}}>
-                      Poster
-                    </a>
-                    </div>
-                    <div>
-                    <a className="student" 
-                    onClick = {(() => this.applyIndexFilter("layout"))}
-                    style={{backgroundColor: this.state.indexFilter["layout"] ? "#00838A" : "transparent"}}>
-                      Layout
-                    </a>
-                    </div>
-                    <div>
-                    <a className="student" 
-                    onClick = {(() => this.applyIndexFilter("web"))}
-                    style={{backgroundColor: this.state.indexFilter["web"] ? "#FFE800" : "transparent"}}>
-                      Web
-                    </a>
-                    </div>
-                    <br></br><br></br>
-                    <a className="student" 
-                    onClick = {(() => this.clearAllFilters())}>
-                      Clear Filters
-                    </a>
-                  </div>
-                  <br></br><br></br><br></br><br></br>
-                    {this.getListOfWorks()}
-                  </div>
-                </div>
-                <BrowserView>
-                  <div className="right">
-                    <a className="screen-func-header" onClick = {(() => this.startPDF())}>Print Screen</a>
-                    <a className="screen-func-header" onClick = {(() => this.clearPage())}>Clear Screen</a>
-                  </div> 
-                </BrowserView>
+    if(this.scrollbarRef == null){
+      this.scrollbarRef = React.createRef();
+    }
 
-              </div>
-            </div>
-          );
-        case 1:
-          this.resetPrint();
-          return (
-          <div className="about-container">
-            <MobileView>
-                  <div className="mobile-menu-background"> </div>
-                </MobileView>
-          <div className="about-title">PRESS<br></br>RMIT Graduate Showcase<br></br>15 June, 2023</div>
+    if(this.scrollbarRef.current == null){
+      let path = window.location.pathname;
+      if(path.toUpperCase().includes("PRINT")){
+        this.scrollbarRef.current = 3;
+      }else if(path.toUpperCase().includes("HELP")){
+        this.scrollbarRef.current = 2;
+      }else if(path.toUpperCase().includes("ABOUT")){
+        this.scrollbarRef.current = 1;
+      }else{
+        this.scrollbarRef.current = 0;
+      }
+    }
+
+    switch(this.scrollbarRef.current){        
+      case 1:
+        this.resetPrint();
+        return (
+        <div className="about-container">
+          <MobileView>
+                <div className="mobile-menu-background"> </div>
+              </MobileView>
+        <div className="about-title">PRESS<br></br>RMIT Graduate Showcase<br></br>15 June, 2023</div>
+        <br></br>
+        <div className="about-body">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus accumsan lacinia ullamcorper. Quisque facilisis purus vel pulvinar finibus. Donec pretium sollicitudin turpis vitae viverra. Nullam consequat euismod nisl, non lacinia ligula eleifend eget. Proin ornare nibh eu turpis ultricies, vitae aliquet mi consequat. Duis ante ipsum, bibendum sed lorem in, imperdiet viverra elit. Nulla et interdum sem, ut sodales tortor. Nam porta dui sed ligula dignissim varius. Fusce sollicitudin eros ut gravida facilisis. Curabitur varius mollis eros nec porttitor.
+        <br></br><br></br>
+        Maecenas id nisl viverra, feugiat dui nec, tincidunt arcu. Etiam vel augue in ipsum fermentum sagittis in id nisl. In eu orci nisi. Integer porta sed tellus sed gravida. Nulla facilisi. Duis at sem nec ante dapibus scelerisque ut id nisi. Praesent elementum libero ut nibh fringilla euismod. Pellentesque quis maximus dui, vel suscipit tortor.
+        <br></br><br></br>
+        Vestibulum arcu turpis, condimentum quis risus a, eleifend efficitur elit. Nunc tempus massa tellus, sit amet aliquet purus luctus in. Quisque venenatis nunc consectetur velit iaculis fringilla. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam id faucibus velit, ac dictum lacus. Fusce velit tortor, elementum in velit at, fringilla tincidunt dui. Cras imperdiet mauris eget dui eleifend, hendrerit facilisis tortor elementum. Ut rutrum.
+        </div>
           <br></br>
-          <div className="about-body">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus accumsan lacinia ullamcorper. Quisque facilisis purus vel pulvinar finibus. Donec pretium sollicitudin turpis vitae viverra. Nullam consequat euismod nisl, non lacinia ligula eleifend eget. Proin ornare nibh eu turpis ultricies, vitae aliquet mi consequat. Duis ante ipsum, bibendum sed lorem in, imperdiet viverra elit. Nulla et interdum sem, ut sodales tortor. Nam porta dui sed ligula dignissim varius. Fusce sollicitudin eros ut gravida facilisis. Curabitur varius mollis eros nec porttitor.
-          <br></br><br></br>
-          Maecenas id nisl viverra, feugiat dui nec, tincidunt arcu. Etiam vel augue in ipsum fermentum sagittis in id nisl. In eu orci nisi. Integer porta sed tellus sed gravida. Nulla facilisi. Duis at sem nec ante dapibus scelerisque ut id nisi. Praesent elementum libero ut nibh fringilla euismod. Pellentesque quis maximus dui, vel suscipit tortor.
-          <br></br><br></br>
-          Vestibulum arcu turpis, condimentum quis risus a, eleifend efficitur elit. Nunc tempus massa tellus, sit amet aliquet purus luctus in. Quisque venenatis nunc consectetur velit iaculis fringilla. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam id faucibus velit, ac dictum lacus. Fusce velit tortor, elementum in velit at, fringilla tincidunt dui. Cras imperdiet mauris eget dui eleifend, hendrerit facilisis tortor elementum. Ut rutrum.
+          <dl>
+            <dt className="about-title">PRESS Production Credits:</dt>
+            <br/>
+            <dt className="about-body">Ella Taylor</dt>
+            <dd className="about-body">Layout, Identity</dd>
+            <dt className="about-body">Liam Kenna</dt>
+            <dd className="about-body">Front & Back End Website</dd>
+            <dt className="about-body">Nicholas Gleeson</dt>
+            <dd className="about-body">Layout, Identity</dd>
+            <dt className="about-body">Timon Muery</dt>
+            <dd className="about-body">Layout, Identity</dd>
+            <dt className="about-body">Zachariah Micallef</dt>
+            <dd className="about-body">Front End Website, Identity</dd>
+          </dl>
+          <br></br>
+        <div className="about-body">
+          This project would not have been possible without the gracious support of Suzie Zezula, Jiayu Cheng, and RMIT University.<br></br><br></br>
+          All rights reserved, PRESS, 2023. <br></br><br></br>
+          No part of this site may be reproduced without explicit permission from the copyright owner(s)
+          <br></br><br></br><br></br><br></br><br></br><br></br>
+          <br></br><br></br><br></br><br></br><br></br><br></br>
+        </div>
+      </div>);
+      case 2:
+        this.resetPrint();
+        return(
+          <div className="index-main"> 
+            <MobileView>
+              <div className="mobile-menu-background"> </div>
+            </MobileView>
+            <ThreeJS/> 
+            <HelpText/>
           </div>
-            <br></br>
-            <dl>
-              <dt className="about-title">PRESS Production Credits:</dt>
-              <br/>
-              <dt className="about-body">Ella Taylor</dt>
-              <dd className="about-body">Layout, Identity</dd>
-              <dt className="about-body">Liam Kenna</dt>
-              <dd className="about-body">Front & Back End Website</dd>
-              <dt className="about-body">Nicholas Gleeson</dt>
-              <dd className="about-body">Layout, Identity</dd>
-              <dt className="about-body">Timon Muery</dt>
-              <dd className="about-body">Layout, Identity</dd>
-              <dt className="about-body">Zachariah Micallef</dt>
-              <dd className="about-body">Front End Website, Identity</dd>
-            </dl>
-            <br></br>
-          <div className="about-body">
-            This project would not have been possible without the gracious support of Suzie Zezula, Jiayu Cheng, and RMIT University.<br></br><br></br>
-            All rights reserved, PRESS, 2023. <br></br><br></br>
-            No part of this site may be reproduced without explicit permission from the copyright owner(s)
-            <br></br><br></br><br></br><br></br><br></br><br></br>
-            <br></br><br></br><br></br><br></br><br></br><br></br>
+        );   
+      case 3:   //print/reciept
+        return(
+          <div className="index-main"> 
+            {this.getRecieptPage()}
           </div>
-        </div>);
-        case 2:
-          this.resetPrint();
-          return(
-            <div className="index-main"> 
+        );
+      default: //home page is generally going to be one, but here's a catch-all
+        this.resetPrint();
+        return(
+          <div>
+            <div className="content" >
               <MobileView>
                 <div className="mobile-menu-background"> </div>
               </MobileView>
-              <ThreeJS/> 
-              <HelpText/>
+              <div className="left" >
+                <div className="title-container">
+                  <span className="header">PRESS</span>
+                  <br/><br/>
+                  <MobileView>
+                  <input className="search-bar" 
+                  placeholder="Search..." 
+                  style={{visibility: this.state.mobileShowMenu ? "inherit" : "hidden"}} 
+                  onChange={e => this.updateTextFilter(e.target.value)}>
+                  </input>
+                  </MobileView>
+                  <BrowserView>
+                  <input className="search-bar" 
+                  placeholder="Search..." 
+                  onChange={e => this.updateTextFilter(e.target.value)}>
+                  </input>
+                  </BrowserView>
+                </div>
+                <div className="student-names"> 
+                <div className="menu-to-hide" >
+                  <div>Filters</div>
+                  <br/>
+                  <div>
+                    <a className="student"  
+                    onClick = {(() => this.applyIndexFilter("digital"))}
+                    style={{backgroundColor: this.state.indexFilter["digital"] ? "#0078BF" : "transparent"}}>
+                      Digital
+                    </a>
+                  </div>
+                  <div>
+                  <a className="student" 
+                  onClick = {(() => this.applyIndexFilter("identity"))}
+                  style={{backgroundColor: this.state.indexFilter["identity"] ? "#ff48b0" : "transparent"}}>
+                    Identity
+                  </a>
+                  </div>
+                  <div>
+                  <a className="student" 
+                  onClick = {(() => this.applyIndexFilter("logo"))}
+                  style={{backgroundColor: this.state.indexFilter["logo"] ? "#F15060" : "transparent"}}>
+                    Logo
+                  </a>
+                  </div>
+                  <div>
+                  <a className="student" 
+                  onClick = {(() => this.applyIndexFilter("print"))}
+                  style={{backgroundColor: this.state.indexFilter["print"] ? "#00A95C" : "transparent"}}>
+                    Print
+                  </a>
+                  </div>
+                  <div>
+                  <a className="student" 
+                  onClick = {(() => this.applyIndexFilter("poster"))}
+                  style={{backgroundColor: this.state.indexFilter["poster"] ? "#FF6C2f" : "transparent"}}>
+                    Poster
+                  </a>
+                  </div>
+                  <div>
+                  <a className="student" 
+                  onClick = {(() => this.applyIndexFilter("layout"))}
+                  style={{backgroundColor: this.state.indexFilter["layout"] ? "#00838A" : "transparent"}}>
+                    Layout
+                  </a>
+                  </div>
+                  <div>
+                  <a className="student" 
+                  onClick = {(() => this.applyIndexFilter("web"))}
+                  style={{backgroundColor: this.state.indexFilter["web"] ? "#FFE800" : "transparent"}}>
+                    Web
+                  </a>
+                  </div>
+                  <br></br><br></br>
+                  <a className="student" 
+                  onClick = {(() => this.clearAllFilters())}>
+                    Clear Filters
+                  </a>
+                </div>
+                <br></br><br></br><br></br><br></br>
+                  {this.getListOfWorks()}
+                </div>
+              </div>
+              <BrowserView>
+                <div className="right">
+                  <a className="screen-func-header" onClick = {(() => this.startPDF())}>Print Screen</a>
+                  <a className="screen-func-header" onClick = {(() => this.clearPage())}>Clear Screen</a>
+                </div> 
+              </BrowserView>
+
             </div>
-          );   
-        case 3:   //print/reciept
-          return(
-            <div className="index-main"> 
-              {this.getRecieptPage()}
-            </div>
-          );
-      }
+          </div>
+        );
 
 
     }
