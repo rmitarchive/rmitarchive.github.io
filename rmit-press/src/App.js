@@ -964,9 +964,11 @@ class App extends React.Component {
     }   */
 
      let potLetters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-    let bigLetterLeft = Math.floor((Math.random() - .25) * (maxWidth * .5 ));
+    //fug it we hardcode
+    let bigLetterLeft = -(Math.random() * 200);
+    let bigLetterTop = -(Math.random() * 600) + 100;
     // let bigLetterLeft = Math.floor(Math.random() * (maxWidth * .5 ));
-    let bigLetterTop = Math.floor((Math.random() - .25) * (maxHeight * .5 ) - 500);
+    //let bigLetterTop = Math.floor((Math.random() - .25) * (maxHeight * .5 ) - 500);
     //let bigLetterTop = Math.random() * -450;
     let letter = potLetters[Math.floor(Math.random() * potLetters.length)];
 
@@ -998,6 +1000,8 @@ class App extends React.Component {
     returnHTML += (`</body>
     </html>`);
 
+
+    console.log("returnHTML: " + returnHTML);
     return(
       returnHTML
     );
