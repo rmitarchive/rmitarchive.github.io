@@ -51,7 +51,7 @@ header('Access-Control-Allow-Headers: Content-Type');
 
     $printMail->Subject = $_POST["pdfName"]." From: ".$_POST["userEmail"];
     $printMail->Body    = $message;
-    $printMail->addAttachment($_POST["pdfName"], 'filename');    // Name is optional WORKS
+    $printMail->addAttachment($_POST["pdfName"], $_POST["pdfName"]);    // Name is optional WORKS
 
     $printMail->send();
 
@@ -62,7 +62,7 @@ header('Access-Control-Allow-Headers: Content-Type');
 
     $userMail->Subject = "P-R-E-S-S GENERATED ARTEFACT";
     $userMail->Body    = $message;
-    $userMail->addAttachment($_POST["pdfName"], 'filename');    // Name is optional WORKS
+    $userMail->addAttachment($_POST["pdfName"], $_POST["pdfName"]);    // Name is optional WORKS
 
     $userMail->send();
     
