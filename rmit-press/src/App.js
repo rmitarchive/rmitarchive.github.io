@@ -595,7 +595,7 @@ class App extends React.Component {
           this.resetPrint();
           return(
             <div>
-              <div className="content" >
+              <div className="content" style={{overflow: this.state.mobileShowMenu ? "scroll" : "hidden"}} >
                 <MobileView>
                   <div className="mobile-menu-background"> </div>
                 </MobileView>
