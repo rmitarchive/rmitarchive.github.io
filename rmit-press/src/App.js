@@ -595,11 +595,11 @@ class App extends React.Component {
           this.resetPrint();
           return(
             <div>
-              <div className="content" style={{overflow: this.state.mobileShowMenu ? "scroll" : "hidden"}} >
+              <div className="content">
                 <MobileView>
                   <div className="mobile-menu-background"> </div>
                 </MobileView>
-                <div className="left" >
+                <div className="left" style={{overflowY: this.state.mobileShowMenu ? "scroll" : "hidden"}} >
                   <div className="title-container">
                     <span className="header">PRESS</span>
                     <br/><br/>

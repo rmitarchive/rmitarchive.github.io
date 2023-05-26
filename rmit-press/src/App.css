@@ -348,7 +348,7 @@ html, body {
   flex-direction: column;
   width: var(--leftWidth);
   height: 100vh;
-  overflow: scroll;
+  overflow-y: scroll;
   box-sizing: border-box;
   padding: 0.5em;
   -ms-overflow-style: none;  
