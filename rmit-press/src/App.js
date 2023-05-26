@@ -1162,9 +1162,12 @@ class App extends React.Component {
   }
 
   userAcknowledged() {
+    let expectedCurrent = this.scrollbarRef.current;
+    this.scrollbarRef.current = 1;
     if(isMobile){
       this.showRandomImage();
     }
+    this.scrollbarRef.current = expectedCurrent;
     if(this.state.isLoaded){
       this.setState({isAcknowledged:true});
     }
@@ -1227,12 +1230,11 @@ class App extends React.Component {
       }
     }
     let printing = (this.scrollbarRef.current == 3);
-
+//<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
     return (
       <div>
         <meta charSet="UTF-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
         <link rel="stylesheet" href="styles.css" />
         <link rel="icon" href="icon.png" /> 
         <title>Zachariah Micallef</title>
