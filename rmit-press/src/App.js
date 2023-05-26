@@ -168,6 +168,7 @@ class App extends React.Component {
     this.setState({
       isLoaded:true
     });
+
   } 
 
   showRandomImage(){
@@ -1161,6 +1162,9 @@ class App extends React.Component {
   }
 
   userAcknowledged() {
+    if(isMobile){
+      this.showRandomImage();
+    }
     if(this.state.isLoaded){
       this.setState({isAcknowledged:true});
     }
