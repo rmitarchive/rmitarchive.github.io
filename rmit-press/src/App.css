@@ -1,7 +1,7 @@
 
 
 @font-face {
-  font-family: 'Schrijf';
+  font-family: 'pantasia';
   src: url("Type/Pantasia-Regular.ttf");
 }
 
@@ -34,7 +34,7 @@
   --fontFace: "neue-haas-unica";
   /* --fontFace: "passenger"; */
   --fontWeight: 500;
-  --fontDesc: "passenger";
+  --fontDesc: 'passenger';
   --fontSize: 1em;
   --lineHeight: 1;
 }
@@ -256,7 +256,7 @@ footer {
   overflow-x: hidden;
   z-index: 9999;
   user-select: none;
-
+  /* border-left: 0.1px solid black; */
   top: 0;
   right: 0;
   background-color: rgb(255, 255, 255);
@@ -563,7 +563,7 @@ html, body {
 }
 
 .ack-text {
-  font-family: var(--fontDesc);
+  font-family: 'Unica';
   font-weight: var(--fontWeight);
   font-size: var(--ackFont);
   color:white;
@@ -586,6 +586,7 @@ html, body {
   font-family: var(--fontFace);
   font-weight: var(--fontWeight);
   padding:0.5em 0.5em 0 0.5em;
+  white-space: pre-wrap;
 }
 
 .about-body {

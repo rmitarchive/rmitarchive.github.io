@@ -534,7 +534,7 @@ class App extends React.Component {
             classHTML.push(<br key={pos + "BR"}/>);
           }
           currLetter = student.name[0];
-          classHTML.push(<div className="student" key={pos + currLetter}>{currLetter}</div>);
+          classHTML.push(<div /* style={{transform: "translateX(10px)", fontFamily: "passenger"}} */ className="student" key={pos + currLetter}>{currLetter}</div>);
         }
 
         classHTML.push(<ArtPiece 
@@ -1200,9 +1200,16 @@ class App extends React.Component {
           </div>
           <img className="focus-Img"
             src={require(`./Img/${this.state.focusArtPiece.image}`)}
-            />
+          />
+          <img className="focus-Img"
+            src={require(`./Img/${this.state.focusArtPiece.image2}`)}
+          />
             <p className="focus-Desc">{this.state.focusArtPiece.desc}</p>
-            <div className="focus-Desc">{this.state.focusArtPiece.contact}</div>
+            <div className="about-title" style={{fontSize: "0.7em"}}>{`...`}</div>
+            <br></br>
+            <div className="about-title" style={{fontSize: "0.7em"}}>{`${this.state.focusArtPiece.bio}`}</div>
+            <br></br>
+            <div className="about-title" style={{fontSize: "0.7em"}}>{`For any opportunities or enquiries, ${this.state.focusArtPiece.name} can be contacted at ${this.state.focusArtPiece.contact}`}</div><br></br>
         </div>
       );
     }
@@ -1215,10 +1222,16 @@ class App extends React.Component {
           </div>
           <img className="focus-Img"
             src={require(`./Img/${this.state.focusArtPiece.image}`)}
-            />
+          />
+          <img className="focus-Img"
+            src={require(`./Img/${this.state.focusArtPiece.image2}`)}
+          />
             <p className="focus-Desc">{this.state.focusArtPiece.desc}</p>
+            <div className="about-title" style={{fontSize: "0.7em"}}>{`...`}</div>
             <br></br>
-            <div className="focus-Desc">{`For any opportunities or enquiries, ${this.state.focusArtPiece.name} can be contacted at ${this.state.focusArtPiece.contact}`}</div>
+            <div className="about-title" style={{fontSize: "0.7em"}}>{`${this.state.focusArtPiece.bio}`}</div>
+            <br></br>
+            <div className="about-title" style={{fontSize: "0.7em"}}>{`For any opportunities or enquiries, ${this.state.focusArtPiece.name} can be contacted at ${this.state.focusArtPiece.contact}`}</div><br></br>
         </div>
     );
   }
