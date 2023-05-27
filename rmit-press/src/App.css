@@ -12,7 +12,13 @@
 
 @font-face {
   font-family: 'Unica';
-  src: url("Type/FragmentMono-Regular.woff2");
+  src: url("Type/NeueHaasUnica-Medium.ttf");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'passenger';
+  src: url("Type/Passenger-Regular-Web.woff");
   font-style: normal;
 }
 
@@ -25,6 +31,11 @@
   --aboutWidth: 50vw;
   --ackFont: 2em;
   --printWidth: 50vw;
+  --fontFace: "neue-haas-unica";
+  /* "neue-haas-unica" */
+  --fontWeight: 500;
+  --fontSize: 1em;
+  --lineHeight: 1;
 }
 
 
@@ -93,8 +104,8 @@ footer {
 }
 
 .print-loading-container{
-  font-family: "neue-haas-unica";
-  font-weight: 500;
+  font-family: var(--fontFace);
+  font-weight: var(--fontWeight);
   position: absolute;
   z-index: 100;
   text-align: center;
@@ -114,9 +125,9 @@ footer {
 }
 
 .fact-times {
-  font-family: "neue-haas-unica";
-  font-weight: 500;
-  font-size: 0.7em;
+  font-family: var(--fontFace);
+  font-weight: var(--fontWeight);
+  font-size: calc(var(--fontSize) - 0.3em);
   margin: 0;
   text-align: right;
   float: right;
@@ -164,7 +175,7 @@ footer {
   background-color: transparent;
   padding: 0 0 0 0;
   margin-top:-1em;
-  line-height: 1;
+  line-height: var(--lineHeight);
   text-align: right;
 }
 
@@ -195,7 +206,7 @@ footer {
 
 .index-times {
   font-family: Century;
-  font-size: 0.7em;
+  font-size: calc(var(--fontSize) - 0.3em);
   display: inline;
   padding-left: 5px;
   vertical-align:text-top;
@@ -203,13 +214,13 @@ footer {
 
 .times {
   font-family: Century;
-  font-size: 0.7em;
+  font-size: calc(var(--fontSize) - 0.3em);
 }
 
 .helvetica {
-  font-family: "neue-haas-unica";
-  font-weight: 500;
-  font-size: 1em;
+  font-family: var(--fontFace);
+  font-weight: var(--fontWeight);
+  font-size: var(--fontSize);
   cursor: pointer;
   z-index: var(--menuZIndex);
   position: relative;
@@ -247,7 +258,7 @@ footer {
 
   top: 0;
   right: 0;
-  background-color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
 
   -ms-overflow-style: none;  
   scrollbar-width: none; 
@@ -264,7 +275,7 @@ footer {
   user-select: none;
   top: 0;
   right: 0;
-  background-color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
 
   -ms-overflow-style: none;  
   scrollbar-width: none; 
@@ -298,9 +309,9 @@ footer {
 .index-content {
   position:absolute;
   top:10vh;
-  line-height: 1em;
-  font-family: "neue-haas-unica";
-  font-weight: 500;
+  line-height: var(--lineHeight);
+  font-family: var(--fontFace);
+  font-weight: var(--fontWeight);
 }
 
 .index-img img {
@@ -316,8 +327,8 @@ footer {
 .index-right {
   position:absolute;
   height:100%;
-  font-family: "neue-haas-unica";
-  font-weight: 500;
+  font-family: var(--fontFace);
+  font-weight: var(--fontWeight);
   padding:20px;
   right:0;
   overflow: scroll;
@@ -327,9 +338,9 @@ footer {
 
 * {
   text-rendering: geometricPrecision;
-  font-family: "neue-haas-unica", Helvetica;
-  font-weight: 500;
-  line-height: 1;
+  font-family: var(--fontFace);
+  font-weight: var(--fontWeight);
+  line-height: var(--lineHeight);
 }
 
 html, body {
@@ -359,6 +370,7 @@ html, body {
   -ms-overflow-style: none;  
   scrollbar-width: none; 
   user-select: none;
+  font-size: var(--fontSize);
 }
 
 .left::-webkit-scrollbar { 
@@ -380,7 +392,7 @@ html, body {
 }
 
 .dragImgIndex {
-  font-size: 0.7em;
+  font-size: calc(var(--fontSize) - 0.3em);
 }
 
 .dragImgIndexLine {
@@ -449,23 +461,23 @@ html, body {
   padding: 0.5em 0.5em 0.5em 0.5em;
   float: left;
   user-select: none;
-  color:white;
+  color:rgb(0, 0, 0);
   
 }
 .focus-Header-mobile {
   padding: 0.5em 0.5em 0.5em 0.5em;
   float: left;
   user-select: none;
-  color:white;
+  color:rgb(0, 0, 0);
   
   /*position: fixed;*/
 }
 
 .focus-Header-container {
-  width: 50%;
+  width: var(--aboutWidth);
   /*width: 100%; I do not know why this was the problem with close disapearing, it was going full page width.*/
   position: fixed;
-  background-color:black;
+  background-color:rgb(255, 255, 255);
   top: 0px;
   position: fixed;
 }
@@ -473,7 +485,7 @@ html, body {
 .focus-Close {
   padding: 0.5em 0.5em 0.5em 0.5em;
   user-select: none;
-  color:white;
+  color:rgb(0, 0, 0);
   position: fixed;
   right: 0;
   top: 0;
@@ -482,7 +494,7 @@ html, body {
 .focus-Close-mobile {
   padding: 0.5em 0.5em 0.5em 0.5em;
   user-select: none;
-  color:white;
+  color:rgb(0, 0, 0);
 
   position: fixed;
   right: 0;
@@ -490,18 +502,18 @@ html, body {
 }
 
 .focus-Close:hover {
-  background-color: white;
-  color:black;
+  background-color: rgb(0, 0, 0);
+  color:rgb(255, 255, 255);
 }
 
 .focus-Desc {
   font-family: 'Schrijf';
   padding: 0 0.5em 0.5em 0.5em;
-  font-size: 0.8em;
+  font-size: calc(var(--fontSize) - 0.3em);
   margin-top: 0px;
   text-align: left;
   user-select: none;
-  color:white;
+  color:rgb(0, 0, 0);
 }
 
 
@@ -549,8 +561,8 @@ html, body {
 }
 
 .ack-text {
-  font-family: "Arial";
-  font-weight: 500;
+  font-family: "passenger";
+  font-weight: var(--fontWeight);
   font-size: var(--ackFont);
   color:white;
 }
@@ -560,8 +572,8 @@ html, body {
   width:var(--aboutWidth);
 
   box-sizing: border-box;
-  font-size: 0.7em;
-  line-height: 1;
+  font-size: calc(var(--fontSize) - 0.3em);
+  line-height: var(--lineHeight);
   z-index: 1;
 
   overflow-x: hidden;
@@ -569,8 +581,8 @@ html, body {
 }
 
 .about-title {
-  font-family: "neue-haas-unica";
-  font-weight: 500;
+  font-family: var(--fontFace);
+  font-weight: var(--fontWeight);
   padding:0.5em 0.5em 0 0.5em;
 }
 
@@ -585,8 +597,8 @@ html, body {
   width:100vw;
   top:0;
   box-sizing: border-box;
-  font-size: 1em;
-  line-height: 1;
+  font-size: var(--fontSize);
+  line-height: var(--lineHeight);
   z-index: 1;
   overflow-x: hidden;
   overflow-y: scroll;
@@ -594,16 +606,16 @@ html, body {
 }
 
 .print-title {
-  font-family: "neue-haas-unica";
-  font-weight: 500;
+  font-family: var(--fontFace);
+  font-weight: var(--fontWeight);
   padding:0.5em 0.5em 0 0.5em;
   color:white;
 }
 .print-title a:hover{background-color: white; color:black}
 
 .print-return {
-  font-family: "neue-haas-unica";
-  font-weight: 500;
+  font-family: var(--fontFace);
+  font-weight: var(--fontWeight);
   padding:0.5em 0.5em 0.5em 0.5em;
   color:white;
   position:absolute;
@@ -612,8 +624,8 @@ html, body {
 }
 
 .print-confirm {
-  font-family: "neue-haas-unica";
-  font-weight: 500;
+  font-family: var(--fontFace);
+  font-weight: var(--fontWeight);
   padding:0.5em 0.5em 0.5em 0.5em;
   color:white;
 }
@@ -624,13 +636,13 @@ html, body {
   text-align: left;
   box-sizing: border-box;
   padding:0 0.5em 0 0.5em;
-  font-size: 0.7em;
+  font-size: calc(var(--fontSize) - 0.3em);
   width: var(--printWidth);
   color:white;
 }
 
 .print-container input {
-  font-size: 1em;
+  font-size: var(--fontSize);
   padding:0.5em;
   border: none;
   background-color: transparent;
@@ -647,7 +659,7 @@ html, body {
   text-align: left;
   padding:0 0.5em 0 0.5em;
   box-sizing: border-box;
-  font-size: 0.7em;
+  font-size: calc(var(--fontSize) - 0.3em);
   width: var(--printWidth);
   color:white;
   position:absolute;

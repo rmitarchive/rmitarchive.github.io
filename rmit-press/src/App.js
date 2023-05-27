@@ -966,18 +966,16 @@ class App extends React.Component {
     returnHTML += (`<div class="content">`);  
 
     if(isMobile){
-      returnHTML += (`<div class="content" style="transform: scale(1, -1); top: 700px; left:100px;">`);
-      let modifier = 1.5;
+      returnHTML += (`<div class="content" style="transform: rotate(-90deg);">`);
+      let modifierX = 2.9;
+      let modifierY = 1.3;
       for(let i = 0; i < this.state.currentShownWorks.length; i++){
         let currID = this.state.currentShownWorks[i].id;
-          /*const foundImg = document.getElementById(`${this.state.currentShownWorks[i].id}Img`);
-          console.log(`foundImg check: ${this.state.currentShownWorks[i].id} isnull? ${foundImg}`);
-          let imgRect = foundImg.getBoundingClientRect();*/
-        returnHTML += (`<div style="transform: rotate(-90deg) scale(-1, 1); position: absolute; left: ${this.state.artPiecesCurrY[currID] * modifier}px; top: ${this.state.artPiecesCurrX[currID] * modifier}px; z-index: ${10 + i};">
-          <img style="max-height: ${15 * modifier}em;" src="%img${i}%">
-          (${currID})
+        returnHTML += (`<div style=" position: absolute; left: ${this.state.artPiecesCurrX[currID] * modifierX}px; top: ${this.state.artPiecesCurrY[currID] * modifierY}px; z-index: ${10 + i};  transform: translate(-200px, -525px);">
+          <img style="max-height: ${6 * modifierX}em;" src="%img${i}%">
+          <p style="font-size: 0.5em; background-color:black; color:white;">(${currID})</p>
           </div>`
-          );
+        );
       }
       returnHTML += (`</div>`);
     }else{
@@ -986,7 +984,7 @@ class App extends React.Component {
         let currID = this.state.currentShownWorks[i].id;
         returnHTML += (`<div style="transform: rotate(-90deg); position: absolute; left: ${this.state.artPiecesCurrX[currID]}px; top: ${this.state.artPiecesCurrY[currID]}px; z-index: ${10 + i};">
           <img style="max-height: 12em;" src="%img${i}%">
-          <p style="font-size: 0.5em;">(${currID})</p>
+          <p style="font-size: 0.5em; background-color:black; color:white;">(${currID})</p>
           </div>`
           );
       }
@@ -1105,8 +1103,8 @@ class App extends React.Component {
   sendPDF(formData){
     var self = this;
     axios({
-      //url: "http://localhost:8000/index.php", 
-      url: "https://p-r-e-s-s.com/php/index.php", 
+      url: "http://localhost:8000/index.php", 
+      //url: "https://p-r-e-s-s.com/php/index.php", 
       method: "POST",
       data: formData,
       headers: {
@@ -1193,7 +1191,7 @@ class App extends React.Component {
       return (
         <div className="focus-BG-mobile">
           <div className = "focus-Header-container">
-            <div className = "focus-Header-mobile">{`${this.state.focusArtPiece.id}. ${this.state.focusArtPiece.name}, ${this.state.focusArtPiece.title} (${this.state.focusArtPiece.year})`}</div>
+            <div className = "focus-Header-mobile">{`${this.state.focusArtPiece.id}. ${this.state.focusArtPiece.name}, ${this.state.focusArtPiece.title}`}</div>
             <a className = "focus-Close-mobile" onTouchStart={() => this.removeFocusArtPiece()}> Close </a>
           </div>
           <img className="focus-Img"
@@ -1208,7 +1206,7 @@ class App extends React.Component {
     return (
         <div className="focus-BG">
           <div className = "focus-Header-container">
-          <div className = "focus-Header">{`${this.state.focusArtPiece.id}. ${this.state.focusArtPiece.name}, ${this.state.focusArtPiece.title} (${this.state.focusArtPiece.year})`}</div>
+          <div className = "focus-Header">{`${this.state.focusArtPiece.id}. ${this.state.focusArtPiece.name}, ${this.state.focusArtPiece.title}`}</div>
           <a className = "focus-Close" onMouseDown={() => this.removeFocusArtPiece()}> Close </a>
           </div>
           <img className="focus-Img"
