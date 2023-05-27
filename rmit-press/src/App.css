@@ -39,6 +39,7 @@
   --fontSize: 1em;
   --fontSizeDesc: 0.7em;
   --lineHeight: 1;
+  --indent: 0;
 }
 
 
@@ -520,6 +521,7 @@ html, body {
   user-select: none;
   color:rgb(0, 0, 0);
   white-space: pre-wrap;
+  text-indent: var(--indent);
 }
 
 
@@ -571,6 +573,8 @@ html, body {
   font-weight: var(--fontWeight);
   font-size: var(--ackFont);
   color:white;
+  text-indent: var(--indent);
+
 }
 
 .about-container {
@@ -578,8 +582,6 @@ html, body {
   width:var(--aboutWidth);
 
   box-sizing: border-box;
-  font-size: var(--fontSizeDesc);
-  font-weight: var(--fontWeightDesc);
   line-height: var(--lineHeight);
   z-index: 1;
 
@@ -590,14 +592,18 @@ html, body {
 .about-title {
   font-family: var(--fontFace);
   font-weight: var(--fontWeight);
+  font-size: var(--fontSizeDesc);
   padding:0.5em 0.5em 0 0.5em;
   white-space: pre-wrap;
 }
 
 .about-body {
   font-family: var(--fontDesc);
+  font-weight: var(--fontWeightDesc);
+  font-size: var(--fontSizeDesc);
   text-align: left;
   padding:0 0.5em 0 0.5em;
+
 }
 
 .print-container {
@@ -649,6 +655,8 @@ html, body {
   font-weight: var(--fontWeightDesc);
   width: var(--printWidth);
   color:white;
+  text-indent: var(--indent);
+
 }
 
 .print-container input {
@@ -675,6 +683,7 @@ html, body {
   color:white;
   position:absolute;
   bottom:1em;
+
 }
 
 @media only screen and (max-device-width : 1024px) { 
