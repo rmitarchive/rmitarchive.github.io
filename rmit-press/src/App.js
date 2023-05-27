@@ -759,7 +759,7 @@ class App extends React.Component {
         case 1:
           this.resetPrint();
           return (
-          <div className="about-container">
+          <div className="about-container" style={{overflowY: "scroll"}}>
             <MobileView>
                   <div className="mobile-menu-background"> </div>
                 </MobileView>
@@ -844,7 +844,7 @@ class App extends React.Component {
 
     if(!this.state.printStarted){
       return(
-        <div className="print-container">
+        <div className="print-container" style={{overflowY: "scroll"}}>
           <div className="print-title">
             Print Screen
           </div>
@@ -881,7 +881,7 @@ class App extends React.Component {
         );
     } else if(!this.state.emailSent){
       //loading screen
-      return(<div className="print-container">
+      return(<div className="print-container" style={{overflowY: "scroll"}}>
         <div className='print-loading-container'>
           <div className="print-loading-text">{/*Processing File ( ... )*/}</div>
         </div>
@@ -891,7 +891,7 @@ class App extends React.Component {
     }else{
       //receipt
       return(
-        <div class="print-container">
+        <div class="print-container" style={{overflowY: "scroll"}}>
           <div class="print-title">
             Confirmation
           </div>
@@ -1103,8 +1103,8 @@ class App extends React.Component {
   sendPDF(formData){
     var self = this;
     axios({
-      url: "http://localhost:8000/index.php", 
-      //url: "https://p-r-e-s-s.com/php/index.php", 
+      //url: "http://localhost:8000/index.php", 
+      url: "https://p-r-e-s-s.com/php/index.php", 
       method: "POST",
       data: formData,
       headers: {
