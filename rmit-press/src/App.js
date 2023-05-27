@@ -595,27 +595,18 @@ class App extends React.Component {
           this.resetPrint();
           return(
             <div>
+            <MobileView>
               <div className="content">
-                <MobileView>
                   <div className="mobile-menu-background"> </div>
-                </MobileView>
                 <div className="left" style={{overflowY: this.state.mobileShowMenu ? "scroll" : "hidden"}} >
                   <div className="title-container">
                     <span className="header">PRESS</span>
                     <br/><br/>
-                    <MobileView>
                     <input className="search-bar" 
                     placeholder="Search..." 
                     style={{visibility: this.state.mobileShowMenu ? "inherit" : "hidden"}} 
                     onChange={e => this.updateTextFilter(e.target.value)}>
                     </input>
-                    </MobileView>
-                    <BrowserView>
-                    <input className="search-bar" 
-                    placeholder="Search..." 
-                    onChange={e => this.updateTextFilter(e.target.value)}>
-                    </input>
-                    </BrowserView>
                   </div>
                   <div className="student-names"> 
                   <div className="menu-to-hide" >
@@ -680,15 +671,90 @@ class App extends React.Component {
                     {this.getListOfWorks()}
                   </div>
                 </div>
-                <BrowserView>
+              </div>
+            </MobileView>
+            <BrowserView>
+              <div className="content">
+                <div className="left" style={{overflowY: "scroll"}} >
+                  <div className="title-container">
+                    <span className="header">PRESS</span>
+                    <br/><br/>
+                    <input className="search-bar" 
+                    placeholder="Search..." 
+                    onChange={e => this.updateTextFilter(e.target.value)}>
+                    </input>
+                  </div>
+                  <div className="student-names"> 
+                  <div className="menu-to-hide" >
+                    <div>Filters</div>
+                    <br/>
+                    <div>
+                      <a className="student"  
+                      onClick = {(() => this.applyIndexFilter("digital"))}
+                      style={{backgroundColor: this.state.indexFilter["digital"] ? "#0078BF" : "transparent"}}>
+                        Digital
+                      </a>
+                    </div>
+                    <div>
+                    <a className="student" 
+                    onClick = {(() => this.applyIndexFilter("identity"))}
+                    style={{backgroundColor: this.state.indexFilter["identity"] ? "#ff48b0" : "transparent"}}>
+                      Identity
+                    </a>
+                    </div>
+                    <div>
+                    <a className="student" 
+                    onClick = {(() => this.applyIndexFilter("logo"))}
+                    style={{backgroundColor: this.state.indexFilter["logo"] ? "#F15060" : "transparent"}}>
+                      Logo
+                    </a>
+                    </div>
+                    <div>
+                    <a className="student" 
+                    onClick = {(() => this.applyIndexFilter("print"))}
+                    style={{backgroundColor: this.state.indexFilter["print"] ? "#00A95C" : "transparent"}}>
+                      Print
+                    </a>
+                    </div>
+                    <div>
+                    <a className="student" 
+                    onClick = {(() => this.applyIndexFilter("poster"))}
+                    style={{backgroundColor: this.state.indexFilter["poster"] ? "#FF6C2f" : "transparent"}}>
+                      Poster
+                    </a>
+                    </div>
+                    <div>
+                    <a className="student" 
+                    onClick = {(() => this.applyIndexFilter("layout"))}
+                    style={{backgroundColor: this.state.indexFilter["layout"] ? "#00838A" : "transparent"}}>
+                      Layout
+                    </a>
+                    </div>
+                    <div>
+                    <a className="student" 
+                    onClick = {(() => this.applyIndexFilter("web"))}
+                    style={{backgroundColor: this.state.indexFilter["web"] ? "#FFE800" : "transparent"}}>
+                      Web
+                    </a>
+                    </div>
+                    <br></br><br></br>
+                    <a className="student" 
+                    onClick = {(() => this.clearAllFilters())}>
+                      Clear Filters
+                    </a>
+                  </div>
+                  <br></br><br></br><br></br><br></br>
+                    {this.getListOfWorks()}
+                  </div>
+                </div>
                   <div className="right">
                     <a className="screen-func-header" onClick = {(() => this.startPDF())}>Print Screen</a>
                     <a className="screen-func-header" onClick = {(() => this.clearPage())}>Clear Screen</a>
                   </div> 
-                </BrowserView>
 
               </div>
-            </div>
+            </BrowserView>     
+            </div>       
           );
         case 1:
           this.resetPrint();
@@ -1230,6 +1296,7 @@ class App extends React.Component {
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
         <link rel="stylesheet" href="styles.css" />
+        <link rel="stylesheet" href="https://use.typekit.net/fqi4hzp.css" />
         <link rel="icon" href="icon.png" /> 
         <title>Zachariah Micallef</title>
         <BrowserView>

@@ -1,21 +1,19 @@
-@font-face {
-  font-family: 'Unica';
-  src: url("Type/NeueHaasUnica-Medium.ttf");
-}
 
-@font-face {
-  font-family: 'Century';
-  src: url("Type/Century-Schoolbook-Regular.ttf");
-}
 
 @font-face {
   font-family: 'Schrijf';
-  src: url("Type/type.ttf");
+  src: url("Type/Pantasia-Regular.ttf");
 }
 
 @font-face {
   font-family: 'PantasiaItalic';
   src: url("Type/Pantasia-Italic.otf");
+}
+
+@font-face {
+  font-family: 'Unica';
+  src: url("Type/FragmentMono-Regular.woff2");
+  font-style: normal;
 }
 
 :root {
@@ -95,7 +93,8 @@ footer {
 }
 
 .print-loading-container{
-  font-family: Unica;
+  font-family: "neue-haas-unica";
+  font-weight: 500;
   position: absolute;
   z-index: 100;
   text-align: center;
@@ -115,7 +114,8 @@ footer {
 }
 
 .fact-times {
-  font-family: Unica;
+  font-family: "neue-haas-unica";
+  font-weight: 500;
   font-size: 0.7em;
   margin: 0;
   text-align: right;
@@ -207,12 +207,14 @@ footer {
 }
 
 .helvetica {
-  font-family: Unica;
+  font-family: "neue-haas-unica";
+  font-weight: 500;
   font-size: 1em;
   cursor: pointer;
   z-index: var(--menuZIndex);
   position: relative;
   pointer-events: all;
+  
 }
 
 .helvetica-mobile {
@@ -297,7 +299,8 @@ footer {
   position:absolute;
   top:10vh;
   line-height: 1em;
-  font-family: Unica;
+  font-family: "neue-haas-unica";
+  font-weight: 500;
 }
 
 .index-img img {
@@ -313,7 +316,8 @@ footer {
 .index-right {
   position:absolute;
   height:100%;
-  font-family: Unica;
+  font-family: "neue-haas-unica";
+  font-weight: 500;
   padding:20px;
   right:0;
   overflow: scroll;
@@ -323,7 +327,8 @@ footer {
 
 * {
   text-rendering: geometricPrecision;
-  font-family: "Unica", Helvetica;
+  font-family: "neue-haas-unica", Helvetica;
+  font-weight: 500;
   line-height: 1;
 }
 
@@ -494,7 +499,7 @@ html, body {
   padding: 0 0.5em 0.5em 0.5em;
   font-size: 0.8em;
   margin-top: 0px;
-  text-align: justify;
+  text-align: left;
   user-select: none;
   color:white;
 }
@@ -544,7 +549,8 @@ html, body {
 }
 
 .ack-text {
-  font-family: Unica;
+  font-family: "Arial";
+  font-weight: 500;
   font-size: var(--ackFont);
   color:white;
 }
@@ -563,13 +569,14 @@ html, body {
 }
 
 .about-title {
-  font-family: Unica;
+  font-family: "neue-haas-unica";
+  font-weight: 500;
   padding:0.5em 0.5em 0 0.5em;
 }
 
 .about-body {
   font-family: Schrijf;
-  text-align: justify;
+  text-align: left;
   padding:0 0.5em 0 0.5em;
 }
 
@@ -587,14 +594,16 @@ html, body {
 }
 
 .print-title {
-  font-family: Unica;
+  font-family: "neue-haas-unica";
+  font-weight: 500;
   padding:0.5em 0.5em 0 0.5em;
   color:white;
 }
 .print-title a:hover{background-color: white; color:black}
 
 .print-return {
-  font-family: Unica;
+  font-family: "neue-haas-unica";
+  font-weight: 500;
   padding:0.5em 0.5em 0.5em 0.5em;
   color:white;
   position:absolute;
@@ -603,7 +612,8 @@ html, body {
 }
 
 .print-confirm {
-  font-family: Unica;
+  font-family: "neue-haas-unica";
+  font-weight: 500;
   padding:0.5em 0.5em 0.5em 0.5em;
   color:white;
 }
@@ -611,7 +621,7 @@ html, body {
 
 .print-body {
   font-family: Schrijf;
-  text-align: justify;
+  text-align: left;
   box-sizing: border-box;
   padding:0 0.5em 0 0.5em;
   font-size: 0.7em;
@@ -634,7 +644,7 @@ html, body {
 
 .print-footer {
   font-family: Schrijf;
-  text-align: justify;
+  text-align: left;
   padding:0 0.5em 0 0.5em;
   box-sizing: border-box;
   font-size: 0.7em;
