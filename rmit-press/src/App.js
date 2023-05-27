@@ -1229,11 +1229,11 @@ class App extends React.Component {
             src={require(`./Img/${this.state.focusArtPiece.image2}`)}
           />
             <p className="focus-Desc">{this.state.focusArtPiece.desc}</p>
-            <div className="about-title" style={{fontSize: "0.7em"}}>{`...`}</div>
+            <div className="focus-Desc">{`...`}</div>
             <br></br>
-            <div className="about-title" style={{fontSize: "0.7em"}}>{`${this.state.focusArtPiece.bio}`}</div>
+            <div className="focus-Desc">{`${this.state.focusArtPiece.bio}`}</div>
             <br></br>
-            <div className="about-title" style={{fontSize: "0.7em"}}>{`For any opportunities or enquiries, ${this.state.focusArtPiece.name} can be contacted at ${this.state.focusArtPiece.contact}`}</div><br></br>
+            <div className="focus-Desc">{`For any opportunities or enquiries, ${this.state.focusArtPiece.name} can be contacted at ${this.state.focusArtPiece.contact}`}</div><br></br>
         </div>
     );
   }
