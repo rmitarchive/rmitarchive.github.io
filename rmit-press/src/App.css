@@ -32,8 +32,9 @@
   --ackFont: 2em;
   --printWidth: 50vw;
   --fontFace: "neue-haas-unica";
-  /* "neue-haas-unica" */
+  /* --fontFace: "passenger"; */
   --fontWeight: 500;
+  --fontDesc: "passenger";
   --fontSize: 1em;
   --lineHeight: 1;
 }
@@ -507,13 +508,14 @@ html, body {
 }
 
 .focus-Desc {
-  font-family: 'Schrijf';
+  font-family: var(--fontDesc);
   padding: 0 0.5em 0.5em 0.5em;
   font-size: calc(var(--fontSize) - 0.3em);
   margin-top: 0px;
   text-align: left;
   user-select: none;
   color:rgb(0, 0, 0);
+  white-space: pre-wrap;
 }
 
 
@@ -561,7 +563,7 @@ html, body {
 }
 
 .ack-text {
-  font-family: "passenger";
+  font-family: var(--fontDesc);
   font-weight: var(--fontWeight);
   font-size: var(--ackFont);
   color:white;
@@ -587,7 +589,7 @@ html, body {
 }
 
 .about-body {
-  font-family: Schrijf;
+  font-family: var(--fontDesc);
   text-align: left;
   padding:0 0.5em 0 0.5em;
 }
@@ -633,7 +635,7 @@ html, body {
 .print-return:hover{background-color: white; color:black}
 
 .print-body {
-  font-family: Schrijf;
+  font-family: var(--fontDesc);
   text-align: left;
   box-sizing: border-box;
   padding:0 0.5em 0 0.5em;
@@ -656,7 +658,7 @@ html, body {
 }
 
 .print-footer {
-  font-family: Schrijf;
+  font-family: var(--fontDesc);
   text-align: left;
   padding:0 0.5em 0 0.5em;
   box-sizing: border-box;

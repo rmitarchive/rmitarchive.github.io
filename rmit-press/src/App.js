@@ -792,7 +792,11 @@ class App extends React.Component {
             This project would not have been possible without the gracious support of Suzie Zezula, Jiayu Cheng, and RMIT University.<br></br><br></br>
             All rights reserved, PRESS, 2023. <br></br><br></br>
             No part of this site may be reproduced without explicit permission from the copyright owner(s)
-            <br></br><br></br><br></br><br></br><br></br><br></br>
+            <br></br><br></br>
+            <img 
+              src={require(`./Img/Press/rmitlogo.png`)}
+              style={{maxWidth: "50px"}} />
+            <br></br><br></br><br></br><br></br>
             <br></br><br></br><br></br><br></br><br></br><br></br>
           </div>
         </div>);
@@ -1198,7 +1202,7 @@ class App extends React.Component {
             src={require(`./Img/${this.state.focusArtPiece.image}`)}
             />
             <p className="focus-Desc">{this.state.focusArtPiece.desc}</p>
-            <div className="focus-Header">{this.state.focusArtPiece.contact}</div>
+            <div className="focus-Desc">{this.state.focusArtPiece.contact}</div>
         </div>
       );
     }
@@ -1213,7 +1217,8 @@ class App extends React.Component {
             src={require(`./Img/${this.state.focusArtPiece.image}`)}
             />
             <p className="focus-Desc">{this.state.focusArtPiece.desc}</p>
-            <div className="focus-Header">{this.state.focusArtPiece.contact}</div>
+            <br></br>
+            <div className="focus-Desc">{`For any opportunities or enquiries, ${this.state.focusArtPiece.name} can be contacted at ${this.state.focusArtPiece.contact}`}</div>
         </div>
     );
   }
