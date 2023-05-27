@@ -1198,7 +1198,7 @@ class App extends React.Component {
             <div className = "focus-Header-mobile">{`${this.state.focusArtPiece.id}. ${this.state.focusArtPiece.name}, ${this.state.focusArtPiece.title}`}</div>
             <a className = "focus-Close-mobile" onTouchStart={() => this.removeFocusArtPiece()}> Close </a>
           </div>
-          <br></br><br></br><br></br>
+          <br></br><br></br>
           <img className="focus-Img"
             src={require(`./Img/${this.state.focusArtPiece.image}`)}
           />
@@ -1221,7 +1221,7 @@ class App extends React.Component {
           <div className = "focus-Header">{`${this.state.focusArtPiece.id}. ${this.state.focusArtPiece.name}, ${this.state.focusArtPiece.title}`}</div>
           <a className = "focus-Close" onMouseDown={() => this.removeFocusArtPiece()}> Close </a>
           </div>
-          <br></br><br></br><br></br>
+          <br></br><br></br>
           <img className="focus-Img"
             src={require(`./Img/${this.state.focusArtPiece.image}`)}
           />
