@@ -34,8 +34,10 @@
   --fontFace: "neue-haas-unica";
   /* --fontFace: "passenger"; */
   --fontWeight: 500;
-  --fontDesc: 'passenger';
+  --fontWeightDesc: 300;
+  --fontDesc: 'neue-haas-unica';
   --fontSize: 1em;
+  --fontSizeDesc: 0.7em;
   --lineHeight: 1;
 }
 
@@ -127,8 +129,7 @@ footer {
 
 .fact-times {
   font-family: var(--fontFace);
-  font-weight: var(--fontWeight);
-  font-size: calc(var(--fontSize) - 0.3em);
+  font-size: 0.7em;
   margin: 0;
   text-align: right;
   float: right;
@@ -207,7 +208,8 @@ footer {
 
 .index-times {
   font-family: Century;
-  font-size: calc(var(--fontSize) - 0.3em);
+  font-size: var(--fontSizeDesc);
+  font-weight: var(--fontWeightDesc);
   display: inline;
   padding-left: 5px;
   vertical-align:text-top;
@@ -215,7 +217,8 @@ footer {
 
 .times {
   font-family: Century;
-  font-size: calc(var(--fontSize) - 0.3em);
+  font-size: var(--fontSizeDesc);
+  font-weight: var(--fontWeightDesc);
 }
 
 .helvetica {
@@ -393,7 +396,7 @@ html, body {
 }
 
 .dragImgIndex {
-  font-size: calc(var(--fontSize) - 0.3em);
+  font-size: 0.7em;
 }
 
 .dragImgIndexLine {
@@ -510,7 +513,8 @@ html, body {
 .focus-Desc {
   font-family: var(--fontDesc);
   padding: 0 0.5em 0.5em 0.5em;
-  font-size: calc(var(--fontSize) - 0.3em);
+  font-size: var(--fontSizeDesc);
+  font-weight: var(--fontWeightDesc);
   margin-top: 0px;
   text-align: left;
   user-select: none;
@@ -574,7 +578,8 @@ html, body {
   width:var(--aboutWidth);
 
   box-sizing: border-box;
-  font-size: calc(var(--fontSize) - 0.3em);
+  font-size: var(--fontSizeDesc);
+  font-weight: var(--fontWeightDesc);
   line-height: var(--lineHeight);
   z-index: 1;
 
@@ -640,7 +645,8 @@ html, body {
   text-align: left;
   box-sizing: border-box;
   padding:0 0.5em 0 0.5em;
-  font-size: calc(var(--fontSize) - 0.3em);
+  font-size: var(--fontSizeDesc);
+  font-weight: var(--fontWeightDesc);
   width: var(--printWidth);
   color:white;
 }
@@ -663,7 +669,8 @@ html, body {
   text-align: left;
   padding:0 0.5em 0 0.5em;
   box-sizing: border-box;
-  font-size: calc(var(--fontSize) - 0.3em);
+  font-size: var(--fontSizeDesc);
+  font-weight: var(--fontWeightDesc);
   width: var(--printWidth);
   color:white;
   position:absolute;
