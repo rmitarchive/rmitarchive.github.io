@@ -267,6 +267,7 @@ footer {
 
   -ms-overflow-style: none;  
   scrollbar-width: none; 
+  box-shadow: 195px 0px 126px 100px #000000;
 }
 .focus-BG::-webkit-scrollbar { 
   display: none; 
