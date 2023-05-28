@@ -1261,6 +1261,7 @@ class App extends React.Component {
     return (
         <div className="focus-BG">
           <div className = "focus-Header-container">
+          <div className = "focus-obscure"></div>
           <div className = "focus-Header">{`${this.state.focusArtPiece.id}. ${this.state.focusArtPiece.name}, ${this.state.focusArtPiece.title}`}</div>
           <a className = "focus-Close" onMouseDown={() => this.removeFocusArtPiece()}> Close </a>
           </div>
