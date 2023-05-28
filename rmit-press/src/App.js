@@ -766,12 +766,15 @@ class App extends React.Component {
           <div className="about-title">PRESS<br></br>RMIT Graduate Showcase<br></br>15 June, 2023</div>
           <br></br>
           <div className="about-body">
-          Press as form. Press as function. Press as tactility. Press as object. Press as action. Press as praxis. Press as transparency. Press as positionality. Press as representation. Press as signifier. Press as signified. Press as way finding. Press as politics. Press as community. Press as collectivity. Press as exhibition. Press as interpretation. Press as curation. Press as dissemination. Press as information. Press as journalism. Press as reporting. Press as storytelling. Press as accountability. Press as influence. Press as critique. Press as exposure. Press as connection. Press as dialogue. Press as engagement. Press as empowerment. Press as protest. Press as resistance. Press as investigation. Press as documentation. Press as knowledge. Press as voice. Press as interpretation. Press as perspective. Press as discourse. Press as conversation. Press as analysis. Press as reflection. Press as collaboration. Press as innovation. Press as transformation. Press as awareness. Press as advocacy. Press as change. Press as tradition. Press as disruption. Press as continuity. Press as heritage. Press as sustainability. Press as adaptability. Press as technology. Press as digital. Press as print. Press as artifact. Press as heritage. Press as memory. 
-
-
+          PRESS is the container which encases the work from the graduating students of the Bachelor of Design (Communication Design) at RMIT University. With a focus on tangible printed matter, PRESS acts as the container to connect the collection of widely differing works and mediums produced throughout the program. By focusing on the lack of uniformity, PRESS presents a conglomerate of styles connected in part by their lack of consistency. Through the lack of parameters, the works are given space to exist within their own aura; while also revealing unexpected through lines and visual narratives which would not exist within an isolated environment. PRESS reveals the inherent connection between differing stylistic forms, and gives space for the interaction and dialogue between the works which would ordinarily exist in solitude. 
+          <br></br><br></br>
+          Every image on this web-page is draggable. By arranging images on the page, you are then able to select the Print Screen option; exporting a user-generated pdf file which is sent via email to the user. The resulting object becomes a synthesis between physical and digital, creating a direct tangible entity which straddles the intersections of two distinctly seperate representative mediums.
+          <br></br><br></br>
+          We encourage the audience and industry to reach out to the graduating students and foster relationships which will prove beneficial to the development of meaningful bodies of work. Contact details for each student are available within the expanded view of their work. 
+          
           </div>
             <dl>
-              <dt className="about-title">Graduating Cohort:</dt>
+              <dt className="about-title">Graduating Cohort</dt>
               <br/>
               <dt className="about-body">Alana Eve Lacy</dt>
               <dt className="about-body">Angus Wicks</dt>
@@ -810,7 +813,7 @@ class App extends React.Component {
               <dt className="about-body">Zoe Zhou</dt>
             </dl>
             <dl>
-              <dt className="about-title">PRESS Production Credits:</dt>
+              <dt className="about-title">PRESS Production Credits</dt>
               <br/>
               <dt className="about-body">Ella Taylor</dt>
               <dd className="about-body">Layout, Identity</dd>
@@ -831,10 +834,18 @@ class App extends React.Component {
               <dd className="about-body">Front End Website, Identity</dd>
               <dd className="about-body"><a href="https://www.instagram.com/3z22j/" target="_blank">Contact (...)</a></dd>
             </dl>
-          <div className="about-body">
-            This project would not have been possible without the gracious support of Suzie Zezula, Jiayu Cheng, and RMIT University.<br></br><br></br>
-            All rights reserved, PRESS, 2023. <br></br><br></br>
-            No part of this site may be reproduced without explicit permission from the copyright owner(s).
+            <dl>
+              <dt className="about-title">Special Thanks</dt>
+              <br/>
+              <dt className="about-body">Brad Haylock</dt>
+              <dt className="about-body">Jiayu Cheng</dt>
+              <dt className="about-body">Russel Kerr</dt>
+              <dt className="about-body">Suzie Zezula</dt>
+              <dt className="about-body">RMIT University</dt>
+              <dt className="about-body">Makers Space</dt>
+            </dl>
+          <div className="about-title">
+            All rights reserved, PRESS, 2023. No part of this site may be reproduced without explicit permission from the copyright owner(s).
             {/* <br></br><br></br>
             <img 
               src={require(`./Img/Press/rmitlogo.png`)}
