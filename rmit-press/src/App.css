@@ -22,11 +22,17 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'passengerbold';
+  src: url("Type/Passenger-Bold-Web.woff");
+  font-style: normal;
+}
+
 :root {
   --mobileMenuDisplay: inline-block;
   --color: black;
   --menuZIndex: 10;
-  --leftWidth: 30%;
+  --leftWidth: 50%;
   --rightWidth: auto;
   --aboutWidth: 50vw;
   --ackFont: 2em;
@@ -35,7 +41,7 @@
   /* --fontFace: "passenger"; */
   --fontWeight: 500;
   --fontWeightDesc: 300;
-  --fontDesc: 'passenger';
+  --fontDesc: 'neue-haas-unica';
   --fontSize: 1em;
   --fontSizeDesc: 0.7em;
   --lineHeight: 1;
@@ -68,6 +74,7 @@ header {
   display: var(--mobileMenuDisplay);
   text-align: right;
   cursor: pointer;
+  font-size: var(--fontSize);
 }
 
 footer {
@@ -129,7 +136,7 @@ footer {
 }
 
 .fact-times {
-  font-family: var(--fontFace);
+  font-family: var(--fontDesc);
   font-size: 0.7em;
   margin: 0;
   text-align: right;
@@ -362,6 +369,8 @@ html, body {
   margin: 0;
   padding: 0;
   background-color: rgb(255, 255, 255);
+  /* -webkit-text-stroke: 0.1px rgb(0, 0, 0); */
+
 }
 
 .content {
