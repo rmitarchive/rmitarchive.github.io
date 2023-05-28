@@ -1259,9 +1259,10 @@ class App extends React.Component {
     }
 
     return (
+      <div>
+      <div className = "focus-obscure"></div> 
         <div className="focus-BG">
           <div className = "focus-Header-container">
-          <div className = "focus-obscure"></div>
           <div className = "focus-Header">{`${this.state.focusArtPiece.id}. ${this.state.focusArtPiece.name}, ${this.state.focusArtPiece.title}`}</div>
           <a className = "focus-Close" onMouseDown={() => this.removeFocusArtPiece()}> Close </a>
           </div>
@@ -1279,6 +1280,7 @@ class App extends React.Component {
             <br></br>
             <div className="focus-Desc"><a href={(`mailto:${this.state.focusArtPiece.contact}`)}>{`For any opportunities or enquiries, ${this.state.focusArtPiece.name} can be contacted at ${this.state.focusArtPiece.contact} (...)`}</a></div><br></br>
         </div>
+      </div>  
     );
   }
 
