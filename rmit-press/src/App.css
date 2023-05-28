@@ -35,7 +35,7 @@
   /* --fontFace: "passenger"; */
   --fontWeight: 500;
   --fontWeightDesc: 300;
-  --fontDesc: 'neue-haas-unica';
+  --fontDesc: 'passenger';
   --fontSize: 1em;
   --fontSizeDesc: 0.7em;
   --lineHeight: 1;
@@ -64,7 +64,7 @@ header {
   /*position:fixed;*/
   box-sizing: border-box;
   /*padding:10px;*/
-  z-index: var(--menuZIndex);
+  z-index: 99999999;
   display: var(--mobileMenuDisplay);
   text-align: right;
   cursor: pointer;
@@ -268,6 +268,10 @@ footer {
   -ms-overflow-style: none;  
   scrollbar-width: none; 
 }
+.focus-BG::-webkit-scrollbar { 
+  display: none; 
+}
+
 .focus-BG-mobile {
   position:absolute;
   box-sizing: border-box;
@@ -284,6 +288,9 @@ footer {
 
   -ms-overflow-style: none;  
   scrollbar-width: none; 
+}
+.focus-BG-mobile::-webkit-scrollbar { 
+  display: none; 
 }
 
 .index-main-BG {
@@ -467,6 +474,7 @@ html, body {
   float: left;
   user-select: none;
   color:rgb(0, 0, 0);
+  font-size: var(--fontSizeDesc);
   
 }
 .focus-Header-mobile {
@@ -474,6 +482,8 @@ html, body {
   float: left;
   user-select: none;
   color:rgb(0, 0, 0);
+  font-size: var(--fontSizeDesc);
+
   
   /*position: fixed;*/
 }
@@ -494,6 +504,8 @@ html, body {
   position: fixed;
   right: 0;
   top: 0;
+  font-size: var(--fontSizeDesc);
+
 }
 
 .focus-Close-mobile {
@@ -504,6 +516,8 @@ html, body {
   position: fixed;
   right: 0;
   top: 0;
+  font-size: var(--fontSizeDesc);
+
 }
 
 .focus-Close:hover {
@@ -522,6 +536,20 @@ html, body {
   color:rgb(0, 0, 0);
   white-space: pre-wrap;
   text-indent: var(--indent);
+}
+
+.focus-Bio {
+  font-family: var(--fontDesc);
+  padding: 0 0.5em 0.5em 0.5em;
+  font-size: var(--fontSizeDesc);
+  font-weight: var(--fontWeightDesc);
+  margin-top: 0px;
+  text-align: left;
+  user-select: none;
+  color:rgb(0, 0, 0);
+  white-space: pre-wrap;
+  text-indent: var(--indent);
+  font-style: italic;
 }
 
 
@@ -587,6 +615,13 @@ html, body {
 
   overflow-x: hidden;
   overflow-y: scroll;
+
+  -ms-overflow-style: none;  
+  scrollbar-width: none; 
+}
+
+.about-container::-webkit-scrollbar { 
+  display: none; 
 }
 
 .about-title {
@@ -603,8 +638,15 @@ html, body {
   font-size: var(--fontSizeDesc);
   text-align: left;
   padding:0 0.5em 0 0.5em;
-
 }
+
+.about-body a{
+  text-decoration: none;
+  font-weight: var(--fontWeightDesc);
+  color:black;
+}
+
+.about-body a:hover{color:white;}
 
 .print-container {
   height:100vh;

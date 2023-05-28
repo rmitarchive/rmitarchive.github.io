@@ -772,26 +772,71 @@ class App extends React.Component {
           <br></br><br></br>
           Vestibulum arcu turpis, condimentum quis risus a, eleifend efficitur elit. Nunc tempus massa tellus, sit amet aliquet purus luctus in. Quisque venenatis nunc consectetur velit iaculis fringilla. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam id faucibus velit, ac dictum lacus. Fusce velit tortor, elementum in velit at, fringilla tincidunt dui. Cras imperdiet mauris eget dui eleifend, hendrerit facilisis tortor elementum. Ut rutrum.
           </div>
-            <br></br>
+            <dl>
+              <dt className="about-title">Graduating Cohort:</dt>
+              <br/>
+              <dt className="about-body">Alana Eve Lacy</dt>
+              <dt className="about-body">Angus Wicks</dt>
+              <dt className="about-body">April Larsen</dt>
+              <dt className="about-body">Beverly Angelina</dt>
+              <dt className="about-body">Charles Ly</dt>
+              <dt className="about-body">Chengyang Wang</dt>
+              <dt className="about-body">Deniz Olken</dt>
+              <dt className="about-body">Ella Taylor</dt>
+              <dt className="about-body">Emili Keisha</dt>
+              <dt className="about-body">Finn Stewart</dt>
+              <dt className="about-body">Jazelle Mackenzie</dt>
+              <dt className="about-body">Juliette Rosa</dt>
+              <dt className="about-body">Katya Vergara</dt>
+              <dt className="about-body">Li Yeng Hiu</dt>
+              <dt className="about-body">Nicholas Gleeson</dt>
+              <dt className="about-body">Paul Weedon</dt>
+              <dt className="about-body">Quanming Li</dt>
+              <dt className="about-body">Raquel Laing-Nobrega</dt>
+              <dt className="about-body">Rionna Revathi Muniandy</dt>
+              <dt className="about-body">Rongshen Liang</dt>
+              <dt className="about-body">Sophie Jones</dt>
+              <dt className="about-body">Sum Tsui</dt>
+              <dt className="about-body">Teresa Si Pei Wee</dt>
+              <dt className="about-body">William Hunt</dt>
+              <dt className="about-body">Xiaohui Jia</dt>
+              <dt className="about-body">Xinyi Zhang</dt>
+              <dt className="about-body">Xinyuan Du</dt>
+              <dt className="about-body">Xiu Yin</dt>
+              <dt className="about-body">Yidi Wang</dt>
+              <dt className="about-body">Yixuan Chen</dt>
+              <dt className="about-body">Yuchen Xu</dt>
+              <dt className="about-body">Zixin Alexis Liu</dt>
+              <dt className="about-body">Ziyu Shen</dt>
+              <dt className="about-body">Zoe White</dt>
+              <dt className="about-body">Zoe Zhou</dt>
+            </dl>
             <dl>
               <dt className="about-title">PRESS Production Credits:</dt>
               <br/>
               <dt className="about-body">Ella Taylor</dt>
               <dd className="about-body">Layout, Identity</dd>
+              <dd className="about-body"><a href="https://www.instagram.com/eettstudios/" target="_blank">Contact (...)</a></dd>
+              <dt className="about-body">Finn Stewart</dt>
+              <dd className="about-body">Spatial Design</dd>
+              <dd className="about-body"><a href="https://www.instagram.com/finnystew/" target="_blank">Contact (...)</a></dd>
               <dt className="about-body">Liam Kenna</dt>
               <dd className="about-body">Front & Back End Website</dd>
+              <dd className="about-body"><a href="https://www.instagram.com/sshmiam/" target="_blank">Contact (...)</a></dd>
               <dt className="about-body">Nicholas Gleeson</dt>
-              <dd className="about-body">Layout, Identity</dd>
+              <dd className="about-body">Project Management, Layout, Identity</dd>
+              <dd className="about-body"><a href="https://www.instagram.com/moma1000000/" target="_blank">Contact (...)</a></dd>
               <dt className="about-body">Timon Muery</dt>
               <dd className="about-body">Layout, Identity</dd>
+              <dd className="about-body"><a href="https://www.instagram.com/0__00_____0_____0/" target="_blank">Contact (...)</a></dd>
               <dt className="about-body">Zachariah Micallef</dt>
               <dd className="about-body">Front End Website, Identity</dd>
+              <dd className="about-body"><a href="https://www.instagram.com/3z22j/" target="_blank">Contact (...)</a></dd>
             </dl>
-            <br></br>
           <div className="about-body">
             This project would not have been possible without the gracious support of Suzie Zezula, Jiayu Cheng, and RMIT University.<br></br><br></br>
             All rights reserved, PRESS, 2023. <br></br><br></br>
-            No part of this site may be reproduced without explicit permission from the copyright owner(s)
+            No part of this site may be reproduced without explicit permission from the copyright owner(s).
             <br></br><br></br>
             <img 
               src={require(`./Img/Press/rmitlogo.png`)}
@@ -1198,7 +1243,7 @@ class App extends React.Component {
             <div className = "focus-Header-mobile">{`${this.state.focusArtPiece.id}. ${this.state.focusArtPiece.name}, ${this.state.focusArtPiece.title}`}</div>
             <a className = "focus-Close-mobile" onTouchStart={() => this.removeFocusArtPiece()}> Close </a>
           </div>
-          <br></br><br></br>
+          <br></br>
           <img className="focus-Img"
             src={require(`./Img/${this.state.focusArtPiece.image}`)}
           />
@@ -1206,9 +1251,9 @@ class App extends React.Component {
             src={require(`./Img/${this.state.focusArtPiece.image2}`)}
           />
             <p className="focus-Desc">{this.state.focusArtPiece.desc}</p>
-            <div className="focus-Desc">{`...`}</div>
+            <div className="focus-Desc" >{`...`}</div>
             <br></br>
-            <div className="focus-Desc">{`${this.state.focusArtPiece.bio}`}</div>
+            <div className="focus-Bio">{`${this.state.focusArtPiece.bio}`}</div>
             <br></br>
             <div className="focus-Desc">{`For any opportunities or enquiries, ${this.state.focusArtPiece.name} can be contacted at ${this.state.focusArtPiece.contact}`}</div><br></br>
         </div>
@@ -1221,7 +1266,7 @@ class App extends React.Component {
           <div className = "focus-Header">{`${this.state.focusArtPiece.id}. ${this.state.focusArtPiece.name}, ${this.state.focusArtPiece.title}`}</div>
           <a className = "focus-Close" onMouseDown={() => this.removeFocusArtPiece()}> Close </a>
           </div>
-          <br></br><br></br>
+          <br></br>
           <img className="focus-Img"
             src={require(`./Img/${this.state.focusArtPiece.image}`)}
           />
@@ -1231,7 +1276,7 @@ class App extends React.Component {
             <p className="focus-Desc">{this.state.focusArtPiece.desc}</p>
             <div className="focus-Desc">{`...`}</div>
             <br></br>
-            <div className="focus-Desc">{`${this.state.focusArtPiece.bio}`}</div>
+            <div className="focus-Bio">{`${this.state.focusArtPiece.bio}`}</div>
             <br></br>
             <div className="focus-Desc">{`For any opportunities or enquiries, ${this.state.focusArtPiece.name} can be contacted at ${this.state.focusArtPiece.contact}`}</div><br></br>
         </div>

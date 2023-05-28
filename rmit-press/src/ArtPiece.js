@@ -231,7 +231,7 @@ class ArtPiece extends React.Component {
                 className="dragImgIndex"
                 > {
                   this.state.isRandomImage ? `` : this.state.isMobile ? `${this.state.coreInfo.name} (...)`
-                  : ` ${this.state.coreInfo.name} ( ... )`}
+                  : `${this.state.coreInfo.name} ( ... )`}
                 </a>
               </div> 
           </div>
