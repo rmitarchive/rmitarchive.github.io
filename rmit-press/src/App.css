@@ -538,6 +538,14 @@ html, body {
   text-indent: var(--indent);
 }
 
+.focus-Desc a {
+  text-decoration: none;
+  color:black;
+  font-weight: var(--fontWeight);
+
+}
+.focus-Desc a:hover{color:white;}
+
 .focus-Bio {
   font-family: var(--fontDesc);
   padding: 0 0.5em 0.5em 0.5em;

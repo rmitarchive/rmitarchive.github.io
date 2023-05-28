@@ -1255,7 +1255,7 @@ class App extends React.Component {
             <br></br>
             <div className="focus-Bio">{`${this.state.focusArtPiece.bio}`}</div>
             <br></br>
-            <div className="focus-Desc">{`For any opportunities or enquiries, ${this.state.focusArtPiece.name} can be contacted at ${this.state.focusArtPiece.contact}`}</div><br></br>
+            <div className="focus-Desc"><a href={(`mailto:${this.state.focusArtPiece.contact}`)}>{`For any opportunities or enquiries, ${this.state.focusArtPiece.name} can be contacted at ${this.state.focusArtPiece.contact} (...)`}</a></div><br></br>
         </div>
       );
     }
@@ -1278,7 +1278,7 @@ class App extends React.Component {
             <br></br>
             <div className="focus-Bio">{`${this.state.focusArtPiece.bio}`}</div>
             <br></br>
-            <div className="focus-Desc">{`For any opportunities or enquiries, ${this.state.focusArtPiece.name} can be contacted at ${this.state.focusArtPiece.contact}`}</div><br></br>
+            <div className="focus-Desc"><a href={(`mailto:${this.state.focusArtPiece.contact}`)}>{`For any opportunities or enquiries, ${this.state.focusArtPiece.name} can be contacted at ${this.state.focusArtPiece.contact} (...)`}</a></div><br></br>
         </div>
     );
   }
