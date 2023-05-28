@@ -766,11 +766,9 @@ class App extends React.Component {
           <div className="about-title">PRESS<br></br>RMIT Graduate Showcase<br></br>15 June, 2023</div>
           <br></br>
           <div className="about-body">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus accumsan lacinia ullamcorper. Quisque facilisis purus vel pulvinar finibus. Donec pretium sollicitudin turpis vitae viverra. Nullam consequat euismod nisl, non lacinia ligula eleifend eget. Proin ornare nibh eu turpis ultricies, vitae aliquet mi consequat. Duis ante ipsum, bibendum sed lorem in, imperdiet viverra elit. Nulla et interdum sem, ut sodales tortor. Nam porta dui sed ligula dignissim varius. Fusce sollicitudin eros ut gravida facilisis. Curabitur varius mollis eros nec porttitor.
-          <br></br><br></br>
-          Maecenas id nisl viverra, feugiat dui nec, tincidunt arcu. Etiam vel augue in ipsum fermentum sagittis in id nisl. In eu orci nisi. Integer porta sed tellus sed gravida. Nulla facilisi. Duis at sem nec ante dapibus scelerisque ut id nisi. Praesent elementum libero ut nibh fringilla euismod. Pellentesque quis maximus dui, vel suscipit tortor.
-          <br></br><br></br>
-          Vestibulum arcu turpis, condimentum quis risus a, eleifend efficitur elit. Nunc tempus massa tellus, sit amet aliquet purus luctus in. Quisque venenatis nunc consectetur velit iaculis fringilla. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam id faucibus velit, ac dictum lacus. Fusce velit tortor, elementum in velit at, fringilla tincidunt dui. Cras imperdiet mauris eget dui eleifend, hendrerit facilisis tortor elementum. Ut rutrum.
+          Press as form. Press as function. Press as tactility. Press as object. Press as action. Press as praxis. Press as transparency. Press as positionality. Press as representation. Press as signifier. Press as signified. Press as way finding. Press as politics. Press as community. Press as collectivity. Press as exhibition. Press as interpretation. Press as curation. Press as dissemination. Press as information. Press as journalism. Press as reporting. Press as storytelling. Press as accountability. Press as influence. Press as critique. Press as exposure. Press as connection. Press as dialogue. Press as engagement. Press as empowerment. Press as protest. Press as resistance. Press as investigation. Press as documentation. Press as knowledge. Press as voice. Press as interpretation. Press as perspective. Press as discourse. Press as conversation. Press as analysis. Press as reflection. Press as collaboration. Press as innovation. Press as transformation. Press as awareness. Press as advocacy. Press as change. Press as tradition. Press as disruption. Press as continuity. Press as heritage. Press as sustainability. Press as adaptability. Press as technology. Press as digital. Press as print. Press as artifact. Press as heritage. Press as memory. 
+
+
           </div>
             <dl>
               <dt className="about-title">Graduating Cohort:</dt>
@@ -837,10 +835,10 @@ class App extends React.Component {
             This project would not have been possible without the gracious support of Suzie Zezula, Jiayu Cheng, and RMIT University.<br></br><br></br>
             All rights reserved, PRESS, 2023. <br></br><br></br>
             No part of this site may be reproduced without explicit permission from the copyright owner(s).
-            <br></br><br></br>
+            {/* <br></br><br></br>
             <img 
               src={require(`./Img/Press/rmitlogo.png`)}
-              style={{maxWidth: "50px"}} />
+              style={{maxWidth: "50px"}} /> */}
             <br></br><br></br><br></br><br></br>
             <br></br><br></br><br></br><br></br><br></br><br></br>
           </div>
