@@ -22,6 +22,11 @@ header('Access-Control-Allow-Headers: Content-Type');
         }
     }
 
+    $data = file_get_contents("Img/Type/".$_POST["bigLetter"].".png");
+    $base64 = 'data:image/.png;base64,' . base64_encode($data);
+
+    $html = str_replace("%bigImg%", $base64, $html);
+
     $options = new Options();
     $options->set('isRemoteEnabled', true);
     $options->set('chroot', __DIR__);
@@ -32,7 +37,7 @@ header('Access-Control-Allow-Headers: Content-Type');
     $dompdf->load_html($html);
     $dompdf->render();
     $output = $dompdf->output();
-    file_put_contents($_POST["pdfName"], $output);
+    file_put_contents("PDF_OUTPUT/" . $_POST["pdfName"], $output);
 
     //test
     //file_put_contents("test.html", $html);

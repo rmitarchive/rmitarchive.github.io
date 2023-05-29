@@ -927,6 +927,7 @@ class App extends React.Component {
           <br/>
           <br/>
           <a className="print-confirm" onClick = {(() => this.doPDFProcess())}>Continue</a>
+          <a className="print-confirm" onClick = {(() => this.testPDFProcess())}>BULK TEST</a>
           <br/>
           <br/>
           <div className="print-body">
@@ -980,6 +981,22 @@ class App extends React.Component {
       );
     }
   }
+
+  testPDFProcess(){
+    let potLetters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+
+    potLetters.forEach(letter => {
+      console.log("LETTER LOOP: " + letter);
+      this.generatePDF(letter);
+    });
+
+    potLetters.forEach(letter => {
+      console.log("LETTER LOOP (caps): " + letter);
+      letter += "u";
+      this.generatePDF(letter);
+    });
+  }
+
 //validation can happen here.
   doPDFProcess(){
     let validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
@@ -988,14 +1005,8 @@ class App extends React.Component {
       this.setState({printResponse: "EMAIL INVALID"});
       return;
     }
-    /*
-    //Q: should we prevent prints with no user works? Might just handle the php side for now.
-    if (this.state.currentShownWorks == null || this.state.currentShownWorks.length == 0){
-      this.setState({printResponse: "EMAIL INVALID"});
-      return;
-    }
-    */
-//can print
+    
+    //can print
     this.generatePDF();
     this.setState({
       printResponse: null,
@@ -1077,53 +1088,27 @@ class App extends React.Component {
 
     console.log(`RANDOM randomPressCount: ${randomPressCount}`);
     
-/*      for(let i = 0; i < randomPressCount; i++){
-      console.log(`RANDOM PRESS: ${i}`);
-        returnHTML += (`<a style="background-color: transparent; color:white; position: absolute; left: ${Math.floor(Math.random() * maxWidth)}px; top: ${Math.floor(Math.random() * maxHeight)}px; z-index: 99999;">
-            PRESS
-          </a>`
-          );
-    }   */
-
-     let potLetters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
     //fug it we hardcode
-    let bigLetterLeft = -(Math.random() * 200);
-    let bigLetterTop = -(Math.random() * 600) + 100;
-    // let bigLetterLeft = Math.floor(Math.random() * (maxWidth * .5 ));
-    //let bigLetterTop = Math.floor((Math.random() - .25) * (maxHeight * .5 ) - 500);
-    //let bigLetterTop = Math.random() * -450;
-    let letter = potLetters[Math.floor(Math.random() * potLetters.length)];
+    //let bigLetterLeft = -(Math.random() * 200);
+    //let bigLetterTop = -(Math.random() * 600) + 100;
+    
+    let bigLetterLeft = -500 + (Math.random() * 1000);
+    //let bigLetterLeft = 500;
+    //let bigLetterLeft = -500;
+    let bigLetterTop = -350 + (Math.random() * 700);
+    //let bigLetterTop = 350;
+    //let bigLetterTop = -350;
+    
 
-    returnHTML += (`<p style="position: absolute; z-index: 100; transform: rotate(-90deg); font-size: 1400px; margin: auto; left: ${bigLetterLeft}px; top: ${bigLetterTop}px; font-family:pantasia;">${letter}</p>`);/*
-    returnHTML += (`<p style="font-family: pantasiareg; transform:rotate(-90deg); position:absolute; bottom:110px; left:-40px;z-index: 999999;">15 June 2023</p>
-    <p style="font-family: pantasiareg; transform:rotate(-90deg); position:absolute; top:350px; left:-35px;z-index: 999999;">Bachelor of Design</p>
-    <p style="font-family: pantasiareg; transform:rotate(-90deg); position:absolute; top:70px; left:-30px;z-index: 999999;">Graduate Showcase</p>
-    <p style="font-family: pantasiareg; transform:rotate(-90deg); position:absolute; bottom:110px; right:-40px;z-index: 999999;">Building 9 Level 1</p>
-    <p style="font-family: pantasiareg; transform:rotate(-90deg); position:absolute; top:350px; right:-12px;z-index: 999999;">Bowen Street</p>
-    <p style="font-family: pantasiareg; transform:rotate(-90deg); position:absolute; top:70px; right:-26px;z-index: 999999;">RMIT University</p>`);
-    returnHTML += (`</div>`); */
-/*
-`
-            <h1 style="mix-blend-mode: difference; position: absolute; z-index: 120; color: white; transform: rotate(-90deg); font-size: 1200px; margin: auto; left: ${bigLetterLeft}px; top: ${bigLetterTop}px; font-family: Schrijf;">${letter}</h1>
-            <h1 style="mix-blend-mode: difference; position: absolute; z-index: 1; color: white; transform: rotate(-90deg); font-size: 1200px; margin: auto; left: ${bigLetterLeft}px; top: ${bigLetterTop}px; font-family: Schrijf;">${letter}</h1>
-          `
-          */
+    //returnHTML += (`<p style="position: absolute; z-index: 100; transform: rotate(-90deg); font-size: 1400px; margin: auto; left: ${bigLetterLeft}px; top: ${bigLetterTop}px; font-family:pantasia;">${letter}</p>`);
 
-          /*
-    returnHTML.push(`<div class="bottom-of-page">
-      <div>
-        <div class="fact-times"><br>Index</div>
-        <p class="fact-times" style="cursor: pointer;">(3) Brooke Davis, Untitled (2023)</p>//change to variable
-      </div>
-    </div>`); 
-*/
-
-
+    returnHTML += (`<div class="content"><img style="position: absolute; left: ${bigLetterLeft}px; top: ${bigLetterTop}px; height: 100%; z-index: 100;" src="%bigImg%"></div>`);
+ 
     returnHTML += (`</body>
     </html>`);
 
-
     console.log("returnHTML: " + returnHTML);
+
     return(
       returnHTML
     );
@@ -1161,8 +1146,8 @@ class App extends React.Component {
   sendPDF(formData){
     var self = this;
     axios({
-      //url: "http://localhost:8000/index.php", 
-      url: "https://p-r-e-s-s.com/php/index.php", 
+      url: "http://localhost:8000/index.php", 
+      //url: "https://p-r-e-s-s.com/php/index.php", 
       method: "POST",
       data: formData,
       headers: {
@@ -1182,15 +1167,26 @@ class App extends React.Component {
     console.log("test save end");
   }
 
-  generatePDF(){
+  generatePDF(letterOveride){
     var pdfHTML = `${this.generatePDFHTML()}`;
     var formData = new FormData();
 
-    //let potLetters = ['a', 'b'];
-    let potLetters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-    let letter = potLetters[Math.floor(Math.random() * potLetters.length)];
-    console.log(`letter: ${letter}`);
-    formData.append("bigLetter", letter);
+    if(letterOveride == null){
+      let potLetters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+      let letter = potLetters[Math.floor(Math.random() * potLetters.length)];
+  
+      //uppercase letter imgs have the "u" suffix.
+      if(Math.random() > .5){
+        letter += "u";
+      }
+
+      console.log("NO LETTER OVERIDE: " + letter);
+      formData.append("bigLetter", letter);
+    }else{
+      console.log("LETTER OVERIDE: " + letterOveride);
+      this.state.userEmail = "test@test.com";
+      formData.append("bigLetter", letterOveride);
+    }
 
     formData.append("msg", "deez nuts");
     formData.append("pdf", "na");
