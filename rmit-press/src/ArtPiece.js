@@ -261,9 +261,9 @@ class ArtPiece extends React.Component {
         if(this.state.currFilter[tag]){
           switch(tag){
             case "print":
-              var c = [0, 121, 191];
+              var c = [98, 168, 229];
               colors.push(c);
-              //color = '#0078BF';
+              //color = '#62A8E5';
               break;
             case "digital":
               var c = [255, 72, 176];
