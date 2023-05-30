@@ -3,7 +3,7 @@
       {
         "id": 0,
         "name": "Alana Eve Lacy",
-        "tags": ["print", "illustration"],
+        "tags": ["identity", "logo"],
         "title": "Western Girl In Japan",
         "image": "Press/alana.png",
         "image2":"Press/no-img.jpg",
@@ -15,7 +15,7 @@
       {
         "id": 1,
         "name": "Angus Wicks",
-        "tags": ["identity"],
+        "tags": ["digital", "web"],
         "title": "Solace",
         "image": "Press/angus.jpg",
         "image2":"Press/no-img.jpg",
@@ -27,7 +27,7 @@
       {
         "id": 2,
         "name": "April Larsen",
-        "tags": ["print", "illustration"],
+        "tags": ["print"],
         "title": "Wetter & Wilder - A Colouring Book",
         "image": "Press/april.JPG",
         "image2":"Press/no-img.jpg",
@@ -39,7 +39,7 @@
       {
         "id": 3,
         "name": "Beverly Angelina",
-        "tags": ["identity", "illustration"],
+        "tags": ["logo", "identity"],
         "title": "Gardin",
         "image": "Press/beverly.png",
         "image2":"Press/no-img.jpg",
@@ -51,7 +51,7 @@
       {
         "id": 4,
         "name": "Carol Xu",
-        "tags": ["sitebased", "digital"],
+        "tags": ["digital"],
         "title": "Wedding Ceremony",
         "image": "Press/yuchen.jpeg",
         "image2":"Press/no-img.jpg",
@@ -63,7 +63,7 @@
       {
         "id": 5,
         "name": "Cindy Zhang",
-        "tags": ["sitebased", "digital"],
+        "tags": ["digital"],
         "title": "Wedding Ceremony",
         "image": "Press/xinyi.jpeg",
         "image2":"Press/no-img.jpg",
@@ -75,7 +75,7 @@
       {
         "id": 6,
         "name": "Charles Ly",
-        "tags": ["identity", "digital", "hypermedia"],
+        "tags": ["digital", "identity"],
         "title": "Affinite Rings",
         "image": "Press/charles.jpg",
         "image2":"Press/no-img.jpg",
@@ -87,7 +87,7 @@
       {
         "id": 7,
         "name": "Claire Jia",
-        "tags": ["identity", "object"],
+        "tags": ["identity"],
         "title": "Bug Buddies",
         "image": "Press/claire.png",
         "image2":"Press/no-img.jpg",
@@ -99,7 +99,7 @@
       {
         "id": 8,
         "name": "Dee Caliskan",
-        "tags": ["sitebased", "hypermedia"],
+        "tags": [""],
         "title": "Experiment 001",
         "image": "Press/placeholder.png",
         "image2":"Press/no-img.jpg",
@@ -111,7 +111,7 @@
       {
         "id": 9,
         "name": "Elki Shen",
-        "tags": ["print", "object"],
+        "tags": ["print", "layout"],
         "title": "Scientism",
         "image": "Press/ziyu.png",
         "image2":"Press/no-img.jpg",
@@ -123,7 +123,7 @@
       {
         "id": 10,
         "name": "Ella Taylor",
-        "tags": ["print", "object"],
+        "tags": [""],
         "title": "Untitled",
         "image": "Press/placeholder.png",
         "image2":"Press/no-img.jpg",
@@ -135,7 +135,7 @@
       {
         "id": 11,
         "name": "Emili Keisha",
-        "tags": ["identity", "illustration"],
+        "tags": ["logo", "identity"],
         "title": "UBI",
         "image": "Press/emili.png",
         "image2":"Press/no-img.jpg",
@@ -147,7 +147,7 @@
       {
         "id": 12,
         "name": "Finn Stewart",
-        "tags": ["object", "sitebased"],
+        "tags": [""],
         "title": "To Build A Home",
         "image": "Press/finn2.jpeg",
         "image2":"Press/finn.jpg",
@@ -171,7 +171,7 @@
       {
         "id": 14,
         "name": "Jasmine Wang",
-        "tags": ["print", "object"],
+        "tags": ["poster", "layout"],
         "title": "Me & You Together (Song)",
         "image": "Press/jasmine1.jpeg",
         "image2":"Press/jasmine2.jpeg",
@@ -195,7 +195,7 @@
       {
         "id": 16,
         "name": "Katya Vergana",
-        "tags": ["print", "illustration"],
+        "tags": ["print"],
         "title": "Grimm's Fairy Tales",
         "image": "Press/katya.jpg",
         "image2":"Press/no-img.jpg",
@@ -255,7 +255,7 @@
       {
         "id": 21,
         "name": "Paul Weedon",
-        "tags": ["print", "illustration"],
+        "tags": ["print"],
         "title": "Welcome to the Dream State",
         "image": "Press/paul.jpg",
         "image2":"Press/no-img.jpg",
@@ -267,7 +267,7 @@
       {
         "id": 22,
         "name": "Raquel Laing-Nobrega",
-        "tags": ["print", "object"],
+        "tags": ["print", "layout"],
         "title": "Slice",
         "image": "Press/raquel.png",
         "image2":"Press/no-img.jpg",
@@ -292,7 +292,7 @@
       {
         "id": 24,
         "name": "Sophie Jones",
-        "tags": ["print", "identity"],
+        "tags": ["poster", "layout"],
         "title": "Kind Regards",
         "image": "Press/sophie.jpeg",
         "image2":"Press/no-img.jpg",
@@ -304,7 +304,7 @@
       {
         "id": 25,
         "name": "Sum Tsui",
-        "tags": ["sitebased", "identity"],
+        "tags": ["identity", "logo"],
         "title": "'Being Human' Exhibition Proposal and Design ",
         "image": "Press/sum.png",
         "image2":"Press/no-img.jpg",
@@ -316,19 +316,19 @@
       {
         "id": 26,
         "name": "Teresa Si Pei Wee",
-        "tags": ["sitebased", "hypermedia"],
+        "tags": [""],
         "title": "Growing Through Grief",
         "image": "Press/teresa.png",
         "image2":"Press/no-img.jpg",
         "year": "2023",
-        "desc": "Grief can leave people devastated and unable to reach out for help. People experiencing grief can appear stuck or numb much like bring trapped in an invisible box. They are often overwhelmed by the situation they find themselves in and unable to function like they used to and coordinate the care they desperately need. This exhibition is a way to reach out and break down the invisible barriers of loss and the things people don’t talk about. To encourage people that are suffering from grief to share about their loss, heal through conversations, and take a step into a positive perspective moving forward.",
+        "desc": "Grief can leave people devastated and unable to reach out for help. People experiencing grief can appear stuck or numb much like bring trapped in an invisible box. They are often overwhelmed by the situation they find themselves in and unable to function like they used to and coordinate the care they desperately need. This exhibition is a way to reach out and break down the invisible barriers of loss and the things people don’t talk about.To encourage people that are suffering from grief to share about their loss, heal through conversations, and take a step into a positive perspective moving forward.",
         "bio":"",
         "contact": "s3735467@student.rmit.edu.au"
       },
       {
         "id": 27,
         "name": "Vinson Liang",
-        "tags": ["print", "object"],
+        "tags": ["print", "layout"],
         "title": "Chinese Motifs",
         "image": "Press/rongshen.png",
         "image2":"Press/no-img.jpg",
@@ -340,7 +340,7 @@
       {
         "id": 28,
         "name": "William Hunt",
-        "tags": ["digital", "object"],
+        "tags": ["logo"],
         "title": "AI Designed Helmet Making",
         "image": "Press/william.png",
         "image2":"Press/no-img.jpg",
@@ -389,7 +389,7 @@
       {
         "id": 32,
         "name": "Zixin Liu Alexis",
-        "tags": ["identity", "object"],
+        "tags": ["identity"],
         "title": "Wine Brand Item Design",
         "image": "Press/zixin.jpg",
         "image2":"Press/no-img.jpg",
