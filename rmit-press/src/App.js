@@ -1103,8 +1103,9 @@ class App extends React.Component {
       let modifierY = 1.3;
       for(let i = 0; i < this.state.currentShownWorks.length; i++){
         let currID = this.state.currentShownWorks[i].id;
+        let isBigInstructionsImgScaleMod = (this.state.currentShownWorks[i].name == "sys" && this.state.currentShownWorks[i].title != "") ? 1.5 : 1;
         returnHTML += (`<div style=" position: absolute; left: ${this.state.artPiecesCurrX[currID] * modifierX}px; top: ${this.state.artPiecesCurrY[currID] * modifierY}px; z-index: ${10 + i};  transform: translate(-200px, -525px);">
-          <img style="max-height: ${6 * modifierX}em;" src="%img${i}%">
+          <img style="max-height: ${(6 * modifierX) * isBigInstructionsImgScaleMod}em;" src="%img${i}%">
           <p style="font-size: 0.5em; background-color:black; color:white;">(${currID})</p>
           </div>`
         );
@@ -1114,8 +1115,9 @@ class App extends React.Component {
       returnHTML += (`<div class="content">`);
       for(let i = 0; i < this.state.currentShownWorks.length; i++){
         let currID = this.state.currentShownWorks[i].id;
+        let isBigInstructionsImgScaleMod = (this.state.currentShownWorks[i].name == "sys" && this.state.currentShownWorks[i].title != "") ? 1.5 : 1;
         returnHTML += (`<div style="transform: rotate(-90deg); position: absolute; left: ${this.state.artPiecesCurrX[currID]}px; top: ${this.state.artPiecesCurrY[currID]}px; z-index: ${10 + i};">
-          <img style="max-height: 12em;" src="%img${i}%">
+          <img style="max-height: ${12 * isBigInstructionsImgScaleMod}em;" src="%img${i}%">
           <p style="font-size: 0.5em; background-color:black; color:white;">(${currID})</p>
           </div>`
           );
