@@ -170,11 +170,73 @@ class App extends React.Component {
     });
   } 
 
+  showInstructionalImage(){
+      let pos = 0;
+      let studentIndex = -1;
+      ClassJSON.students.forEach(student => {
+        if(student.name == "sys" 
+          && student.title != ""){
+          studentIndex = pos;
+        }
+  
+        pos++;
+      });
+
+      if(studentIndex != -1)
+    {
+      let newArtPiecesIsVisible = this.state.artPiecesIsVisible;
+      newArtPiecesIsVisible[studentIndex] = true;
+  
+      let newArtPiecesImageShown = this.state.artPiecesImageShown;
+      newArtPiecesImageShown[studentIndex] = true;
+  
+      let newArtPiecesImageMoved = this.state.artPiecesImageMoved;
+      newArtPiecesImageMoved[studentIndex] = true;
+
+      let newArtPiecescurrZIndex = this.state.artPiecescurrZIndex;
+      newArtPiecescurrZIndex[studentIndex] = this.incrementZIndex();
+  
+      const textElement = document.getElementById(`root`);
+      let textRect = textElement.getBoundingClientRect();
+  
+      let newArtPiecesCurrX = this.state.artPiecesCurrX;
+      let width = textRect.right;
+  
+      let newArtPiecesCurrY = this.state.artPiecesCurrY;
+      let height = textRect.bottom;
+
+      if(isMobile){
+        newArtPiecesCurrX[studentIndex] = (Math.random() * (width * .5));
+        newArtPiecesCurrY[studentIndex] = (Math.random() * (height * .6));
+      }else{
+        newArtPiecesCurrX[studentIndex] = (Math.random() * (width * .4)) + (width * .1);
+        newArtPiecesCurrY[studentIndex] = (Math.random() * (height * .4)) + (height * .1);
+      }
+      
+      this.pushToCurrentlyShownWorks(ClassJSON.students[studentIndex]);
+  
+      console.log(`SHOW RANDOM IMAGE ${studentIndex} `);
+      console.log(`SHOW RANDOM IMAGE/artPiecescurrZIndex:  ${newArtPiecescurrZIndex} `);
+      console.log(`SHOW RANDOM IMAGE/artPiecescurrZIndex:  ${newArtPiecescurrZIndex} `);
+      this.setState({
+        artPiecesIsVisible: newArtPiecesIsVisible,
+        artPiecesImageShown: newArtPiecesImageShown,
+        artPiecesImageMoved: newArtPiecesImageMoved,
+        artPiecesCurrX: newArtPiecesCurrX,
+        artPiecesCurrY: newArtPiecesCurrY,
+
+        artPiecescurrZIndex: newArtPiecescurrZIndex
+      });
+    }
+  }
+
   showRandomImage(){
     let pos = 0;
     let pot = [];
     ClassJSON.students.forEach(student => {
-      if(student.name == "sys" && this.state.artPiecesIsVisible[pos] == false){
+      if(student.name == "sys" 
+        && this.state.artPiecesIsVisible[pos] == false
+        && student.title == ""){
         pot.push(pos);
       }
 
@@ -541,6 +603,7 @@ class App extends React.Component {
           key={pos + "APP"}
 
           isRandomImage={student.name == "sys"} 
+          isInstructionalImage={student.name == "sys" && student.title != ""} 
 
           hoverOverTextFunc={this.testHover} 
           hoverExitTextFunc={this.clearHover} 
@@ -1092,12 +1155,12 @@ class App extends React.Component {
     //let bigLetterLeft = -(Math.random() * 200);
     //let bigLetterTop = -(Math.random() * 600) + 100;
     
-    let bigLetterLeft = -500 + (Math.random() * 1000);
+    //let bigLetterLeft = -500 + (Math.random() * 1000);
     //let bigLetterLeft = 500;
-    //let bigLetterLeft = -500;
-    let bigLetterTop = -350 + (Math.random() * 700);
+    let bigLetterLeft = -500;
+    //let bigLetterTop = -350 + (Math.random() * 700);
     //let bigLetterTop = 350;
-    //let bigLetterTop = -350;
+    let bigLetterTop = -350;
     
 
     //returnHTML += (`<p style="position: absolute; z-index: 100; transform: rotate(-90deg); font-size: 1400px; margin: auto; left: ${bigLetterLeft}px; top: ${bigLetterTop}px; font-family:pantasia;">${letter}</p>`);
@@ -1298,6 +1361,7 @@ class App extends React.Component {
   }
 
   userAcknowledged() {
+    this.showInstructionalImage();
     if(this.state.isLoaded){
       this.setState({isAcknowledged:true});
     }

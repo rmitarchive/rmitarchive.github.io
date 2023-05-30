@@ -620,6 +620,15 @@
         "image": "Random/22.png",
         "year": "",
         "desc": ""
+      },
+      {
+        "id": 57,
+        "name": "sys",
+        "tags": [""],
+        "title": "instructional (this is used, keep blank in other sys items)",
+        "image": "Random/sys.PUFFINS.png",
+        "year": "",
+        "desc": ""
       }
     ]
   }
