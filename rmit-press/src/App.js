@@ -1042,7 +1042,7 @@ class App extends React.Component {
         let currID = this.state.currentShownWorks[i].id;
         returnHTML += (`<div style=" position: absolute; left: ${this.state.artPiecesCurrX[currID] * modifierX}px; top: ${this.state.artPiecesCurrY[currID] * modifierY}px; z-index: ${10 + i};  transform: translate(-200px, -525px);">
           <img style="max-height: ${6 * modifierX}em;" src="%img${i}%">
-          <p style="font-size: 0.5em; background-color:black; color:white;">(${currID})</p>
+          <p style="font-size: 0.5em;">(${currID})</p>
           </div>`
         );
       }
