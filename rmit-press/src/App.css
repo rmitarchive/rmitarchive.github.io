@@ -404,6 +404,23 @@ html, body {
   z-index: var(--menuZIndex);
 }
 
+.bigDragImg {
+  max-height: 60em;
+  max-width: 60em;
+  height:auto;
+  width:auto;
+  cursor: move;
+  position:block;
+}
+
+@media only screen and (max-device-width : 1024px) { 
+  .bigDragImg {
+    max-height: 40em;
+    max-width: 40em;
+  }
+
+}
+
 .dragImg {
   max-height: 15em;
   max-width: 15em;
