@@ -920,7 +920,7 @@ class App extends React.Component {
           <div className="print-body">
             By inputting your email below, you will receive a generative print created from the images you have selected and the positions in which you have arranged them in.
             <br/><br/>
-            Attendees of the launch of PRESS (15 June 2023: Building 9, Level 1, Bowen Street) will receive a Risograph edition print of their file on the night. Once submitted, please approach the printing area with your proof of print receipt and the email you used to submit with.
+            Attendees of the launch of PRESS (15 June 2023: Building 9, Level 3, Bowen Street) will receive a Risograph edition print of their file on the night. Once submitted, please approach the printing area with your proof of print receipt and the email you used to submit with.
           </div>
           <br/>
           <input className="search-bar" placeholder="Input Email..." onChange={e => this.setUserEmail(e.target.value)}/> 
@@ -968,7 +968,7 @@ class App extends React.Component {
           <div class="print-body">
             The file has been processed and has been emailed to the account you inputted in the previous field. If you are unable to find the file, please check your spam folder.
             <br/><br/>
-            Attendees of PRESS will not receive an email directly to their account. Please approach the printing area with the print receipt below, along with the email you inputted into the previous field.
+            For attendees of PRESS, please approach the printing area with the print receipt below, along with the email you inputted into the previous field.
           </div>
           <br/>
           <div class="print-title">

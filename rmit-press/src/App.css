@@ -37,11 +37,11 @@
   --aboutWidth: 50vw;
   --ackFont: 2em;
   --printWidth: 50vw;
-  --fontFace: "neue-haas-unica";
+  --fontFace: "neue-haas-unica", sans-serif;
   /* --fontFace: "passenger"; */
   --fontWeight: 500;
   --fontWeightDesc: 300;
-  --fontDesc: 'neue-haas-unica';
+  --fontDesc: 'neue-haas-unica', sans-serif;
   --fontSize: 1em;
   --fontSizeDesc: 0.7em;
   --lineHeight: 1;
