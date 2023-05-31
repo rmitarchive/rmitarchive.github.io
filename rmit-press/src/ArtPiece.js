@@ -263,7 +263,7 @@ class ArtPiece extends React.Component {
             case "digital":
               var c = [0, 121, 191];
               colors.push(c);
-              //color = '#0078BF';
+              //color = '#62A8E5';
               break;
             case "identity":
               var c = [255, 72, 176];

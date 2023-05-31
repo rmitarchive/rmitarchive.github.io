@@ -614,9 +614,9 @@ class App extends React.Component {
                     <br/>
                     <div>
                       <a className="student"  
-                      onClick = {(() => this.applyIndexFilter("digital"))}
-                      style={{backgroundColor: this.state.indexFilter["digital"] ? "#0078BF" : "transparent"}}>
-                        Digital
+                      onClick = {(() => this.applyIndexFilter("print"))}
+                      style={{backgroundColor: this.state.indexFilter["print"] ? "#0078BF" : "transparent"}}>
+                        Print 
                       </a>
                     </div>
                     <div>
@@ -689,11 +689,11 @@ class App extends React.Component {
                     <div>Filters</div>
                     <br/>
                     <div>
-                      <a className="student"  
-                      onClick = {(() => this.applyIndexFilter("digital"))}
-                      style={{backgroundColor: this.state.indexFilter["digital"] ? "#0078BF" : "transparent"}}>
-                        Digital
-                      </a>
+                    <a className="student"  
+                    onClick = {(() => this.applyIndexFilter("print"))}
+                    style={{backgroundColor: this.state.indexFilter["print"] ? "#62A8E5" : "transparent"}}>
+                      Print 
+                    </a>
                     </div>
                     <div>
                     <a className="student" 
@@ -766,7 +766,7 @@ class App extends React.Component {
           <div className="about-title">PRESS<br></br>RMIT Graduate Showcase<br></br>15 June, 2023</div>
           <br></br>
           <div className="about-body">
-          PRESS is the container which encases the work from the graduating students of the Bachelor of Design (Communication Design) at RMIT University. With a focus on tangible printed matter, PRESS acts as the container to connect the collection of widely differing works and mediums produced throughout the program. By focusing on the lack of uniformity, PRESS presents a conglomerate of styles connected in part by their lack of consistency. Through the lack of parameters, the works are given space to exist within their own aura; while also revealing unexpected through lines and visual narratives which would not exist within an isolated environment. PRESS reveals the inherent connection between differing stylistic forms, and gives space for the interaction and dialogue between the works which would ordinarily exist in solitude. 
+          PRESS is the container which encases the work from the graduating students of the Bachelor of Design (Communication Design) at RMIT University. With a focus on tangible printed matter, PRESS acts as the vessel to connect the collection of widely differing works and mediums produced throughout the program. By focusing on the lack of uniformity, PRESS presents a conglomerate of styles connected in part by their lack of consistency. Through the lack of parameters, the works are given space to exist within their own aura; while also revealing unexpected through lines and visual narratives which would not exist within an isolated environment. PRESS reveals the inherent connection between differing stylistic forms, and gives space for the interaction and dialogue between the works which would ordinarily exist in solitude. 
           <br></br><br></br>
           Every image on this web-page is draggable. By arranging images on the page, you are then able to select the Print Screen option; exporting a user-generated pdf file which is sent via email to the user. The resulting object becomes a synthesis between physical and digital, creating a direct tangible entity which straddles the intersections of two distinctly seperate representative mediums.
           <br></br><br></br>
@@ -920,7 +920,7 @@ class App extends React.Component {
           <div className="print-body">
             By inputting your email below, you will receive a generative print created from the images you have selected and the positions in which you have arranged them in.
             <br/><br/>
-            Attendees of the launch of PRESS (15 June 2023: Building 9, Level 1, Bowen Street) will receive a Risograph edition print of their file on the night. Once submitted, please approach the printing area with your proof of print receipt and the email you used to submit with.
+            Attendees of the launch of PRESS (15 June 2023: Building 9, Level 3, Bowen Street) will receive a Risograph edition print of their file on the night. Once submitted, please approach the printing area with your proof of print receipt and the email you used to submit with.
           </div>
           <br/>
           <input className="search-bar" placeholder="Input Email..." onChange={e => this.setUserEmail(e.target.value)}/> 
@@ -968,7 +968,7 @@ class App extends React.Component {
           <div class="print-body">
             The file has been processed and has been emailed to the account you inputted in the previous field. If you are unable to find the file, please check your spam folder.
             <br/><br/>
-            Attendees of PRESS will not receive an email directly to their account. Please approach the printing area with the print receipt below, along with the email you inputted into the previous field.
+            For attendees of PRESS, please approach the printing area with the print receipt below, along with the email you inputted into the previous field.
           </div>
           <br/>
           <div class="print-title">
@@ -1042,7 +1042,7 @@ class App extends React.Component {
         let currID = this.state.currentShownWorks[i].id;
         returnHTML += (`<div style=" position: absolute; left: ${this.state.artPiecesCurrX[currID] * modifierX}px; top: ${this.state.artPiecesCurrY[currID] * modifierY}px; z-index: ${10 + i};  transform: translate(-200px, -525px);">
           <img style="max-height: ${6 * modifierX}em;" src="%img${i}%">
-          <p style="font-size: 0.5em; background-color:black; color:white;">(${currID})</p>
+          <p style="font-size: 0.5em;">(${currID})</p>
           </div>`
         );
       }
@@ -1053,7 +1053,7 @@ class App extends React.Component {
         let currID = this.state.currentShownWorks[i].id;
         returnHTML += (`<div style="transform: rotate(-90deg); position: absolute; left: ${this.state.artPiecesCurrX[currID]}px; top: ${this.state.artPiecesCurrY[currID]}px; z-index: ${10 + i};">
           <img style="max-height: 12em;" src="%img${i}%">
-          <p style="font-size: 0.5em; background-color:black; color:white;">(${currID})</p>
+          <p style="font-size: 0.5em;">(${currID})</p>
           </div>`
           );
       }
