@@ -190,15 +190,15 @@ class App extends React.Component {
       let newArtPiecesImageShown = this.state.artPiecesImageShown;
       newArtPiecesImageShown[studentIndex] = true;
   
-      let newArtPiecesImageMoved = this.state.artPiecesImageMoved;
-      newArtPiecesImageMoved[studentIndex] = true;
+      //let newArtPiecesImageMoved = this.state.artPiecesImageMoved;
+      //newArtPiecesImageMoved[studentIndex] = true;
 
       let newArtPiecescurrZIndex = this.state.artPiecescurrZIndex;
       newArtPiecescurrZIndex[studentIndex] = this.incrementZIndex();
   
       const textElement = document.getElementById(`root`);
       let textRect = textElement.getBoundingClientRect();
-  
+  /*
       let newArtPiecesCurrX = this.state.artPiecesCurrX;
       let width = textRect.right;
   
@@ -212,18 +212,18 @@ class App extends React.Component {
         newArtPiecesCurrX[studentIndex] = (Math.random() * (width * .4)) + (width * .1);
         newArtPiecesCurrY[studentIndex] = (Math.random() * (height * .4)) + (height * .1);
       }
-      
+      */
       this.pushToCurrentlyShownWorks(ClassJSON.students[studentIndex]);
   
       console.log(`SHOW RANDOM IMAGE ${studentIndex} `);
       console.log(`SHOW RANDOM IMAGE/artPiecescurrZIndex:  ${newArtPiecescurrZIndex} `);
       console.log(`SHOW RANDOM IMAGE/artPiecescurrZIndex:  ${newArtPiecescurrZIndex} `);
+      //artPiecesImageMoved: newArtPiecesImageMoved,
+      //artPiecesCurrX: newArtPiecesCurrX,
+      //artPiecesCurrY: newArtPiecesCurrY,
       this.setState({
         artPiecesIsVisible: newArtPiecesIsVisible,
         artPiecesImageShown: newArtPiecesImageShown,
-        artPiecesImageMoved: newArtPiecesImageMoved,
-        artPiecesCurrX: newArtPiecesCurrX,
-        artPiecesCurrY: newArtPiecesCurrY,
 
         artPiecescurrZIndex: newArtPiecescurrZIndex
       });

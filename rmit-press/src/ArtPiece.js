@@ -14,6 +14,9 @@ class ArtPiece extends React.Component {
         this.stopDragElement(this.state);
       });
 
+
+
+
       this.state = {
         isRandomImage: props.isRandomImage,
         isInstructionalImage: props.isInstructionalImage,
@@ -256,6 +259,34 @@ class ArtPiece extends React.Component {
     }
 
     render() {
+
+      if(this.state != null && this.state.isInstructionalImage){
+        console.log(`STATE: ${JSON.stringify(this.state)}`);
+      }
+
+      if(this.state != null && this.state.isInstructionalImage && !this.state.imageMoved){
+        console.log(`artpiece move: A`);
+        const textElement = document.getElementById(`root`);
+        let textRect = textElement.getBoundingClientRect(); 
+        const instructionalElement = document.getElementById(`57Img`);
+        if(instructionalElement != null){
+          console.log(`artpiece move: B`);
+          let instructionalRect = instructionalElement.getBoundingClientRect();
+
+          let x = (textRect.right / 2) - (instructionalRect.width / 2);
+          let y = (textRect.bottom / 2) - (instructionalRect.height / 2);
+
+          console.log(`artpiece move: ${x}, ${y}`);
+
+          this.setState({
+            currX: x, 
+            currY: y,
+            imageMoved: true
+          });
+        }
+      }
+
+
       var colors = [];
       var filteredIn = false;
 
