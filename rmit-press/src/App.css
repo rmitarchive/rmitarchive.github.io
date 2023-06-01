@@ -468,13 +468,14 @@ html, body {
 }
 
 .left .student-names {
-  margin-top: 20vh;
-  margin-bottom: 30vh;
+  margin-top: 6vh;
+  margin-bottom: 15vh;
   user-select: none;
 }
 
 .left .student-names a:hover {
   color:rgb(255, 255, 255);
+  background-color: black !important;
 }
 
 .left .student-expand {
@@ -644,6 +645,7 @@ html, body {
   padding:1em;
   cursor: pointer;
   
+  z-index: 9999999999999999999999;
 }
 
 .ack-text {
