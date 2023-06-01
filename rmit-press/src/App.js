@@ -235,7 +235,9 @@ class App extends React.Component {
     let pos = 0;
     let pot = [];
     ClassJSON.students.forEach(student => {
-      if(student.name == "sys" && this.state.artPiecesIsVisible[pos] == false){
+      if(student.name == "sys" 
+      && this.state.artPiecesIsVisible[pos] == false
+      && student.title == ""){
         pot.push(pos);
       }
 
