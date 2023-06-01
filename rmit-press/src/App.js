@@ -583,14 +583,11 @@ class App extends React.Component {
     let currLetter = null;
     let pos = 0;
 
-    if(this.state == null){
-      return;
-    }
     //console.log(`${this.state.artPiecesImageShown}`);
 
     //console.log("GET LIST OF WORKS");
     ClassJSON.students.forEach(student => {
-      if((student.name.toUpperCase().includes(this.state.textFilter.toUpperCase()) && (student.name.toUpperCase() != "SYS" || (student.name.toUpperCase() == "SYS" && student.title != "")))
+      if((student.name.toUpperCase().includes(this.state.textFilter.toUpperCase()) && student.name.toUpperCase() != "SYS")
           || (student.name.toUpperCase() == "SYS" && this.state.artPiecesIsVisible[pos])){
         
         //console.log("student: " + JSON.stringify(student));
@@ -603,111 +600,41 @@ class App extends React.Component {
           classHTML.push(<div /* style={{transform: "translateX(10px)", fontFamily: "passenger"}} */ className="student" key={pos + currLetter}>{currLetter}</div>);
         }
 
-        let isInstructionalImgOverride = student.name == "sys" && student.title != "" && !this.state.isAcknowledged;
-        if(isInstructionalImgOverride){
-          //console.log("hit here");  
-          let newArtPiecesCurrX = this.state.artPiecesCurrX;
-          let newArtPiecesCurrY = this.state.artPiecesCurrY;
-          const textElement = document.getElementById(`root`);
-          let textRect = textElement.getBoundingClientRect();   
+        classHTML.push(<ArtPiece 
+          key={pos + "APP"}
 
-          let width = textRect.right;      
-          let height = textRect.bottom;
+          isRandomImage={student.name == "sys"} 
+          isInstructionalImage={student.name == "sys" && student.title != ""} 
 
-          let x = 0;
-          let y = 0;
+          hoverOverTextFunc={this.testHover} 
+          hoverExitTextFunc={this.clearHover} 
+          continueDragElement={this.continueDragElement}
+          stopDragElement={this.stopDragElement}
+          startDragElement={this.startDragElement}
+          clickText={this.clickText}
+
+          incrementZIndex={this.incrementZIndex}
+
+          openFocusArtPiece={this.openFocusArtPiece}
+
+          coreInfo={student}
+          currFilter={this.state.indexFilter}
+
+          currX={this.state.artPiecesCurrX[pos]}
+          currY={this.state.artPiecesCurrY[pos]}
+          offsetX={this.state.artPiecesOffsetX[pos]}
+          offsetY={this.state.artPiecesOffsetY[pos]}
+          imageShown={this.state.artPiecesImageShown[pos]}
+          imageMoved={this.state.artPiecesImageMoved[pos]}
+          imageMoving={this.state.artPiecesImageMoving[pos]}
+          currZIndex={this.state.artPiecescurrZIndex[pos]}
+
+          gridSnap={this.state.gridSnap} 
+
+          isMobile={isMobile}
+          showText={this.state.mobileShowMenu}
+          />);
           
-          const instructionalElement = document.getElementById(`57Img`);
-
-          console.log(`rect/instructionalElement: ${instructionalElement}`);
-          if(instructionalElement != null){
-            let instructionalRect = instructionalElement.getBoundingClientRect();
-
-            //newArtPiecesCurrX[studentIndex] = 0;
-            newArtPiecesCurrX[pos] = (width / 2) - (instructionalRect.width / 2);
-            x = (width / 2) - (instructionalRect.width / 2);
-            //newArtPiecesCurrY[studentIndex] = 0;
-            newArtPiecesCurrY[pos] = (height / 2) - (instructionalRect.height / 2);
-            y = (width / 2) - (instructionalRect.width / 2);
-
-            console.log(`RECT DIM STEPS OUT X: ${(width)} / 2, ${(instructionalRect.width)} / 2`);
-            console.log(`RECT DIM STEPS OUT Y: ${(height)} / 2, ${(instructionalRect.height)} / 2`);
-            console.log(`RECT DIM: ${JSON.stringify(instructionalRect)}, x=${newArtPiecesCurrX[pos]}, y=${newArtPiecesCurrY[pos]}`);
-            
-            classHTML.push(<ArtPiece 
-              key={pos + "APP"}
-    
-              isRandomImage={student.name == "sys"} 
-              isInstructionalImage={true} 
-    
-              hoverOverTextFunc={this.testHover} 
-              hoverExitTextFunc={this.clearHover} 
-              continueDragElement={this.continueDragElement}
-              stopDragElement={this.stopDragElement}
-              startDragElement={this.startDragElement}
-              clickText={this.clickText}
-    
-              incrementZIndex={this.incrementZIndex}
-    
-              openFocusArtPiece={this.openFocusArtPiece}
-    
-              coreInfo={student}
-              currFilter={this.state.indexFilter}
-    
-              currX={x}
-              currY={y}
-              offsetX={this.state.artPiecesOffsetX[pos]}
-              offsetY={this.state.artPiecesOffsetY[pos]}
-              imageShown={true}
-              imageMoved={true}
-              imageMoving={this.state.artPiecesImageMoving[pos]}
-              currZIndex={this.state.artPiecescurrZIndex[pos]}
-    
-              gridSnap={this.state.gridSnap} 
-    
-              isMobile={isMobile}
-              showText={this.state.mobileShowMenu}
-              />);
-          }
-
-          
-            
-        }else{
-          classHTML.push(<ArtPiece 
-            key={pos + "APP"}
-  
-            isRandomImage={student.name == "sys"} 
-            isInstructionalImage={false} 
-  
-            hoverOverTextFunc={this.testHover} 
-            hoverExitTextFunc={this.clearHover} 
-            continueDragElement={this.continueDragElement}
-            stopDragElement={this.stopDragElement}
-            startDragElement={this.startDragElement}
-            clickText={this.clickText}
-  
-            incrementZIndex={this.incrementZIndex}
-  
-            openFocusArtPiece={this.openFocusArtPiece}
-  
-            coreInfo={student}
-            currFilter={this.state.indexFilter}
-  
-            currX={this.state.artPiecesCurrX[pos]}
-            currY={this.state.artPiecesCurrY[pos]}
-            offsetX={this.state.artPiecesOffsetX[pos]}
-            offsetY={this.state.artPiecesOffsetY[pos]}
-            imageShown={this.state.artPiecesImageShown[pos]}
-            imageMoved={this.state.artPiecesImageMoved[pos]}
-            imageMoving={this.state.artPiecesImageMoving[pos]}
-            currZIndex={this.state.artPiecescurrZIndex[pos]}
-  
-            gridSnap={this.state.gridSnap} 
-  
-            isMobile={isMobile}
-            showText={this.state.mobileShowMenu}
-            />);
-        }
       }
 
       pos++;
