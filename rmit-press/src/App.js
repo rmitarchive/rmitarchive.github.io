@@ -198,11 +198,10 @@ class App extends React.Component {
       newArtPiecescurrZIndex[studentIndex] = this.incrementZIndex();  
   
       //X and Y is handled in an exception in the larger artpieces list.
-
+//artPiecesImageMoved: newArtPiecesImageMoved,
       this.setState({
         artPiecesIsVisible: newArtPiecesIsVisible,
         artPiecesImageShown: newArtPiecesImageShown,
-        artPiecesImageMoved: newArtPiecesImageMoved,
 
         artPiecescurrZIndex: newArtPiecescurrZIndex
       });
