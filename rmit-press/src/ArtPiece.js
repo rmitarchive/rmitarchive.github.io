@@ -16,8 +16,6 @@ class ArtPiece extends React.Component {
 
       this.state = {
         isRandomImage: props.isRandomImage,
-        isInstructionalImage: props.isInstructionalImage,
-
         isVisible: props.isRandomImage,
         
         id: props.coreInfo.id,
@@ -210,7 +208,7 @@ class ArtPiece extends React.Component {
           //onMouseDown={() => this.continueDragElement(this.state)}
           >
             <a onMouseDown={() => this.clickText(this.state)} className="dragImgIndexLine dragImgIndex">Hide</a>
-            <img className={this.state.isInstructionalImage ? "bigDragImg" : "dragImg"}
+            <img className="dragImg"
               key={this.state.coreInfo.id + "DIMG"}
               id={`${this.state.coreInfo.id}Img`}
               draggable="false" 
@@ -240,7 +238,7 @@ class ArtPiece extends React.Component {
         );
       }else{
         return(
-          <img className={this.state.isInstructionalImage ? "bigDragImg" : "dragImg"}
+          <img className="dragImg"
             key={this.state.coreInfo.id + "DLIMG"}
             id={`${this.state.coreInfo.id}Img`}
             draggable="false" 

@@ -663,15 +663,6 @@
         "tags": [""],
         "title": "",
         "image": "Random/27.png",
-        "year":"",
-        "desc":""
-      },
-      {
-        "id": 62,
-        "name": "sys",
-        "tags": [""],
-        "title": "Instructional",
-        "image": "Random/instructions.png",
         "year": "",
         "desc": ""
       }
