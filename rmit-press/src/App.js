@@ -139,7 +139,7 @@ class App extends React.Component {
       userEmail: null,
       emailSent: false,
       printStarted: false,
-    }    
+    }      
 
     //document.documentElement.style.setProperty('--menuZIndex', isMobile ? 9999999 : 10);
 
@@ -165,10 +165,71 @@ class App extends React.Component {
 
   componentDidMount(){
     document.title = "P-R-E-S-S";
+    this.showInstructionalImage();
     this.setState({
       isLoaded:true
     });
   } 
+
+  showInstructionalImage(){
+      let pos = 0;
+      let studentIndex = -1;
+      ClassJSON.students.forEach(student => {
+        if(student.name == "sys" 
+          && student.title != ""){
+          studentIndex = pos;
+        }
+  
+        pos++;
+      });
+
+      if(studentIndex != -1)
+    {
+      let newArtPiecesIsVisible = this.state.artPiecesIsVisible;
+      newArtPiecesIsVisible[studentIndex] = true;
+  
+      let newArtPiecesImageShown = this.state.artPiecesImageShown;
+      newArtPiecesImageShown[studentIndex] = true;
+  
+      //let newArtPiecesImageMoved = this.state.artPiecesImageMoved;
+      //newArtPiecesImageMoved[studentIndex] = true;
+
+      let newArtPiecescurrZIndex = this.state.artPiecescurrZIndex;
+      newArtPiecescurrZIndex[studentIndex] = this.incrementZIndex();
+  
+      const textElement = document.getElementById(`root`);
+      let textRect = textElement.getBoundingClientRect();
+  /*
+      let newArtPiecesCurrX = this.state.artPiecesCurrX;
+      let width = textRect.right;
+  
+      let newArtPiecesCurrY = this.state.artPiecesCurrY;
+      let height = textRect.bottom;
+
+      if(isMobile){
+        newArtPiecesCurrX[studentIndex] = (Math.random() * (width * .5));
+        newArtPiecesCurrY[studentIndex] = (Math.random() * (height * .6));
+      }else{
+        newArtPiecesCurrX[studentIndex] = (Math.random() * (width * .4)) + (width * .1);
+        newArtPiecesCurrY[studentIndex] = (Math.random() * (height * .4)) + (height * .1);
+      }
+      */
+      this.pushToCurrentlyShownWorks(ClassJSON.students[studentIndex]);
+  
+      console.log(`SHOW RANDOM IMAGE ${studentIndex} `);
+      console.log(`SHOW RANDOM IMAGE/artPiecescurrZIndex:  ${newArtPiecescurrZIndex} `);
+      console.log(`SHOW RANDOM IMAGE/artPiecescurrZIndex:  ${newArtPiecescurrZIndex} `);
+      //artPiecesImageMoved: newArtPiecesImageMoved,
+      //artPiecesCurrX: newArtPiecesCurrX,
+      //artPiecesCurrY: newArtPiecesCurrY,
+      this.setState({
+        artPiecesIsVisible: newArtPiecesIsVisible,
+        artPiecesImageShown: newArtPiecesImageShown,
+
+        artPiecescurrZIndex: newArtPiecescurrZIndex
+      });
+    }
+  }
 
   showRandomImage(){
     let pos = 0;
@@ -510,10 +571,10 @@ class App extends React.Component {
       newIndexFilter["hypermedia"] = false;
       newIndexFilter["object"] = false;
 
-      this.setState({
-        indexFilter: newIndexFilter
-      });
-    }
+    this.setState({
+      indexFilter: newIndexFilter
+    });
+  }
 
   getListOfWorks(){
     let classHTML = [];
@@ -602,14 +663,14 @@ class App extends React.Component {
                   <div className="title-container">
                     <span className="header">PRESS</span>
                     <br/><br/>
-                    <input className="search-bar" 
-                    placeholder="Search..." 
-                    style={{visibility: this.state.mobileShowMenu ? "inherit" : "hidden"}} 
-                    onChange={e => this.updateTextFilter(e.target.value)}>
-                    </input>
                   </div>
                   <div className="student-names"> 
                   <div className="menu-to-hide" >
+                    <input className="search-bar" 
+                    placeholder="Search..." 
+                    onChange={e => this.updateTextFilter(e.target.value)}>
+                    </input>
+                    <br></br><br></br><br></br>
                     <div>Filters</div>
                     <br/>
                     <div>
@@ -679,14 +740,19 @@ class App extends React.Component {
                   <div className="title-container">
                     <span className="header">PRESS</span>
                     <br/><br/>
+                  </div>
+                  <div className="student-names"> 
+                  <div className="menu-to-hide" >
                     <input className="search-bar" 
                     placeholder="Search..." 
                     onChange={e => this.updateTextFilter(e.target.value)}>
                     </input>
+
                   </div>
                   <div className="student-names"> 
                   <div className="menu-to-hide" >
                   <div>Filters</div>
+
                     <br/>
                     <div>
                       <a className="student"  
@@ -737,7 +803,7 @@ class App extends React.Component {
                       Object
                     </a>
                     </div>
-                    <br></br><br></br>
+                    <br></br>
                     <a className="student" 
                     onClick = {(() => this.clearAllFilters())}>
                       Clear Filters
@@ -1298,6 +1364,8 @@ class App extends React.Component {
   }
 
   userAcknowledged() {
+    //this.showInstructionalImage();
+
     if(this.state.isLoaded){
       this.setState({isAcknowledged:true});
     }
@@ -1319,9 +1387,10 @@ class App extends React.Component {
   }
 
   render() {
+    var ack = null;
 
     if(this.state.isAcknowledged==false){
-      return(
+      ack = (
         <div onMouseUp={() => this.userAcknowledged()} className="ack-bg">
           <div className="ack-text">
             We acknowledge the traditional owners of the land on which RMIT University operates, the Boon Wurrung and Woi Wurrung language groups of the Eastern Kulin Nation. We acknowledge that sovereignty was never ceded, and extend our respects to elders past, present, and emerging. Always was, always will be, Aboriginal land. 
@@ -1330,7 +1399,7 @@ class App extends React.Component {
           <div className="ack-text">
             {this.state.isLoaded ? `${isMobile ? "Tap" : "Click"} to continue...`: ""}
           </div>
-        </div>)
+        </div>);
     }
 
     //console.log("currentShownWorks: " + this.state.currentShownWorks);
@@ -1370,6 +1439,7 @@ class App extends React.Component {
         <link rel="stylesheet" href="https://use.typekit.net/fqi4hzp.css" />
         <link rel="icon" href="icon.png" /> 
         <title>Zachariah Micallef</title>
+        {ack}
         <BrowserView>
           <div className="bottom-of-page" style={{zIndex:11, visibility: printing ? "hidden" : "visible"}}>
           <ScrollingBanner clickFunc = {this.scrollbarRef}/> 
