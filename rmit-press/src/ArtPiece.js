@@ -19,8 +19,6 @@ class ArtPiece extends React.Component {
 
       this.state = {
         isRandomImage: props.isRandomImage,
-        isInstructionalImage: props.isInstructionalImage,
-
         isVisible: props.isRandomImage,
         
         id: props.coreInfo.id,
@@ -241,7 +239,7 @@ class ArtPiece extends React.Component {
           //onMouseDown={() => this.continueDragElement(this.state)}
           >
             <a onMouseDown={() => this.clickText(this.state)} className="dragImgIndexLine dragImgIndex">Hide</a>
-            <img className={this.state.isInstructionalImage ? "bigDragImg" : "dragImg"}
+            <img className="dragImg"
               key={this.state.coreInfo.id + "DIMG"}
               id={`${this.state.coreInfo.id}Img`}
               draggable="false" 
@@ -271,7 +269,7 @@ class ArtPiece extends React.Component {
         );
       }else{
         return(
-          <img className={this.state.isInstructionalImage ? "bigDragImg" : "dragImg"}
+          <img className="dragImg"
             key={this.state.coreInfo.id + "DLIMG"}
             id={`${this.state.coreInfo.id}Img`}
             draggable="false" 
@@ -301,37 +299,37 @@ class ArtPiece extends React.Component {
       this.state.coreInfo.tags.forEach(tag => {
         if(this.state.currFilter[tag]){
           switch(tag){
-            case "digital":
+            case "print":
               var c = [0, 121, 191];
               colors.push(c);
-              //color = '#0078BF';
+              //color = '#62A8E5';
               break;
-            case "identity":
+            case "digital":
               var c = [255, 72, 176];
               colors.push(c);
               //color = '#FF48B0';
               break;
-            case "logo":
+            case "illustration":
               var c = [241, 80, 96];
               colors.push(c);
               //color = '#F15060';
               break;
-            case "print":
+            case "identity":
               var c = [0, 169, 92];
               colors.push(c);
               //color = '#00A95C';
               break;
-            case "poster":
+            case "sitebased":
               var c = [255, 108, 47];
               colors.push(c);
               //color = '#FF6C2f';
               break;
-            case "layout":
+            case "hypermedia":
               var c = [0, 131, 138];
               colors.push(c);
               //color = '#00838A';
               break;
-            case "web":
+            case "object":
               var c = [253, 231, 0];
               colors.push(c);
               //color = '#FFE800';
