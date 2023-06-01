@@ -817,7 +817,7 @@ class App extends React.Component {
                     <a className="screen-func-header" onClick = {(() => this.startPDF())}>Print Screen</a>
                     <a className="screen-func-header" onClick = {(() => this.clearPage())}>Clear Screen</a>
                   </div> 
-
+                </div>
               </div>
             </BrowserView>     
             </div>       
