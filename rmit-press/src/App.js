@@ -172,18 +172,18 @@ class App extends React.Component {
   } 
 
   showInstructionalImage(){
-      let pos = 0;
-      let studentIndex = -1;
-      ClassJSON.students.forEach(student => {
-        if(student.name == "sys" 
-          && student.title != ""){
-          studentIndex = pos;
-        }
-  
-        pos++;
-      });
+    let pos = 0;
+    let studentIndex = -1;
+    ClassJSON.students.forEach(student => {
+      if(student.name == "sys" 
+        && student.title != ""){
+        studentIndex = pos;
+      }
 
-      if(studentIndex != -1)
+      pos++;
+    });
+
+    if(studentIndex != -1)
     {
       let newArtPiecesIsVisible = this.state.artPiecesIsVisible;
       newArtPiecesIsVisible[studentIndex] = true;
@@ -195,36 +195,14 @@ class App extends React.Component {
       //newArtPiecesImageMoved[studentIndex] = true;
 
       let newArtPiecescurrZIndex = this.state.artPiecescurrZIndex;
-      newArtPiecescurrZIndex[studentIndex] = this.incrementZIndex();
+      newArtPiecescurrZIndex[studentIndex] = this.incrementZIndex();  
   
-      const textElement = document.getElementById(`root`);
-      let textRect = textElement.getBoundingClientRect();
-  /*
-      let newArtPiecesCurrX = this.state.artPiecesCurrX;
-      let width = textRect.right;
-  
-      let newArtPiecesCurrY = this.state.artPiecesCurrY;
-      let height = textRect.bottom;
+      //X and Y is handled in an exception in the larger artpieces list.
 
-      if(isMobile){
-        newArtPiecesCurrX[studentIndex] = (Math.random() * (width * .5));
-        newArtPiecesCurrY[studentIndex] = (Math.random() * (height * .6));
-      }else{
-        newArtPiecesCurrX[studentIndex] = (Math.random() * (width * .4)) + (width * .1);
-        newArtPiecesCurrY[studentIndex] = (Math.random() * (height * .4)) + (height * .1);
-      }
-      */
-      this.pushToCurrentlyShownWorks(ClassJSON.students[studentIndex]);
-  
-      console.log(`SHOW RANDOM IMAGE ${studentIndex} `);
-      console.log(`SHOW RANDOM IMAGE/artPiecescurrZIndex:  ${newArtPiecescurrZIndex} `);
-      console.log(`SHOW RANDOM IMAGE/artPiecescurrZIndex:  ${newArtPiecescurrZIndex} `);
-      //artPiecesImageMoved: newArtPiecesImageMoved,
-      //artPiecesCurrX: newArtPiecesCurrX,
-      //artPiecesCurrY: newArtPiecesCurrY,
       this.setState({
         artPiecesIsVisible: newArtPiecesIsVisible,
         artPiecesImageShown: newArtPiecesImageShown,
+        artPiecesImageMoved: newArtPiecesImageMoved,
 
         artPiecescurrZIndex: newArtPiecescurrZIndex
       });
@@ -581,11 +559,14 @@ class App extends React.Component {
     let currLetter = null;
     let pos = 0;
 
+    if(this.state == null){
+      return;
+    }
     //console.log(`${this.state.artPiecesImageShown}`);
 
     //console.log("GET LIST OF WORKS");
     ClassJSON.students.forEach(student => {
-      if((student.name.toUpperCase().includes(this.state.textFilter.toUpperCase()) && student.name.toUpperCase() != "SYS")
+      if((student.name.toUpperCase().includes(this.state.textFilter.toUpperCase()) && (student.name.toUpperCase() != "SYS" || (student.name.toUpperCase() == "SYS" && student.title != "")))
           || (student.name.toUpperCase() == "SYS" && this.state.artPiecesIsVisible[pos])){
         
         //console.log("student: " + JSON.stringify(student));
@@ -598,40 +579,111 @@ class App extends React.Component {
           classHTML.push(<div /* style={{transform: "translateX(10px)", fontFamily: "passenger"}} */ className="student" key={pos + currLetter}>{currLetter}</div>);
         }
 
-        classHTML.push(<ArtPiece 
-          key={pos + "APP"}
+        let isInstructionalImgOverride = student.name == "sys" && student.title != "" && !this.state.isAcknowledged;
+        if(isInstructionalImgOverride){
+          //console.log("hit here");  
+          let newArtPiecesCurrX = this.state.artPiecesCurrX;
+          let newArtPiecesCurrY = this.state.artPiecesCurrY;
+          const textElement = document.getElementById(`root`);
+          let textRect = textElement.getBoundingClientRect();   
 
-          isRandomImage={student.name == "sys"} 
+          let width = textRect.right;      
+          let height = textRect.bottom;
 
-          hoverOverTextFunc={this.testHover} 
-          hoverExitTextFunc={this.clearHover} 
-          continueDragElement={this.continueDragElement}
-          stopDragElement={this.stopDragElement}
-          startDragElement={this.startDragElement}
-          clickText={this.clickText}
-
-          incrementZIndex={this.incrementZIndex}
-
-          openFocusArtPiece={this.openFocusArtPiece}
-
-          coreInfo={student}
-          currFilter={this.state.indexFilter}
-
-          currX={this.state.artPiecesCurrX[pos]}
-          currY={this.state.artPiecesCurrY[pos]}
-          offsetX={this.state.artPiecesOffsetX[pos]}
-          offsetY={this.state.artPiecesOffsetY[pos]}
-          imageShown={this.state.artPiecesImageShown[pos]}
-          imageMoved={this.state.artPiecesImageMoved[pos]}
-          imageMoving={this.state.artPiecesImageMoving[pos]}
-          currZIndex={this.state.artPiecescurrZIndex[pos]}
-
-          gridSnap={this.state.gridSnap} 
-
-          isMobile={isMobile}
-          showText={this.state.mobileShowMenu}
-          />);
+          let x = 0;
+          let y = 0;
           
+          const instructionalElement = document.getElementById(`57Img`);
+
+          console.log(`rect/instructionalElement: ${instructionalElement}`);
+          if(instructionalElement != null){
+            let instructionalRect = instructionalElement.getBoundingClientRect();
+
+            //newArtPiecesCurrX[studentIndex] = 0;
+            newArtPiecesCurrX[pos] = (width / 2) - (instructionalRect.width / 2);
+            x = (width / 2) - (instructionalRect.width / 2);
+            //newArtPiecesCurrY[studentIndex] = 0;
+            newArtPiecesCurrY[pos] = (height / 2) - (instructionalRect.height / 2);
+            y = (width / 2) - (instructionalRect.width / 2);
+
+            console.log(`RECT DIM STEPS OUT X: ${(width)} / 2, ${(instructionalRect.width)} / 2`);
+            console.log(`RECT DIM STEPS OUT Y: ${(height)} / 2, ${(instructionalRect.height)} / 2`);
+            console.log(`RECT DIM: ${JSON.stringify(instructionalRect)}, x=${newArtPiecesCurrX[pos]}, y=${newArtPiecesCurrY[pos]}`);
+            
+            classHTML.push(<ArtPiece 
+              key={pos + "APP"}
+    
+              isRandomImage={student.name == "sys"} 
+              isInstructionalImage={true} 
+    
+              hoverOverTextFunc={this.testHover} 
+              hoverExitTextFunc={this.clearHover} 
+              continueDragElement={this.continueDragElement}
+              stopDragElement={this.stopDragElement}
+              startDragElement={this.startDragElement}
+              clickText={this.clickText}
+    
+              incrementZIndex={this.incrementZIndex}
+    
+              openFocusArtPiece={this.openFocusArtPiece}
+    
+              coreInfo={student}
+              currFilter={this.state.indexFilter}
+    
+              currX={x}
+              currY={y}
+              offsetX={this.state.artPiecesOffsetX[pos]}
+              offsetY={this.state.artPiecesOffsetY[pos]}
+              imageShown={true}
+              imageMoved={true}
+              imageMoving={this.state.artPiecesImageMoving[pos]}
+              currZIndex={this.state.artPiecescurrZIndex[pos]}
+    
+              gridSnap={this.state.gridSnap} 
+    
+              isMobile={isMobile}
+              showText={this.state.mobileShowMenu}
+              />);
+          }
+
+          
+            
+        }else{
+          classHTML.push(<ArtPiece 
+            key={pos + "APP"}
+  
+            isRandomImage={student.name == "sys"} 
+            isInstructionalImage={false} 
+  
+            hoverOverTextFunc={this.testHover} 
+            hoverExitTextFunc={this.clearHover} 
+            continueDragElement={this.continueDragElement}
+            stopDragElement={this.stopDragElement}
+            startDragElement={this.startDragElement}
+            clickText={this.clickText}
+  
+            incrementZIndex={this.incrementZIndex}
+  
+            openFocusArtPiece={this.openFocusArtPiece}
+  
+            coreInfo={student}
+            currFilter={this.state.indexFilter}
+  
+            currX={this.state.artPiecesCurrX[pos]}
+            currY={this.state.artPiecesCurrY[pos]}
+            offsetX={this.state.artPiecesOffsetX[pos]}
+            offsetY={this.state.artPiecesOffsetY[pos]}
+            imageShown={this.state.artPiecesImageShown[pos]}
+            imageMoved={this.state.artPiecesImageMoved[pos]}
+            imageMoving={this.state.artPiecesImageMoving[pos]}
+            currZIndex={this.state.artPiecescurrZIndex[pos]}
+  
+            gridSnap={this.state.gridSnap} 
+  
+            isMobile={isMobile}
+            showText={this.state.mobileShowMenu}
+            />);
+        }
       }
 
       pos++;
@@ -1364,7 +1416,8 @@ class App extends React.Component {
   }
 
   userAcknowledged() {
-    //this.showInstructionalImage();
+    this.showInstructionalImage();
+    //this.showRandomImage();
     if(this.state.isLoaded){
       this.setState({isAcknowledged:true});
     }
@@ -1388,6 +1441,7 @@ class App extends React.Component {
   render() {
     var ack = null;
 
+    var ack = null;
     if(this.state.isAcknowledged==false){
       ack = (
         <div onMouseUp={() => this.userAcknowledged()} className="ack-bg">
@@ -1400,7 +1454,6 @@ class App extends React.Component {
           </div>
         </div>);
     }
-
     //console.log("currentShownWorks: " + this.state.currentShownWorks);
     var maskPosition = `center`
     
