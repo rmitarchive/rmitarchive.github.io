@@ -754,8 +754,6 @@ class App extends React.Component {
                   <div className="student-names"> 
                   <div className="menu-to-hide" >
                   <div>Filters</div>
-                    <br></br><br></br><br></br>
-                    <div>Filters</div>
                     <br/>
                     <div>
                       <a className="student"  
