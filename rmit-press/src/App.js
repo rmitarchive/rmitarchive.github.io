@@ -165,6 +165,7 @@ class App extends React.Component {
 
   componentDidMount(){
     document.title = "P-R-E-S-S";
+    this.showInstructionalImage();
     this.setState({
       isLoaded:true
     });
@@ -561,21 +562,21 @@ class App extends React.Component {
   //setstate 
     //Note: applyIndexFilter may give some good hints.
 
-    clearAllFilters(){
-      var newIndexFilter = this.state.indexFilter;
-      
-      newIndexFilter["digital"] = false;
-      newIndexFilter["identity"] = false;
-      newIndexFilter["logo"] = false;
-      newIndexFilter["print"] = false;
-      newIndexFilter["poster"] = false;
-      newIndexFilter["layout"] = false;
-      newIndexFilter["web"] = false;
+  clearAllFilters(){
+    var newIndexFilter = this.state.indexFilter;
+    
+    newIndexFilter["digital"] = false;
+    newIndexFilter["identity"] = false;
+    newIndexFilter["logo"] = false;
+    newIndexFilter["print"] = false;
+    newIndexFilter["poster"] = false;
+    newIndexFilter["layout"] = false;
+    newIndexFilter["web"] = false;
 
-      this.setState({
-        indexFilter: newIndexFilter
-      });
-    }
+    this.setState({
+      indexFilter: newIndexFilter
+    });
+  }
 
   getListOfWorks(){
     let classHTML = [];
@@ -1363,7 +1364,7 @@ class App extends React.Component {
   }
 
   userAcknowledged() {
-    this.showInstructionalImage();
+    //this.showInstructionalImage();
     if(this.state.isLoaded){
       this.setState({isAcknowledged:true});
     }
@@ -1385,9 +1386,10 @@ class App extends React.Component {
   }
 
   render() {
+    var ack = null;
 
     if(this.state.isAcknowledged==false){
-      return(
+      ack = (
         <div onMouseUp={() => this.userAcknowledged()} className="ack-bg">
           <div className="ack-text">
             We acknowledge the traditional owners of the land on which RMIT University operates, the Boon Wurrung and Woi Wurrung language groups of the Eastern Kulin Nation. We acknowledge that sovereignty was never ceded, and extend our respects to elders past, present, and emerging. Always was, always will be, Aboriginal land. 
@@ -1396,7 +1398,7 @@ class App extends React.Component {
           <div className="ack-text">
             {this.state.isLoaded ? `${isMobile ? "Tap" : "Click"} to continue...`: ""}
           </div>
-        </div>)
+        </div>);
     }
 
     //console.log("currentShownWorks: " + this.state.currentShownWorks);
@@ -1436,6 +1438,7 @@ class App extends React.Component {
         <link rel="stylesheet" href="https://use.typekit.net/fqi4hzp.css" />
         <link rel="icon" href="icon.png" /> 
         <title>Zachariah Micallef</title>
+        {ack}
         <BrowserView>
           <div className="bottom-of-page" style={{zIndex:11, visibility: printing ? "hidden" : "visible"}}>
           <ScrollingBanner clickFunc = {this.scrollbarRef}/> 
