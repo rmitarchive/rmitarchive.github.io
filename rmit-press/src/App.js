@@ -184,29 +184,52 @@ class App extends React.Component {
     });
 
     if(studentIndex != -1)
-    {
-      let newArtPiecesIsVisible = this.state.artPiecesIsVisible;
-      newArtPiecesIsVisible[studentIndex] = true;
-  
-      let newArtPiecesImageShown = this.state.artPiecesImageShown;
-      newArtPiecesImageShown[studentIndex] = true;
-  
-      //let newArtPiecesImageMoved = this.state.artPiecesImageMoved;
-      //newArtPiecesImageMoved[studentIndex] = true;
+  {
+    let newArtPiecesIsVisible = this.state.artPiecesIsVisible;
+    newArtPiecesIsVisible[studentIndex] = true;
 
-      let newArtPiecescurrZIndex = this.state.artPiecescurrZIndex;
-      newArtPiecescurrZIndex[studentIndex] = this.incrementZIndex();  
-  
-      //X and Y is handled in an exception in the larger artpieces list.
-//artPiecesImageMoved: newArtPiecesImageMoved,
-      this.setState({
-        artPiecesIsVisible: newArtPiecesIsVisible,
-        artPiecesImageShown: newArtPiecesImageShown,
+    let newArtPiecesImageShown = this.state.artPiecesImageShown;
+    newArtPiecesImageShown[studentIndex] = true;
 
-        artPiecescurrZIndex: newArtPiecescurrZIndex
-      });
+    //let newArtPiecesImageMoved = this.state.artPiecesImageMoved;
+    //newArtPiecesImageMoved[studentIndex] = true;
+
+    let newArtPiecescurrZIndex = this.state.artPiecescurrZIndex;
+    newArtPiecescurrZIndex[studentIndex] = this.incrementZIndex();
+
+    const textElement = document.getElementById(`root`);
+    let textRect = textElement.getBoundingClientRect();
+/*
+    let newArtPiecesCurrX = this.state.artPiecesCurrX;
+    let width = textRect.right;
+
+    let newArtPiecesCurrY = this.state.artPiecesCurrY;
+    let height = textRect.bottom;
+
+    if(isMobile){
+      newArtPiecesCurrX[studentIndex] = (Math.random() * (width * .5));
+      newArtPiecesCurrY[studentIndex] = (Math.random() * (height * .6));
+    }else{
+      newArtPiecesCurrX[studentIndex] = (Math.random() * (width * .4)) + (width * .1);
+      newArtPiecesCurrY[studentIndex] = (Math.random() * (height * .4)) + (height * .1);
     }
+    */
+    this.pushToCurrentlyShownWorks(ClassJSON.students[studentIndex]);
+
+    console.log(`SHOW RANDOM IMAGE ${studentIndex} `);
+    console.log(`SHOW RANDOM IMAGE/artPiecescurrZIndex:  ${newArtPiecescurrZIndex} `);
+    console.log(`SHOW RANDOM IMAGE/artPiecescurrZIndex:  ${newArtPiecescurrZIndex} `);
+    //artPiecesImageMoved: newArtPiecesImageMoved,
+    //artPiecesCurrX: newArtPiecesCurrX,
+    //artPiecesCurrY: newArtPiecesCurrY,
+    this.setState({
+      artPiecesIsVisible: newArtPiecesIsVisible,
+      artPiecesImageShown: newArtPiecesImageShown,
+
+      artPiecescurrZIndex: newArtPiecescurrZIndex
+    });
   }
+}
 
   showRandomImage(){
     let pos = 0;
