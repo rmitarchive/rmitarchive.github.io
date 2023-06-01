@@ -139,7 +139,7 @@ class App extends React.Component {
       userEmail: null,
       emailSent: false,
       printStarted: false,
-    }      
+    }    
 
     //document.documentElement.style.setProperty('--menuZIndex', isMobile ? 9999999 : 10);
 
@@ -235,7 +235,9 @@ class App extends React.Component {
     let pos = 0;
     let pot = [];
     ClassJSON.students.forEach(student => {
-      if(student.name == "sys" && this.state.artPiecesIsVisible[pos] == false){
+      if(student.name == "sys" 
+        && this.state.artPiecesIsVisible[pos] == false
+        && student.title == ""){
         pot.push(pos);
       }
 
@@ -560,16 +562,16 @@ class App extends React.Component {
   //setstate 
     //Note: applyIndexFilter may give some good hints.
 
-    clearAllFilters(){
-      var newIndexFilter = this.state.indexFilter;
-      
-      newIndexFilter["print"] = false;
-      newIndexFilter["digital"] = false;
-      newIndexFilter["illustration"] = false;
-      newIndexFilter["identity"] = false;
-      newIndexFilter["sitebased"] = false;
-      newIndexFilter["hypermedia"] = false;
-      newIndexFilter["object"] = false;
+  clearAllFilters(){
+    var newIndexFilter = this.state.indexFilter;
+    
+    newIndexFilter["digital"] = false;
+    newIndexFilter["identity"] = false;
+    newIndexFilter["logo"] = false;
+    newIndexFilter["print"] = false;
+    newIndexFilter["poster"] = false;
+    newIndexFilter["layout"] = false;
+    newIndexFilter["web"] = false;
 
     this.setState({
       indexFilter: newIndexFilter
@@ -602,6 +604,7 @@ class App extends React.Component {
           key={pos + "APP"}
 
           isRandomImage={student.name == "sys"} 
+          isInstructionalImage={student.name == "sys" && student.title != ""} 
 
           hoverOverTextFunc={this.testHover} 
           hoverExitTextFunc={this.clearHover} 
@@ -675,51 +678,51 @@ class App extends React.Component {
                     <br/>
                     <div>
                       <a className="student"  
-                      onClick = {(() => this.applyIndexFilter("print"))}
-                      style={{backgroundColor: this.state.indexFilter["print"] ? "#0078BF" : "transparent"}}>
-                        Print 
+                      onClick = {(() => this.applyIndexFilter("digital"))}
+                      style={{backgroundColor: this.state.indexFilter["digital"] ? "#0078BF" : "transparent"}}>
+                        Digital
                       </a>
                     </div>
                     <div>
                     <a className="student" 
-                    onClick = {(() => this.applyIndexFilter("digital"))}
-                    style={{backgroundColor: this.state.indexFilter["digital"] ? "#ff48b0" : "transparent"}}>
-                      Digital
-                    </a>
-                    </div>
-                    <div>
-                    <a className="student" 
-                    onClick = {(() => this.applyIndexFilter("illustration"))}
-                    style={{backgroundColor: this.state.indexFilter["illustration"] ? "#F15060" : "transparent"}}>
-                      Illustration
-                    </a>
-                    </div>
-                    <div>
-                    <a className="student" 
                     onClick = {(() => this.applyIndexFilter("identity"))}
-                    style={{backgroundColor: this.state.indexFilter["identity"] ? "#00A95C" : "transparent"}}>
+                    style={{backgroundColor: this.state.indexFilter["identity"] ? "#ff48b0" : "transparent"}}>
                       Identity
                     </a>
                     </div>
                     <div>
                     <a className="student" 
-                    onClick = {(() => this.applyIndexFilter("sitebased"))}
-                    style={{backgroundColor: this.state.indexFilter["sitebased"] ? "#FF6C2f" : "transparent"}}>
-                      Site-based
+                    onClick = {(() => this.applyIndexFilter("logo"))}
+                    style={{backgroundColor: this.state.indexFilter["logo"] ? "#F15060" : "transparent"}}>
+                      Logo
                     </a>
                     </div>
                     <div>
                     <a className="student" 
-                    onClick = {(() => this.applyIndexFilter("hypermedia"))}
-                    style={{backgroundColor: this.state.indexFilter["hypermedia"] ? "#00838A" : "transparent"}}>
-                      Hypermedia
+                    onClick = {(() => this.applyIndexFilter("print"))}
+                    style={{backgroundColor: this.state.indexFilter["print"] ? "#00A95C" : "transparent"}}>
+                      Print
                     </a>
                     </div>
                     <div>
                     <a className="student" 
-                    onClick = {(() => this.applyIndexFilter("object"))}
-                    style={{backgroundColor: this.state.indexFilter["object"] ? "#FFE800" : "transparent"}}>
-                      Object
+                    onClick = {(() => this.applyIndexFilter("poster"))}
+                    style={{backgroundColor: this.state.indexFilter["poster"] ? "#FF6C2f" : "transparent"}}>
+                      Poster
+                    </a>
+                    </div>
+                    <div>
+                    <a className="student" 
+                    onClick = {(() => this.applyIndexFilter("layout"))}
+                    style={{backgroundColor: this.state.indexFilter["layout"] ? "#00838A" : "transparent"}}>
+                      Layout
+                    </a>
+                    </div>
+                    <div>
+                    <a className="student" 
+                    onClick = {(() => this.applyIndexFilter("web"))}
+                    style={{backgroundColor: this.state.indexFilter["web"] ? "#FFE800" : "transparent"}}>
+                      Web
                     </a>
                     </div>
                     <br></br><br></br>
@@ -747,60 +750,56 @@ class App extends React.Component {
                     placeholder="Search..." 
                     onChange={e => this.updateTextFilter(e.target.value)}>
                     </input>
-
-                  </div>
-                  <div className="student-names"> 
-                  <div className="menu-to-hide" >
-                  <div>Filters</div>
-
+                    <br></br><br></br><br></br>
+                    <div>Filters</div>
                     <br/>
                     <div>
                       <a className="student"  
-                      onClick = {(() => this.applyIndexFilter("print"))}
-                      style={{backgroundColor: this.state.indexFilter["print"] ? "#0078BF" : "transparent"}}>
-                        Print 
+                      onClick = {(() => this.applyIndexFilter("digital"))}
+                      style={{backgroundColor: this.state.indexFilter["digital"] ? "#0078BF" : "transparent"}}>
+                        Digital
                       </a>
                     </div>
                     <div>
                     <a className="student" 
-                    onClick = {(() => this.applyIndexFilter("digital"))}
-                    style={{backgroundColor: this.state.indexFilter["digital"] ? "#ff48b0" : "transparent"}}>
-                      Digital
-                    </a>
-                    </div>
-                    <div>
-                    <a className="student" 
-                    onClick = {(() => this.applyIndexFilter("illustration"))}
-                    style={{backgroundColor: this.state.indexFilter["illustration"] ? "#F15060" : "transparent"}}>
-                      Illustration
-                    </a>
-                    </div>
-                    <div>
-                    <a className="student" 
                     onClick = {(() => this.applyIndexFilter("identity"))}
-                    style={{backgroundColor: this.state.indexFilter["identity"] ? "#00A95C" : "transparent"}}>
+                    style={{backgroundColor: this.state.indexFilter["identity"] ? "#ff48b0" : "transparent"}}>
                       Identity
                     </a>
                     </div>
                     <div>
                     <a className="student" 
-                    onClick = {(() => this.applyIndexFilter("sitebased"))}
-                    style={{backgroundColor: this.state.indexFilter["sitebased"] ? "#FF6C2f" : "transparent"}}>
-                      Site-based
+                    onClick = {(() => this.applyIndexFilter("logo"))}
+                    style={{backgroundColor: this.state.indexFilter["logo"] ? "#F15060" : "transparent"}}>
+                      Logo
                     </a>
                     </div>
                     <div>
                     <a className="student" 
-                    onClick = {(() => this.applyIndexFilter("hypermedia"))}
-                    style={{backgroundColor: this.state.indexFilter["hypermedia"] ? "#00838A" : "transparent"}}>
-                      Hypermedia
+                    onClick = {(() => this.applyIndexFilter("print"))}
+                    style={{backgroundColor: this.state.indexFilter["print"] ? "#00A95C" : "transparent"}}>
+                      Print
                     </a>
                     </div>
                     <div>
                     <a className="student" 
-                    onClick = {(() => this.applyIndexFilter("object"))}
-                    style={{backgroundColor: this.state.indexFilter["object"] ? "#FFE800" : "transparent"}}>
-                      Object
+                    onClick = {(() => this.applyIndexFilter("poster"))}
+                    style={{backgroundColor: this.state.indexFilter["poster"] ? "#FF6C2f" : "transparent"}}>
+                      Poster
+                    </a>
+                    </div>
+                    <div>
+                    <a className="student" 
+                    onClick = {(() => this.applyIndexFilter("layout"))}
+                    style={{backgroundColor: this.state.indexFilter["layout"] ? "#00838A" : "transparent"}}>
+                      Layout
+                    </a>
+                    </div>
+                    <div>
+                    <a className="student" 
+                    onClick = {(() => this.applyIndexFilter("web"))}
+                    style={{backgroundColor: this.state.indexFilter["web"] ? "#FFE800" : "transparent"}}>
+                      Web
                     </a>
                     </div>
                     <br></br>
@@ -832,7 +831,7 @@ class App extends React.Component {
           <div className="about-title">PRESS<br></br>RMIT Graduate Showcase<br></br>15 June, 2023</div>
           <br></br>
           <div className="about-body">
-          PRESS is the container which encases the work from the graduating students of the Bachelor of Design (Communication Design) at RMIT University. With a focus on tangible printed matter, PRESS acts as the vessel to connect the collection of widely differing works and mediums produced throughout the program. By focusing on the lack of uniformity, PRESS presents a conglomerate of styles connected in part by their lack of consistency. Through the lack of parameters, the works are given space to exist within their own aura; while also revealing unexpected through lines and visual narratives which would not exist within an isolated environment. PRESS reveals the inherent connection between differing stylistic forms, and gives space for the interaction and dialogue between the works which would ordinarily exist in solitude. 
+          PRESS is the container which encases the work from the graduating students of the Bachelor of Design (Communication Design) at RMIT University. With a focus on tangible printed matter, PRESS acts as the container to connect the collection of widely differing works and mediums produced throughout the program. By focusing on the lack of uniformity, PRESS presents a conglomerate of styles connected in part by their lack of consistency. Through the lack of parameters, the works are given space to exist within their own aura; while also revealing unexpected through lines and visual narratives which would not exist within an isolated environment. PRESS reveals the inherent connection between differing stylistic forms, and gives space for the interaction and dialogue between the works which would ordinarily exist in solitude. 
           <br></br><br></br>
           Every image on this web-page is draggable. By arranging images on the page, you are then able to select the Print Screen option; exporting a user-generated pdf file which is sent via email to the user. The resulting object becomes a synthesis between physical and digital, creating a direct tangible entity which straddles the intersections of two distinctly seperate representative mediums.
           <br></br><br></br>
@@ -986,7 +985,7 @@ class App extends React.Component {
           <div className="print-body">
             By inputting your email below, you will receive a generative print created from the images you have selected and the positions in which you have arranged them in.
             <br/><br/>
-            Attendees of the launch of PRESS (15 June 2023: Building 9, Level 3, Bowen Street) will receive a Risograph edition print of their file on the night. Once submitted, please approach the printing area with your proof of print receipt and the email you used to submit with.
+            Attendees of the launch of PRESS (15 June 2023: Building 9, Level 1, Bowen Street) will receive a Risograph edition print of their file on the night. Once submitted, please approach the printing area with your proof of print receipt and the email you used to submit with.
           </div>
           <br/>
           <input className="search-bar" placeholder="Input Email..." onChange={e => this.setUserEmail(e.target.value)}/> 
@@ -1034,7 +1033,7 @@ class App extends React.Component {
           <div class="print-body">
             The file has been processed and has been emailed to the account you inputted in the previous field. If you are unable to find the file, please check your spam folder.
             <br/><br/>
-            For attendees of PRESS, please approach the printing area with the print receipt below, along with the email you inputted into the previous field.
+            Attendees of PRESS will not receive an email directly to their account. Please approach the printing area with the print receipt below, along with the email you inputted into the previous field.
           </div>
           <br/>
           <div class="print-title">
@@ -1106,9 +1105,10 @@ class App extends React.Component {
       let modifierY = 1.3;
       for(let i = 0; i < this.state.currentShownWorks.length; i++){
         let currID = this.state.currentShownWorks[i].id;
+        let isBigInstructionsImgScaleMod = (this.state.currentShownWorks[i].name == "sys" && this.state.currentShownWorks[i].title != "") ? 1.5 : 1;
         returnHTML += (`<div style=" position: absolute; left: ${this.state.artPiecesCurrX[currID] * modifierX}px; top: ${this.state.artPiecesCurrY[currID] * modifierY}px; z-index: ${10 + i};  transform: translate(-200px, -525px);">
-          <img style="max-height: ${6 * modifierX}em;" src="%img${i}%">
-          <p style="font-size: 0.5em;">(${currID})</p>
+          <img style="max-height: ${(6 * modifierX) * isBigInstructionsImgScaleMod}em;" src="%img${i}%">
+          <p style="font-size: 0.5em; background-color:black; color:white;">(${currID})</p>
           </div>`
         );
       }
@@ -1117,9 +1117,10 @@ class App extends React.Component {
       returnHTML += (`<div class="content">`);
       for(let i = 0; i < this.state.currentShownWorks.length; i++){
         let currID = this.state.currentShownWorks[i].id;
+        let isBigInstructionsImgScaleMod = (this.state.currentShownWorks[i].name == "sys" && this.state.currentShownWorks[i].title != "") ? 1.5 : 1;
         returnHTML += (`<div style="transform: rotate(-90deg); position: absolute; left: ${this.state.artPiecesCurrX[currID]}px; top: ${this.state.artPiecesCurrY[currID]}px; z-index: ${10 + i};">
-          <img style="max-height: 12em;" src="%img${i}%">
-          <p style="font-size: 0.5em;">(${currID})</p>
+          <img style="max-height: ${12 * isBigInstructionsImgScaleMod}em;" src="%img${i}%">
+          <p style="font-size: 0.5em; background-color:black; color:white;">(${currID})</p>
           </div>`
           );
       }
@@ -1158,12 +1159,12 @@ class App extends React.Component {
     //let bigLetterLeft = -(Math.random() * 200);
     //let bigLetterTop = -(Math.random() * 600) + 100;
     
-    let bigLetterLeft = -500 + (Math.random() * 1000);
+    //let bigLetterLeft = -500 + (Math.random() * 1000);
     //let bigLetterLeft = 500;
-    //let bigLetterLeft = -500;
-    let bigLetterTop = -350 + (Math.random() * 700);
+    let bigLetterLeft = -500;
+    //let bigLetterTop = -350 + (Math.random() * 700);
     //let bigLetterTop = 350;
-    //let bigLetterTop = -350;
+    let bigLetterTop = -350;
     
 
     //returnHTML += (`<p style="position: absolute; z-index: 100; transform: rotate(-90deg); font-size: 1400px; margin: auto; left: ${bigLetterLeft}px; top: ${bigLetterTop}px; font-family:pantasia;">${letter}</p>`);
@@ -1365,7 +1366,6 @@ class App extends React.Component {
 
   userAcknowledged() {
     //this.showInstructionalImage();
-
     if(this.state.isLoaded){
       this.setState({isAcknowledged:true});
     }
