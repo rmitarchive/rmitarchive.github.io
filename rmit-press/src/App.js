@@ -666,14 +666,14 @@ class App extends React.Component {
                   <div className="title-container">
                     <span className="header">PRESS</span>
                     <br/><br/>
-                    <input className="search-bar" 
-                    placeholder="Search..." 
-                    style={{visibility: this.state.mobileShowMenu ? "inherit" : "hidden"}} 
-                    onChange={e => this.updateTextFilter(e.target.value)}>
-                    </input>
                   </div>
                   <div className="student-names"> 
                   <div className="menu-to-hide" >
+                    <input className="search-bar" 
+                    placeholder="Search..." 
+                    onChange={e => this.updateTextFilter(e.target.value)}>
+                    </input>
+                    <br></br><br></br><br></br>
                     <div>Filters</div>
                     <br/>
                     <div>
@@ -743,13 +743,14 @@ class App extends React.Component {
                   <div className="title-container">
                     <span className="header">PRESS</span>
                     <br/><br/>
+                  </div>
+                  <div className="student-names"> 
+                  <div className="menu-to-hide" >
                     <input className="search-bar" 
                     placeholder="Search..." 
                     onChange={e => this.updateTextFilter(e.target.value)}>
                     </input>
-                  </div>
-                  <div className="student-names"> 
-                  <div className="menu-to-hide" >
+                    <br></br><br></br><br></br>
                     <div>Filters</div>
                     <br/>
                     <div>
@@ -801,7 +802,7 @@ class App extends React.Component {
                       Web
                     </a>
                     </div>
-                    <br></br><br></br>
+                    <br></br>
                     <a className="student" 
                     onClick = {(() => this.clearAllFilters())}>
                       Clear Filters
