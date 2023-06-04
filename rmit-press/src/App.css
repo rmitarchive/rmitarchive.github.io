@@ -644,9 +644,9 @@ html, body {
   box-sizing: border-box;
   padding:1em;
   cursor: pointer;
-  z-index: 999999999999999999999;
+  z-index: 999999999;
   
-  z-index: 9999999999999999999999;
+  z-index: 999999999;
 }
 
 .ack-text {

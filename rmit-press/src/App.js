@@ -994,7 +994,6 @@ class App extends React.Component {
           <br/>
           <br/>
           <a className="print-confirm" onClick = {(() => this.doPDFProcess())}>Continue</a>
-          <a className="print-confirm" onClick = {(() => this.testPDFProcess())}>BULK TEST</a>
           <br/>
           <br/>
           <div className="print-body">
@@ -1047,21 +1046,6 @@ class App extends React.Component {
         </div>        
       );
     }
-  }
-
-  testPDFProcess(){
-    let potLetters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-
-    potLetters.forEach(letter => {
-      console.log("LETTER LOOP: " + letter);
-      this.generatePDF(letter);
-    });
-
-    potLetters.forEach(letter => {
-      console.log("LETTER LOOP (caps): " + letter);
-      letter += "u";
-      this.generatePDF(letter);
-    });
   }
 
 //validation can happen here.
@@ -1213,8 +1197,8 @@ class App extends React.Component {
   sendPDF(formData){
     var self = this;
     axios({
-      url: "http://localhost:8000/index.php", 
-      //url: "https://p-r-e-s-s.com/php/index.php", 
+      //url: "http://localhost:8000/index.php", 
+      url: "https://p-r-e-s-s.com/php/index.php", 
       method: "POST",
       data: formData,
       headers: {
