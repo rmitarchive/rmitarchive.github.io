@@ -42,32 +42,33 @@ header('Access-Control-Allow-Headers: Content-Type');
     //test
     //file_put_contents("test.html", $html);
 
-    $message = $request_body;
+    $message = "Please find attached";
+    /*$message = $request_body;
     $message .= "\n\n";
     $message .= print_r($_REQUEST, true);
     $message .= "\n\n";
     $message .= $_SERVER["DOCUMENT_ROOT"];
     $message .= "\n\n";
-    $message .= $html;
+    $message .= $html;*/
 
     $printMail = new PHPMailer();
-    $printMail->setFrom('noreply@p-r-e-s-s.com', 'Name');
+    $printMail->setFrom('noreply@p-r-e-s-s.com', 'PRESS');
     $printMail->addAddress('print@p-r-e-s-s.com');  
 
     $printMail->Subject = $_POST["pdfName"]." From: ".$_POST["userEmail"];
     $printMail->Body    = $message;
-    $printMail->addAttachment($_POST["pdfName"], $_POST["pdfName"]);    // Name is optional WORKS
+    $printMail->addAttachment("PDF_OUTPUT/" . $_POST["pdfName"], $_POST["pdfName"]);    // Name is optional WORKS
 
     $printMail->send();
 
     
     $userMail = new PHPMailer();
-    $userMail->setFrom('noreply@p-r-e-s-s.com', 'Name');
+    $userMail->setFrom('noreply@p-r-e-s-s.com', 'PRESS');
     $userMail->addAddress($_POST["userEmail"]);  
 
     $userMail->Subject = "P-R-E-S-S GENERATED ARTEFACT";
     $userMail->Body    = $message;
-    $userMail->addAttachment($_POST["pdfName"], $_POST["pdfName"]);    // Name is optional WORKS
+    $userMail->addAttachment("PDF_OUTPUT/" . $_POST["pdfName"], $_POST["pdfName"]);    // Name is optional WORKS
 
     $userMail->send();
     
