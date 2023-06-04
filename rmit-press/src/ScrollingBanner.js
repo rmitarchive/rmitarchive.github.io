@@ -1,5 +1,6 @@
 
 import React from 'react';
+import {BrowserView, MobileView, isMobile} from 'react-device-detect';
 
 //<div className="index-img"><img src={this.state.img}/></div>
 //<div className="index-line"><span className="times">{this.state.id} - </span><span className="helvetica" onMouseOver={() => this.testHover()}>{this.state.title}</span></div>
@@ -92,8 +93,18 @@ class ScrollingBanner extends React.Component {
       let elements = []
       for(var i = 0; i < this.state.buttonTitles.length; i++){
         let j = i; /* lol */
-        elements.push(<div key={i} className="scrolling-banner-child" onClick = {(() => this.changeCurrentPageIndex(j))} style={{
-        }}><p className="helvetica">{i == this.state.clickFunc.current ? " " : (this.state.buttonTitles[i].charAt(0).toUpperCase() + this.state.buttonTitles[i].slice(1))}</p></div>);
+        if(isMobile){
+          elements.push(<div key={i} className="scrolling-banner-child" onTouchStart = {(() => this.changeCurrentPageIndex(j))}>
+            <p className="helvetica">{i == this.state.clickFunc.current ? " " : (this.state.buttonTitles[i].charAt(0).toUpperCase() + this.state.buttonTitles[i].slice(1))}
+            </p>
+          </div>);
+        }else{
+          elements.push(<div key={i} className="scrolling-banner-child" onClick = {(() => this.changeCurrentPageIndex(j))}>
+            <p className="helvetica">{i == this.state.clickFunc.current ? " " : (this.state.buttonTitles[i].charAt(0).toUpperCase() + this.state.buttonTitles[i].slice(1))}
+            </p>
+          </div>);
+        }
+
       }
       return(<div className="scrolling-banner-parent">
                 {elements}
