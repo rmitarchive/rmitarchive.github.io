@@ -1316,18 +1316,32 @@ class App extends React.Component {
             <a className = "focus-Close-mobile" onTouchStart={() => this.removeFocusArtPiece()}> Close </a>
           </div>
           <br></br>
-          <img className="focus-Img"
-            src={require(`./Img/${this.state.focusArtPiece.image}`)}
-          />
-          <img className="focus-Img"
-            src={require(`./Img/${this.state.focusArtPiece.image2}`)}
-          />
+
+            {this.state.focusArtPiece.hasOwnProperty("image") ? <img className="focus-Img" src={require(`./Img/${this.state.focusArtPiece.image}`)}/> : ``}
+
+            {this.state.focusArtPiece.hasOwnProperty("image2") ? <img className="focus-Img" src={require(`./Img/${this.state.focusArtPiece.image2}`)}/> : ``}
+
+            {this.state.focusArtPiece.hasOwnProperty("image3") ? <img className="focus-Img" src={require(`./Img/${this.state.focusArtPiece.image3}`)}/> : ``}
+
+            {this.state.focusArtPiece.hasOwnProperty("image4") ? <img className="focus-Img" src={require(`./Img/${this.state.focusArtPiece.image4}`)}/> : ``}
+
+            {this.state.focusArtPiece.hasOwnProperty("image5") ? <img className="focus-Img" src={require(`./Img/${this.state.focusArtPiece.image5}`)}/> : ``}
+
             <p className="focus-Desc">{this.state.focusArtPiece.desc}</p>
-            <div className="focus-Desc" >{`...`}</div>
+
+
+            {this.state.focusArtPiece.hasOwnProperty("bio") ? 
+              <div><div className="focus-Desc">...</div>
+              <br></br>
+              <div className="focus-Bio"> {this.state.focusArtPiece.bio} </div></div> : ``}
+
             <br></br>
-            <div className="focus-Bio">{`${this.state.focusArtPiece.bio}`}</div>
+
+            {this.state.focusArtPiece.hasOwnProperty("contact") ? <div className="focus-Desc"><a href={(`mailto:${this.state.focusArtPiece.contact}`)}>Email: {this.state.focusArtPiece.contact}</a></div> : ``}
+            {this.state.focusArtPiece.hasOwnProperty("social") ? <div className="focus-Desc"><a href={(`${this.state.focusArtPiece.social}`)} target="_blank">Social: {this.state.focusArtPiece.social}</a></div> : ``}
+            {this.state.focusArtPiece.hasOwnProperty("portfolio") ? <div className="focus-Desc"><a href={(`${this.state.focusArtPiece.portfolio}`)} target="_blank">Portfolio: {this.state.focusArtPiece.portfolio}</a></div> : ``}
+            
             <br></br>
-            <div className="focus-Desc"><a href={(`mailto:${this.state.focusArtPiece.contact}`)}>{`For any opportunities or enquiries, ${this.state.focusArtPiece.name} can be contacted at ${this.state.focusArtPiece.contact} (...)`}</a></div><br></br>
         </div>
       );
     }
@@ -1338,21 +1352,35 @@ class App extends React.Component {
         <div className="focus-BG">
           <div className = "focus-Header-container">
           <div className = "focus-Header">{`${this.state.focusArtPiece.id}. ${this.state.focusArtPiece.name}, ${this.state.focusArtPiece.title}`}</div>
-          <a className = "focus-Close" onMouseDown={() => this.removeFocusArtPiece()}> Close </a>
-          </div>
-          <br></br>
-          <img className="focus-Img"
-            src={require(`./Img/${this.state.focusArtPiece.image}`)}
-          />
-          <img className="focus-Img"
-            src={require(`./Img/${this.state.focusArtPiece.image2}`)}
-          />
+            <a className = "focus-Close" onMouseDown={() => this.removeFocusArtPiece()}> Close </a>
+            </div>
+            <br></br>
+
+            <img className="focus-Img" src={require(`./Img/${this.state.focusArtPiece.image}`)}/>
+
+            {this.state.focusArtPiece.hasOwnProperty("image2") ? <img className="focus-Img" src={require(`./Img/${this.state.focusArtPiece.image2}`)}/> : ``}
+
+            {this.state.focusArtPiece.hasOwnProperty("image3") ? <img className="focus-Img" src={require(`./Img/${this.state.focusArtPiece.image3}`)}/> : ``}
+
+            {this.state.focusArtPiece.hasOwnProperty("image4") ? <img className="focus-Img" src={require(`./Img/${this.state.focusArtPiece.image4}`)}/> : ``}
+
+            {this.state.focusArtPiece.hasOwnProperty("image5") ? <img className="focus-Img" src={require(`./Img/${this.state.focusArtPiece.image5}`)}/> : ``}
+
             <p className="focus-Desc">{this.state.focusArtPiece.desc}</p>
-            <div className="focus-Desc">{`...`}</div>
+
+            {this.state.focusArtPiece.hasOwnProperty("bio") ? 
+              <div><div className="focus-Desc">...</div>
+              <br></br>
+              <div className="focus-Bio"> {this.state.focusArtPiece.bio} </div></div> : ``}
+
             <br></br>
-            <div className="focus-Bio">{`${this.state.focusArtPiece.bio}`}</div>
+
+            {this.state.focusArtPiece.hasOwnProperty("contact") ? <div className="focus-Desc"><a href={(`mailto:${this.state.focusArtPiece.contact}`)}>Email: {this.state.focusArtPiece.contact}</a></div> : ``}
+            {this.state.focusArtPiece.hasOwnProperty("social") ? <div className="focus-Desc"><a href={(`${this.state.focusArtPiece.social}`)} target="_blank">Social: {this.state.focusArtPiece.social}</a></div> : ``}
+            {this.state.focusArtPiece.hasOwnProperty("portfolio") ? <div className="focus-Desc"><a href={(`${this.state.focusArtPiece.portfolio}`)} target="_blank">Portfolio: {this.state.focusArtPiece.portfolio}</a></div> : ``}
+            
             <br></br>
-            <div className="focus-Desc"><a href={(`mailto:${this.state.focusArtPiece.contact}`)}>{`For any opportunities or enquiries, ${this.state.focusArtPiece.name} can be contacted at ${this.state.focusArtPiece.contact} (...)`}</a></div><br></br>
+
         </div>
       </div>  
     );
