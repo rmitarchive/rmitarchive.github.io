@@ -139,8 +139,13 @@ class ArtPiece extends React.Component {
       let e = window.event;
       //console.log("MOUSE DOWN 2");
         
-      const textElement = document.getElementById(`${this.state.id}DDIMG`);
+      let textElement = document.getElementById(`${this.state.id}DDIMG`);
       //const textElement = document.getElementById(`${this.state.id}Img`);
+
+      if(textElement == null){
+        textElement = document.getElementById(`${this.state.id}Img`);
+      }
+      
       let textRect = textElement.getBoundingClientRect();
 
       let newZIndex = this.state.incrementZIndex();
