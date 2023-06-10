@@ -1214,8 +1214,8 @@ class App extends React.Component {
   sendPDF(formData){
     var self = this;
     axios({
-      url: "http://localhost:8000/index.php", 
-      //url: "https://p-r-e-s-s.com/php/index.php", 
+      //url: "http://localhost:8000/index.php", 
+      url: "https://p-r-e-s-s.com/php/index.php", 
       method: "POST",
       data: formData,
       headers: {

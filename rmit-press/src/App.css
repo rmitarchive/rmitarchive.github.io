@@ -650,7 +650,7 @@ html, body {
   padding:1em;
   cursor: pointer;
   
-  z-index: 9999999999999999999999;
+  z-index: 999999999;
 }
 
 .ack-text {

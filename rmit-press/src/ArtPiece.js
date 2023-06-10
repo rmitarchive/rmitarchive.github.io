@@ -63,7 +63,7 @@ class ArtPiece extends React.Component {
         console.log(`artpiece move: A`);
         const textElement = document.getElementById(`root`);
         let textRect = textElement.getBoundingClientRect(); 
-        const instructionalElement = document.getElementById(`57Img`);
+        const instructionalElement = document.getElementById(`52Img`);
         if(instructionalElement != null){ // && instructionalElement.getBoundingClientRect().width != 0
           console.log(`artpiece move: B`);
           let instructionalRect = instructionalElement.getBoundingClientRect();
