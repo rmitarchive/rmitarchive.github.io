@@ -566,12 +566,12 @@ class App extends React.Component {
     var newIndexFilter = this.state.indexFilter;
     
     newIndexFilter["digital"] = false;
-    newIndexFilter["identity"] = false;
-    newIndexFilter["logo"] = false;
     newIndexFilter["print"] = false;
-    newIndexFilter["poster"] = false;
-    newIndexFilter["layout"] = false;
-    newIndexFilter["web"] = false;
+    newIndexFilter["illustration"] = false;
+    newIndexFilter["identity"] = false;
+    newIndexFilter["sitebased"] = false;
+    newIndexFilter["multimedia"] = false;
+    newIndexFilter["object"] = false;
 
     this.setState({
       indexFilter: newIndexFilter
@@ -680,50 +680,50 @@ class App extends React.Component {
                     <div>
                       <a className="student"  
                       onClick = {(() => this.applyIndexFilter("digital"))}
-                      style={{backgroundColor: this.state.indexFilter["digital"] ? "#0078BF" : "transparent"}}>
+                      style={{backgroundColor: this.state.indexFilter["digital"] ? "#62A8E5" : "transparent"}}>
                         Digital
                       </a>
                     </div>
                     <div>
                     <a className="student" 
-                    onClick = {(() => this.applyIndexFilter("identity"))}
-                    style={{backgroundColor: this.state.indexFilter["identity"] ? "#ff48b0" : "transparent"}}>
-                      Identity
-                    </a>
-                    </div>
-                    <div>
-                    <a className="student" 
-                    onClick = {(() => this.applyIndexFilter("logo"))}
-                    style={{backgroundColor: this.state.indexFilter["logo"] ? "#F15060" : "transparent"}}>
-                      Logo
-                    </a>
-                    </div>
-                    <div>
-                    <a className="student" 
                     onClick = {(() => this.applyIndexFilter("print"))}
-                    style={{backgroundColor: this.state.indexFilter["print"] ? "#00A95C" : "transparent"}}>
+                    style={{backgroundColor: this.state.indexFilter["print"] ? "#ff48b0" : "transparent"}}>
                       Print
                     </a>
                     </div>
                     <div>
                     <a className="student" 
-                    onClick = {(() => this.applyIndexFilter("poster"))}
-                    style={{backgroundColor: this.state.indexFilter["poster"] ? "#FF6C2f" : "transparent"}}>
-                      Poster
+                    onClick = {(() => this.applyIndexFilter("illustration"))}
+                    style={{backgroundColor: this.state.indexFilter["illustration"] ? "#F15060" : "transparent"}}>
+                      Illustration
                     </a>
                     </div>
                     <div>
                     <a className="student" 
-                    onClick = {(() => this.applyIndexFilter("layout"))}
-                    style={{backgroundColor: this.state.indexFilter["layout"] ? "#00838A" : "transparent"}}>
-                      Layout
+                    onClick = {(() => this.applyIndexFilter("identity"))}
+                    style={{backgroundColor: this.state.indexFilter["identity"] ? "#00A95C" : "transparent"}}>
+                      Identity
                     </a>
                     </div>
                     <div>
                     <a className="student" 
-                    onClick = {(() => this.applyIndexFilter("web"))}
-                    style={{backgroundColor: this.state.indexFilter["web"] ? "#FFE800" : "transparent"}}>
-                      Web
+                    onClick = {(() => this.applyIndexFilter("sitebased"))}
+                    style={{backgroundColor: this.state.indexFilter["sitebased"] ? "#FF6C2f" : "transparent"}}>
+                      Site-based
+                    </a>
+                    </div>
+                    <div>
+                    <a className="student" 
+                    onClick = {(() => this.applyIndexFilter("multimedia"))}
+                    style={{backgroundColor: this.state.indexFilter["multimedia"] ? "#9D7AD2" : "transparent"}}>
+                      Multimedia
+                    </a>
+                    </div>
+                    <div>
+                    <a className="student" 
+                    onClick = {(() => this.applyIndexFilter("object"))}
+                    style={{backgroundColor: this.state.indexFilter["object"] ? "#FFE800" : "transparent"}}>
+                      Object
                     </a>
                     </div>
                     <br></br><br></br>
@@ -757,53 +757,53 @@ class App extends React.Component {
                     <div>
                       <a className="student"  
                       onClick = {(() => this.applyIndexFilter("digital"))}
-                      style={{backgroundColor: this.state.indexFilter["digital"] ? "#0078BF" : "transparent"}}>
+                      style={{backgroundColor: this.state.indexFilter["digital"] ? "#62A8E5" : "transparent"}}>
                         Digital
                       </a>
                     </div>
                     <div>
                     <a className="student" 
-                    onClick = {(() => this.applyIndexFilter("identity"))}
-                    style={{backgroundColor: this.state.indexFilter["identity"] ? "#ff48b0" : "transparent"}}>
-                      Identity
-                    </a>
-                    </div>
-                    <div>
-                    <a className="student" 
-                    onClick = {(() => this.applyIndexFilter("logo"))}
-                    style={{backgroundColor: this.state.indexFilter["logo"] ? "#F15060" : "transparent"}}>
-                      Logo
-                    </a>
-                    </div>
-                    <div>
-                    <a className="student" 
                     onClick = {(() => this.applyIndexFilter("print"))}
-                    style={{backgroundColor: this.state.indexFilter["print"] ? "#00A95C" : "transparent"}}>
+                    style={{backgroundColor: this.state.indexFilter["print"] ? "#ff48b0" : "transparent"}}>
                       Print
                     </a>
                     </div>
                     <div>
                     <a className="student" 
-                    onClick = {(() => this.applyIndexFilter("poster"))}
-                    style={{backgroundColor: this.state.indexFilter["poster"] ? "#FF6C2f" : "transparent"}}>
-                      Poster
+                    onClick = {(() => this.applyIndexFilter("illustration"))}
+                    style={{backgroundColor: this.state.indexFilter["illustration"] ? "#F15060" : "transparent"}}>
+                      Illustration
                     </a>
                     </div>
                     <div>
                     <a className="student" 
-                    onClick = {(() => this.applyIndexFilter("layout"))}
-                    style={{backgroundColor: this.state.indexFilter["layout"] ? "#00838A" : "transparent"}}>
-                      Layout
+                    onClick = {(() => this.applyIndexFilter("identity"))}
+                    style={{backgroundColor: this.state.indexFilter["identity"] ? "#00A95C" : "transparent"}}>
+                      Identity
                     </a>
                     </div>
                     <div>
                     <a className="student" 
-                    onClick = {(() => this.applyIndexFilter("web"))}
-                    style={{backgroundColor: this.state.indexFilter["web"] ? "#FFE800" : "transparent"}}>
-                      Web
+                    onClick = {(() => this.applyIndexFilter("sitebased"))}
+                    style={{backgroundColor: this.state.indexFilter["sitebased"] ? "#FF6C2f" : "transparent"}}>
+                      Site-based
                     </a>
                     </div>
-                    <br></br>
+                    <div>
+                    <a className="student" 
+                    onClick = {(() => this.applyIndexFilter("multimedia"))}
+                    style={{backgroundColor: this.state.indexFilter["multimedia"] ? "#9D7AD2" : "transparent"}}>
+                      Multimedia
+                    </a>
+                    </div>
+                    <div>
+                    <a className="student" 
+                    onClick = {(() => this.applyIndexFilter("object"))}
+                    style={{backgroundColor: this.state.indexFilter["object"] ? "#FFE800" : "transparent"}}>
+                      Object
+                    </a>
+                    </div>
+                    <br></br><br></br>
                     <a className="student" 
                     onClick = {(() => this.clearAllFilters())}>
                       Clear Filters

@@ -309,36 +309,36 @@ class ArtPiece extends React.Component {
         if(this.state.currFilter[tag]){
           switch(tag){
             case "digital":
-              var c = [0, 121, 191];
+              var c = [98, 168, 229];
               colors.push(c);
-              //color = '#0078BF';
+              //color = '#62A8E5';
               break;
-            case "identity":
+            case "print":
               var c = [255, 72, 176];
               colors.push(c);
               //color = '#FF48B0';
               break;
-            case "logo":
+            case "illustration":
               var c = [241, 80, 96];
               colors.push(c);
               //color = '#F15060';
               break;
-            case "print":
+            case "identity":
               var c = [0, 169, 92];
               colors.push(c);
               //color = '#00A95C';
               break;
-            case "poster":
+            case "sitebased":
               var c = [255, 108, 47];
               colors.push(c);
               //color = '#FF6C2f';
               break;
-            case "layout":
-              var c = [0, 131, 138];
+            case "multimedia":
+              var c = [157, 122, 210];
               colors.push(c);
-              //color = '#00838A';
+              //color = '#9D7AD2';
               break;
-            case "web":
+            case "object":
               var c = [253, 231, 0];
               colors.push(c);
               //color = '#FFE800';
