@@ -1312,7 +1312,7 @@ class App extends React.Component {
       return (
         <div className="focus-BG-mobile">
           <div className = "focus-Header-container">
-            <div className = "focus-Header-mobile">{`${this.state.focusArtPiece.id}. ${this.state.focusArtPiece.name}, ${this.state.focusArtPiece.title}`}</div>
+            <div className = "focus-Header-mobile">{`${this.state.focusArtPiece.id}. ${this.state.focusArtPiece.name}`}</div>
             <a className = "focus-Close-mobile" onTouchStart={() => this.removeFocusArtPiece()}> Close </a>
           </div>
           <br></br>
@@ -1327,6 +1327,14 @@ class App extends React.Component {
 
             {this.state.focusArtPiece.hasOwnProperty("image5") ? <img className="focus-Img" src={require(`./Img/${this.state.focusArtPiece.image5}`)}/> : ``}
 
+            <div className="focus-Desc focus-Title">
+              {`${this.state.focusArtPiece.name}`} 
+              <br></br>
+              {`${this.state.focusArtPiece.title}`}
+            <br></br>
+            (2023)
+            </div>
+            <br></br>
             <p className="focus-Desc">{this.state.focusArtPiece.desc}</p>
 
 
@@ -1351,7 +1359,7 @@ class App extends React.Component {
       <div className = "focus-obscure"></div> 
         <div className="focus-BG">
           <div className = "focus-Header-container">
-          <div className = "focus-Header">{`${this.state.focusArtPiece.id}. ${this.state.focusArtPiece.name}, ${this.state.focusArtPiece.title}`}</div>
+          <div className = "focus-Header">{`${this.state.focusArtPiece.id}. ${this.state.focusArtPiece.name}`}</div>
             <a className = "focus-Close" onMouseDown={() => this.removeFocusArtPiece()}> Close </a>
             </div>
             <br></br>
@@ -1366,13 +1374,21 @@ class App extends React.Component {
 
             {this.state.focusArtPiece.hasOwnProperty("image5") ? <img className="focus-Img" src={require(`./Img/${this.state.focusArtPiece.image5}`)}/> : ``}
 
+            <div className="focus-Desc focus-Title">
+              {`${this.state.focusArtPiece.name}`} 
+              <br></br>
+              {`${this.state.focusArtPiece.title}`}
+            <br></br>
+            (2023)
+            </div>
+            <br></br>
+
             <p className="focus-Desc">{this.state.focusArtPiece.desc}</p>
 
             {this.state.focusArtPiece.hasOwnProperty("bio") ? 
               <div><div className="focus-Desc">...</div>
               <br></br>
               <div className="focus-Bio"> {this.state.focusArtPiece.bio} </div></div> : ``}
-
             <br></br>
 
             {this.state.focusArtPiece.hasOwnProperty("contact") ? <div className="focus-Desc"><a href={(`mailto:${this.state.focusArtPiece.contact}`)}>Email: {this.state.focusArtPiece.contact}</a></div> : ``}

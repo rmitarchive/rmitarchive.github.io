@@ -9,6 +9,7 @@
         "image2":"Press/alana2.png",
         "year": "2023",
         "desc": "I want to create this piece of design to immortalise in hard copy the most liberating, soul-shaking, freedom-encapsulating, serotonin-fuelled self discovery 3 week mission of my 21 years lived thus far. The many people I met and the many places I went. Not only would this piece of design be a memoir to myself, but if composed beautifully enough, be a piece of consumable media for the individual who is naturally artistically inclined and presents an interest in indulging in my artwork composed in a digestible publication. It’s also a project; once manufactured; could go on to become commercially stocked in bookstores. It’s my dream to produce a hardcover book to the high standard of those stocked at Readings or Metropolis.",
+        "bio":"Japan, from my many experiences, provides a main takeaway of sensory overload in the form of sound and vision and colour. It is a even of art and design and music appreciation. This is a main point of reflection I want embodied in my potential publication.\n\nI originally intended on this ethereal experience to be documented in illustrative form. I have the reference document of over 1000 photos I shot on a small digital handheld camera, however I am not a photographer and these are not necessarily skilfully captured photos. However, the subject matter what the people/places/things are the vital takeaway from these photos. In order to create a capstone project that challenges me to create my best body of design skill and work yet, I agreed with myself that these photos would best if used as a reference point for illustration, which I would consider my strong point in design. Upon drawing this developmental conclusion, a new question arises; what medium? What style? Cartoon, realistic? Oil, pencil, digital? After some extended mental debate, an initial lead on oil arose; which drew to an end after how long it took to make just one. Finally, a realistic update was drawn; that my pictures would be drawn realistically in pencil, scanned, and coloured on Photoshop. Not only will this method of action cut the time in half, it will allow me to make more. Quantity is a key point when creating a coffee-table style book (it’s gotta have a little chunk in that spine!). Colouring on photoshop will also allow me to really exponentially play with colours and patterns (an important point in accurately depicting Japan in my opinion).",
         "social": "https://instagram.com/alanalacyart"
       },
       {
@@ -16,7 +17,10 @@
         "name": "Angus Wicks",
         "tags": ["digital", "web"],
         "title": "Solace",
-        "image": "Press/angus.jpg",
+        "image": "Press/angus1.png",
+        "image2": "Press/angus2.png",
+        "image3": "Press/angus3.jpg",
+        "image4": "Press/angus4.jpg",
         "year": "2023",
         "desc": "Solace is a skate street wear brand.\n\nThe aim being to capture the Melbourne street wear scene and incorporate aspects of skating and where i grew up in Fitzroy to produce clothing and accessories which mirror this.\n\nSolace skate street wear is not just about the clothes, it is a subculture that embodies a certain attitude and lifestyle.",
         "contact": "awicks10@hotmail.com"
@@ -26,7 +30,10 @@
         "name": "April Larsen",
         "tags": ["print"],
         "title": "Wetter & Wilder - A Colouring Book",
-        "image": "Press/april.JPG",
+        "image": "Press/april1.png",
+        "image2": "Press/april2.png",
+        "image3": "Press/april3.png",
+        "image4": "Press/april4.png",
         "year": "2023",
         "desc": "A colouring book made fore adults with a cheeky ocean theme.",
         "contact": "aprillarsen6@gmail.com"
@@ -83,7 +90,7 @@
       },
       {
         "id": 7,
-        "name": "Deniz Caliskan",
+        "name": "Deniz Olken",
         "tags": ["object"],
         "title": "Project 001",
         "image": "Press/deniz1.jpg",
@@ -209,10 +216,16 @@
       {
         "id": 17,
         "name": "Natalie Chen",
-        "tags": [""],
-        "title": "Untitled",
-        "image": "Press/placeholder.png",
-        "year": "2023"
+        "tags": ["illustration", "print", "object"],
+        "title": "Eastern Women: Bound & Free",
+        "image": "Press/yixuan1.jpg",
+        "image2": "Press/yixuan2.jpg",
+        "image3": "Press/yixuan3.jpg",
+        "image4": "Press/yixuan4.jpg",
+        "year": "2023",
+        "desc": "The handmade book, 'Eastern Women: Bound and Free,' is an expressive and thought-provoking exploration of the challenges, oppression, and resilience experienced by women in the East.\n\nThrough a creative blend of illustrations, collages, photographs, and compelling written content, this book delves into the depths of the Eastern woman's journey. It seeks to shed light on the various ways in which women in the East are bound by societal expectations, cultural norms, and gender roles, while also celebrating their capacity to break free and redefine their identities.\n\nEach page of the book serves as a window into the multifaceted experiences of Eastern women, capturing their struggles, dreams, and triumphs. The content examines the oppression and limitations imposed on women's thoughts and behaviors, such as conforming to traditional gender roles, facing dress codes and beauty standards, staying silent versus using their voices, and grappling with the complexities of relationships and family expectations.\n\nThis project aims to inspire and empower women by highlighting their resilience, strength, and ability to overcome adversity. It encourages women to embrace their unique identities, challenge societal norms, and pave the way for a more inclusive and equitable future. By presenting contrasting representations of 'bound' and 'free,' the book creates a visual and emotional journey that ignites a sense of liberation and motivates readers to question, reflect, and take action.\n\nThe book invites viewers to immerse themselves in the rich tapestry of Eastern women's experiences, fostering empathy, understanding, and solidarity. Through this artistic medium, it is hoped that the project will contribute to a wider movement of empowerment and social change, encouraging individuals to question the status quo and actively participate in the ongoing journey towards equality and freedom.",
+        "bio": "Hi, I'm Yixuan Chen (Natalie).\n\nAs a student majoring in Communication Design, I have been on a constant journey of exploration, seeking to convey meaningful stories through visual means. Over the past three years, I have found inspiration and solace in the realm of creativity. I am passionate about observing negative social news as it serves as a catalyst for my creative inspiration.\n\nArt knows no boundaries. Creating works that challenge traditional norms, disrupt the status quo, and encourage dialogue has repeatedly affirmed my sense of worth, even though my voice may be small and faint. I have grown accustomed to letting my works speak for me, striving to resonate with audiences on multiple levels, in pursuit of a more inclusive and equitable world.\n\nSince embarking on my design journey, I have been driven by an insatiable curiosity, constantly seeking to expand my horizons and push the boundaries of my own practice. This relentless pursuit of learning and growth propels me forward, ensuring that I am always evolving as a designer and as an individual.",
+        "social": "https://instagram.com/ciixn1126"
       },
       {
         "id": 18,
@@ -230,8 +243,22 @@
         "image": "Press/paul1.jpg",
         "year": "2023",
         "desc": "What is it?\nA book of a story about dreams told through imagery.\nThe story is  told through a series of wordless two page spreads. As in a dream state each spread presents a whole scene or environment as an immersive space that occupies the whole of our attention.\n\nThis work is an exploration or experiment. It is a way for me to think out loud about the possibilities of long form illustration for publication and about creating substantial projects independently.\n\nMaking this book has been an informative, challenging and inspiring way to research one of the directions in which I would like to take my design practice.",
-        "bio":"From I’ve been working ‘graphics’ jobs in Melbourne for a lot of my working life. Co-vid 19 restrictions stopped that, but also gave me the time and chance to study design.\nBest lock-down outcome evvvah!\n\nI’ve used this Capstone personal project as chance to make something no one else would be likely to commission. It has been a good opportunity to try something largish in a single sustained style.  The artifact offers a lot of ‘scope for development’, but as an investigation into an area of personal interest the project feels like a success. Having an environment to road-test a self-devised project was valuable and helpful.\n\nAt the end of this course there are a LOT of possibilities and pathways ahead of a designer. In classes and studios we all create a great variety of work for varied purposes. I’d not thought of myself as an ‘illustrator’, but when I have been required to illustrate - I’ve found it an enjoyable challenge. It has been a great opportunity to use this project as a way to explore another idea of what a design career might be like.",
+        "bio":"From I’ve been working ‘graphics’ jobs in Melbourne for a lot of my working life. Covid-19 restrictions stopped that, but also gave me the time and chance to study design.\nBest lock-down outcome evvvah!\n\nI’ve used this Capstone personal project as chance to make something no one else would be likely to commission. It has been a good opportunity to try something largish in a single sustained style.  The artifact offers a lot of ‘scope for development’, but as an investigation into an area of personal interest the project feels like a success. Having an environment to road-test a self-devised project was valuable and helpful.\n\nAt the end of this course there are a LOT of possibilities and pathways ahead of a designer. In classes and studios we all create a great variety of work for varied purposes. I’d not thought of myself as an ‘illustrator’, but when I have been required to illustrate - I’ve found it an enjoyable challenge. It has been a great opportunity to use this project as a way to explore another idea of what a design career might be like.",
         "contact": "paulweedon3000@gmail.com"
+      },
+      {
+        "id": 44,
+        "name": "Quan Ming Li",
+        "tags": ["digital"],
+        "title": "Chewy Chewy Dessert",
+        "image": "Press/quan1.jpg",
+        "image2": "Press/quan2.png",
+        "image3": "Press/quan3.png",
+        "image4": "Press/quan4.png",
+        "year": "2023",
+        "desc": "Chewy Chewy Dessert is a young, adorable dessert brand dedicated to providing desserts with a Chinese twist. The core concept of the brand is to combine traditional Chinese desserts with modern elements to create a fresh and creative dessert experience.\n\nMy design work focused on the creation of the brand identity and visual elements. First, I redesigned the Chewy Chewy Dessert logo to simplify and optimize the original design to be more in line with the brand's youthful and cute style. The logo uses soft colors combined with clean lines and light fonts to show the brand's liveliness and approachability.\n\nIn addition to the logo, I also designed the brand's graphic elements, including a cute dessert illustration and a decorative floral pattern. These graphic elements are used to create the brand's visual identity and provide a unique visual effect for the brand's promotional materials and product packaging. The style of the illustrations is lively and fun, which fits with the brand's youthful positioning.\n\nIn addition, I will update the brand's website and social media accounts in the future to showcase the latest dessert products and interact with consumers. The design of the website focused on user experience and communication of the brand image, allowing users to easily understand the brand's story and product information. The design of the social media accounts included creative images and engaging content to attract more followers and potential customers.\n\nMy design work also included updating the price list and packaging design to accommodate new product launches. The price list was designed to be simple and clear, making it easy for customers to understand the prices and flavor choices of various desserts. The packaging design focuses on brand image presentation to attract consumers' attention and convey the high quality and deliciousness of the products.\n\nThrough these design efforts, I aimed to create a compelling and enjoyable brand image that would make Chewy Chewy Dessert stand out in the Melbourne dessert market and attract more dessert lovers to taste and experience it.",
+        "bio":"I am a graphic designer who strives to learn to become better, with a passion for creative design and visual communication. I enjoy translating ideas and concepts into concrete design work, creating compelling visuals through elements such as color, typography and graphics. I have experience using a wide range of design skills and tools that can be flexibly applied in areas such as branding, logo design, print advertising and digital media. With an eye for detail and user experience, I am committed to providing innovative and engaging design solutions for my clients.",
+        "contact": "3144872540@qq.com"
       },
       {
         "id": 20,
@@ -258,7 +285,18 @@
         "bio":"I believe that I’m a creative who strives to find common ground with my audience and communicate the nitty grittiness of being alive in dynamic ways. I also believe that my work will always be inspired by moments of wonder and awe, as they have stuck with me the most. I also enjoy hiding symbolism and narrative in visual elements which is a real testament to my fine arts background. This I know will be useful going forward, as good designs are the ones anchored in narrative and meaning.",
         "contact": "riomuniandy@gmail.com"
       },
-
+      {
+        "id": 25,
+        "name": "Rongsheng Liang",
+        "tags": ["print", "layout"],
+        "title": "Chinese Motifs",
+        "image": "Press/rongshen1.png",
+        "image2": "Press/rongshen2.png",
+        "image3": "Press/rongshen3.png",
+        "year": "2023",
+        "desc": "Resurgence of the Ancient: A Modern Approach to Chinese Motifs, is a profound exploration and integration of traditional Chinese motifs into modern digital design. This endeavour is a reflection of my personal journey of understanding and appreciating my Chinese heritage, applying the wisdom of the past to the creative pursuits of the present. My body of work contains a series of three posters, each drawing inspiration from Confucianism, Buddhism, and Taoism – the “Three Teachings” that have shaped Chinese culture and art for millennia.\n\nIn the process, I've aimed to highlight the enduring relevance of these ancient philosophies and their motifs in today's world, creating a harmonious blend of tradition and modernity. I've incorporated the symbolism associated with these philosophies – the solemnity and societal harmony of Confucianism, the spiritual awakening of Buddhism, and the natural balance of Taoism – into my designs, which take cues from the design languages of modern artists Yue Minjun, Yayoi Kusama, and Kenya Hara.\n\nThis project is as much about self-discovery as it is about design. Through it, I've learned not only the mechanics of merging traditional motifs with modern design techniques but also the depth and richness of my own cultural heritage. As I navigated the challenges of synthesising these different elements, I found myself deepening my understanding of both my craft and my identity.\n\nThe work I present is a testament to the power of design as a medium of self-expression, cultural preservation, and innovation. It's my belief that these designs will speak to viewers – not just of the beauty and elegance of Chinese motifs and modern design – but also of the profound philosophy and heritage they embody.",
+        "bio":"As a passionate and intuitive designer, I find myself constantly drawn to the intersection of tradition and innovation, where the wisdom of the past meets the creativity of the present. Rooted in my Chinese heritage, my work often reflects the rich tapestry of Chinese culture, art, and philosophy, yet, it's equally inspired by contemporary design aesthetics. The harmony of these diverse influences characterises my creative approach, which I view as an ongoing journey of self-discovery, cultural exploration, and aesthetic evolution."
+      },
       {
         "id": 22,
         "name": "Sophie Jones",
@@ -300,18 +338,6 @@
         "desc": "Experiencing the great outdoors on your own can provide a unique sense of freedom and adventure that is difficult to replicate elsewhere. However, it can also be daunting and lonely at times. That's where Hike Guide comes in – an app designed specifically for beginners and hiking enthusiasts to connect and foster a community.\n\nOne of the key challenges we've identified is the overwhelming amount of cluttered and potentially inaccurate information available online. Our aim is to offer a safer hiking experience for users by providing reliable and verified information. With Hike Guide, hikers have access to a comprehensive platform where they can search and select hiking routes based on their preferences. Our app saves users valuable time with efficient filter features, ensuring a hassle-free experience.\n\nFurthermore, Hike Guide goes beyond simply offering route recommendations. We facilitate connections between hikers, allowing them to find like-minded individuals and even join organized tours. This enables users to build friendships with others who share the same interests and passion for hiking. Additionally, we provide a wealth of informative articles tailored for beginners, offering essential knowledge and preparation tips before embarking on a hike. For seasoned hikers, our app serves as a valuable resource to discover new and popular hiking trails.\n\nAll the content within Hike Guide is carefully curated by experienced hikers, ensuring the information is reliable and relevant. Moreover, we prioritize safety by integrating features such as danger alerts, offline maps, emergency SOS functionality, and even a torchlight direction projection. With these features, hikers can navigate their adventures with confidence and peace of mind.\n\nUltimately, our app encourages Australians to embrace a healthier lifestyle and promote outdoor activities. Hike Guide serves as a catalyst for individuals to immerse themselves in nature, fostering a sense of well-being and appreciation for the beauty of the great outdoors.",
         "bio":"Pei, a graphic designer from Malaysia, embarked on her freelancing journey in 2021. She has worked with clients across various industries, including beauty, health, food and beverage, and corporate business and more.  She specializes in both digital and print-ready collaterals, such as branding, packaging design, social media designs, UI/UX design and more.\n\nBeyond her professional endeavors, Pei nurtures a passion for photography and video shooting for YouTube/Reels/Ads content creation along with video editing skills.\n\nHaving pursued studies in marketing and business entrepreneurship at RMIT, coupled with her practical experience working in a marketing agency, Pei possesses a sound understanding of marketing principles. This knowledge enriches her design approach, enabling her to deliver effective visual communication solutions. Pei firmly believes that exceptional designs are a result of collective effort, valuing the input and ideas of every team member. She welcomes feedback and thrives in collaborative environments, actively engaging with clients to bring their visions to life.\n\nGot a new project in mind? Contact me to discuss and explore how we can work together to create beautiful, functional, and impactful designs.",
         "social": "https://instagram.com/peistudios"
-      },
-      {
-        "id": 25,
-        "name": "Vinson Liang",
-        "tags": ["print", "layout"],
-        "title": "Chinese Motifs",
-        "image": "Press/rongshen1.png",
-        "image2": "Press/rongshen2.png",
-        "image3": "Press/rongshen3.png",
-        "year": "2023",
-        "desc": "My work explores the intersection of traditional Chinese motifs and modern aesthetics, reflecting my deep-rooted appreciation for history and passion for innovation. Inspired by the philosophies of Buddhism, Taoism, and Confucianism, I strive to encapsulate their essence in my designs, creating a dialogue between the ancient and contemporary. With each piece, I embark on a journey of self-discovery, seeking to understand my identity and heritage better, while sharing the beauty of Chinese culture with the world. This book is a testament to that journey and an invitation to join me in exploring these captivating motifs.",
-        "contact": "s3815174@student.rmit.edu.au"
       },
       {
         "id": 26,
@@ -356,9 +382,14 @@
         "id": 30,
         "name": "Yidi Wang",
         "tags": [""],
-        "title": "Untitled",
-        "image": "Press/placeholder.png",
-        "year": "2023"
+        "title": "Land of Eternity",
+        "image": "Press/yidi1.jpg",
+        "image2": "Press/yidi2.jpg",
+        "image3": "Press/yidi3.jpg",
+        "year": "2023",
+        "desc": "Land of Eternity is a modern Pet Funeral company that prioritizes transparency and choice.\n\nThis brand aims to carry the emotional attachment that countless pet owners have for their beloved pets.\n\nThe significance of Land of Eternity is in creating a new island, a warm and safe place full of hope.\n\nLet the memory of your pet live on forever.\n\nThe brand provide a range of services that cater to the needs of pet owners during the difficult time of pet loss.\n\nCreate personalized and everlasting memorials for your pet.",
+        "bio":"My artwork stems from two simple desires. First, separation has always been a heavy topic for humans. Not every pet owner can immediately accept the reality of their pet's passing. Therefore, I aim to help those who are grieving the loss of a beloved pet. Second, with the concept of the Land of Eternity, I offer an emotional buffer. Providing a proper farewell to their pets makes their journey in this life worthwhile.\n\nDuring my childhood, conflicts at home burdened me with constant anxiety, making me dread returning home. However, everything changed when I welcomed a small dog into my life. The unconditional love and daily anticipation of their warm welcome after school brought me solace. Yet, as time passed, like any ordinary adult, my dog was said to have transcended to heaven. Curiosity sparked within me about the nature of heaven and whether it could have a tangible existence. This curiosity became the foundation for my artistic expression.",
+        "contact":"00yidi@gmail.com"
       },
 
       {
@@ -378,7 +409,7 @@
       {
         "id": 32,
         "name": "Ziyu Shen",
-        "tags": ["print"],
+        "tags": ["print", "object"],
         "title": "Scientism",
         "image": "Press/ziyu1.jpg",
         "image2": "Press/ziyu2.jpg",
@@ -540,69 +571,6 @@
         "tags": [""],
         "title": "",
         "image": "Random/15.png",
-        "year": "",
-        "desc": ""
-      },
-      {
-        "id": 50,
-        "name": "sys",
-        "tags": [""],
-        "title": "",
-        "image": "Random/16.png",
-        "year": "",
-        "desc": ""
-      },
-      {
-        "id": 51,
-        "name": "sys",
-        "tags": [""],
-        "title": "",
-        "image": "Random/17.png",
-        "year": "",
-        "desc": ""
-      },
-      {
-        "id": 52,
-        "name": "sys",
-        "tags": [""],
-        "title": "",
-        "image": "Random/18.png",
-        "year": "",
-        "desc": ""
-      },
-      {
-        "id": 53,
-        "name": "sys",
-        "tags": [""],
-        "title": "",
-        "image": "Random/19.png",
-        "year": "",
-        "desc": ""
-      },
-      {
-        "id": 54,
-        "name": "sys",
-        "tags": [""],
-        "title": "",
-        "image": "Random/20.png",
-        "year": "",
-        "desc": ""
-      },
-      {
-        "id": 55,
-        "name": "sys",
-        "tags": [""],
-        "title": "",
-        "image": "Random/21.png",
-        "year": "",
-        "desc": ""
-      },
-      {
-        "id": 56,
-        "name": "sys",
-        "tags": [""],
-        "title": "",
-        "image": "Random/22.png",
         "year": "",
         "desc": ""
       },
