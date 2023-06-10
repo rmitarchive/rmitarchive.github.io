@@ -1,7 +1,8 @@
 {
     "students": [
       {
-        "id": 1,
+        "id": 0,
+        "code": "001",
         "name": "Alana Eve Lacy",
         "tags": ["identity", "logo"],
         "title": "Western Girl In Japan",
@@ -13,7 +14,8 @@
         "social": "https://instagram.com/alanalacyart"
       },
       {
-        "id": 2,
+        "id": 1,
+        "code": "002",
         "name": "Angus Wicks",
         "tags": ["digital", "web"],
         "title": "Solace",
@@ -26,7 +28,8 @@
         "contact": "awicks10@hotmail.com"
       },
       {
-        "id": 3,
+        "id": 2,
+        "code": "003",
         "name": "April Larsen",
         "tags": ["print"],
         "title": "Wetter & Wilder - A Colouring Book",
@@ -39,7 +42,8 @@
         "contact": "aprillarsen6@gmail.com"
       },
       {
-        "id": 4,
+        "id": 3,
+        "code": "004",
         "name": "Beverly Angelina",
         "tags": ["illustration"],
         "title": "GARDIN",
@@ -55,7 +59,8 @@
         
       },
       {
-        "id": 5,
+        "id": 4,
+        "code": "005",
         "name": "Carol Xu",
         "tags": ["digital"],
         "title": "Design My Own Wedding",
@@ -67,7 +72,8 @@
         "contact": "xuyuchen0911@gmail.com"      
       },
       {
-        "id": 6,
+        "id": 5,
+        "code": "006",
         "name": "Cindy Zhang",
         "tags": ["digital"],
         "title": "Wedding Ceremony",
@@ -77,7 +83,8 @@
         "unfinished":""   
       },
       {
-        "id": 7,
+        "id": 6,
+        "code": "007",
         "name": "Charles Ly",
         "tags": ["digital"],
         "title": "Affinite Rings",
@@ -91,7 +98,8 @@
         "portfolio": "https://charlesly.myportfolio.com/work"
       },
       {
-        "id": 8,
+        "id": 7,
+        "code": "008",
         "name": "Deniz Olken",
         "tags": ["object"],
         "title": "Project 001",
@@ -106,7 +114,8 @@
         "portfolio": "https://0001dd.wixsite.com/0001dportfolio"
       },
       {
-        "id": 9,
+        "id": 8,
+        "code": "009",
         "name": "Ella Taylor",
         "tags": ["print"],
         "title": "Lacking Representation ",
@@ -122,7 +131,8 @@
         "social": "https://instagram.com/eettstudios"
       },
       {
-        "id": 10,
+        "id": 9,
+        "code": "010",
         "name": "Emili Keisha",
         "tags": ["logo", "identity"],
         "title": "UBI",
@@ -138,7 +148,8 @@
         "social": "https://instagram.com/pensilemili"
       },
       {
-        "id": 11,
+        "id": 10,
+        "code": "011",
         "name": "Finn Stewart",
         "tags": ["sitebased", "object"],
         "title": "To Build A Home",
@@ -150,7 +161,8 @@
         "contact": "finnstewart@me.com"
       },
       {
-        "id": 12,
+        "id": 11,
+        "code": "012",
         "name": "Jazelle Mackenzie",
         "tags": [""],
         "title": "Untitled",
@@ -159,7 +171,8 @@
         "unfinished":""
       },
       {
-        "id": 13,
+        "id": 12,
+        "code": "013",
         "name": "Jasmine Wang",
         "tags": ["poster", "layout"],
         "title": "Me & You Together (Song)",
@@ -171,7 +184,8 @@
         "unfinished":""
       },
       {
-        "id": 14,
+        "id": 13,
+        "code": "014",
         "name": "Juliette Rosa",
         "tags": [""],
         "title": "Untitled",
@@ -180,7 +194,8 @@
         "unfinished":""
       },
       {
-        "id": 15,
+        "id": 14,
+        "code": "015",
         "name": "Katya Vergara",
         "tags": ["print", "illustration"],
         "title": "Grimm's Fairy Tales",
@@ -194,7 +209,8 @@
         "contact": "katya.lee.vergara@gmail.com"
       },
       {
-        "id": 16,
+        "id": 15,
+        "code": "016",
         "name": "Leon Li",
         "tags": [""],
         "title": "Untitled",
@@ -203,7 +219,8 @@
         "unfinished":""
       },
       {
-        "id": 17,
+        "id": 16,
+        "code": "017",
         "name": "Li Yeng Hiu",
         "tags": ["identity", "sitebased", "digital"],
         "title": "Beam",
@@ -220,7 +237,8 @@
         "social": "https://linkedin.com/in/liyenghiu/"
       },
       {
-        "id": 18,
+        "id": 17,
+        "code": "018",
         "name": "Natalie Chen",
         "tags": ["illustration", "print", "object"],
         "title": "Eastern Women: Bound & Free",
@@ -234,7 +252,8 @@
         "social": "https://instagram.com/ciixn1126"
       },
       {
-        "id": 19,
+        "id": 18,
+        "code": "019",
         "name": "Nicholas Gleeson",
         "tags": [""],
         "title": "Untitled",
@@ -243,7 +262,8 @@
         "unfinished":""
       },
       {
-        "id": 20,
+        "id": 19,
+        "code": "020",
         "name": "Paul Weedon",
         "tags": ["illustration"],
         "title": "Welcome to the Dream State",
@@ -254,7 +274,8 @@
         "contact": "paulweedon3000@gmail.com"
       },
       {
-        "id": 21,
+        "id": 20,
+        "code": "021",
         "name": "Quan Ming Li",
         "tags": ["digital"],
         "title": "Chewy Chewy Dessert",
@@ -268,7 +289,8 @@
         "contact": "3144872540@qq.com"
       },
       {
-        "id": 22,
+        "id": 21,
+        "code": "022",
         "name": "Raquel Laing-Nobrega",
         "tags": ["print", "layout"],
         "title": "Slice",
@@ -279,7 +301,8 @@
         "unfinished":""
       },
       {
-        "id": 23,
+        "id": 22,
+        "code": "023",
         "name": "Rio Muniandy",
         "tags": ["illustration", "identity"],
         "title": "This Could Be It ",
@@ -294,7 +317,8 @@
         "contact": "riomuniandy@gmail.com"
       },
       {
-        "id": 24,
+        "id": 23,
+        "code": "024",
         "name": "Rongsheng Liang",
         "tags": ["print", "layout"],
         "title": "Chinese Motifs",
@@ -306,7 +330,8 @@
         "bio":"As a passionate and intuitive designer, I find myself constantly drawn to the intersection of tradition and innovation, where the wisdom of the past meets the creativity of the present. Rooted in my Chinese heritage, my work often reflects the rich tapestry of Chinese culture, art, and philosophy, yet, it's equally inspired by contemporary design aesthetics. The harmony of these diverse influences characterises my creative approach, which I view as an ongoing journey of self-discovery, cultural exploration, and aesthetic evolution."
       },
       {
-        "id": 25,
+        "id": 24,
+        "code": "025",
         "name": "Sophie Jones",
         "tags": ["poster", "layout"],
         "title": "Kind Regards",
@@ -319,7 +344,8 @@
         "portfolio": "http://sophiejones.design"
       },
       {
-        "id": 26,
+        "id": 25,
+        "code": "026",
         "name": "Sum Tsui",
         "tags": ["identity", "multimedia", "sitebased"],
         "title": "'Being Human' Exhibition Proposal and Design ",
@@ -334,7 +360,8 @@
         "contact": "sumtsui48@gmail.com"
       },
       {
-        "id": 27,
+        "id": 26,
+        "code": "027",
         "name": "Teresa Si Pei Wee",
         "tags": ["digital"],
         "title": "Hike Guide - UI/UX Design",
@@ -348,7 +375,8 @@
         "social": "https://instagram.com/peistudios"
       },
       {
-        "id": 28,
+        "id": 27,
+        "code": "028",
         "name": "William Hunt",
         "tags": ["logo"],
         "title": "AI Designed Helmet Making",
@@ -360,7 +388,8 @@
         "unfinished":""
       },
       {
-        "id": 29,
+        "id": 28,
+        "code": "029",
         "name": "Xiaohui Jia",
         "tags": ["object"],
         "title": "Bug Buddies",
@@ -372,7 +401,8 @@
         "contact": "s3822722@student.rmit.edu.au"
       },
       {
-        "id": 30,
+        "id": 29,
+        "code": "030",
         "name": "Xinyuan Du",
         "tags": [""],
         "title": "Untitled",
@@ -381,7 +411,8 @@
         "unfinished":""
       },
       {
-        "id": 31,
+        "id": 30,
+        "code": "031",
         "name": "Xin Yin",
         "tags": [""],
         "title": "Untitled",
@@ -390,7 +421,8 @@
         "unfinished":""
       },
       {
-        "id": 32,
+        "id": 31,
+        "code": "032",
         "name": "Yidi Wang",
         "tags": [""],
         "title": "Land of Eternity",
@@ -404,7 +436,8 @@
       },
 
       {
-        "id": 33,
+        "id": 32,
+        "code": "033",
         "name": "Zixin Alexis Liu",
         "tags": ["illustration", "digital"],
         "title": "Serpent's Petals: Wine Designs Embracing Flora and Fauna",
@@ -418,7 +451,8 @@
         "contact": "alexis.z.l@outlook.com"      
       },
       {
-        "id": 34,
+        "id": 33,
+        "code": "034",
         "name": "Ziyu Shen",
         "tags": ["print", "object"],
         "title": "Scientism",
@@ -433,7 +467,8 @@
       },
 
       {
-        "id": 35,
+        "id": 34,
+        "code": "035",
         "name": "Zoe White",
         "tags": [""],
         "title": "Untitled",
@@ -443,7 +478,8 @@
         "unfinished":""
       },
       {
-        "id": 36,
+        "id": 35,
+        "code": "036",
         "name": "Zoe Zhou",
         "tags": [""],
         "title": "Untitled",
@@ -453,7 +489,8 @@
         "unfinished":""
       },
       {
-        "id": 37,
+        "id": 36,
+        "code": "037",
         "name": "sys",
         "tags": [""],
         "title": "",
@@ -462,7 +499,8 @@
         "desc": ""
       },
       {
-        "id": 38,
+        "id": 37,
+        "code": "038",
         "name": "sys",
         "tags": [""],
         "title": "",
@@ -471,7 +509,8 @@
         "desc": ""
       },
       {
-        "id": 39,
+        "id": 38,
+        "code": "039",
         "name": "sys",
         "tags": [""],
         "title": "",
@@ -480,7 +519,8 @@
         "desc": ""
       },
       {
-        "id": 40,
+        "id": 39,
+        "code": "040",
         "name": "sys",
         "tags": [""],
         "title": "",
@@ -489,7 +529,8 @@
         "desc": ""
       },
       {
-        "id": 41,
+        "id": 40,
+        "code": "041",
         "name": "sys",
         "tags": [""],
         "title": "",
@@ -498,7 +539,8 @@
         "desc": ""
       },
       {
-        "id": 42,
+        "id": 41,
+        "code": "042",
         "name": "sys",
         "tags": [""],
         "title": "",
@@ -507,7 +549,8 @@
         "desc": ""
       },
       {
-        "id": 43,
+        "id": 42,
+        "code": "043",
         "name": "sys",
         "tags": [""],
         "title": "",
@@ -516,7 +559,8 @@
         "desc": ""
       },
       {
-        "id": 44,
+        "id": 43,
+        "code": "044",
         "name": "sys",
         "tags": [""],
         "title": "",
@@ -525,7 +569,8 @@
         "desc": ""
       },
       {
-        "id": 45,
+        "id": 44,
+        "code": "045",
         "name": "sys",
         "tags": [""],
         "title": "",
@@ -534,7 +579,8 @@
         "desc": ""
       },
       {
-        "id": 46,
+        "id": 45,
+        "code": "046",
         "name": "sys",
         "tags": [""],
         "title": "",
@@ -543,7 +589,8 @@
         "desc": ""
       },
       {
-        "id": 47,
+        "id": 46,
+        "code": "047",
         "name": "sys",
         "tags": [""],
         "title": "",
@@ -552,7 +599,8 @@
         "desc": ""
       },
       {
-        "id": 48,
+        "id": 47,
+        "code": "048",
         "name": "sys",
         "tags": [""],
         "title": "",
@@ -561,7 +609,8 @@
         "desc": ""
       },
       {
-        "id": 49,
+        "id": 48,
+        "code": "049",
         "name": "sys",
         "tags": [""],
         "title": "",
@@ -570,7 +619,8 @@
         "desc": ""
       },
       {
-        "id": 50,
+        "id": 49,
+        "code": "050",
         "name": "sys",
         "tags": [""],
         "title": "",
@@ -579,7 +629,8 @@
         "desc": ""
       },
       {
-        "id": 51,
+        "id": 50,
+        "code": "051",
         "name": "sys",
         "tags": [""],
         "title": "",
@@ -588,7 +639,8 @@
         "desc": ""
       },
       {
-        "id": 52,
+        "id": 51,
+        "code": "052",
         "name": "sys",
         "tags": [""],
         "title": "",
@@ -597,7 +649,8 @@
         "desc": ""
       },
       {
-        "id": 57,
+        "id": 52,
+        "code": "053",
         "name": "sys",
         "tags": [""],
         "title": "Instructional",
