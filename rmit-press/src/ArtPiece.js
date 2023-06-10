@@ -24,6 +24,7 @@ class ArtPiece extends React.Component {
         isVisible: props.isRandomImage,
         
         id: props.coreInfo.id,
+        code: props.coreInfo.code,
         title: props.title,
         year: props.year,
         hoverOverTextFunc: props.hoverOverTextFunc,
@@ -261,8 +262,8 @@ class ArtPiece extends React.Component {
               />
               <div className="dragImgIndexLine">
                 <div className="dragImgIndex">{
-                  this.state.isRandomImage ? ` (Fig. ${this.state.coreInfo.id})`
-                  : ` ${this.state.coreInfo.id}.`
+                  this.state.isRandomImage ? ` (Fig. ${this.state.coreInfo.code})`
+                  : ` ${this.state.coreInfo.code}.`
                   }
                 </div>
                 <a 

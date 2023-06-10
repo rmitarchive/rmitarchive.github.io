@@ -365,7 +365,7 @@ class App extends React.Component {
       if (shownWork.name == "sys") {
         shown.push(
           <p className="fact-times" key={shownWork.id + "CSW"}>
-            {`(Fig. ${shownWork.id}) ${shownWork.title}`}
+            {`(Fig. ${shownWork.code}) ${shownWork.title}`}
           </p>
         );
       } else {
@@ -376,8 +376,8 @@ class App extends React.Component {
           onMouseDown={() => this.openFocusArtPiece(shownWork)}
           >
             {
-            isMobile ? `(${shownWork.id}) ${shownWork.name}`
-            : `(${shownWork.id}) ${shownWork.name}, ${shownWork.title} (2023)` 
+            isMobile ? `(${shownWork.code}) ${shownWork.name}`
+            : `(${shownWork.code}) ${shownWork.name}, ${shownWork.title} (2023)` 
             }
           </p>
         )
@@ -1313,7 +1313,7 @@ class App extends React.Component {
       return (
         <div className="focus-BG-mobile">
           <div className = "focus-Header-container">
-            <div className = "focus-Header-mobile">{`${this.state.focusArtPiece.id}. ${this.state.focusArtPiece.name}`}</div>
+            <div className = "focus-Header-mobile">{`${this.state.focusArtPiece.code}. ${this.state.focusArtPiece.name}`}</div>
             <a className = "focus-Close-mobile" onTouchStart={() => this.removeFocusArtPiece()}> Close </a>
           </div>
           <br></br>
@@ -1360,7 +1360,7 @@ class App extends React.Component {
       <div className = "focus-obscure"></div> 
         <div className="focus-BG">
           <div className = "focus-Header-container">
-          <div className = "focus-Header">{`${this.state.focusArtPiece.id}. ${this.state.focusArtPiece.name}`}</div>
+          <div className = "focus-Header">{`${this.state.focusArtPiece.code}. ${this.state.focusArtPiece.name}`}</div>
             <a className = "focus-Close" onMouseDown={() => this.removeFocusArtPiece()}> Close </a>
             </div>
             <br></br>
