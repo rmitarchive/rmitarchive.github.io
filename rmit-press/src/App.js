@@ -587,7 +587,7 @@ class App extends React.Component {
 
     //console.log("GET LIST OF WORKS");
     ClassJSON.students.forEach(student => {
-      if((student.name.toUpperCase().includes(this.state.textFilter.toUpperCase()) && student.name.toUpperCase() != "SYS")
+      if((student.name.toUpperCase().includes(this.state.textFilter.toUpperCase()) && student.name.toUpperCase() != "SYS" && !student.hasOwnProperty("unfinished"))
           || (student.name.toUpperCase() == "SYS" && this.state.artPiecesIsVisible[pos])){
         
         //console.log("student: " + JSON.stringify(student));
@@ -600,6 +600,7 @@ class App extends React.Component {
           classHTML.push(<div /* style={{transform: "translateX(10px)", fontFamily: "passenger"}} */ className="student" key={pos + currLetter}>{currLetter}</div>);
         }
 
+        
         classHTML.push(<ArtPiece 
           key={pos + "APP"}
 
