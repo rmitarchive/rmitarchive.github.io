@@ -166,6 +166,7 @@ class App extends React.Component {
   componentDidMount(){
     document.title = "P-R-E-S-S";
     this.showInstructionalImage();
+    
     this.setState({
       isLoaded:true
     });
@@ -448,7 +449,7 @@ class App extends React.Component {
   }
 
   continueDragElement(props) {
-
+    console.log("Continued dragging");
     //shouldnt need the statement since it'll only come through from child component if its ok to do so
     //if(this.props.imageMoving){
       //let e = window.event;      

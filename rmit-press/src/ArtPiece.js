@@ -60,30 +60,56 @@ class ArtPiece extends React.Component {
 
     componentDidUpdate(){
       if(this.state != null && this.state.isInstructionalImage && !this.state.imageMoved){
-        console.log(`artpiece move: A`);
-        const textElement = document.getElementById(`root`);
-        let textRect = textElement.getBoundingClientRect(); 
-        const instructionalElement = document.getElementById(`52Img`);
-        if(instructionalElement != null){ // && instructionalElement.getBoundingClientRect().width != 0
-          console.log(`artpiece move: B`);
-          let instructionalRect = instructionalElement.getBoundingClientRect();
+        this.adjustInstructional();
+      }
+    }
 
-          if(instructionalRect.width != 0){
-            let x = (textRect.right / 2) - (instructionalRect.width / 2);
-            let y = (textRect.bottom / 2) - (instructionalRect.height / 2);
-  
-            console.log(`artpiece textRect: ${textRect.right}, ${textRect.bottom}`);
-            console.log(`artpiece instructionalRect: ${instructionalRect.width}, ${instructionalRect.height}`);
-            console.log(`artpiece move: ${x}, ${y}`);
-  
-            this.setState({
-              currX: x, 
-              currY: y,
-              imageMoved: true
-            });
-          }
+    adjustInstructional(props){
+      console.log(`artpiece move: A`);
+      const textElement = document.getElementById(`root`);
+      let textRect = textElement.getBoundingClientRect(); 
+      let instructionalElement = document.getElementById(`52Img`);
+
+      while(instructionalElement == null){
+        instructionalElement = document.getElementById(`52Img`);
+        this.sleep(100);
+      }
+
+      if(instructionalElement != null){ // && instructionalElement.getBoundingClientRect().width != 0
+        console.log(`artpiece move: B`);
+        let instructionalRect = instructionalElement.getBoundingClientRect();
+
+        while(instructionalRect.width != 0){
+          instructionalRect = instructionalElement.getBoundingClientRect();
+          this.sleep(100);
+        }
+
+        if(instructionalRect.width != 0){
+          let x = (textRect.right / 2) - (instructionalRect.width / 2);
+          let y = (textRect.bottom / 2) - (instructionalRect.height / 2);
+
+          console.log(`artpiece textRect: ${textRect.right}, ${textRect.bottom}`);
+          console.log(`artpiece instructionalRect: ${instructionalRect.width}, ${instructionalRect.height}`);
+          console.log(`artpiece move C: ${x}, ${y}`);
+
+          this.setState({
+            currX: x, 
+            currY: y,
+            imageMoved: true
+          }, () => {
+            this.state.continueDragElement(this.state);
+          });
+
         }
       }
+    }
+
+    sleep(milliseconds) {
+      const date = Date.now();
+      let currentDate = null;
+      do {
+        currentDate = Date.now();
+      } while (currentDate - date < milliseconds);
     }
 
     clickText(props) {
@@ -295,8 +321,9 @@ class ArtPiece extends React.Component {
 
     render() {
 
-      if(this.state != null && this.state.isInstructionalImage){
+      if(this.state != null && this.state.isInstructionalImage && !this.state.imageMoved){
         console.log(`STATE: ${JSON.stringify(this.state)}`);
+        //this.adjustInstructional();
       }
 
       
