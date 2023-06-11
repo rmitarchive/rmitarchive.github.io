@@ -1065,6 +1065,11 @@ class App extends React.Component {
 
 //validation can happen here.
   doPDFProcess(){
+    //temp disable
+    this.setState({printResponse: "FUNCTIONALITY DISABLED UNTIL RELEASE."});
+    return;
+
+
     let validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
     if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.state.userEmail))) {
