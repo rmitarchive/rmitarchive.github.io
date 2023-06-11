@@ -14,9 +14,6 @@ class ArtPiece extends React.Component {
         this.stopDragElement(this.state);
       });
 
-
-
-
       this.state = {
         isRandomImage: props.isRandomImage,
         isInstructionalImage: props.isInstructionalImage,
@@ -54,34 +51,49 @@ class ArtPiece extends React.Component {
         gridSnap: props.gridSnap,
         currZIndex: props.currZIndex,
         isMobile: props.isMobile,
-        showText: props.showText
+        showText: props.showText,
+        adjustingInstructional: false
       };
+
+      //console.log("ENTER");
+      //this.adjustInstructional();
+      /*if(this.state != null && this.state.isInstructionalImage && !this.state.imageMoved){
+        this.adjustInstructional();
+      }*/
     } 
 
     componentDidUpdate(){
-      if(this.state != null && this.state.isInstructionalImage && !this.state.imageMoved){
+      if(this.state != null && this.state.isInstructionalImage && !this.state.imageMoved && !this.state.adjustingInstructional){
+        this.setState({
+          adjustingInstructional: true
+        });
+
         this.adjustInstructional();
       }
     }
 
     adjustInstructional(props){
+      if(this.state.imageMoved){
+        return;
+      }
+
       console.log(`artpiece move: A`);
       const textElement = document.getElementById(`root`);
       let textRect = textElement.getBoundingClientRect(); 
       let instructionalElement = document.getElementById(`52Img`);
 
-      while(instructionalElement == null){
-        instructionalElement = document.getElementById(`52Img`);
-        this.sleep(100);
+      if(instructionalElement == null){
+        setTimeout(this.adjustInstructional(), 100000);
+        return;
       }
 
       if(instructionalElement != null){ // && instructionalElement.getBoundingClientRect().width != 0
         console.log(`artpiece move: B`);
         let instructionalRect = instructionalElement.getBoundingClientRect();
 
-        while(instructionalRect.width != 0){
-          instructionalRect = instructionalElement.getBoundingClientRect();
-          this.sleep(100);
+        if(instructionalRect.width == 0){
+          setTimeout(this.adjustInstructional(), 100000);
+          return;
         }
 
         if(instructionalRect.width != 0){
@@ -103,7 +115,7 @@ class ArtPiece extends React.Component {
         }
       }
     }
-
+/*
     sleep(milliseconds) {
       const date = Date.now();
       let currentDate = null;
@@ -111,7 +123,7 @@ class ArtPiece extends React.Component {
         currentDate = Date.now();
       } while (currentDate - date < milliseconds);
     }
-
+*/
     clickText(props) {
       const toHide = document.getElementById(this.state.coreInfo.id+"DD");
 
