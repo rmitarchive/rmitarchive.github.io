@@ -24,7 +24,8 @@
         "image3": "Press/angus3.jpg",
         "image4": "Press/angus4.jpg",
         "year": "2023",
-        "desc": "Solace is a skate street wear brand.\n\nThe aim being to capture the Melbourne street wear scene and incorporate aspects of skating and where i grew up in Fitzroy to produce clothing and accessories which mirror this.\n\nSolace skate street wear is not just about the clothes, it is a subculture that embodies a certain attitude and lifestyle.",
+        "desc": "This is Solace. \n\nSolace is a Melbourne Street wear brand.\n\nThe brand is called “Solace” due to the dictionary definition of the word. The google definition states “comfort or consolation in a time of distress or sadness.” The clothing and accessories produced are my way of trying to give people comfort in their time of distress or sadness. Allowing people to express themselves through the clothes they wear and feel a sense of comfort when wearing them.\n\nGrowing up in the inner suburbs of Melbourne I’ve always felt a sense in comfort in what I’m wearing. Free to express myself in whatever the clothing I’m wearing and the idea for solace is to reflect this for people wherever you may be or live. Being able to wear the clothing or accessories and not feel a sense or judgment.",
+        "bio": "As a designer/creative, I’m someone who’s driven by trying to create things that are different. I don’t fee confined by design and try use that to design things which are different to the usual. I enjoy challenging myself and I like the feeling of challenge or struggle. I’m very open to new ideas or designs and often use this as a way of motivation or inspiration.\n\nMy design practice is very structured and rigid which is a slight juxtaposition to the way I feel I design. I understand by having a good base to my design, it helps me produce my best work and allows to me design with a sense of freedom.",
         "contact": "awicks10@hotmail.com"
       },
       {
@@ -38,7 +39,8 @@
         "image3": "Press/april3.png",
         "image4": "Press/april4.png",
         "year": "2023",
-        "desc": "A colouring book made fore adults with a cheeky ocean theme.",
+        "desc": "‘Wilder & Wetter’ is an adult colouring book containing a collection of humorous sea themed images, illustrating the unpredictable but intriguing nature of what lies deep down below.",
+        "bio": "April Larsen is a passionate and playful creative who brings an innovative approach to ideas and concept development, successfully applying technical skills to create visual work that will engage people meaningfully. Her interests lie in illustration, photography and publication design and always intertwine with the fine arts world.",
         "contact": "aprillarsen6@gmail.com"
       },
       {
@@ -61,26 +63,14 @@
       {
         "id": 4,
         "code": "005",
-        "name": "Carol Xu",
+        "name": "Carol Xu + Cindy Zhang",
         "tags": ["digital"],
         "title": "Design My Own Wedding",
         "image": "Press/yuchen1.jpg",
         "image2": "Press/yuchen2.jpg",
         "image3": "Press/yuchen3.jpg",
         "year": "2023",
-        "desc": "The purpose of designing my wedding is to create a visually cohesive and memorable event that reflects our unique personalities and love story. We designed a visual language that includes the entire wedding process, such as colour palette, typeface, logo, invitations for family and friends, wedding posters, souvenir packaging, wedding menus, dress selection, background videos.\n\nBy using design to create a cohesive visual language, the wedding can feel like a cohesive and thoughtful event, rather than a collection of disparate elements.",
-        "contact": "xuyuchen0911@gmail.com"      
-      },
-      {
-        "id": 5,
-        "code": "006",
-        "name": "Cindy Zhang",
-        "tags": ["digital"],
-        "title": "Wedding Ceremony",
-        "image": "Press/placeholder.png",
-        "year": "2023",
-        "contact": "S3793978@student.rmit.edu.au",
-        "unfinished":""   
+        "desc": "The purpose of designing my wedding is to create a visually cohesive and memorable event that reflects our unique personalities and love story. We designed a visual language that includes the entire wedding process, such as colour palette, typeface, logo, invitations for family and friends, wedding posters, souvenir packaging, wedding menus, dress selection, background videos.\n\nBy using design to create a cohesive visual language, the wedding can feel like a cohesive and thoughtful event, rather than a collection of disparate elements."
       },
       {
         "id": 6,
@@ -156,7 +146,7 @@
         "image": "Press/finn2.jpeg",
         "image2":"Press/finn.jpg",
         "year": "2023",
-        "desc": "( One )\n\nTo make out of one world, another world\nTo build a home, inside and out-of the world\nTo play\nTo glean\nTo improvise\nTo see potential\nTo manifest\nTo go out of your way\nTo be irrational\nTo humanize\nTo make impressions\nTo make one out of many\nTo be embraced by your personal space\nTo display your contradictions under one roof\nTo collect souvenirs of experience, and fashion them into something \n\nFrom useless, to useful\nFrom decaying, to preserved\nFrom ruins to palace\n\nThe spiritual and sensuous sonatas of objects\nThe juxtaposition of functionality and irrationality\nThe juxtaposition of comfort and crud\nThe opposition of austerity and luxury\nThe gesture of upcycling\n\nThe chorus of objects\n\n\nThrough this series To Build A Home, artist and designer Finn Stewart manifests the potential of post-consumer material– fashioning functionalist forms imbued with idiosyncratic readings. Through his gestures of upcycling, he finds a vernacular of contradiction which oscillates between rational non-functionalism and irrational functionalism.\n\nFinn humorously references canonical designs of the minimalist art period. As in the case of “Donald Crudd”, he borrows Judd’s simplistic model, juxtaposing it with reclaimed material and ultimately puts the modernist form on trial.\n\nThrough his intuitive process of selection and assemblage, Finn leaves human impressions on that which is typically mass produced. The comfort and value found in these flawed objects brings home the precarious and catalytic nature of this artist’s lifestyle. They are his artifacts of lived experience, caught between crosswinds of desire and austerity.",
+        "desc": "To make out of one world, another world\nTo build a home, inside and out-of the world\nTo play\nTo glean\nTo improvise\nTo see potential\nTo manifest\nTo go out of your way\nTo be irrational\nTo humanize\nTo make impressions\nTo make one out of many\nTo be embraced by your personal space\nTo display your contradictions under one roof\nTo collect souvenirs of experience, and fashion them into something \n\nFrom useless, to useful\nFrom decaying, to preserved\nFrom ruins to palace\n\nThe spiritual and sensuous sonatas of objects\nThe juxtaposition of functionality and irrationality\nThe juxtaposition of comfort and crud\nThe opposition of austerity and luxury\nThe gesture of upcycling\n\nThe chorus of objects\n\n\nThrough this series To Build A Home, artist and designer Finn Stewart manifests the potential of post-consumer material– fashioning functionalist forms imbued with idiosyncratic readings. Through his gestures of upcycling, he finds a vernacular of contradiction which oscillates between rational non-functionalism and irrational functionalism.\n\nFinn humorously references canonical designs of the minimalist art period. As in the case of “Donald Crudd”, he borrows Judd’s simplistic model, juxtaposing it with reclaimed material and ultimately puts the modernist form on trial.\n\nThrough his intuitive process of selection and assemblage, Finn leaves human impressions on that which is typically mass produced. The comfort and value found in these flawed objects brings home the precarious and catalytic nature of this artist’s lifestyle. They are his artifacts of lived experience, caught between crosswinds of desire and austerity.",
         "bio":"Finn Stewart is a multidisciplinary designer and visual artist, currently working and residing in Melbourne (Naarm)– upon the unceded lands of the Eastern Kulin Nation. Finn works across graphics, animation, products, and environments, with the intent to create joyful and cohesive experiences for; arts & culture, public space, brands, events, and institutions.\n\nWith a tenacious passion for creativity, Finn dedicates himself to personal and collaborative projects that extend his conceptual and technical abilities. These projects include; architecture, fashion, garden design, interior design, VFX, photography, and sculpture.\n\nFinn’s expertise in; Illustrator, Photoshop, InDesign, Figma, and Blender, gives him the capacity to ideate identities with dialogues between 2D and 3D. Grounded by his diversified skillset and playful approach to uncovering possibilities, Finn is particularly suited to working in smaller design studios that value an eye for detail and lateral thinking.",
         "contact": "finnstewart@me.com"
       },
@@ -178,20 +168,23 @@
         "title": "Me & You Together (Song)",
         "image": "Press/jasmine1.jpg",
         "year": "2023",
-        "desc": "A publication soundtracked to life and the sounds found around us.",
+        "desc": "A book of words (that are songs, that are from friends, that are from bots, and that are plain random). Based on experiences in and out of Melbourne, a combination of text, imagery, and sound is collated to depict the experience of memory and the uniqueness of perception between individuals based on environment and emotion.\n\nDrawing on aspects of ‘the moment’, accompanied by the ‘constant’ through an audio loop of sounds often heard around Melbourne, ‘Me & You Together (Song)’ pays homage to the city in its nurture and creates an immersive juxtaposition for the senses.",
+        "bio": "I am a graphic designer based in Melbourne with an interest in storytelling with unique layouts and hierarchies within print and digital design from poster design to publication and other forms of mixed media. Most of my design practice is based on the environment around me, taking inspiration from what I perceive in the ordinary and communicating it visually.",
         "contact": "jasw6101@gmail.com",
-        "social": "https://instagram.com/jasmoone_",
-        "unfinished":""
+        "social": "https://instagram.com/jasmoone_"
       },
       {
         "id": 13,
         "code": "014",
         "name": "Juliette Rosa",
-        "tags": [""],
-        "title": "Untitled",
-        "image": "Press/placeholder.png",
+        "tags": ["identity"],
+        "title": "Oscar the Wine Label",
+        "image": "Press/juliette1.png",
+        "image2": "Press/juliette2.png",
+        "desc": "Oscar is a wine scientist, co-owner of a boutique vineyard a little over an hour north of Melbourne nestled below Mt Cathedral in the Acheron Valley and my father. He has worked tirelessly on his craft and produced incredibly special wines of many varieties since the vineyard was established in 1995.\n\nI have endeavoured to create designs that integrate seamlessly with his product, the land and his audience and utilised my uniquely close ties in order to do this. The brand identity has been carefully thought out, and the designed items included are the core assets that the business will most need and use.",
+        "bio":"I'm a graphic designer with a love for fine art, aesthetically pleasing design and a particular interest in UX and web design. I have a knack for charcoal and large-scale portraits, which I vigorously enjoy creating in my spare time.",
         "year": "2023",
-        "unfinished":""
+        "contact": "juliette.rosa23@gmail.com"
       },
       {
         "id": 14,
@@ -205,18 +198,23 @@
         "image4": "Press/katya4.jpg",
         "year": "2023",
         "desc": "A picture story book of selected fairy tales from the Brothers Grimm collection containing new and original illustrations. Inspired by my personal love for drawing and the many hours spent looking at old books at thrift stores.",
-        "bio":"Katya is an illustrator and designer that loves the look of old things, especially in art, film and design. She loves to collect art books and listen to movie scores.",
+        "bio":"I am an illustrator and designer that loves the look of old things, especially in art, film and design. I love to collect art books and listen to movie scores.",
         "contact": "katya.lee.vergara@gmail.com"
       },
       {
-        "id": 15,
-        "code": "016",
+        "id": 20,
+        "code": "021",
         "name": "Leon Li",
-        "tags": [""],
-        "title": "Untitled",
-        "image": "Press/placeholder.png",
+        "tags": ["digital"],
+        "title": "Chewy Chewy Dessert",
+        "image": "Press/quan1.jpg",
+        "image2": "Press/quan2.png",
+        "image3": "Press/quan3.png",
+        "image4": "Press/quan4.png",
         "year": "2023",
-        "unfinished":""
+        "desc": "Chewy Chewy Dessert is a young, adorable dessert brand dedicated to providing desserts with a Chinese twist. The core concept of the brand is to combine traditional Chinese desserts with modern elements to create a fresh and creative dessert experience.\n\nMy design work focused on the creation of the brand identity and visual elements. First, I redesigned the Chewy Chewy Dessert logo to simplify and optimize the original design to be more in line with the brand's youthful and cute style. The logo uses soft colors combined with clean lines and light fonts to show the brand's liveliness and approachability.\n\nIn addition to the logo, I also designed the brand's graphic elements, including a cute dessert illustration and a decorative floral pattern. These graphic elements are used to create the brand's visual identity and provide a unique visual effect for the brand's promotional materials and product packaging. The style of the illustrations is lively and fun, which fits with the brand's youthful positioning.\n\nIn addition, I will update the brand's website and social media accounts in the future to showcase the latest dessert products and interact with consumers. The design of the website focused on user experience and communication of the brand image, allowing users to easily understand the brand's story and product information. The design of the social media accounts included creative images and engaging content to attract more followers and potential customers.\n\nMy design work also included updating the price list and packaging design to accommodate new product launches. The price list was designed to be simple and clear, making it easy for customers to understand the prices and flavor choices of various desserts. The packaging design focuses on brand image presentation to attract consumers' attention and convey the high quality and deliciousness of the products.\n\nThrough these design efforts, I aimed to create a compelling and enjoyable brand image that would make Chewy Chewy Dessert stand out in the Melbourne dessert market and attract more dessert lovers to taste and experience it.",
+        "bio":"I am a graphic designer who strives to learn to become better, with a passion for creative design and visual communication. I enjoy translating ideas and concepts into concrete design work, creating compelling visuals through elements such as color, typography and graphics. I have experience using a wide range of design skills and tools that can be flexibly applied in areas such as branding, logo design, print advertising and digital media. With an eye for detail and user experience, I am committed to providing innovative and engaging design solutions for my clients.",
+        "contact": "3144872540@qq.com"
       },
       {
         "id": 16,
@@ -255,11 +253,18 @@
         "id": 18,
         "code": "019",
         "name": "Nicholas Gleeson",
-        "tags": [""],
+        "tags": ["object"],
         "title": "Untitled",
-        "image": "Press/placeholder.png",
+        "image": "Press/nicholas1.jpg",
+        "image2": "Press/nicholas2.jpg",
+        "image3": "Press/nicholas3.jpg",
+        "image4": "Press/nicholas4.jpg",
+        "image5": "Press/nicholas5.jpeg",
+        "desc":"This work is an exploration between the division of human and machine. It is an assertion of humanity, searching for community and refuge from technological suffocation.\n\nThe role of language.\n\nA driving point of tension, and a fundamental difference, between the person and the machine is the function and interpretation of language. Language to a machine is a transaction of data. A plastic articulation of commands, focused on limitless optimisation, devoid of context, empathy and lived experience.\n\nLanguage for a human being is essential and takes many forms. It exists as letters, numbers, words and images but also as gestures, tradition, sound, movement, touch.\n\nThrough language we reify the irrepressible and fundamental fact that I am real, you are real and that we acknowledge and cherish our shared impact on each other.\n\nIt is how we express joy and grief. It is how we console and how we connect.\n\nIt is how we find reason to be, and how we celebrate it.\n\nIt is a connective tether between our understanding of now, what has been and what will come.\n\nIn searching for an expression of connection through the interpretation of language, there also exists a point of finding where language no longer serves machine but persists for us. One of the most universal languages observed in all places, always, is that of food. Regardless of our ability to communicate verbally or through written word, we are able to communicate our affection and our care through the sharing of a meal. It is a biological need that brings us together and one that serves no authentic purpose to a machine.\n\nThis work is intended to exist as a technologically impenetrable object.\n\nIt is for people, and people alone.\n\nIt represents a celebration of humanity, presented in the symbolic syntax of the captcha anti-bot detection system - a presentation of language that is unreadable to the machine but understood by the human eye.\n\nWhat is presented is a metaphoric ‘cook-book’, translated to the form of a tablecloth. The text housed on the surface of the textile is a transposition of a meal, consisting of:\n\nAn entrée of bread\n\nA main course of egg & bacon quiche\n\nA desert of chocolate & cinnamon sponge cake.\n\nThese recipes and their instructions were originally devised by my dear Nana, who passed several years ago. These recipes and their instructions are from hand-written cookbooks she left behind. Written records of love, translated through food, left for her children and their children.\n\nEach ingredient choice, each articulated instruction – every pen stroke - is charged with an irrepressible devotion. It is informed with tender intention for the act to be repeated and reexperienced by anyone that comes across it, so that they too can share that meal with not just those at the table, but with her and her family. It is an invitation to share time and space, in the same way that a film is an invitation to experience a story together, or that a book is an invitation to mutually explore.\n\nWhat I’ve attempted to create is an object that serves no purpose to and cannot be mechanically interpreted by the machine but is an articulation of and an invitation to experience shared humanity and community.\n\nIts form as a tablecloth, while pragmatically obtuse in it’s purpose as an instructional document, is intended to communicate and embody the ideological underpinnings of its function.\n\nIt is laid over the table at which the meal is eaten, serving as both temporal and gestural signifier of this tender communion between those participating in the meal",
+        "bio":"Interdisciplinary design-focused practitioner and founder of creative office 0-ln. \n\nNicholas is interested in the expression of ideas that are at once novel, contemporary and informed by but not limited to categorical conventions. The engine propelling Nicholas’s practice is a perpetual interrogation of context, semiotics and materiality. A dialogue that fuels a distinct methodology in which hierarchy of medium, expression and subject are flattened. Anything can be meaningful, if engaged with curiosity and intention. \n\nThey firmly submit that it is not just outcome that defines, but a process driven approach that is sensitive to and scaffolded by purpose, history and emotion. \n\nNicholas is pursuing projects within, but not limited to, the fields of culture and commerce, with a specific interest in mutual exploration alongside other forward-thinking practitioners.",
         "year": "2023",
-        "unfinished":""
+        "social": "https://instagram.com/moma1000000",
+        "portfolio":"https:// 0-ln.co"
       },
       {
         "id": 19,
@@ -272,21 +277,6 @@
         "desc": "What is it?\nA book of a story about dreams told through imagery.\nThe story is  told through a series of wordless two page spreads. As in a dream state each spread presents a whole scene or environment as an immersive space that occupies the whole of our attention.\n\nThis work is an exploration or experiment. It is a way for me to think out loud about the possibilities of long form illustration for publication and about creating substantial projects independently.\n\nMaking this book has been an informative, challenging and inspiring way to research one of the directions in which I would like to take my design practice.",
         "bio":"From I’ve been working ‘graphics’ jobs in Melbourne for a lot of my working life. Covid-19 restrictions stopped that, but also gave me the time and chance to study design.\nBest lock-down outcome evvvah!\n\nI’ve used this Capstone personal project as chance to make something no one else would be likely to commission. It has been a good opportunity to try something largish in a single sustained style.  The artifact offers a lot of ‘scope for development’, but as an investigation into an area of personal interest the project feels like a success. Having an environment to road-test a self-devised project was valuable and helpful.\n\nAt the end of this course there are a LOT of possibilities and pathways ahead of a designer. In classes and studios we all create a great variety of work for varied purposes. I’d not thought of myself as an ‘illustrator’, but when I have been required to illustrate - I’ve found it an enjoyable challenge. It has been a great opportunity to use this project as a way to explore another idea of what a design career might be like.",
         "contact": "paulweedon3000@gmail.com"
-      },
-      {
-        "id": 20,
-        "code": "021",
-        "name": "Quan Ming Li",
-        "tags": ["digital"],
-        "title": "Chewy Chewy Dessert",
-        "image": "Press/quan1.jpg",
-        "image2": "Press/quan2.png",
-        "image3": "Press/quan3.png",
-        "image4": "Press/quan4.png",
-        "year": "2023",
-        "desc": "Chewy Chewy Dessert is a young, adorable dessert brand dedicated to providing desserts with a Chinese twist. The core concept of the brand is to combine traditional Chinese desserts with modern elements to create a fresh and creative dessert experience.\n\nMy design work focused on the creation of the brand identity and visual elements. First, I redesigned the Chewy Chewy Dessert logo to simplify and optimize the original design to be more in line with the brand's youthful and cute style. The logo uses soft colors combined with clean lines and light fonts to show the brand's liveliness and approachability.\n\nIn addition to the logo, I also designed the brand's graphic elements, including a cute dessert illustration and a decorative floral pattern. These graphic elements are used to create the brand's visual identity and provide a unique visual effect for the brand's promotional materials and product packaging. The style of the illustrations is lively and fun, which fits with the brand's youthful positioning.\n\nIn addition, I will update the brand's website and social media accounts in the future to showcase the latest dessert products and interact with consumers. The design of the website focused on user experience and communication of the brand image, allowing users to easily understand the brand's story and product information. The design of the social media accounts included creative images and engaging content to attract more followers and potential customers.\n\nMy design work also included updating the price list and packaging design to accommodate new product launches. The price list was designed to be simple and clear, making it easy for customers to understand the prices and flavor choices of various desserts. The packaging design focuses on brand image presentation to attract consumers' attention and convey the high quality and deliciousness of the products.\n\nThrough these design efforts, I aimed to create a compelling and enjoyable brand image that would make Chewy Chewy Dessert stand out in the Melbourne dessert market and attract more dessert lovers to taste and experience it.",
-        "bio":"I am a graphic designer who strives to learn to become better, with a passion for creative design and visual communication. I enjoy translating ideas and concepts into concrete design work, creating compelling visuals through elements such as color, typography and graphics. I have experience using a wide range of design skills and tools that can be flexibly applied in areas such as branding, logo design, print advertising and digital media. With an eye for detail and user experience, I am committed to providing innovative and engaging design solutions for my clients.",
-        "contact": "3144872540@qq.com"
       },
       {
         "id": 21,
@@ -338,7 +328,7 @@
         "image": "Press/sophie1.jpg",
         "image2": "Press/sophie2.jpg",
         "year": "2023",
-        "desc": "The brand identity and web shopfront of Kind Regards, an online print store; Accompanied by four prints carried by the store.",
+        "desc": "Kind Regards is an online storefront for digital art prints, our aim is to have a positive influence on our audiences everyday; There's simply no place like home, so why not build it to be a place of comfort, of beauty, of an extension of you. \n\nBorn out of creating artwork for my own home, Kind Regards is my answer to a seemingly endless flow of requests for my prints to be made available for purchase. \n\nFrom conception as a basic startup, we have evolved to a considered brand with a movement for connection at our core. Our designs are created to bring a positive energy into physical space while fostering opportunities for connection with loved ones as well as connections with self (but hey if you just think it looks cool, that’s great too!!).\n\nhttp://kindregards.com.au",
         "bio":"Sophie is a Melbourne based Visual Communication Designer.\n\nWith a special interest in Identity Design, her application skills transcend Digital, Print, Merchandise and Packaging design. ",
         "contact": "hello@sophiejones.design",
         "portfolio": "http://sophiejones.design"
