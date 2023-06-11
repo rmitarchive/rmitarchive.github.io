@@ -14,6 +14,8 @@ class ArtPiece extends React.Component {
         this.stopDragElement(this.state);
       });
 
+
+
       this.state = {
         isRandomImage: props.isRandomImage,
         isInstructionalImage: props.isInstructionalImage,
@@ -52,7 +54,8 @@ class ArtPiece extends React.Component {
         currZIndex: props.currZIndex,
         isMobile: props.isMobile,
         showText: props.showText,
-        adjustingInstructional: false
+        adjustingInstructional: false,
+        instructionalIntervalFunc: null
       };
 
       //console.log("ENTER");
@@ -64,16 +67,24 @@ class ArtPiece extends React.Component {
 
     componentDidUpdate(){
       if(this.state != null && this.state.isInstructionalImage && !this.state.imageMoved && !this.state.adjustingInstructional){
+        const interval = setInterval(() => {
+          this.adjustInstructional();
+        }, 100);
+        
         this.setState({
-          adjustingInstructional: true
+          adjustingInstructional: true,
+          instructionalIntervalFunc: interval
         });
 
-        this.adjustInstructional();
+        //this.adjustInstructional();
       }
     }
 
     adjustInstructional(props){
       if(this.state.imageMoved){
+        if(this.state.instructionalIntervalFunc != null){
+          clearInterval(this.state.instructionalIntervalFunc);
+        }
         return;
       }
 
@@ -83,7 +94,7 @@ class ArtPiece extends React.Component {
       let instructionalElement = document.getElementById(`52Img`);
 
       if(instructionalElement == null){
-        setTimeout(this.adjustInstructional(), 100000);
+        //setTimeout(this.adjustInstructional(), 100000);
         return;
       }
 
@@ -92,7 +103,7 @@ class ArtPiece extends React.Component {
         let instructionalRect = instructionalElement.getBoundingClientRect();
 
         if(instructionalRect.width == 0){
-          setTimeout(this.adjustInstructional(), 100000);
+          //setTimeout(this.adjustInstructional(), 100000);
           return;
         }
 
