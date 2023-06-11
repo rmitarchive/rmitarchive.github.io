@@ -16,7 +16,6 @@ class ArtPiece extends React.Component {
 
 
 
-
       this.state = {
         isRandomImage: props.isRandomImage,
         isInstructionalImage: props.isInstructionalImage,
@@ -54,38 +53,88 @@ class ArtPiece extends React.Component {
         gridSnap: props.gridSnap,
         currZIndex: props.currZIndex,
         isMobile: props.isMobile,
-        showText: props.showText
+        showText: props.showText,
+        adjustingInstructional: false,
+        instructionalIntervalFunc: null
       };
+
+      //console.log("ENTER");
+      //this.adjustInstructional();
+      /*if(this.state != null && this.state.isInstructionalImage && !this.state.imageMoved){
+        this.adjustInstructional();
+      }*/
     } 
 
     componentDidUpdate(){
-      if(this.state != null && this.state.isInstructionalImage && !this.state.imageMoved){
-        console.log(`artpiece move: A`);
-        const textElement = document.getElementById(`root`);
-        let textRect = textElement.getBoundingClientRect(); 
-        const instructionalElement = document.getElementById(`52Img`);
-        if(instructionalElement != null){ // && instructionalElement.getBoundingClientRect().width != 0
-          console.log(`artpiece move: B`);
-          let instructionalRect = instructionalElement.getBoundingClientRect();
+      if(this.state != null && this.state.isInstructionalImage && !this.state.imageMoved && !this.state.adjustingInstructional){
+        const interval = setInterval(() => {
+          this.adjustInstructional();
+        }, 100);
+        
+        this.setState({
+          adjustingInstructional: true,
+          instructionalIntervalFunc: interval
+        });
 
-          if(instructionalRect.width != 0){
-            let x = (textRect.right / 2) - (instructionalRect.width / 2);
-            let y = (textRect.bottom / 2) - (instructionalRect.height / 2);
-  
-            console.log(`artpiece textRect: ${textRect.right}, ${textRect.bottom}`);
-            console.log(`artpiece instructionalRect: ${instructionalRect.width}, ${instructionalRect.height}`);
-            console.log(`artpiece move: ${x}, ${y}`);
-  
-            this.setState({
-              currX: x, 
-              currY: y,
-              imageMoved: true
-            });
-          }
-        }
+        //this.adjustInstructional();
       }
     }
 
+    adjustInstructional(props){
+      if(this.state.imageMoved){
+        if(this.state.instructionalIntervalFunc != null){
+          clearInterval(this.state.instructionalIntervalFunc);
+        }
+        return;
+      }
+
+      console.log(`artpiece move: A`);
+      const textElement = document.getElementById(`root`);
+      let textRect = textElement.getBoundingClientRect(); 
+      let instructionalElement = document.getElementById(`52Img`);
+
+      if(instructionalElement == null){
+        //setTimeout(this.adjustInstructional(), 100000);
+        return;
+      }
+
+      if(instructionalElement != null){ // && instructionalElement.getBoundingClientRect().width != 0
+        console.log(`artpiece move: B`);
+        let instructionalRect = instructionalElement.getBoundingClientRect();
+
+        if(instructionalRect.width == 0){
+          //setTimeout(this.adjustInstructional(), 100000);
+          return;
+        }
+
+        if(instructionalRect.width != 0){
+          let x = (textRect.right / 2) - (instructionalRect.width / 2);
+          let y = (textRect.bottom / 2) - (instructionalRect.height / 2);
+
+          console.log(`artpiece textRect: ${textRect.right}, ${textRect.bottom}`);
+          console.log(`artpiece instructionalRect: ${instructionalRect.width}, ${instructionalRect.height}`);
+          console.log(`artpiece move C: ${x}, ${y}`);
+
+          this.setState({
+            currX: x, 
+            currY: y,
+            imageMoved: true
+          }, () => {
+            this.state.continueDragElement(this.state);
+          });
+
+        }
+      }
+    }
+/*
+    sleep(milliseconds) {
+      const date = Date.now();
+      let currentDate = null;
+      do {
+        currentDate = Date.now();
+      } while (currentDate - date < milliseconds);
+    }
+*/
     clickText(props) {
       const toHide = document.getElementById(this.state.coreInfo.id+"DD");
 
@@ -295,8 +344,9 @@ class ArtPiece extends React.Component {
 
     render() {
 
-      if(this.state != null && this.state.isInstructionalImage){
+      if(this.state != null && this.state.isInstructionalImage && !this.state.imageMoved){
         console.log(`STATE: ${JSON.stringify(this.state)}`);
+        //this.adjustInstructional();
       }
 
       
