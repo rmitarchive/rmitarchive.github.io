@@ -1145,12 +1145,12 @@ class App extends React.Component {
     //let bigLetterLeft = -(Math.random() * 200);
     //let bigLetterTop = -(Math.random() * 600) + 100;
     
-    //let bigLetterLeft = -500 + (Math.random() * 1000);
+    let bigLetterLeft = -500 + (Math.random() * 1000);
     //let bigLetterLeft = 500;
-    let bigLetterLeft = -500;
-    //let bigLetterTop = -350 + (Math.random() * 700);
+    //let bigLetterLeft = -500;
+    let bigLetterTop = -350 + (Math.random() * 700);
     //let bigLetterTop = 350;
-    let bigLetterTop = -350;
+    //let bigLetterTop = -350;
     
 
     //returnHTML += (`<p style="position: absolute; z-index: 100; transform: rotate(-90deg); font-size: 1400px; margin: auto; left: ${bigLetterLeft}px; top: ${bigLetterTop}px; font-family:pantasia;">${letter}</p>`);
