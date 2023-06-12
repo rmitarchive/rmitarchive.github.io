@@ -1460,6 +1460,8 @@ class App extends React.Component {
 
     return (
       <div>
+        <link rel="stylesheet" href="styles.css" />
+        <link rel="stylesheet" href="https://use.typekit.net/fqi4hzp.css" />
         {ack}
         <BrowserView>
           <div className="bottom-of-page" style={{zIndex:11, visibility: printing ? "hidden" : "visible"}}>
