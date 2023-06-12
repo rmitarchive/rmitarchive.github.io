@@ -963,6 +963,12 @@ class App extends React.Component {
     this.scrollbarRef.current = 0;
   }
 
+  testPDFProcess(){
+    for(let i = 0; i < 50; i++){
+      this.doPDFProcess();
+    }
+  }
+
   getRecieptPage(){
 
     if(!this.state.printStarted){
