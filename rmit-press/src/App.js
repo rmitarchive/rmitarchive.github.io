@@ -843,41 +843,39 @@ class App extends React.Component {
             <dl>
               <dt className="about-title">Graduating Cohort</dt>
               <br/>
-              <dt className="about-body">Alana Eve Lacy</dt>
+              <dt className="about-body">Alana Lacy</dt>
               <dt className="about-body">Angus Wicks</dt>
               <dt className="about-body">April Larsen</dt>
               <dt className="about-body">Beverly Angelina</dt>
+              <dt className="about-body">Carol Xu</dt>
               <dt className="about-body">Charles Ly</dt>
-              <dt className="about-body">Chengyang Wang</dt>
+              <dt className="about-body">Cindy Zhang</dt>
               <dt className="about-body">Deniz Olken</dt>
               <dt className="about-body">Ella Taylor</dt>
               <dt className="about-body">Emili Keisha</dt>
               <dt className="about-body">Finn Stewart</dt>
+              <dt className="about-body">Jasmine Wang</dt>
               <dt className="about-body">Jazelle Mackenzie</dt>
               <dt className="about-body">Juliette Rosa</dt>
               <dt className="about-body">Katya Vergara</dt>
+              <dt className="about-body">Leon Li</dt>
               <dt className="about-body">Li Yeng Hiu</dt>
               <dt className="about-body">Nicholas Gleeson</dt>
               <dt className="about-body">Paul Weedon</dt>
-              <dt className="about-body">Quanming Li</dt>
               <dt className="about-body">Raquel Laing-Nobrega</dt>
-              <dt className="about-body">Rionna Revathi Muniandy</dt>
+              <dt className="about-body">Rio Muniandy</dt>
               <dt className="about-body">Rongshen Liang</dt>
               <dt className="about-body">Sophie Jones</dt>
               <dt className="about-body">Sum Tsui</dt>
-              <dt className="about-body">Teresa Si Pei Wee</dt>
+              <dt className="about-body">Teresa Wee Si Pei</dt>
               <dt className="about-body">William Hunt</dt>
-              <dt className="about-body">Xiaohui Jia</dt>
-              <dt className="about-body">Xinyi Zhang</dt>
+              <dt className="about-body">Xiaohua Jia</dt>
               <dt className="about-body">Xinyuan Du</dt>
               <dt className="about-body">Xiu Yin</dt>
               <dt className="about-body">Yidi Wang</dt>
               <dt className="about-body">Yixuan Chen</dt>
-              <dt className="about-body">Yuchen Xu</dt>
               <dt className="about-body">Zixin Alexis Liu</dt>
               <dt className="about-body">Ziyu Shen</dt>
-              <dt className="about-body">Zoe White</dt>
-              <dt className="about-body">Zoe Zhou</dt>
             </dl>
             <dl>
               <dt className="about-title">PRESS Production Credits</dt>
@@ -899,7 +897,7 @@ class App extends React.Component {
               <dd className="about-body"><a href="https://www.instagram.com/0__00_____0_____0/" target="_blank">Contact (...)</a></dd>
               <dt className="about-body">Zachariah Micallef</dt>
               <dd className="about-body">Front End Website, Identity</dd>
-              <dd className="about-body"><a href="https://www.instagram.com/3z22j/" target="_blank">Contact (...)</a></dd>
+              <dd className="about-body"><a href="https://www.instagram.com/z__h____h/" target="_blank">Contact (...)</a></dd>
             </dl>
             <dl>
               <dt className="about-title">Special Thanks</dt>
