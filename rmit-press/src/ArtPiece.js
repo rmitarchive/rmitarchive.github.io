@@ -88,10 +88,10 @@ class ArtPiece extends React.Component {
         return;
       }
 
-      console.log(`artpiece move: A`);
+      //console.log(`artpiece move: A`);
       const textElement = document.getElementById(`root`);
       let textRect = textElement.getBoundingClientRect(); 
-      let instructionalElement = document.getElementById(`51Img`);
+      let instructionalElement = document.getElementById(`50Img`);
 
       if(instructionalElement == null){
         //setTimeout(this.adjustInstructional(), 100000);
@@ -99,7 +99,7 @@ class ArtPiece extends React.Component {
       }
 
       if(instructionalElement != null){ // && instructionalElement.getBoundingClientRect().width != 0
-        console.log(`artpiece move: B`);
+        //console.log(`artpiece move: B`);
         let instructionalRect = instructionalElement.getBoundingClientRect();
 
         if(instructionalRect.width == 0){
@@ -111,16 +111,17 @@ class ArtPiece extends React.Component {
           let x = (textRect.right / 2) - (instructionalRect.width / 2);
           let y = (textRect.bottom / 2) - (instructionalRect.height / 2);
 
-          console.log(`artpiece textRect: ${textRect.right}, ${textRect.bottom}`);
-          console.log(`artpiece instructionalRect: ${instructionalRect.width}, ${instructionalRect.height}`);
-          console.log(`artpiece move C: ${x}, ${y}`);
+          //console.log(`artpiece textRect: ${textRect.right}, ${textRect.bottom}`);
+          //console.log(`artpiece instructionalRect: ${instructionalRect.width}, ${instructionalRect.height}`);
+          //console.log(`artpiece move C: ${x}, ${y}`);
 
           this.setState({
             currX: x, 
             currY: y,
             imageMoved: true
           }, () => {
-            this.state.continueDragElement(this.state);
+            this.continueDragElement(this.state);
+            //this.state.continueDragElement(this.state);
           });
 
         }
@@ -140,11 +141,11 @@ class ArtPiece extends React.Component {
 
       //if red, pageclear has happened.
       if(toHide.style.color != "red"){ 
-        console.log(`click 1 ${this.state.imageShown}`);
+        //console.log(`click 1 ${this.state.imageShown}`);
         this.setState({
           imageShown: !this.state.imageShown
         })
-        console.log(`click 1b ${this.state.imageShown}`);
+        //console.log(`click 1b ${this.state.imageShown}`);
         this.state.clickText(this.state, !this.state.imageShown, false);
 
         if(!this.state.imageMoved && this.state.isMobile){
@@ -185,7 +186,7 @@ class ArtPiece extends React.Component {
     }
 
     startDragElement(props) {
-      console.log("start drag");
+      //console.log("start drag");
       let e = window.event;
       //console.log("MOUSE DOWN 2");
         
@@ -217,7 +218,7 @@ class ArtPiece extends React.Component {
         newY = e.clientY - textRect.top;
       }
 
-      console.log(`newZIndex: ${newZIndex}`);
+      //console.log(`newZIndex: ${newZIndex}`);
 
       this.setState({
         imageMoved: true,
@@ -237,7 +238,7 @@ class ArtPiece extends React.Component {
     stopDragElement(props) {
       //console.log("MOUSE DOWN 3");
       if(this.state.imageMoving){
-        console.log("stop drag");
+        //console.log("stop drag");
         this.setState({
           imageMoving: false
         })
@@ -345,7 +346,7 @@ class ArtPiece extends React.Component {
     render() {
 
       if(this.state != null && this.state.isInstructionalImage && !this.state.imageMoved){
-        console.log(`STATE: ${JSON.stringify(this.state)}`);
+        //console.log(`STATE: ${JSON.stringify(this.state)}`);
         //this.adjustInstructional();
       }
 
