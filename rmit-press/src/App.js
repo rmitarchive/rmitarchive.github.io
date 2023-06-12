@@ -1048,21 +1048,6 @@ class App extends React.Component {
     }
   }
 
-  testPDFProcess(){
-    let potLetters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-
-    potLetters.forEach(letter => {
-      console.log("LETTER LOOP: " + letter);
-      this.generatePDF(letter);
-    });
-
-    potLetters.forEach(letter => {
-      console.log("LETTER LOOP (caps): " + letter);
-      letter += "u";
-      this.generatePDF(letter);
-    });
-  }
-
 //validation can happen here.
   doPDFProcess(){
     let validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
