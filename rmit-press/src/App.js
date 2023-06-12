@@ -1460,13 +1460,6 @@ class App extends React.Component {
 
     return (
       <div>
-        <meta charSet="UTF-8" />
-        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-        <link rel="stylesheet" href="styles.css" />
-        <link rel="stylesheet" href="https://use.typekit.net/fqi4hzp.css" />
-        <link rel="icon" href="icon.png" /> 
-        <title>Zachariah Micallef</title>
         {ack}
         <BrowserView>
           <div className="bottom-of-page" style={{zIndex:11, visibility: printing ? "hidden" : "visible"}}>
