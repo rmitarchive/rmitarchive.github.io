@@ -967,7 +967,7 @@ class App extends React.Component {
 
     if(!this.state.printStarted){
       return(
-        <div className="print-container" style={{overflowY: "scroll"}}>
+        <div className="print-container" id="print-container" style={{overflowY: "scroll"}}>
           <div className="print-title">
             Print Screen
           </div>
@@ -1103,30 +1103,51 @@ class App extends React.Component {
       let imgScale = .8;
       //2520 is my reference scale, lets mod based off that. 
 
-      const textElement = document.getElementById(`root`);
+      const textElement = document.getElementById(`print-container`);
       let textRect = textElement.getBoundingClientRect();
   
       let width = textRect.right;
       let height = textRect.bottom;
 
-      let scaleMod = 2520 / width;
+      //let scaleMod = 2520 / width;
       
       /*
       if(height > width){
         scaleMod = 1200 / height;
       }*/
 
-      modifierX *= scaleMod;
-      modifierY *= scaleMod;
-      imgScale *= scaleMod;
+      //modifierX *= scaleMod;
+      //modifierY *= scaleMod;
+      //imgScale *= scaleMod;
+
+      console.log(`textElement.getBoundingClientRect(): ${textElement.getBoundingClientRect()}`);
+      console.log(`textElement.getBoundingClientRect()JSON: ${JSON.stringify(textElement.getBoundingClientRect())}`);
 
       returnHTML += (`<div class="content">`);
       for(let i = 0; i < this.state.currentShownWorks.length; i++){
         let currID = this.state.currentShownWorks[i].id;
-        
+
+        let imgLeft = 1100 * (this.state.artPiecesCurrX[currID] / width); //840 pdf
+        //let imgLeft = 840 * (this.state.artPiecesCurrX[currID] / width); //840 pdf
+        //let imgLeft = this.state.artPiecesCurrX[currID] * modifierX;
+
+        if(imgLeft < 0){
+          imgLeft = 0;
+        }
+
+        let imgTop = 750 * (this.state.artPiecesCurrY[currID] / height); //600 pdf
+        //let imgTop = 600 * (this.state.artPiecesCurrY[currID] / height); //600 pdf
+        //let imgTop = this.state.artPiecesCurrY[currID] * modifierY;
+
+        if(imgTop < 0){
+          imgTop = 0;
+        }
+
+        console.log(`${i}, left: ${this.state.artPiecesCurrX[currID]} / ${width} = ${imgLeft}`);
+        console.log(`${i}, top: ${this.state.artPiecesCurrY[currID]} / ${height} = ${imgTop}`);
 
         let isBigInstructionsImgScaleMod = (this.state.currentShownWorks[i].name == "sys" && this.state.currentShownWorks[i].title != "") ? 1.5 : 1;
-        returnHTML += (`<div style="transform: rotate(-90deg); position: absolute; left: ${this.state.artPiecesCurrX[currID] * modifierX}px; top: ${this.state.artPiecesCurrY[currID] * modifierY}px; z-index: ${10 + i};">
+        returnHTML += (`<div style="transform: rotate(-90deg); position: absolute; left: ${imgLeft}px; top: ${imgTop}px; z-index: ${10 + i};">
           <img style="max-height: ${(12 * imgScale) * isBigInstructionsImgScaleMod}em; max-width: ${(12 * imgScale) * isBigInstructionsImgScaleMod}em;" src="%img${i}%">
           <p style="font-size: 0.5em;">(${currID})</p>
           </div>`
