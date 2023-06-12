@@ -1197,8 +1197,8 @@ class App extends React.Component {
   sendPDF(formData){
     var self = this;
     axios({
-      url: "http://localhost:8000/index.php", 
-      //url: "https://p-r-e-s-s.com/php/index.php", 
+      //url: "http://localhost:8000/index.php", 
+      url: "https://p-r-e-s-s.com/php/index.php", 
       method: "POST",
       data: formData,
       headers: {
@@ -1301,8 +1301,6 @@ class App extends React.Component {
           </div>
           <br></br>
 
-            {this.state.focusArtPiece.hasOwnProperty("image") ? <img className="focus-Img" src={require(`./Img/${this.state.focusArtPiece.image}`)}/> : ``}
-
             {this.state.focusArtPiece.hasOwnProperty("image2") ? <img className="focus-Img" src={require(`./Img/${this.state.focusArtPiece.image2}`)}/> : ``}
 
             {this.state.focusArtPiece.hasOwnProperty("image3") ? <img className="focus-Img" src={require(`./Img/${this.state.focusArtPiece.image3}`)}/> : ``}
@@ -1310,6 +1308,8 @@ class App extends React.Component {
             {this.state.focusArtPiece.hasOwnProperty("image4") ? <img className="focus-Img" src={require(`./Img/${this.state.focusArtPiece.image4}`)}/> : ``}
 
             {this.state.focusArtPiece.hasOwnProperty("image5") ? <img className="focus-Img" src={require(`./Img/${this.state.focusArtPiece.image5}`)}/> : ``}
+
+            {this.state.focusArtPiece.hasOwnProperty("image6") ? <img className="focus-Img" src={require(`./Img/${this.state.focusArtPiece.image6}`)}/> : ``}
 
             <div className="focus-Desc focus-Title">
               {`${this.state.focusArtPiece.name}`} 
@@ -1348,8 +1348,6 @@ class App extends React.Component {
             </div>
             <br></br>
 
-            <img className="focus-Img" src={require(`./Img/${this.state.focusArtPiece.image}`)}/>
-
             {this.state.focusArtPiece.hasOwnProperty("image2") ? <img className="focus-Img" src={require(`./Img/${this.state.focusArtPiece.image2}`)}/> : ``}
 
             {this.state.focusArtPiece.hasOwnProperty("image3") ? <img className="focus-Img" src={require(`./Img/${this.state.focusArtPiece.image3}`)}/> : ``}
@@ -1357,6 +1355,8 @@ class App extends React.Component {
             {this.state.focusArtPiece.hasOwnProperty("image4") ? <img className="focus-Img" src={require(`./Img/${this.state.focusArtPiece.image4}`)}/> : ``}
 
             {this.state.focusArtPiece.hasOwnProperty("image5") ? <img className="focus-Img" src={require(`./Img/${this.state.focusArtPiece.image5}`)}/> : ``}
+
+            {this.state.focusArtPiece.hasOwnProperty("image6") ? <img className="focus-Img" src={require(`./Img/${this.state.focusArtPiece.image6}`)}/> : ``}
 
             <div className="focus-Desc focus-Title">
               {`${this.state.focusArtPiece.name}`} 
