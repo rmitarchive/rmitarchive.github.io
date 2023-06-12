@@ -217,9 +217,9 @@ class App extends React.Component {
       */
       this.pushToCurrentlyShownWorks(ClassJSON.students[studentIndex]);
   
-      console.log(`SHOW RANDOM IMAGE ${studentIndex} `);
-      console.log(`SHOW RANDOM IMAGE/artPiecescurrZIndex:  ${newArtPiecescurrZIndex} `);
-      console.log(`SHOW RANDOM IMAGE/artPiecescurrZIndex:  ${newArtPiecescurrZIndex} `);
+      //console.log(`SHOW RANDOM IMAGE ${studentIndex} `);
+      //console.log(`SHOW RANDOM IMAGE/artPiecescurrZIndex:  ${newArtPiecescurrZIndex} `);
+      //console.log(`SHOW RANDOM IMAGE/artPiecescurrZIndex:  ${newArtPiecescurrZIndex} `);
       //artPiecesImageMoved: newArtPiecesImageMoved,
       //artPiecesCurrX: newArtPiecesCurrX,
       //artPiecesCurrY: newArtPiecesCurrY,
@@ -280,9 +280,9 @@ class App extends React.Component {
       
       this.pushToCurrentlyShownWorks(ClassJSON.students[pot[randIndex]]);
   
-      console.log(`SHOW RANDOM IMAGE ${pot[randIndex]} `);
-      console.log(`SHOW RANDOM IMAGE/artPiecescurrZIndex:  ${newArtPiecescurrZIndex} `);
-      console.log(`SHOW RANDOM IMAGE/artPiecescurrZIndex:  ${newArtPiecescurrZIndex} `);
+      //console.log(`SHOW RANDOM IMAGE ${pot[randIndex]} `);
+      //console.log(`SHOW RANDOM IMAGE/artPiecescurrZIndex:  ${newArtPiecescurrZIndex} `);
+      //console.log(`SHOW RANDOM IMAGE/artPiecescurrZIndex:  ${newArtPiecescurrZIndex} `);
       this.setState({
         artPiecesIsVisible: newArtPiecesIsVisible,
         artPiecesImageShown: newArtPiecesImageShown,
@@ -300,7 +300,7 @@ class App extends React.Component {
 
   incrementZIndex() {
     let newZIndex = this.state.baseZIndex + 1;
-    console.log(`incrementZIndex: ${newZIndex}`);
+    //console.log(`incrementZIndex: ${newZIndex}`);
     
     this.setState({
       baseZIndex: newZIndex
@@ -327,7 +327,7 @@ class App extends React.Component {
       this.pushToCurrentlyShownWorks(props.coreInfo);
     }
 
-    console.log(`newArtPiecesImageShown: ${newArtPiecesImageShown}`);
+    //console.log(`newArtPiecesImageShown: ${newArtPiecesImageShown}`);
 
     this.setState({
       artPiecesImageShown: newArtPiecesImageShown,
@@ -346,8 +346,8 @@ class App extends React.Component {
   removeFromCurrentlyShownWorks(props){
     let currCurrentShownWorks = this.state.currentShownWorks.filter(shownWork => shownWork.id != props.id);
 
-    console.log("pre: " + JSON.stringify(this.state.currentShownWorks));
-    console.log("post: " + JSON.stringify(currCurrentShownWorks));
+    //console.log("pre: " + JSON.stringify(this.state.currentShownWorks));
+    //console.log("post: " + JSON.stringify(currCurrentShownWorks));
 
     this.setState({
       currentShownWorks: currCurrentShownWorks
@@ -449,7 +449,7 @@ class App extends React.Component {
   }
 
   continueDragElement(props) {
-    console.log("Continued dragging");
+    //console.log("Continued dragging");
     //shouldnt need the statement since it'll only come through from child component if its ok to do so
     //if(this.props.imageMoving){
       //let e = window.event;      
@@ -648,7 +648,7 @@ class App extends React.Component {
   }
 
   updateTextFilter(newText){
-    console.log("newtext: " + newText);
+    //console.log("newtext: " + newText);
     this.setState({
       textFilter: newText
     });
@@ -1137,7 +1137,7 @@ class App extends React.Component {
     let maxWidth = 1200;
     let maxHeight = 800;
 
-    console.log(`RANDOM randomPressCount: ${randomPressCount}`);
+    //console.log(`RANDOM randomPressCount: ${randomPressCount}`);
     
     //fug it we hardcode
     //let bigLetterLeft = -(Math.random() * 200);
@@ -1158,7 +1158,7 @@ class App extends React.Component {
     returnHTML += (`</body>
     </html>`);
 
-    console.log("returnHTML: " + returnHTML);
+    //console.log("returnHTML: " + returnHTML);
 
     return(
       returnHTML
@@ -1206,16 +1206,16 @@ class App extends React.Component {
     }
     })
     .then(function(response) {
-        console.log("outcome 1");
-        console.log(response); 
-        console.log("response.data: " + response.data); 
+        //console.log("outcome 1");
+        //console.log(response); 
+        //console.log("response.data: " + response.data); 
         self.setState({
           printResponse: response.data,
           emailSent: true
         });    
     })
 
-    console.log("test save end");
+    //console.log("test save end");
   }
 
   generatePDF(letterOveride){
@@ -1231,10 +1231,10 @@ class App extends React.Component {
         letter += "u";
       }
 
-      console.log("NO LETTER OVERIDE: " + letter);
+      //console.log("NO LETTER OVERIDE: " + letter);
       formData.append("bigLetter", letter);
     }else{
-      console.log("LETTER OVERIDE: " + letterOveride);
+      //console.log("LETTER OVERIDE: " + letterOveride);
       this.state.userEmail = "test@test.com";
       formData.append("bigLetter", letterOveride);
     }
@@ -1254,21 +1254,21 @@ class App extends React.Component {
     
     for(let i = 0; i < this.state.currentShownWorks.length; i++){
       formData.append("imgPaths[]", this.state.currentShownWorks[i].image);
-      console.log("CURR IMG: ");
-      console.log(this.state.currentShownWorks[i]);
+      //console.log("CURR IMG: ");
+      //console.log(this.state.currentShownWorks[i]);
     }
 
     this.sendPDF(formData);
   }
 
   startPDF(){
-    console.log("test save start");
+    //console.log("test save start");
     window.history.pushState("object or string", "Title", "/print");
     this.scrollbarRef.current = 3;
   }
 
   openFocusArtPiece(props){
-    console.log(`openFocusArtPiece: ${JSON.stringify(props)}`);
+    //console.log(`openFocusArtPiece: ${JSON.stringify(props)}`);
 
     if(this.state.focusArtPiece != null && props.id == this.state.focusArtPiece.id){
       this.setState({
