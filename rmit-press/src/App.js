@@ -992,6 +992,7 @@ class App extends React.Component {
           <br/>
           <br/>
           <a className="print-confirm" onClick = {(() => this.doPDFProcess())}>Continue</a>
+          <a className="print-confirm" onClick = {(() => this.testPDFProcess())}>BULK TEST</a>
           <br/>
           <br/>
           <div className="print-body">
