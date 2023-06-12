@@ -91,7 +91,7 @@ class ArtPiece extends React.Component {
       console.log(`artpiece move: A`);
       const textElement = document.getElementById(`root`);
       let textRect = textElement.getBoundingClientRect(); 
-      let instructionalElement = document.getElementById(`52Img`);
+      let instructionalElement = document.getElementById(`51Img`);
 
       if(instructionalElement == null){
         //setTimeout(this.adjustInstructional(), 100000);

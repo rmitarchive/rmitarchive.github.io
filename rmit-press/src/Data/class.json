@@ -73,7 +73,7 @@
         "desc": "The purpose of designing my wedding is to create a visually cohesive and memorable event that reflects our unique personalities and love story. We designed a visual language that includes the entire wedding process, such as colour palette, typeface, logo, invitations for family and friends, wedding posters, souvenir packaging, wedding menus, dress selection, background videos.\n\nBy using design to create a cohesive visual language, the wedding can feel like a cohesive and thoughtful event, rather than a collection of disparate elements."
       },
       {
-        "id": 6,
+        "id": 5,
         "code": "007",
         "name": "Charles Ly",
         "tags": ["digital", "identity"],
@@ -88,7 +88,7 @@
         "portfolio": "https://charlesly.myportfolio.com/work"
       },
       {
-        "id": 7,
+        "id": 6,
         "code": "008",
         "name": "Deniz Olken",
         "tags": ["object"],
@@ -104,7 +104,7 @@
         "portfolio": "https://0001dd.wixsite.com/0001dportfolio"
       },
       {
-        "id": 8,
+        "id": 7,
         "code": "009",
         "name": "Ella Taylor",
         "tags": ["print", "object"],
@@ -121,7 +121,7 @@
         "social": "https://instagram.com/eettstudios"
       },
       {
-        "id": 9,
+        "id": 8,
         "code": "010",
         "name": "Emili Keisha",
         "tags": ["identity", "digital"],
@@ -138,7 +138,7 @@
         "social": "https://instagram.com/pensilemili"
       },
       {
-        "id": 10,
+        "id": 9,
         "code": "011",
         "name": "Finn Stewart",
         "tags": ["sitebased", "object"],
@@ -151,7 +151,7 @@
         "contact": "finnstewart@me.com"
       },
       {
-        "id": 11,
+        "id": 10,
         "code": "012",
         "name": "Jazelle Mackenzie",
         "tags": [""],
@@ -161,7 +161,7 @@
         "unfinished":""
       },
       {
-        "id": 12,
+        "id": 11,
         "code": "013",
         "name": "Jasmine Wang",
         "tags": ["print", "multimedia"],
@@ -174,7 +174,7 @@
         "social": "https://instagram.com/jasmoone_"
       },
       {
-        "id": 13,
+        "id": 12,
         "code": "014",
         "name": "Juliette Rosa",
         "tags": ["identity"],
@@ -187,7 +187,7 @@
         "contact": "juliette.rosa23@gmail.com"
       },
       {
-        "id": 14,
+        "id": 13,
         "code": "015",
         "name": "Katya Vergara",
         "tags": ["print", "illustration"],
@@ -202,7 +202,7 @@
         "contact": "katya.lee.vergara@gmail.com"
       },
       {
-        "id": 20,
+        "id": 14,
         "code": "021",
         "name": "Leon Li",
         "tags": ["digital"],
@@ -217,7 +217,7 @@
         "contact": "3144872540@qq.com"
       },
       {
-        "id": 16,
+        "id": 15,
         "code": "017",
         "name": "Li Yeng Hiu",
         "tags": ["identity", "sitebased", "digital"],
@@ -235,7 +235,7 @@
         "social": "https://linkedin.com/in/liyenghiu/"
       },
       {
-        "id": 17,
+        "id": 16,
         "code": "018",
         "name": "Natalie Chen",
         "tags": ["illustration", "print", "object"],
@@ -250,7 +250,7 @@
         "social": "https://instagram.com/ciixn1126"
       },
       {
-        "id": 18,
+        "id": 17,
         "code": "019",
         "name": "Nicholas Gleeson",
         "tags": ["object"],
@@ -267,7 +267,7 @@
         "portfolio":"https:// 0-ln.co"
       },
       {
-        "id": 19,
+        "id": 18,
         "code": "020",
         "name": "Paul Weedon",
         "tags": ["illustration"],
@@ -279,7 +279,7 @@
         "contact": "paulweedon3000@gmail.com"
       },
       {
-        "id": 21,
+        "id": 19,
         "code": "022",
         "name": "Raquel Laing-Nobrega",
         "tags": ["print", "layout"],
@@ -291,7 +291,7 @@
         "unfinished":""
       },
       {
-        "id": 22,
+        "id": 20,
         "code": "023",
         "name": "Rio Muniandy",
         "tags": ["illustration", "identity"],
@@ -307,7 +307,7 @@
         "contact": "riomuniandy@gmail.com"
       },
       {
-        "id": 23,
+        "id": 21,
         "code": "024",
         "name": "Rongsheng Liang",
         "tags": ["illustration", "print"],
@@ -320,7 +320,7 @@
         "bio":"As a passionate and intuitive designer, I find myself constantly drawn to the intersection of tradition and innovation, where the wisdom of the past meets the creativity of the present. Rooted in my Chinese heritage, my work often reflects the rich tapestry of Chinese culture, art, and philosophy, yet, it's equally inspired by contemporary design aesthetics. The harmony of these diverse influences characterises my creative approach, which I view as an ongoing journey of self-discovery, cultural exploration, and aesthetic evolution."
       },
       {
-        "id": 24,
+        "id": 22,
         "code": "025",
         "name": "Sophie Jones",
         "tags": ["identity", "print", "digital"],
@@ -334,7 +334,7 @@
         "portfolio": "http://sophiejones.design"
       },
       {
-        "id": 25,
+        "id": 23,
         "code": "026",
         "name": "Sum Tsui",
         "tags": ["identity", "multimedia", "sitebased"],
@@ -350,7 +350,7 @@
         "contact": "sumtsui48@gmail.com"
       },
       {
-        "id": 26,
+        "id": 24,
         "code": "027",
         "name": "Teresa Si Pei Wee",
         "tags": ["digital", "identity"],
@@ -365,7 +365,7 @@
         "social": "https://instagram.com/peistudios"
       },
       {
-        "id": 27,
+        "id": 25,
         "code": "028",
         "name": "William Hunt",
         "tags": ["logo"],
@@ -378,7 +378,7 @@
         "unfinished":""
       },
       {
-        "id": 28,
+        "id": 26,
         "code": "029",
         "name": "Xiaohui Jia",
         "tags": ["object", "identity"],
@@ -391,7 +391,7 @@
         "contact": "s3822722@student.rmit.edu.au"
       },
       {
-        "id": 29,
+        "id": 27,
         "code": "030",
         "name": "Xinyuan Du",
         "tags": [""],
@@ -401,7 +401,7 @@
         "unfinished":""
       },
       {
-        "id": 30,
+        "id": 28,
         "code": "031",
         "name": "Xin Yin",
         "tags": [""],
@@ -411,7 +411,7 @@
         "unfinished":""
       },
       {
-        "id": 31,
+        "id": 29,
         "code": "032",
         "name": "Yidi Wang",
         "tags": ["object"],
@@ -426,7 +426,7 @@
       },
 
       {
-        "id": 32,
+        "id": 30,
         "code": "033",
         "name": "Zixin Alexis Liu",
         "tags": ["illustration", "digital"],
@@ -441,7 +441,7 @@
         "contact": "alexis.z.l@outlook.com"      
       },
       {
-        "id": 33,
+        "id": 31,
         "code": "034",
         "name": "Ziyu Shen",
         "tags": ["print", "object"],
@@ -457,7 +457,7 @@
       },
 
       {
-        "id": 34,
+        "id": 32,
         "code": "035",
         "name": "Zoe White",
         "tags": [""],
@@ -468,7 +468,7 @@
         "unfinished":""
       },
       {
-        "id": 35,
+        "id": 33,
         "code": "036",
         "name": "Zoe Zhou",
         "tags": [""],
@@ -479,7 +479,7 @@
         "unfinished":""
       },
       {
-        "id": 36,
+        "id": 34,
         "code": "037",
         "name": "sys",
         "tags": [""],
@@ -489,7 +489,7 @@
         "desc": ""
       },
       {
-        "id": 37,
+        "id": 35,
         "code": "038",
         "name": "sys",
         "tags": [""],
@@ -499,7 +499,7 @@
         "desc": ""
       },
       {
-        "id": 38,
+        "id": 36,
         "code": "039",
         "name": "sys",
         "tags": [""],
@@ -509,7 +509,7 @@
         "desc": ""
       },
       {
-        "id": 39,
+        "id": 38,
         "code": "040",
         "name": "sys",
         "tags": [""],
@@ -519,7 +519,7 @@
         "desc": ""
       },
       {
-        "id": 40,
+        "id": 39,
         "code": "041",
         "name": "sys",
         "tags": [""],
@@ -529,7 +529,7 @@
         "desc": ""
       },
       {
-        "id": 41,
+        "id": 40,
         "code": "042",
         "name": "sys",
         "tags": [""],
@@ -539,7 +539,7 @@
         "desc": ""
       },
       {
-        "id": 42,
+        "id": 41,
         "code": "043",
         "name": "sys",
         "tags": [""],
@@ -549,7 +549,7 @@
         "desc": ""
       },
       {
-        "id": 43,
+        "id": 42,
         "code": "044",
         "name": "sys",
         "tags": [""],
@@ -559,7 +559,7 @@
         "desc": ""
       },
       {
-        "id": 44,
+        "id": 43,
         "code": "045",
         "name": "sys",
         "tags": [""],
@@ -569,7 +569,7 @@
         "desc": ""
       },
       {
-        "id": 45,
+        "id": 44,
         "code": "046",
         "name": "sys",
         "tags": [""],
@@ -579,7 +579,7 @@
         "desc": ""
       },
       {
-        "id": 46,
+        "id": 45,
         "code": "047",
         "name": "sys",
         "tags": [""],
@@ -589,7 +589,7 @@
         "desc": ""
       },
       {
-        "id": 47,
+        "id": 46,
         "code": "048",
         "name": "sys",
         "tags": [""],
@@ -599,7 +599,7 @@
         "desc": ""
       },
       {
-        "id": 48,
+        "id": 47,
         "code": "049",
         "name": "sys",
         "tags": [""],
@@ -609,7 +609,7 @@
         "desc": ""
       },
       {
-        "id": 49,
+        "id": 48,
         "code": "050",
         "name": "sys",
         "tags": [""],
@@ -619,7 +619,7 @@
         "desc": ""
       },
       {
-        "id": 50,
+        "id": 49,
         "code": "051",
         "name": "sys",
         "tags": [""],
@@ -629,7 +629,7 @@
         "desc": ""
       },
       {
-        "id": 51,
+        "id": 50,
         "code": "052",
         "name": "sys",
         "tags": [""],
@@ -639,7 +639,7 @@
         "desc": ""
       },
       {
-        "id": 52,
+        "id": 51,
         "code": "053",
         "name": "sys",
         "tags": [""],
