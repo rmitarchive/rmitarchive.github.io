@@ -37,7 +37,7 @@
   --aboutWidth: 50vw;
   --ackFont: 2em;
   --printWidth: 50vw;
-  --fontFace: "neue-haas-unica";
+  --fontFace: "neue-haas-unica", Arial;
   /* --fontFace: "passenger"; */
   --fontWeight: 500;
   --fontWeightDesc: 300;
@@ -654,7 +654,7 @@ html, body {
 }
 
 .ack-text {
-  font-family: 'Unica';
+  font-family: 'Unica', Arial;
   font-weight: var(--fontWeight);
   font-size: var(--ackFont);
   color:white;
