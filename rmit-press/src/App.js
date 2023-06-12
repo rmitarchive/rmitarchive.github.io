@@ -850,7 +850,7 @@ class App extends React.Component {
               <dt className="about-body">Carol Xu</dt>
               <dt className="about-body">Charles Ly</dt>
               <dt className="about-body">Cindy Zhang</dt>
-              <dt className="about-body">Deniz Olken</dt>
+              <dt className="about-body">Deniz Caliskan</dt>
               <dt className="about-body">Ella Taylor</dt>
               <dt className="about-body">Emili Keisha</dt>
               <dt className="about-body">Finn Stewart</dt>
