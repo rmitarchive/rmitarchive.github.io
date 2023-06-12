@@ -120,8 +120,8 @@ class ArtPiece extends React.Component {
             currY: y,
             imageMoved: true
           }, () => {
-            this.continueDragElement(this.state);
-            //this.state.continueDragElement(this.state);
+            //this.continueDragElement(this.state);
+            this.state.continueDragElement(this.state);
           });
 
         }

@@ -1098,12 +1098,36 @@ class App extends React.Component {
       }
       returnHTML += (`</div>`);
     }else{
+      let modifierX = .4;
+      let modifierY = .6;
+      let imgScale = .8;
+      //2520 is my reference scale, lets mod based off that. 
+
+      const textElement = document.getElementById(`root`);
+      let textRect = textElement.getBoundingClientRect();
+  
+      let width = textRect.right;
+      let height = textRect.bottom;
+
+      let scaleMod = 2520 / width;
+      
+      /*
+      if(height > width){
+        scaleMod = 1200 / height;
+      }*/
+
+      modifierX *= scaleMod;
+      modifierY *= scaleMod;
+      imgScale *= scaleMod;
+
       returnHTML += (`<div class="content">`);
       for(let i = 0; i < this.state.currentShownWorks.length; i++){
         let currID = this.state.currentShownWorks[i].id;
+        
+
         let isBigInstructionsImgScaleMod = (this.state.currentShownWorks[i].name == "sys" && this.state.currentShownWorks[i].title != "") ? 1.5 : 1;
-        returnHTML += (`<div style="transform: rotate(-90deg); position: absolute; left: ${this.state.artPiecesCurrX[currID]}px; top: ${this.state.artPiecesCurrY[currID]}px; z-index: ${10 + i};">
-          <img style="max-height: ${12 * isBigInstructionsImgScaleMod}em;" src="%img${i}%">
+        returnHTML += (`<div style="transform: rotate(-90deg); position: absolute; left: ${this.state.artPiecesCurrX[currID] * modifierX}px; top: ${this.state.artPiecesCurrY[currID] * modifierY}px; z-index: ${10 + i};">
+          <img style="max-height: ${(12 * imgScale) * isBigInstructionsImgScaleMod}em; max-width: ${(12 * imgScale) * isBigInstructionsImgScaleMod}em;" src="%img${i}%">
           <p style="font-size: 0.5em;">(${currID})</p>
           </div>`
           );
