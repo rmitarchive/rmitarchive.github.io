@@ -62,7 +62,7 @@
       },
       {
         "id": 4,
-        "code": "005",
+        "code": "005-006",
         "name": "Carol Xu + Cindy Zhang",
         "tags": ["digital"],
         "title": "Design My Own Wedding",
@@ -207,7 +207,7 @@
       },
       {
         "id": 14,
-        "code": "021",
+        "code": "016",
         "name": "Leon Li",
         "tags": ["digital"],
         "title": "Chewy Chewy Dessert",
@@ -284,7 +284,7 @@
       },
       {
         "id": 19,
-        "code": "022",
+        "code": "021",
         "name": "Raquel Laing-Nobrega",
         "tags": ["print", "illustration"],
         "title": "Slice",
@@ -299,7 +299,7 @@
       },
       {
         "id": 20,
-        "code": "023",
+        "code": "022",
         "name": "Rio Muniandy",
         "tags": ["illustration", "identity"],
         "title": "This Could Be It ",
@@ -315,7 +315,7 @@
       },
       {
         "id": 21,
-        "code": "024",
+        "code": "023",
         "name": "Rongsheng Liang",
         "tags": ["illustration", "print"],
         "title": "Chinese Motifs",
@@ -328,7 +328,7 @@
       },
       {
         "id": 22,
-        "code": "025",
+        "code": "024",
         "name": "Sophie Jones",
         "tags": ["identity", "print", "digital"],
         "title": "Kind Regards",
@@ -342,7 +342,7 @@
       },
       {
         "id": 23,
-        "code": "026",
+        "code": "025",
         "name": "Sum Tsui",
         "tags": ["identity", "multimedia", "sitebased"],
         "title": "'Being Human' Exhibition Proposal and Design ",
@@ -358,7 +358,7 @@
       },
       {
         "id": 24,
-        "code": "027",
+        "code": "026",
         "name": "Teresa Si Pei Wee",
         "tags": ["digital", "identity"],
         "title": "Hike Guide - UI/UX Design",
@@ -373,7 +373,7 @@
       },
       {
         "id": 25,
-        "code": "028",
+        "code": "027",
         "name": "William Hunt",
         "tags": ["object", "illustration"],
         "title": "AI Designed Helmet Making",
@@ -383,13 +383,12 @@
         "image4": "Press/william4.png",
         "image5": "Press/william5.png",
         "year": "2023",
-        "desc": "This project was about discovering how AI generated images could be used in my own design process, with a final output of a painted racing helmet.",
-        "bio":"What: Two-fold project. Producing a helmet painted with a design. For the design process I want to experiment with, use, and see how AI art generation could be used in my practice. Think use in ideation and concept development stages, then refining by hand (digitally).\n\nWho: The target audience for this project is myself for the helmet, but for my portfolio to show the use of AI art generation in my designing process. Showing I can adapt and use new design software and trends.\n\nWhy: Again two-fold. Always wanted to paint my helmet and do more physical design. Also want to learn and expand my design practice, especially as AI is more commonplace in industry.\n\nHow: Airbrushing, painting, spray painting, priming coats etc for physical painting of helmet.\n\nFor the helmet design I wanted to do my design process (concept development, ideation, refinement, production) but introduce A generation into the process, focused for now on the early stages of concept development and ideation.",
+        "desc": "What: Two-fold project. Producing a helmet painted with a design. For the design process I want to experiment with, use, and see how AI art generation could be used in my practice. Think use in ideation and concept development stages, then refining by hand (digitally).\n\nWho: The target audience for this project is myself for the helmet, but for my portfolio to show the use of AI art generation in my designing process. Showing I can adapt and use new design software and trends.\n\nWhy: Again two-fold. Always wanted to paint my helmet and do more physical design. Also want to learn and expand my design practice, especially as AI is more commonplace in industry.\n\nHow: Airbrushing, painting, spray painting, priming coats etc for physical painting of helmet.\n\nFor the helmet design I wanted to do my design process (concept development, ideation, refinement, production) but introduce A generation into the process, focused for now on the early stages of concept development and ideation.",
         "bio":"For now I’m definitely still a designer working mostly in digital mediums. Most of my energies and experience are directed towards web development, logo design and branding. I think this is unlikely to change in the near future. However, although this will likely remain the bulk of my designing, I would like to explore and expand into more physical mediums and start building skills and experience in these areas such as airbrushing and helmet design. Could be a good little side hustle too!"
       },
       {
         "id": 26,
-        "code": "029",
+        "code": "028",
         "name": "Xiaohui Jia",
         "tags": ["object", "identity"],
         "title": "Bug Buddies",
@@ -402,7 +401,7 @@
       },
       {
         "id": 27,
-        "code": "030",
+        "code": "029",
         "name": "Xinyuan Du",
         "tags": ["digital"],
         "title": "Fall Guys New Season",
@@ -415,7 +414,7 @@
       },
       {
         "id": 28,
-        "code": "031",
+        "code": "030",
         "name": "Xiu Yin",
         "tags": ["identity", "print"],
         "title": "Cic",
@@ -429,7 +428,7 @@
       },
       {
         "id": 29,
-        "code": "032",
+        "code": "031",
         "name": "Yidi Wang",
         "tags": ["object"],
         "title": "Land of Eternity",
@@ -444,7 +443,7 @@
 
       {
         "id": 30,
-        "code": "033",
+        "code": "032",
         "name": "Zixin Alexis Liu",
         "tags": ["illustration", "digital"],
         "title": "Serpent's Petals: Wine Designs Embracing Flora and Fauna",
@@ -459,7 +458,7 @@
       },
       {
         "id": 31,
-        "code": "034",
+        "code": "033",
         "name": "Ziyu Shen",
         "tags": ["print", "object"],
         "title": "Scientism",
