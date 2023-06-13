@@ -66,20 +66,7 @@
       },
       {
         "id": 4,
-        "code": "005-006",
-        "name": "Carol Xu + Cindy Zhang",
-        "tags": ["digital"],
-        "title": "Design My Own Wedding",
-        "image": "Press/yuchentn.jpg",
-        "image2": "Press/yuchen1.jpg",
-        "image3": "Press/yuchen2.jpg",
-        "image4": "Press/yuchen3.jpg",
-        "year": "2023",
-        "desc": "The purpose of designing my wedding is to create a visually cohesive and memorable event that reflects our unique personalities and love story. We designed a visual language that includes the entire wedding process, such as colour palette, typeface, logo, invitations for family and friends, wedding posters, souvenir packaging, wedding menus, dress selection, background videos.\n\nBy using design to create a cohesive visual language, the wedding can feel like a cohesive and thoughtful event, rather than a collection of disparate elements."
-      },
-      {
-        "id": 5,
-        "code": "007",
+        "code": "005",
         "name": "Charles Ly",
         "tags": ["digital", "identity"],
         "title": "Affinite Rings",
@@ -94,8 +81,8 @@
         "portfolio": "https://charlesly.myportfolio.com/work"
       },
       {
-        "id": 6,
-        "code": "008",
+        "id": 5,
+        "code": "006",
         "name": "Deniz Caliskan",
         "tags": ["object"],
         "title": "Project 001",
@@ -111,8 +98,8 @@
         "portfolio": "https://0001dd.wixsite.com/0001dportfolio"
       },
       {
-        "id": 7,
-        "code": "009",
+        "id": 6,
+        "code": "007",
         "name": "Ella Taylor",
         "tags": ["print", "object"],
         "title": "Lacking Representation",
@@ -129,8 +116,8 @@
         "social": "https://instagram.com/eettstudios"
       },
       {
-        "id": 8,
-        "code": "010",
+        "id": 7,
+        "code": "008",
         "name": "Emili Keisha",
         "tags": ["identity", "digital"],
         "title": "UBI",
@@ -147,8 +134,8 @@
         "social": "https://instagram.com/pensilemili"
       },
       {
-        "id": 9,
-        "code": "011",
+        "id": 8,
+        "code": "009",
         "name": "Finn Stewart",
         "tags": ["sitebased", "object"],
         "title": "To Build A Home",
@@ -161,23 +148,8 @@
         "contact": "finnstewart@me.com"
       },
       {
-        "id": 10,
-        "code": "012",
-        "name": "Jazelle Mackenzie",
-        "tags": ["digital", "print"],
-        "title": "@uncoveringtype",
-        "image": "Press/jazelletn.png",
-        "image2": "Press/jazelle1.png",
-        "image3": "Press/jazelle2.png",
-        "image4": "Press/jazelle3.png",
-        "image5": "Press/jazelle4.png",
-        "image6": "Press/jazelle5.png",
-        "year": "2023",
-        "desc": "The Uncovering Type is a collection of found type examples within the surroundings around me. Meant to help create a collective of those who seek out the generally unseen in inner cities. I created an instagram handle @uncoveringtype, while also creating a publication of found images.\n\nAlong my journey, I discovered Evan Roth’s Graffiti Taxonomy, 2011. He had collected graffiti letterforms in select major cities, New York, Paris, and through capturing and presenting unique styles of common letterforms was able to showcase any highlights, anomalies or commonalities. His project continued on, and relied on crowdsourcing to help bring in new samples of graffiti type.\n\nI chose this project because I liked the aspect of an ongoing collection that could be built upon for years to come. I was more open to the idea of a project that could be built upon after semester.\n\nI’d like to continue to engage with the design forum in Melbourne to seek out further inspiration for this work, but also new and future works. NGV and the city are always great sources of new inspiration, as well as other designers' work. A few key favourites are type designers, Milton Glaser and also artists such as Anastassia Zamaraeva."
-      },
-      {
-        "id": 11,
-        "code": "013",
+        "id": 9,
+        "code": "010",
         "name": "Jasmine Wang",
         "tags": ["print", "multimedia"],
         "title": "Me & You Together (Song)",
@@ -194,8 +166,23 @@
         "social": "https://instagram.com/jasmoone_"
       },
       {
-        "id": 12,
-        "code": "014",
+        "id": 10,
+        "code": "011",
+        "name": "Jazelle Mackenzie",
+        "tags": ["digital", "print"],
+        "title": "@uncoveringtype",
+        "image": "Press/jazelletn.png",
+        "image2": "Press/jazelle1.png",
+        "image3": "Press/jazelle2.png",
+        "image4": "Press/jazelle3.png",
+        "image5": "Press/jazelle4.png",
+        "image6": "Press/jazelle5.png",
+        "year": "2023",
+        "desc": "The Uncovering Type is a collection of found type examples within the surroundings around me. Meant to help create a collective of those who seek out the generally unseen in inner cities. I created an instagram handle @uncoveringtype, while also creating a publication of found images.\n\nAlong my journey, I discovered Evan Roth’s Graffiti Taxonomy, 2011. He had collected graffiti letterforms in select major cities, New York, Paris, and through capturing and presenting unique styles of common letterforms was able to showcase any highlights, anomalies or commonalities. His project continued on, and relied on crowdsourcing to help bring in new samples of graffiti type.\n\nI chose this project because I liked the aspect of an ongoing collection that could be built upon for years to come. I was more open to the idea of a project that could be built upon after semester.\n\nI’d like to continue to engage with the design forum in Melbourne to seek out further inspiration for this work, but also new and future works. NGV and the city are always great sources of new inspiration, as well as other designers' work. A few key favourites are type designers, Milton Glaser and also artists such as Anastassia Zamaraeva."
+      },
+      {
+        "id": 11,
+        "code": "012",
         "name": "Juliette Rosa",
         "tags": ["identity"],
         "title": "Oscar the Wine Label",
@@ -208,8 +195,8 @@
         "contact": "juliette.rosa23@gmail.com"
       },
       {
-        "id": 13,
-        "code": "015",
+        "id": 12,
+        "code": "013",
         "name": "Katya Vergara",
         "tags": ["print", "illustration"],
         "title": "Grimm's Fairy Tales",
@@ -224,24 +211,8 @@
         "contact": "katya.lee.vergara@gmail.com"
       },
       {
-        "id": 14,
-        "code": "016",
-        "name": "Leon Li",
-        "tags": ["digital"],
-        "title": "Chewy Chewy Dessert",
-        "image": "Press/quantn.jpg",
-        "image2": "Press/quan1.jpg",
-        "image3": "Press/quan2.png",
-        "image4": "Press/quan3.png",
-        "image5": "Press/quan4.png",
-        "year": "2023",
-        "desc": "Chewy Chewy Dessert is a young, adorable dessert brand dedicated to providing desserts with a Chinese twist. The core concept of the brand is to combine traditional Chinese desserts with modern elements to create a fresh and creative dessert experience.\n\nMy design work focused on the creation of the brand identity and visual elements. First, I redesigned the Chewy Chewy Dessert logo to simplify and optimize the original design to be more in line with the brand's youthful and cute style. The logo uses soft colors combined with clean lines and light fonts to show the brand's liveliness and approachability.\n\nIn addition to the logo, I also designed the brand's graphic elements, including a cute dessert illustration and a decorative floral pattern. These graphic elements are used to create the brand's visual identity and provide a unique visual effect for the brand's promotional materials and product packaging. The style of the illustrations is lively and fun, which fits with the brand's youthful positioning.\n\nIn addition, I will update the brand's website and social media accounts in the future to showcase the latest dessert products and interact with consumers. The design of the website focused on user experience and communication of the brand image, allowing users to easily understand the brand's story and product information. The design of the social media accounts included creative images and engaging content to attract more followers and potential customers.\n\nMy design work also included updating the price list and packaging design to accommodate new product launches. The price list was designed to be simple and clear, making it easy for customers to understand the prices and flavor choices of various desserts. The packaging design focuses on brand image presentation to attract consumers' attention and convey the high quality and deliciousness of the products.\n\nThrough these design efforts, I aimed to create a compelling and enjoyable brand image that would make Chewy Chewy Dessert stand out in the Melbourne dessert market and attract more dessert lovers to taste and experience it.",
-        "bio":"I am a graphic designer who strives to learn to become better, with a passion for creative design and visual communication. I enjoy translating ideas and concepts into concrete design work, creating compelling visuals through elements such as color, typography and graphics. I have experience using a wide range of design skills and tools that can be flexibly applied in areas such as branding, logo design, print advertising and digital media. With an eye for detail and user experience, I am committed to providing innovative and engaging design solutions for my clients.",
-        "contact": "3144872540@qq.com"
-      },
-      {
-        "id": 15,
-        "code": "017",
+        "id": 13,
+        "code": "014",
         "name": "Li Yeng Hiu",
         "tags": ["identity", "sitebased", "digital"],
         "title": "Beam",
@@ -259,24 +230,8 @@
         "social": "https://linkedin.com/in/liyenghiu/"
       },
       {
-        "id": 16,
-        "code": "018",
-        "name": "Natalie Chen",
-        "tags": ["illustration", "print", "object"],
-        "title": "Eastern Women: Bound & Free",
-        "image": "Press/yixuantn.jpg",
-        "image2": "Press/yixuan1.jpg",
-        "image3": "Press/yixuan2.jpg",
-        "image4": "Press/yixuan3.jpg",
-        "image5": "Press/yixuan4.jpg",
-        "year": "2023",
-        "desc": "The handmade book, 'Eastern Women: Bound and Free,' is an expressive and thought-provoking exploration of the challenges, oppression, and resilience experienced by women in the East.\n\nThrough a creative blend of illustrations, collages, photographs, and compelling written content, this book delves into the depths of the Eastern woman's journey. It seeks to shed light on the various ways in which women in the East are bound by societal expectations, cultural norms, and gender roles, while also celebrating their capacity to break free and redefine their identities.\n\nEach page of the book serves as a window into the multifaceted experiences of Eastern women, capturing their struggles, dreams, and triumphs. The content examines the oppression and limitations imposed on women's thoughts and behaviors, such as conforming to traditional gender roles, facing dress codes and beauty standards, staying silent versus using their voices, and grappling with the complexities of relationships and family expectations.\n\nThis project aims to inspire and empower women by highlighting their resilience, strength, and ability to overcome adversity. It encourages women to embrace their unique identities, challenge societal norms, and pave the way for a more inclusive and equitable future. By presenting contrasting representations of 'bound' and 'free,' the book creates a visual and emotional journey that ignites a sense of liberation and motivates readers to question, reflect, and take action.\n\nThe book invites viewers to immerse themselves in the rich tapestry of Eastern women's experiences, fostering empathy, understanding, and solidarity. Through this artistic medium, it is hoped that the project will contribute to a wider movement of empowerment and social change, encouraging individuals to question the status quo and actively participate in the ongoing journey towards equality and freedom.",
-        "bio": "Hi, I'm Yixuan Chen (Natalie).\n\nAs a student majoring in Communication Design, I have been on a constant journey of exploration, seeking to convey meaningful stories through visual means. Over the past three years, I have found inspiration and solace in the realm of creativity. I am passionate about observing negative social news as it serves as a catalyst for my creative inspiration.\n\nArt knows no boundaries. Creating works that challenge traditional norms, disrupt the status quo, and encourage dialogue has repeatedly affirmed my sense of worth, even though my voice may be small and faint. I have grown accustomed to letting my works speak for me, striving to resonate with audiences on multiple levels, in pursuit of a more inclusive and equitable world.\n\nSince embarking on my design journey, I have been driven by an insatiable curiosity, constantly seeking to expand my horizons and push the boundaries of my own practice. This relentless pursuit of learning and growth propels me forward, ensuring that I am always evolving as a designer and as an individual.",
-        "social": "https://instagram.com/ciixn1126"
-      },
-      {
-        "id": 17,
-        "code": "019",
+        "id": 14,
+        "code": "015",
         "name": "Nicholas Gleeson",
         "tags": ["object"],
         "title": "Untitled",
@@ -293,8 +248,8 @@
         "portfolio":"https:// 0-ln.co"
       },
       {
-        "id": 18,
-        "code": "020",
+        "id": 15,
+        "code": "016",
         "name": "Paul Weedon",
         "tags": ["illustration"],
         "title": "Welcome to the Dream State",
@@ -307,8 +262,24 @@
         "contact": "paulweedon3000@gmail.com"
       },
       {
-        "id": 19,
-        "code": "021",
+        "id": 16,
+        "code": "017",
+        "name": "Quanming Li (Leon)",
+        "tags": ["digital"],
+        "title": "Chewy Chewy Dessert",
+        "image": "Press/quantn.jpg",
+        "image2": "Press/quan1.jpg",
+        "image3": "Press/quan2.png",
+        "image4": "Press/quan3.png",
+        "image5": "Press/quan4.png",
+        "year": "2023",
+        "desc": "Chewy Chewy Dessert is a young, adorable dessert brand dedicated to providing desserts with a Chinese twist. The core concept of the brand is to combine traditional Chinese desserts with modern elements to create a fresh and creative dessert experience.\n\nMy design work focused on the creation of the brand identity and visual elements. First, I redesigned the Chewy Chewy Dessert logo to simplify and optimize the original design to be more in line with the brand's youthful and cute style. The logo uses soft colors combined with clean lines and light fonts to show the brand's liveliness and approachability.\n\nIn addition to the logo, I also designed the brand's graphic elements, including a cute dessert illustration and a decorative floral pattern. These graphic elements are used to create the brand's visual identity and provide a unique visual effect for the brand's promotional materials and product packaging. The style of the illustrations is lively and fun, which fits with the brand's youthful positioning.\n\nIn addition, I will update the brand's website and social media accounts in the future to showcase the latest dessert products and interact with consumers. The design of the website focused on user experience and communication of the brand image, allowing users to easily understand the brand's story and product information. The design of the social media accounts included creative images and engaging content to attract more followers and potential customers.\n\nMy design work also included updating the price list and packaging design to accommodate new product launches. The price list was designed to be simple and clear, making it easy for customers to understand the prices and flavor choices of various desserts. The packaging design focuses on brand image presentation to attract consumers' attention and convey the high quality and deliciousness of the products.\n\nThrough these design efforts, I aimed to create a compelling and enjoyable brand image that would make Chewy Chewy Dessert stand out in the Melbourne dessert market and attract more dessert lovers to taste and experience it.",
+        "bio":"I am a graphic designer who strives to learn to become better, with a passion for creative design and visual communication. I enjoy translating ideas and concepts into concrete design work, creating compelling visuals through elements such as color, typography and graphics. I have experience using a wide range of design skills and tools that can be flexibly applied in areas such as branding, logo design, print advertising and digital media. With an eye for detail and user experience, I am committed to providing innovative and engaging design solutions for my clients.",
+        "contact": "3144872540@qq.com"
+      },
+      {
+        "id": 17,
+        "code": "018",
         "name": "Raquel Laing-Nobrega",
         "tags": ["print", "illustration"],
         "title": "Slice",
@@ -323,8 +294,8 @@
         "bio":"As a designer, I am a second-guesser, a perfectionist, an illustrator, a coffee-drinker and a creative. I have a passion for publication design and the way in which designers communicate to an audience. I enjoy buying books, observing art and looking for inspiration to improve my knowledge of design systems and techniques.\n\nIn the future, I hope to find a career that I can both excel in, and be challenged by in a way that keeps me excited. I hope I outgrow my need to be perfect, and learn to approach projects in an unconventional and fresh way."
       },
       {
-        "id": 20,
-        "code": "022",
+        "id": 18,
+        "code": "019",
         "name": "Rio Muniandy",
         "tags": ["illustration", "identity"],
         "title": "This Could Be It ",
@@ -340,8 +311,8 @@
         "contact": "riomuniandy@gmail.com"
       },
       {
-        "id": 21,
-        "code": "023",
+        "id": 19,
+        "code": "020",
         "name": "Rongsheng Liang",
         "tags": ["illustration", "print"],
         "title": "Chinese Motifs",
@@ -354,8 +325,8 @@
         "bio":"As a passionate and intuitive designer, I find myself constantly drawn to the intersection of tradition and innovation, where the wisdom of the past meets the creativity of the present. Rooted in my Chinese heritage, my work often reflects the rich tapestry of Chinese culture, art, and philosophy, yet, it's equally inspired by contemporary design aesthetics. The harmony of these diverse influences characterises my creative approach, which I view as an ongoing journey of self-discovery, cultural exploration, and aesthetic evolution."
       },
       {
-        "id": 22,
-        "code": "024",
+        "id": 20,
+        "code": "021",
         "name": "Sophie Jones",
         "tags": ["identity", "print", "digital"],
         "title": "Kind Regards",
@@ -370,8 +341,8 @@
         "portfolio": "http://sophiejones.design"
       },
       {
-        "id": 23,
-        "code": "025",
+        "id": 21,
+        "code": "022",
         "name": "Sum Tsui",
         "tags": ["identity", "multimedia", "sitebased"],
         "title": "'Being Human' Exhibition Proposal and Design ",
@@ -387,8 +358,8 @@
         "contact": "sumtsui48@gmail.com"
       },
       {
-        "id": 24,
-        "code": "026",
+        "id": 22,
+        "code": "023",
         "name": "Teresa Si Pei Wee",
         "tags": ["digital", "identity"],
         "title": "Hike Guide - UI/UX Design",
@@ -402,8 +373,8 @@
         "social": "https://instagram.com/peistudios"
       },
       {
-        "id": 25,
-        "code": "027",
+        "id": 23,
+        "code": "024",
         "name": "William Hunt",
         "tags": ["object", "illustration"],
         "title": "AI Designed Helmet Making",
@@ -418,8 +389,8 @@
         "bio":"For now I’m definitely still a designer working mostly in digital mediums. Most of my energies and experience are directed towards web development, logo design and branding. I think this is unlikely to change in the near future. However, although this will likely remain the bulk of my designing, I would like to explore and expand into more physical mediums and start building skills and experience in these areas such as airbrushing and helmet design. Could be a good little side hustle too!"
       },
       {
-        "id": 26,
-        "code": "028",
+        "id": 24,
+        "code": "025",
         "name": "Xiaohui Jia",
         "tags": ["object", "identity"],
         "title": "Bug Buddies",
@@ -432,11 +403,24 @@
         "contact": "s3822722@student.rmit.edu.au"
       },
       {
-        "id": 27,
-        "code": "029",
+        "id": 25,
+        "code": "026.031",
+        "name": "Xinyi Zhang + Yuchen Xu",
+        "tags": ["digital"],
+        "title": "Design My Own Wedding",
+        "image": "Press/yuchentn.jpg",
+        "image2": "Press/yuchen1.jpg",
+        "image3": "Press/yuchen2.jpg",
+        "image4": "Press/yuchen3.jpg",
+        "year": "2023",
+        "desc": "The purpose of designing my wedding is to create a visually cohesive and memorable event that reflects our unique personalities and love story. We designed a visual language that includes the entire wedding process, such as colour palette, typeface, logo, invitations for family and friends, wedding posters, souvenir packaging, wedding menus, dress selection, background videos.\n\nBy using design to create a cohesive visual language, the wedding can feel like a cohesive and thoughtful event, rather than a collection of disparate elements."
+      },
+      {
+        "id": 26,
+        "code": "027",
         "name": "Xinyuan Du",
         "tags": ["digital"],
-        "title": "Fall Guys New Season",
+        "title": "Fall Guys New Session",
         "image": "Press/xinyuantn.png",
         "image2": "Press/xinyuan1.png",
         "image3": "Press/xinyuan2.png",
@@ -446,8 +430,8 @@
         "desc": "My project is to design two series of maps for the game Fall Guys, with Western and Horror themes respectively.\n\nFall Guys is a game that I really enjoy playing. It's a competitive obstacle course game, but unlike other similar games, players are not solely focused on winning. I hope that the levels I design will make players feel happy."
       },
       {
-        "id": 28,
-        "code": "030",
+        "id": 27,
+        "code": "028",
         "name": "Xiu Yin",
         "tags": ["identity", "print"],
         "title": "Cic",
@@ -461,8 +445,8 @@
         "desc": "During Class, the teacher asked us to draw an abstract version of ourselves to help classmates get to know each other. I thought about the unique scar that I have had since childhood, which is like the “cause” that has shaped who I am today. Because of this, I  have developed a great interest in cause and effect and have decided to research this topic.\n\nThe brand ‘cic’ is aiming to recycle unwanted possessions and share their fascinating backstories to the buyer. The content of the design is primarily expressed through the alternating use of five different colours and circular shapes combined to create visual effects to achieve the goal of attracting buyers.\n\nMy scars add a unique look and tell a story about my Journey. In vintage culture, I strive for a distinctive fashion style and a personal image that sets me apart from the mainstream trends. I view my scars as marks on my body, giving me a distinct physical feature that resonates with the unique aesthetic of vintage culture.\n\nVintage culture fascinates me with its interest in past eras and historical narratives. My scars, as physical traces on my body, carry my personal history and stories. Embracing the concept of causal loops, I believe time is cyclic, intertwining the past, present and future. My scars represent markers of my past experiences, making them an integral part of my personal history and stories, aligning with vintage culture’s focus on history and exploration."
       },
       {
-        "id": 29,
-        "code": "031",
+        "id": 28,
+        "code": "029",
         "name": "Yidi Wang",
         "tags": ["object"],
         "title": "Land of Eternity",
@@ -475,7 +459,22 @@
         "bio":"My artwork stems from two simple desires. First, separation has always been a heavy topic for humans. Not every pet owner can immediately accept the reality of their pet's passing. Therefore, I aim to help those who are grieving the loss of a beloved pet. Second, with the concept of the Land of Eternity, I offer an emotional buffer. Providing a proper farewell to their pets makes their journey in this life worthwhile.\n\nDuring my childhood, conflicts at home burdened me with constant anxiety, making me dread returning home. However, everything changed when I welcomed a small dog into my life. The unconditional love and daily anticipation of their warm welcome after school brought me solace. Yet, as time passed, like any ordinary adult, my dog was said to have transcended to heaven. Curiosity sparked within me about the nature of heaven and whether it could have a tangible existence. This curiosity became the foundation for my artistic expression.",
         "contact":"00yidi@gmail.com"
       },
-
+      {
+        "id": 29,
+        "code": "030",
+        "name": "Yixuan Chen",
+        "tags": ["illustration", "print", "object"],
+        "title": "Eastern Women: Bound & Free",
+        "image": "Press/yixuantn.jpg",
+        "image2": "Press/yixuan1.jpg",
+        "image3": "Press/yixuan2.jpg",
+        "image4": "Press/yixuan3.jpg",
+        "image5": "Press/yixuan4.jpg",
+        "year": "2023",
+        "desc": "The handmade book, 'Eastern Women: Bound and Free,' is an expressive and thought-provoking exploration of the challenges, oppression, and resilience experienced by women in the East.\n\nThrough a creative blend of illustrations, collages, photographs, and compelling written content, this book delves into the depths of the Eastern woman's journey. It seeks to shed light on the various ways in which women in the East are bound by societal expectations, cultural norms, and gender roles, while also celebrating their capacity to break free and redefine their identities.\n\nEach page of the book serves as a window into the multifaceted experiences of Eastern women, capturing their struggles, dreams, and triumphs. The content examines the oppression and limitations imposed on women's thoughts and behaviors, such as conforming to traditional gender roles, facing dress codes and beauty standards, staying silent versus using their voices, and grappling with the complexities of relationships and family expectations.\n\nThis project aims to inspire and empower women by highlighting their resilience, strength, and ability to overcome adversity. It encourages women to embrace their unique identities, challenge societal norms, and pave the way for a more inclusive and equitable future. By presenting contrasting representations of 'bound' and 'free,' the book creates a visual and emotional journey that ignites a sense of liberation and motivates readers to question, reflect, and take action.\n\nThe book invites viewers to immerse themselves in the rich tapestry of Eastern women's experiences, fostering empathy, understanding, and solidarity. Through this artistic medium, it is hoped that the project will contribute to a wider movement of empowerment and social change, encouraging individuals to question the status quo and actively participate in the ongoing journey towards equality and freedom.",
+        "bio": "Hi, I'm Yixuan Chen (Natalie).\n\nAs a student majoring in Communication Design, I have been on a constant journey of exploration, seeking to convey meaningful stories through visual means. Over the past three years, I have found inspiration and solace in the realm of creativity. I am passionate about observing negative social news as it serves as a catalyst for my creative inspiration.\n\nArt knows no boundaries. Creating works that challenge traditional norms, disrupt the status quo, and encourage dialogue has repeatedly affirmed my sense of worth, even though my voice may be small and faint. I have grown accustomed to letting my works speak for me, striving to resonate with audiences on multiple levels, in pursuit of a more inclusive and equitable world.\n\nSince embarking on my design journey, I have been driven by an insatiable curiosity, constantly seeking to expand my horizons and push the boundaries of my own practice. This relentless pursuit of learning and growth propels me forward, ensuring that I am always evolving as a designer and as an individual.",
+        "social": "https://instagram.com/ciixn1126"
+      },
       {
         "id": 30,
         "code": "032",

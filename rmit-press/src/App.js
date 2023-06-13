@@ -837,7 +837,7 @@ class App extends React.Component {
           <br></br><br></br>
           Every image on this web-page is draggable. By arranging images on the page, you are then able to select the Print Screen option; exporting a user-generated pdf file which is sent via email to the user. The resulting object becomes a synthesis between physical and digital, creating a direct tangible entity which straddles the intersections of two distinctly seperate representative mediums.
           <br></br><br></br>
-          We encourage the audience and industry to reach out to the graduating students and foster relationships which will prove beneficial to the development of meaningful bodies of work. Contact details for each student are available within the expanded view of their work. 
+          We encourage everyone, designer of otherwise, to reach out to the graduating students and foster ongoing relationships. Through connection we create meaning. The contact details for each student are available on the exhibition website.
           
           </div>
             <dl>
@@ -847,9 +847,7 @@ class App extends React.Component {
               <dt className="about-body">Angus Wicks</dt>
               <dt className="about-body">April Larsen</dt>
               <dt className="about-body">Beverly Angelina</dt>
-              <dt className="about-body">Carol Xu</dt>
               <dt className="about-body">Charles Ly</dt>
-              <dt className="about-body">Cindy Zhang</dt>
               <dt className="about-body">Deniz Caliskan</dt>
               <dt className="about-body">Ella Taylor</dt>
               <dt className="about-body">Emili Keisha</dt>
@@ -858,10 +856,10 @@ class App extends React.Component {
               <dt className="about-body">Jazelle Mackenzie</dt>
               <dt className="about-body">Juliette Rosa</dt>
               <dt className="about-body">Katya Vergara</dt>
-              <dt className="about-body">Leon Li</dt>
               <dt className="about-body">Li Yeng Hiu</dt>
               <dt className="about-body">Nicholas Gleeson</dt>
               <dt className="about-body">Paul Weedon</dt>
+              <dt className="about-body">Quanming Li (Leon)</dt>
               <dt className="about-body">Raquel Laing-Nobrega</dt>
               <dt className="about-body">Rio Muniandy</dt>
               <dt className="about-body">Rongshen Liang</dt>
@@ -870,10 +868,12 @@ class App extends React.Component {
               <dt className="about-body">Teresa Wee Si Pei</dt>
               <dt className="about-body">William Hunt</dt>
               <dt className="about-body">Xiaohua Jia</dt>
+              <dt className="about-body">Xinyi Zhang (Cindy)</dt>
               <dt className="about-body">Xinyuan Du</dt>
               <dt className="about-body">Xiu Yin</dt>
               <dt className="about-body">Yidi Wang</dt>
               <dt className="about-body">Yixuan Chen</dt>
+              <dt className="about-body">Yuchen Xu (Carol)</dt>
               <dt className="about-body">Zixin Alexis Liu</dt>
               <dt className="about-body">Ziyu Shen</dt>
             </dl>
@@ -881,33 +881,37 @@ class App extends React.Component {
               <dt className="about-title">PRESS Production Credits</dt>
               <br/>
               <dt className="about-body">Ella Taylor</dt>
-              <dd className="about-body">Layout, Identity</dd>
+              <dd className="about-body">Identity, Photography</dd>
               <dd className="about-body"><a href="https://www.instagram.com/eettstudios/" target="_blank">Contact (...)</a></dd>
               <dt className="about-body">Finn Stewart</dt>
-              <dd className="about-body">Spatial Design</dd>
+              <dd className="about-body">Spatial Design, Event Photography</dd>
               <dd className="about-body"><a href="https://www.instagram.com/finnystew/" target="_blank">Contact (...)</a></dd>
               <dt className="about-body">Liam Kenna</dt>
               <dd className="about-body">Front & Back End Website</dd>
               <dd className="about-body"><a href="https://www.instagram.com/sshmiam/" target="_blank">Contact (...)</a></dd>
               <dt className="about-body">Nicholas Gleeson</dt>
-              <dd className="about-body">Project Management, Layout, Identity</dd>
+              <dd className="about-body">Identity, Graphic Design, Photography, Project Management</dd>
               <dd className="about-body"><a href="https://www.instagram.com/moma1000000/" target="_blank">Contact (...)</a></dd>
               <dt className="about-body">Timon Muery</dt>
-              <dd className="about-body">Layout, Identity</dd>
+              <dd className="about-body">Identity, Graphic Design, Typesetting</dd>
               <dd className="about-body"><a href="https://www.instagram.com/0__00_____0_____0/" target="_blank">Contact (...)</a></dd>
               <dt className="about-body">Zachariah Micallef</dt>
-              <dd className="about-body">Front End Website, Identity</dd>
+              <dd className="about-body">Identity, Graphic Design, Front End Website</dd>
               <dd className="about-body"><a href="https://www.instagram.com/z__h____h/" target="_blank">Contact (...)</a></dd>
             </dl>
             <dl>
-              <dt className="about-title">Special Thanks</dt>
+              <dt className="about-title">Special Thanks To</dt>
               <br/>
               <dt className="about-body">Brad Haylock</dt>
               <dt className="about-body">Jiayu Cheng</dt>
-              <dt className="about-body">Russel Kerr</dt>
+              <dt className="about-body">Russell Kerr</dt>
               <dt className="about-body">Suzie Zezula</dt>
-              <dt className="about-body">RMIT University</dt>
-              <dt className="about-body">Makers Space</dt>
+              <dt className="about-body">Bowen Street Makers Space</dt>
+            </dl>
+            <dl>
+              <dt className="about-title">Instagram</dt>
+              <br/>
+              <dt className="about-body"><a href="https://www.instagram.com/p_r_e_s_s__" target="_blank">@p_r_e_s_s__</a></dt>
             </dl>
           <div className="about-title">
             All rights reserved, PRESS, 2023. No part of this site may be reproduced without explicit permission from the copyright owner(s).
@@ -1089,10 +1093,11 @@ class App extends React.Component {
       let modifierY = 1.3;
       for(let i = 0; i < this.state.currentShownWorks.length; i++){
         let currID = this.state.currentShownWorks[i].id;
+        let currCode = this.state.currentShownWorks[i].code;
         let isBigInstructionsImgScaleMod = (this.state.currentShownWorks[i].name == "sys" && this.state.currentShownWorks[i].title != "") ? 1.5 : 1;
         returnHTML += (`<div style=" position: absolute; left: ${this.state.artPiecesCurrX[currID] * modifierX}px; top: ${this.state.artPiecesCurrY[currID] * modifierY}px; z-index: ${10 + i};  transform: translate(-200px, -525px);">
           <img style="max-height: ${(6 * modifierX) * isBigInstructionsImgScaleMod}em;" src="%img${i}%">
-          <p style="font-size: 0.5em; ">(${currID})</p>
+          <p style="font-size: 0.5em; ">(${currCode})</p>
           </div>`
         );
       }
@@ -1126,6 +1131,7 @@ class App extends React.Component {
       returnHTML += (`<div class="content">`);
       for(let i = 0; i < this.state.currentShownWorks.length; i++){
         let currID = this.state.currentShownWorks[i].id;
+        let currCode = this.state.currentShownWorks[i].code;
 
         let imgLeft = 1100 * (this.state.artPiecesCurrX[currID] / width); //840 pdf
         //let imgLeft = 840 * (this.state.artPiecesCurrX[currID] / width); //840 pdf
@@ -1149,7 +1155,7 @@ class App extends React.Component {
         let isBigInstructionsImgScaleMod = (this.state.currentShownWorks[i].name == "sys" && this.state.currentShownWorks[i].title != "") ? 1.5 : 1;
         returnHTML += (`<div style="transform: rotate(-90deg); position: absolute; left: ${imgLeft}px; top: ${imgTop}px; z-index: ${10 + i};">
           <img style="max-height: ${(12 * imgScale) * isBigInstructionsImgScaleMod}em; max-width: ${(12 * imgScale) * isBigInstructionsImgScaleMod}em;" src="%img${i}%">
-          <p style="font-size: 0.5em;">(${currID})</p>
+          <p style="font-size: 0.5em;">(${currCode})</p>
           </div>`
           );
       }
@@ -1165,13 +1171,14 @@ class App extends React.Component {
     //index.
     for(let i = 0; i < this.state.currentShownWorks.length; i++){
       let currID = this.state.currentShownWorks[i].id;
+      let currCode = this.state.currentShownWorks[i].code;
       if(this.state.currentShownWorks[i].name == "sys"){
         returnHTML += (`
-        <p class="fact-times">(Fig. ${currID})</p>
+        <p class="fact-times">(Fig. ${currCode})</p>
         `);
       }else{
         returnHTML += (`
-        <p class="fact-times">(${currID}) ${this.state.currentShownWorks[i].name}, ${this.state.currentShownWorks[i].title} (2023)</p>
+        <p class="fact-times">(${currCode}) ${this.state.currentShownWorks[i].name}, ${this.state.currentShownWorks[i].title} (2023)</p>
         `);
       }
     }
