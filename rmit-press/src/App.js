@@ -1206,6 +1206,8 @@ class App extends React.Component {
     //returnHTML += (`<p style="position: absolute; z-index: 100; transform: rotate(-90deg); font-size: 1400px; margin: auto; left: ${bigLetterLeft}px; top: ${bigLetterTop}px; font-family:pantasia;">${letter}</p>`);
 
     returnHTML += (`<div class="content"><img style="position: absolute; left: ${bigLetterLeft}px; top: ${bigLetterTop}px; height: 100%; z-index: 100;" src="%bigImg%"></div>`);
+
+    /* returnHTML += (`<div class="content"><img style="position: absolute; left: 0; top: 0; height: 100vh; width: 100vw; z-index: 999999;" src="Img\Random\poster-comp.png"></div>`); idk what to do here, i know it needs linking in index.php */ 
  
     returnHTML += (`</body>
     </html>`);
@@ -1249,8 +1251,8 @@ class App extends React.Component {
   sendPDF(formData){
     var self = this;
     axios({
-      //url: "http://localhost:8000/index.php", 
-      url: "https://p-r-e-s-s.com/php/index.php", 
+      url: "http://localhost:8000/index.php", 
+      //url: "https://p-r-e-s-s.com/php/index.php", 
       method: "POST",
       data: formData,
       headers: {
