@@ -27,6 +27,11 @@ header('Access-Control-Allow-Headers: Content-Type');
 
     $html = str_replace("%bigImg%", $base64, $html);
 
+    $data = file_get_contents("Img/poster-comp.png");
+    $base64 = 'data:image/.png;base64,' . base64_encode($data);
+
+    $html = str_replace("%signage%", $base64, $html);
+
     $options = new Options();
     $options->set('isRemoteEnabled', true);
     $options->set('chroot', __DIR__);
